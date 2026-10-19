@@ -1115,9 +1115,11 @@ function avviaBanco() {
   const cv = $("fx"), band = $("band"), g = cv.getContext("2d");
   let colori = {}, scuro = false, w = 0, dpr = 1, visibile = true, ultimo = 0;
   const foton = { x: -1e9, attesa: 0, passate: new Set() }, anelli = [];
+  /* un secondo fotone, viola, percorre il fascio parallelo «Oltre Copenhagen» */
+  const fotP = { x: -1e9, attesa: 0, passate: new Set() };
   function leggiColori() {
     const cs = getComputedStyle($("bench"));
-    colori = { main: cs.getPropertyValue("--beam").trim() || "#FF3B47" };
+    colori = { main: cs.getPropertyValue("--beam").trim() || "#FF3B47", par: cs.getPropertyValue("--beam-par").trim() || "#A99BFF" };
     scuro = (cs.getPropertyValue("--bench-dark").trim() === "1");
   }
   function misura() { dpr = window.devicePixelRatio || 1; w = band.clientWidth; cv.width = Math.round(w * dpr); cv.height = Math.round(H * dpr); cv.style.width = w + "px"; cv.style.height = H + "px"; }
@@ -1128,8 +1130,14 @@ function avviaBanco() {
   if ("MutationObserver" in window) new MutationObserver(leggiColori).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   if ("IntersectionObserver" in window) new IntersectionObserver(es => { visibile = es[0].isIntersecting; }).observe($("bench"));
 
-  /* il fascio parallelo ondeggia con una fase sua, senza fotone */
-  function onPar(x, t, amp) { return 0.85 * amp * ONDA.A * Math.sin(ONDA.k * 1.15 * x - ONDA.w * 0.8 * t + 2.4); }
+  /* il fascio parallelo ondeggia con una fase sua, più il pacchetto del suo fotone */
+  function onPar(x, t, amp) {
+    let y = 0.85 * ONDA.A * Math.sin(ONDA.k * 1.15 * x - ONDA.w * 0.8 * t + 2.4);
+    if (fotP.x > -1e8) { const u = x - fotP.x; y += 0.9 * PACC.A * Math.exp(-(u * u) / (2 * PACC.sigma * PACC.sigma)) * Math.sin(PACC.k * u - PACC.w * t); }
+    return y * amp;
+  }
+  /* estremi del fascio parallelo: inizio, ultima stazione già accessibile, fine */
+  function estremiPar() { const pa = POS[PAR[0].id].x - 50, pronte = PAR.filter(n => !n.serve), pb = pronte.length ? POS[pronte[pronte.length - 1].id].x : pa, pz = POS[PAR[PAR.length - 1].id].x + 40; return { pa, pb, pz }; }
   function spost(x, t, amp, fase) {
     let y = ONDA.A * Math.sin(ONDA.k * x - ONDA.w * t + (fase || 0));
     if (foton.x > -1e8) { const u = x - foton.x; y += PACC.A * Math.exp(-(u * u) / (2 * PACC.sigma * PACC.sigma)) * Math.sin(PACC.k * u - PACC.w * t); }
@@ -1156,6 +1164,19 @@ function avviaBanco() {
       }
       if (foton.x > GEOM.xf || foton.x > sx + w + 200 || foton.x < sx - 400) { foton.x = -1e9; foton.attesa = t + 0.9; }
     }
+    /* il fotone viola, con la stessa regola: uno alla volta, ripartendo da dove stai guardando */
+    const EP = PAR.length ? estremiPar() : null;
+    if (EP) {
+      if (fotP.x < -1e8) { if (!fotP.attesa) fotP.attesa = t + 1.6; if (t >= fotP.attesa) { fotP.x = Math.max(EP.pa, Math.min(EP.pb - 240, sx - 40)); fotP.passate = new Set(); fotP.attesa = 0; } }
+      else {
+        fotP.x += PACC.v * 0.9 * dt;
+        for (const n of PAR) { const x = POS[n.id].x; if (!n.serve && !fotP.passate.has(n.id) && fotP.x >= x) {
+          fotP.passate.add(n.id); anelli.push({ x, t0: t, par: true });
+          const r = REFS.nodi.find(q => q.id === n.id); if (r) { r.el.classList.add("lit"); setTimeout(() => r.el.classList.remove("lit"), 650); }
+        } }
+        if (fotP.x > EP.pz || fotP.x > sx + w + 200 || fotP.x < sx - 400) { fotP.x = -1e9; fotP.attesa = t + 1.1; }
+      }
+    }
     /* la linea principale ondeggia */
     let d = "";
     /* passo fitto vicino al fotone (la lunghezza d'onda del pacchetto è circa 19 px), largo altrove */
@@ -1175,7 +1196,7 @@ function avviaBanco() {
     }
     for (const r of REFS.nodi) r.el.setAttribute("transform", "translate(0 " + dy[r.id].toFixed(2) + ")");
     if (REFS.parBeam && PAR.length) {
-      const ondaPar = (a, b, passo) => { let q = ""; for (let x = a; x <= b; x += passo) q += (q ? " L" : "M") + x.toFixed(0) + " " + (CY2 + onPar(x, t, amp)).toFixed(1); return q; };
+      const ondaPar = (a, b, passo) => { let q = ""; for (let x = a; x <= b; x += Math.abs(x - fotP.x) < 4 * PACC.sigma ? 2 : passo) q += (q ? " L" : "M") + x.toFixed(1) + " " + (CY2 + onPar(x, t, amp)).toFixed(1); return q; };
       const pa = POS[PAR[0].id].x - 50, pronte = PAR.filter(n => !n.serve), pb = pronte.length ? POS[pronte[pronte.length - 1].id].x : pa, pz = POS[PAR[PAR.length - 1].id].x + 40;
       REFS.parBeam.setAttribute("d", ondaPar(pa, pb, 10)); if (REFS.parFut) REFS.parFut.setAttribute("d", ondaPar(pb, pz, 12));
     }
@@ -1198,10 +1219,20 @@ function avviaBanco() {
       }
       g.fillStyle = colori.main; g.globalAlpha = scuro ? 0.85 : 0.6; g.fill(path); g.globalAlpha = 1;
     }
+    if (EP && fotP.x > -1e8) {
+      const sf = fotP.x > EP.pb ? Math.max(0, 1 - (fotP.x - EP.pb) / Math.max(1, EP.pz - EP.pb)) : 1, P = 6, path = new Path2D();
+      for (let j = -11; j <= 11; j++) for (let i = -16; i <= 16; i++) {
+        const x = fotP.x + i * P + (j & 1 ? P / 2 : 0), yb = CY2 + onPar(x, t, amp), y = yb + j * (P / 2);
+        const u = x - fotP.x, I = sf * Math.exp(-(u * u) / (2 * 34 * 34)) * Math.exp(-((y - yb) ** 2) / (2 * 13 * 13));
+        const r = 2.6 * Math.sqrt(I); if (r < 0.35) continue;
+        path.moveTo(x + r, y); path.arc(x, y, r, 0, 6.2832);
+      }
+      g.fillStyle = colori.par; g.globalAlpha = scuro ? 0.85 : 0.6; g.fill(path); g.globalAlpha = 1;
+    }
     for (let k = anelli.length - 1; k >= 0; k--) {
       const A = anelli[k], age = t - A.t0; if (age > 0.9) { anelli.splice(k, 1); continue; }
-      g.globalAlpha = (1 - age / 0.9) * 0.6; g.strokeStyle = colori.main; g.lineWidth = 1.4; g.setLineDash([1.5, 3.5]);
-      g.beginPath(); g.arc(A.x, CY + spost(A.x, t, amp), 12 + age * 30, 0, 6.2832); g.stroke(); g.setLineDash([]);
+      g.globalAlpha = (1 - age / 0.9) * 0.6; g.strokeStyle = A.par ? colori.par : colori.main; g.lineWidth = 1.4; g.setLineDash([1.5, 3.5]);
+      g.beginPath(); g.arc(A.x, A.par ? CY2 + onPar(A.x, t, amp) : CY + spost(A.x, t, amp), 12 + age * 30, 0, 6.2832); g.stroke(); g.setLineDash([]);
     }
     g.globalAlpha = 1; g.globalCompositeOperation = "source-over";
   }
