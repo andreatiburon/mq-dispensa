@@ -1,0 +1,339 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Il collasso spontaneo · Oltre Copenhagen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="style.css"><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]},svg:{fontCache:"global"}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script><script src="labs.js" defer></script></head><body><header class="bar"><div class="bar-in"><a class="brand" href="index.html">Meccanica <span>Quantistica</span></a><nav class="nav" aria-label="Pagine"><a href="index.html">Home</a><a href="postulati.html">Lezione 1 · Postulati</a><a href="rappresentazioni.html">Lezione 2 · Rappresentazioni</a><a href="evoluzione.html">Lezione 3 · Evoluzione</a><a href="oltre-problemi.html" aria-current="page">Oltre Copenhagen</a><a href="linea.html">Linea temporale</a></nav></div></header><div class="wrap"><div class="layout"><aside class="toc" aria-label="Indice"><h2>In questa lezione</h2><ol></ol></aside><article><details class="toc-mobile"><summary>Indice della lezione</summary><ol></ol></details><p class="kicker"><b class="par">Oltre Copenhagen · D</b> · percorso parallelo con Norsen e Bell</p><h1 class="ht-shadow" data-t="Il collasso spontaneo">Il collasso spontaneo</h1><p class="lead">La teoria GRW: la funzione d'onda segue l'equazione di Schrödinger, ma ogni tanto subisce un colpo di localizzazione casuale. In fondo, un cenno alla versione continua (CSL).</p>
+<h2 id="s1" data-toc="La mappa di questa parte">La mappa di questa parte</h2>
+<aside class="book" data-l="we" data-p="111"><div class="tag">Nei libri · Weinberg §3.7</div><p>Weinberg presenta GRW come la teoria principale a collasso spontaneo (nota 19, con la rassegna di Bassi e Ghirardi) e la esclude dalla sua discussione; alla fine però auspica una teoria più profonda di cui la meccanica quantistica sia un'approssimazione.</p></aside>
+<p>Nella parte sui problemi abbiamo visto il problema della misura. L'equazione di Schrödinger è lineare, quindi un puntatore accoppiato a un sistema in sovrapposizione finisce anche lui in una sovrapposizione di posizioni diverse. Il terzo postulato del corso (Lezione 1, tappa sul terzo postulato e Born) rimedia a mano: durante una misura lo stato salta sull'autostato corrispondente all'esito. Però nessuno dice che cosa sia, fisicamente, una misura.</p>
+<p>Bell ha messo la questione sotto forma di dilemma. O la funzione d'onda data dall'equazione di Schrödinger non è tutta la descrizione, oppure non è giusta (Norsen, p. 252; Bell, art. 22, pp. 212-213). L'onda pilota sceglie la prima strada e aggiunge le posizioni delle particelle. La teoria di Ghirardi, Rimini e Weber (GRW, 1986) sceglie la seconda: tiene solo la funzione d'onda e cambia la sua equazione del moto.</p>
+<p>Un'immagine per partire. Pensa a $|\psi|^2$ come a una nuvola che si allarga seguendo Schrödinger. Ogni tanto una mano invisibile la stringe attorno a un punto scelto a caso, con più probabilità dove la nuvola è densa. Per un singolo elettrone la mano arriva in media una volta ogni 300 milioni di anni, quindi l'atomo e la doppia fenditura restano come li conosciamo. Per un puntatore di $10^{23}$ particelle legate fra loro la mano arriva dieci milioni di volte al secondo, e il puntatore non resta in due posti per più di una frazione di microsecondo.</p>
+
+<div class="map">
+  <div class="row c1"><div class="box f"><b>Il problema della misura</b>Schrödinger è lineare: il puntatore va in sovrapposizione, $\sum_i c_i\,\psi_i(x)\,\phi_0(y-y_i)$.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c2"><div class="box r"><b>Richiesta</b>Una sola legge per $\psi$, valida per elettroni e per gatti, che non usi la parola «misura».</div><div class="box p"><b>Postulato di GRW</b>Schrödinger più colpi casuali: con tasso $\lambda$, $\psi\to g_r\psi/N(r)$, con il centro $r$ estratto da $P(r)=N(r)^2$.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row"><div class="box c"><b>Micro</b>Una particella: un colpo ogni $10^{16}$ s. L'interferenza resta intatta.</div><div class="box c"><b>Macro</b>$N$ particelle legate: tasso $N\lambda$. Il puntatore sceglie in circa $10^{-7}$ s.</div><div class="box c"><b>Born</b>La frequenza degli esiti è $|c_i|^2$, come conseguenza della dinamica.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c2"><div class="box c"><b>Che cosa esiste</b>GRWm (una densità di massa) oppure GRWf (eventi puntiformi, i flash).</div><div class="box c"><b>Il prezzo e i test</b>Non località senza segnali; riscaldamento, raggi X, interferenza di molecole.</div></div>
+</div>
+
+<p>Il percorso della pagina è questo. La sezione 1 spiega perché si cambia la dinamica e perché si localizza proprio in posizione. Le sezioni 2-4 costruiscono il colpo per una particella in una dimensione, con tutti i conti e quattro esempi. Le sezioni 5 e 6 passano a molte particelle e mostrano come un colpo sul puntatore decida anche una misura di energia. La sezione 7 è il laboratorio. Le sezioni 8 e 9 trattano che cosa esiste secondo GRW, la non località e i test sperimentali. La fonte principale è il capitolo 9 di Norsen; l'articolo 22 di Bell («Are there quantum jumps?») è il lavoro in cui Bell presentò GRW. I due libri usano convenzioni diverse, e nella sezione 2 c'è una tabella per tradurre l'uno nell'altro.</p>
+
+<h2 id="s2" data-toc="Cambiare la dinamica: l'idea di GRW"><span class="n">1</span>Cambiare la dinamica: l'idea di GRW</h2>
+<aside class="book" data-l="no" data-p="252"><div class="tag">Nei libri · Norsen cap. 9, introduzione</div><p>Norsen osserva che la meccanica quantistica ordinaria dice già che Schrödinger non è giusta, ma solo durante le misure. GRW vuole una sola legge universale che faccia insieme il lavoro di Schrödinger e quello del collasso.</p></aside>
+<p>La meccanica quantistica del corso ha due leggi per lo stato. Fra una misura e l'altra lo stato evolve con l'equazione di Schrödinger, in modo continuo e deterministico. In una misura salta sull'autostato dell'esito, in modo discontinuo e casuale. Il confine tra le due situazioni è lasciato al buon senso dello sperimentatore. GRW sostituisce le due leggi con una sola: all'equazione di Schrödinger si aggiunge un termine casuale e non lineare, che per un sistema microscopico non fa quasi nulla e per un oggetto macroscopico impedisce le sovrapposizioni di posizioni lontane (Norsen, pp. 252-253).</p>
+
+<h3>Perché localizzare in posizione</h3>
+<p>I primi tentativi di modificare Schrödinger (Bohm e Bub nel 1966, poi Pearle e Gisin) avevano un problema: su quale base far collassare lo stato? L'energia, il momento, lo spin? La risposta di GRW è la posizione, sempre e per tutti (Norsen, p. 253). Il motivo è che ogni esito di misura finisce scritto nella posizione di qualche oggetto macroscopico: un ago, una macchia sulla lastra, una carica in un contatore. Pensa al polarizzatore della Lezione 1. L'esito «H» oppure «V» diventa, alla fine, quale dei due rivelatori ha scattato, cioè dove si sono spostati degli elettroni in un circuito. Se la natura localizza le posizioni degli oggetti grandi, localizza anche gli esiti di tutte le misure. Norsen chiama questa idea fondamentalità della posizione.</p>
+<p>Il colpo funziona come se un osservatore esterno facesse ogni tanto una misura di posizione imprecisa, con un errore di circa $\sigma$. Per questo lo stato dopo il colpo è una gaussiana larga circa $\sigma$, e non una delta. L'osservatore però non c'è: le localizzazioni sono un processo naturale, che avviene da sé (Norsen, pp. 253-254).</p>
+
+<h3>Due nuove costanti di natura</h3>
+<p>La teoria introduce due parametri. La larghezza $\sigma\approx10^{-7}$ m sta a metà strada fra la scala atomica ($10^{-10}$ m) e quella che vediamo a occhio ($10^{-4}$ m): un colpo non disturba la struttura di un atomo, ma distingue due posizioni di un ago. Il tasso $\lambda\approx10^{-16}\ \mathrm{s^{-1}}$ è la probabilità per unità di tempo che una singola particella subisca un colpo. I valori precisi sono scelte di ordine di grandezza; la sezione 9 mostra come gli esperimenti li stanno restringendo.</p>
+<p>Norsen discute un'obiezione onesta (p. 254). Dire «la funzione d'onda segue Schrödinger tranne in istanti casuali» sembra riconfezionare le due leggi di prima. Le risposte sono due. La prima: nei modelli di localizzazione continua (CSL, di Pearle) il collasso agisce di continuo, insieme a Schrödinger, e GRW va presa come la versione più semplice da studiare. La seconda: una teoria a collasso è una versione precisa della meccanica quantistica ordinaria, in cui ogni parola vaga («misura», «osservatore») è sostituita da una legge matematica.</p>
+<aside class="book" data-l="be" data-p="213"><div class="tag">Nei libri · Bell art. 22, §2</div><p>Bell presenta GRW come una funzione d'onda che segue Schrödinger e ogni tanto fa un salto, con probabilità per unità di tempo $N/\tau$ per $N$ argomenti. Nota anche che GRW così com'è non rispetta la simmetria delle particelle identiche, mentre lo spin non crea problemi (p. 214).</p></aside>
+
+<h2 id="s3" data-toc="Una particella in una dimensione: quando, come, dove"><span class="n">2</span>Una particella in una dimensione: quando, come, dove</h2>
+<p>Costruiamo la regola per una sola particella sulla retta. Servono tre ingredienti: quando avviene un colpo, come cambia la funzione d'onda, dove cade il centro del colpo. Fra un colpo e l'altro vale l'equazione di Schrödinger.</p>
+<div class="note"><p><b>Ripasso lampo: l'equazione di Schrödinger.</b> Per una particella di massa $m$ in un potenziale $V(x,t)$, la funzione d'onda $\psi(x,t)=\langle x|\psi(t)\rangle$ evolve con
+$$i\hbar\frac{\partial\psi(x,t)}{\partial t}=-\frac{\hbar^2}{2m}\frac{\partial^2\psi(x,t)}{\partial x^2}+V(x,t)\,\psi(x,t).$$
+Due proprietà ci servono. È lineare: se $\psi_1\to\psi_1'$ e $\psi_2\to\psi_2'$, allora $c_1\psi_1+c_2\psi_2\to c_1\psi_1'+c_2\psi_2'$. Conserva la norma: $\int|\psi|^2dx$ resta 1 nel tempo. La linearità è proprio la causa del problema della misura, perché porta la sovrapposizione dal sistema al puntatore.</p></div>
+<p>Questa è l'equazione (9.1) di Norsen (p. 255), che in GRW vale quasi sempre.</p>
+
+<h3>Quando: un processo di Poisson</h3>
+<aside class="book" data-l="no" data-p="255"><div class="tag">Nei libri · Norsen §9.1</div><p>Il libro fissa una probabilità per unità di tempo costante, $dP/dt=\lambda$, e ne deduce una successione casuale di istanti $t_1,t_2,\dots$ con attesa media $\tau=1/\lambda$, equazioni (9.2)-(9.3).</p></aside>
+<p>La regola è che in ogni intervallino $dt$ la particella subisce un colpo con probabilità $\lambda\,dt$, indipendentemente da quello che è successo prima. Da qui segue la distribuzione dei tempi di attesa. Il libro dà direttamente $\tau=1/\lambda$; ecco i passaggi.</p>
+<ol class="steps">
+<li>Sia $S(t)$ la probabilità che non ci sia stato nessun colpo fra $0$ e $t$. Per non avere colpi fino a $t+dt$ non devono essercene fino a $t$ e nemmeno in $[t,t+dt]$. I due eventi sono indipendenti, quindi $S(t+dt)=S(t)\,(1-\lambda\,dt)$.</li>
+<li>Portando $S(t)$ a sinistra e dividendo per $dt$: $\dfrac{dS}{dt}=-\lambda S$, con $S(0)=1$. La soluzione è $S(t)=e^{-\lambda t}$.</li>
+<li>La densità di probabilità del primo colpo all'istante $t$ è $p(t)=-\dfrac{dS}{dt}=\lambda e^{-\lambda t}$, normalizzata perché $\int_0^\infty\lambda e^{-\lambda t}dt=1$.</li>
+<li>Il tempo medio di attesa, integrando per parti: $\langle t\rangle=\int_0^\infty t\,\lambda e^{-\lambda t}\,dt=\left[-t\,e^{-\lambda t}\right]_0^\infty+\int_0^\infty e^{-\lambda t}dt=\dfrac{1}{\lambda}$.</li>
+</ol>
+<p>Con il valore di GRW (equazioni 9.2-9.3 di Norsen, p. 255):
+$$\lambda\approx10^{-16}\ \mathrm{s^{-1}},\qquad \tau=\frac{1}{\lambda}\approx10^{16}\ \mathrm{s}\approx3\times10^{8}\ \text{anni}.$$
+Il controllo: un anno sono $3{,}16\times10^{7}$ s, quindi $10^{16}/3{,}16\times10^{7}\approx3{,}2\times10^{8}$ anni.</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Il processo non ha memoria. Se una particella non è stata colpita per cento milioni di anni, l'attesa media del prossimo colpo resta $\tau$, non diventa più corta. Lo si vede dal punto 2: la probabilità di nessun colpo fra $t$ e $t+s$, sapendo che non ce ne sono stati fino a $t$, è $S(t+s)/S(t)=e^{-\lambda s}$, che non dipende da $t$.</p></aside>
+
+<h3>Come: moltiplicare per una gaussiana</h3>
+<p>Il colpo moltiplica la funzione d'onda per una gaussiana stretta centrata in un punto $r$. La funzione di localizzazione è la (9.4) di Norsen (p. 255):
+$$g_r(x)=\frac{1}{(2\pi\sigma^2)^{1/4}}\,e^{-(x-r)^2/4\sigma^2}.$$
+È normalizzata nel senso della (9.5) (p. 256): $\int_{-\infty}^{\infty}|g_r(x)|^2dx=1$. Verifichiamolo. Elevando al quadrato, gli esponenti raddoppiano: $|g_r(x)|^2=(2\pi\sigma^2)^{-1/2}e^{-(x-r)^2/2\sigma^2}$. Con l'integrale gaussiano $\int e^{-u^2/2\sigma^2}du=\sqrt{2\pi\sigma^2}$ si ottiene proprio 1. Quindi $|g_r|^2$ è una gaussiana normalizzata con deviazione standard esattamente $\sigma$. La larghezza è la (9.6), $\sigma\approx10^{-7}$ m.</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Nell'esponente di $g_r$ c'è $4\sigma^2$, non $2\sigma^2$. È la convenzione delle funzioni d'onda: si sceglie l'ampiezza in modo che il suo modulo quadro abbia deviazione standard $\sigma$. La stessa convenzione vale per i pacchetti $e^{-x^2/4w_0^2}$ della sezione 4.</p></aside>
+<p>Moltiplicare per $g_r$ non conserva la norma, quindi dopo il prodotto bisogna rinormalizzare. Le equazioni (9.7)-(9.10) di Norsen (pp. 256-257) sono:
+$$\psi(x,t^+)=\frac{g_r(x)\,\psi(x,t^-)}{N(r)},\qquad N(r)^2=\int\left|g_r(x)\,\psi(x,t^-)\right|^2dx,$$
+dove $t^-$ e $t^+$ sono gli istanti subito prima e subito dopo il colpo. Il controllo della norma è immediato:
+$$\int\left|\psi(x,t^+)\right|^2dx=\frac{1}{N(r)^2}\int\left|g_r(x)\,\psi(x,t^-)\right|^2dx=\frac{N(r)^2}{N(r)^2}=1.$$</p>
+<p>Lo stesso colpo in notazione di Dirac. Definiamo l'operatore $\hat G_r=g_r(\hat x)$, che nella base $x$ agisce moltiplicando: $\langle x|\hat G_r|\psi\rangle=g_r(x)\,\psi(x)$. Allora
+$$|\psi^+\rangle=\frac{\hat G_r|\psi^-\rangle}{\big\|\hat G_r|\psi^-\rangle\big\|},\qquad N(r)^2=\langle\psi^-|\hat G_r^{\,2}|\psi^-\rangle .$$
+Confrontalo con il terzo postulato: con un proiettore $P_a$ si ha $|\psi\rangle\to P_a|\psi\rangle/\|P_a|\psi\rangle\|$ con probabilità $\langle\psi|P_a|\psi\rangle$. La struttura è la stessa. La differenza è che $\hat G_r$ non è un proiettore, perché $\hat G_r^{\,2}\neq\hat G_r$; vale però l'analogo della completezza $\sum_aP_a=\mathbb 1$:
+$$\int dr\,\hat G_r^{\,2}=\mathbb 1,\qquad\text{perché}\quad\langle x|\int dr\,\hat G_r^{\,2}|x'\rangle=\delta(x-x')\int g_r(x)^2\,dr=\delta(x-x').$$
+L'ultimo integrale vale 1 perché $g_r(x)^2$ dipende solo da $(x-r)^2$, quindi integrare in $r$ dà lo stesso risultato che integrare in $x$. Questo parallelo con i proiettori non è nel libro; nella letteratura un insieme di operatori così si chiama misura generalizzata.</p>
+<p>Si vede anche perché la nuova dinamica non è lineare. Il fattore $1/N(r)$ dipende dallo stato su cui agisce, quindi l'immagine di $\psi_1+\psi_2$ non è la somma delle immagini di $\psi_1$ e di $\psi_2$.</p>
+
+<h3>Dove: la distribuzione del centro</h3>
+<p>Resta da dire con quale probabilità il colpo è centrato in $r$. La regola di GRW è la (9.11) di Norsen (p. 257):
+$$P(r)=N(r)^2=\int\left|g_r(x)\,\psi(x,t^-)\right|^2dx .$$
+In parole: la probabilità di localizzare in $r$ è uguale alla norma che avrebbe lo stato localizzato in $r$ prima di essere rinormalizzato. Un colpo centrato dove $\psi$ è quasi nulla lascerebbe quasi niente, quindi è quasi impossibile.</p>
+<p>Messi insieme, i tre ingredienti danno un algoritmo che si può eseguire al calcolatore, ed è quello del laboratorio della sezione 7.</p>
+<ol class="steps">
+<li>Estrai il tempo di attesa: con $u$ uniforme in $(0,1)$, $\Delta t=-\ln(u)/\lambda$. Infatti $P(\Delta t>t)=P(u&lt;e^{-\lambda t})=e^{-\lambda t}=S(t)$.</li>
+<li>Fai evolvere $\psi$ con Schrödinger per un tempo $\Delta t$.</li>
+<li>Calcola $P(r)=\int g_r(x)^2|\psi(x)|^2dx$ su una griglia di valori di $r$.</li>
+<li>Estrai $r$ da $P(r)$.</li>
+<li>Sostituisci $\psi$ con $g_r\psi/N(r)$ e ricomincia dal punto 1.</li>
+</ol>
+
+<h3>Norsen e Bell: due convenzioni diverse</h3>
+<aside class="book" data-l="be" data-p="214"><div class="tag">Nei libri · Bell art. 22, eqq. (2)-(9)</div><p>Bell scrive il salto in tre dimensioni come $\psi'=j(\mathbf x-\mathbf r_n)\psi/R_n(\mathbf x)$, con $j(\mathbf x)=K\exp(-\mathbf x^2/2a^2)$, il centro distribuito come $|R_n(\mathbf x)|^2$ e i parametri $\tau\approx10^{15}$ s, $a\approx10^{-5}$ cm (pp. 213-214).</p></aside>
+<p>L'articolo di Bell descrive la stessa teoria con lettere e fattori diversi. Conviene metterli a confronto prima di leggere le due fonti insieme.</p>
+<div class="tbl"><table><thead><tr><th></th><th>Norsen, cap. 9 (pp. 255-257)</th><th>Bell, art. 22 (pp. 213-214)</th></tr></thead><tbody>
+<tr><td>Tasso per particella</td><td>$\lambda\approx10^{-16}\ \mathrm{s^{-1}}$</td><td>$1/\tau$ con $\tau\approx10^{15}$ s, cioè $10^{-15}\ \mathrm{s^{-1}}$; nell'appendice Bell chiama $\lambda$ il tasso per argomento</td></tr>
+<tr><td>Tempo medio per particella</td><td>$10^{16}$ s $\approx3\times10^{8}$ anni</td><td>$10^{15}$ s, che Bell arrotonda a $10^{8}$ anni (sono circa $3\times10^{7}$)</td></tr>
+<tr><td>Funzione di localizzazione</td><td>$g_r(x)=(2\pi\sigma^2)^{-1/4}e^{-(x-r)^2/4\sigma^2}$, in 1D</td><td>$j(\mathbf x)=K e^{-\mathbf x^2/2a^2}$, in 3D; $K$ è fissata dalla normalizzazione (4), e vale $(\pi a^2)^{-3/4}$ (conto nostro)</td></tr>
+<tr><td>Larghezza</td><td>$\sigma\approx10^{-7}$ m; $|g_r|^2$ ha deviazione standard $\sigma$</td><td>$a\approx10^{-5}$ cm $=10^{-7}$ m; $|j|^2$ ha deviazione standard $a/\sqrt2$ in ogni direzione</td></tr>
+<tr><td>Centro e coordinate</td><td>$r$ è il centro, $x$ la coordinata</td><td>$\mathbf x$ è il centro, $\mathbf r_n$ la coordinata della particella $n$: le lettere sono scambiate</td></tr>
+<tr><td>Fattore di normalizzazione</td><td>$N(r)$</td><td>$R_n(\mathbf x)$</td></tr>
+<tr><td>Numero di particelle</td><td>$N$</td><td>$N$ in tutto; $M$ per il puntatore, $L$ per il sistema</td></tr>
+<tr><td>La lettera $a$</td><td>metà della distanza fra due scatole, $\pm a$</td><td>la larghezza del salto</td></tr>
+</tbody></table></div>
+<p>Le due gaussiane hanno la stessa forma se gli esponenti coincidono: $e^{-x^2/4\sigma^2}=e^{-x^2/2a^2}$ richiede $4\sigma^2=2a^2$, cioè $\sigma=a/\sqrt2$. Con $a=10^{-7}$ m la larghezza di Bell corrisponde a $\sigma\approx0{,}7\times10^{-7}$ m. Anche le costanti di normalizzazione tornano: per ogni direzione, $(\pi a^2)^{-1/4}=(2\pi\sigma^2)^{-1/4}$ quando $a^2=2\sigma^2$. I tassi invece differiscono di un fattore 10. In questa pagina usiamo i numeri di Norsen e indichiamo quelli di Bell quando cambiano una conclusione. Norsen poi usa la lettera $\lambda$ anche per una costante di accoppiamento nella (9.33); nella sezione 6 la chiameremo $\kappa$.</p>
+
+<h2 id="s4" data-toc="P(r) è una probabilità, e quasi quella di Born"><span class="n">3</span>P(r) è una probabilità, e quasi quella di Born</h2>
+<aside class="book" data-l="no" data-p="276"><div class="tag">Nei libri · Norsen, Project 9.4</div><p>Il libro chiede di dimostrare che la (9.11) è una distribuzione di probabilità legittima, con $P(r)\ge0$ e $\int P(r)\,dr=1$. La dimostrazione è lasciata allo studente.</p></aside>
+<p>Prima di usare $P(r)$ controlliamo che sia una densità di probabilità. Questo passaggio il libro lo lascia come esercizio; eccolo.</p>
+<ol class="steps">
+<li>Positività: $P(r)$ è l'integrale di un modulo quadro, quindi $P(r)\ge0$.</li>
+<li>Normalizzazione. Scriviamo $|g_r(x)\psi(x)|^2=g_r(x)^2|\psi(x)|^2$ ($g_r$ è reale) e scambiamo l'ordine delle integrazioni:
+$$\int P(r)\,dr=\int\!\!\int g_r(x)^2\,|\psi(x)|^2\,dx\,dr=\int|\psi(x)|^2\left[\int g_r(x)^2\,dr\right]dx .$$</li>
+<li>La parentesi vale 1. La funzione $g_r(x)^2$ dipende solo da $(x-r)^2$, quindi è simmetrica nello scambio di $x$ e $r$, e $\int g_r(x)^2dr=\int g_r(x)^2dx=1$ per la (9.5).</li>
+<li>Resta $\int P(r)\,dr=\int|\psi(x)|^2dx=1$.</li>
+</ol>
+
+<h3>Una convoluzione: Born vista con una lente sfocata</h3>
+<p>Chiamiamo $G_\sigma(u)=(2\pi\sigma^2)^{-1/2}e^{-u^2/2\sigma^2}$ la gaussiana normalizzata di deviazione standard $\sigma$. Allora $g_r(x)^2=G_\sigma(r-x)$ e
+$$P(r)=\int G_\sigma(r-x)\,|\psi(x)|^2\,dx=\big(G_\sigma*|\psi|^2\big)(r).$$
+La distribuzione del centro è la densità di Born convoluta con una gaussiana di larghezza $\sigma$. È come fotografare $|\psi|^2$ con una macchina che ha risoluzione $\sigma$: la foto è la stessa figura, sfocata di circa $10^{-7}$ m. Due conseguenze, che il libro non scrive ma che si ricavano in due righe.</p>
+<ol class="steps">
+<li>Il centro medio coincide con la posizione media: $\langle r\rangle=\int\!\!\int r\,G_\sigma(r-x)|\psi(x)|^2\,dr\,dx$. Ponendo $r=x+u$, l'integrale in $u$ di $(x+u)G_\sigma(u)$ dà $x$, perché $G_\sigma$ è pari e normalizzata. Resta $\langle r\rangle=\int x|\psi|^2dx=\langle x\rangle$.</li>
+<li>Le varianze si sommano: con lo stesso cambio di variabile, $\int(x+u)^2G_\sigma(u)\,du=x^2+\sigma^2$, quindi $\langle r^2\rangle=\langle x^2\rangle+\sigma^2$ e $\mathrm{Var}(r)=\mathrm{Var}(x)+\sigma^2$.</li>
+</ol>
+<p>Quando $|\psi|^2$ cambia poco su distanze $\sigma$, la sfocatura non si vede. Sviluppando $|\psi(x)|^2$ in serie attorno a $x=r$ fino al secondo ordine e integrando con $G_\sigma$ (il termine di primo ordine si annulla per simmetria, quello di secondo dà $\sigma^2/2$) si trova
+$$P(r)\approx|\psi(r)|^2+\frac{\sigma^2}{2}\,\frac{d^2|\psi|^2}{dr^2}(r).$$
+Se $|\psi|^2$ varia su una lunghezza $\ell$, la correzione relativa è dell'ordine di $\sigma^2/\ell^2$. Per $\ell\gg\sigma$ si ritrova $P(r)\approx|\psi(r)|^2$: la regola di Born. Norsen chiama questa alternativa «approssimativamente equivalente» (p. 276) e spiega perché GRW non la usa direttamente: la vera $P(r)=N(r)^2$ garantisce che non si possano mandare segnali istantanei. Lo vediamo nella sezione 8.</p>
+<div class="note"><p><b>Un parallelo con la polarizzazione.</b> Questo esempio non è nei libri. Immagina un polarizzatore difettoso con due esiti, «quasi H» e «quasi V», descritti dagli operatori $K_H=\sqrt{1-\varepsilon}\,|H\rangle\langle H|+\sqrt{\varepsilon}\,|V\rangle\langle V|$ e $K_V=\sqrt{\varepsilon}\,|H\rangle\langle H|+\sqrt{1-\varepsilon}\,|V\rangle\langle V|$, con $0&lt;\varepsilon\ll1$. Vale $K_H^2+K_V^2=\mathbb 1$, l'analogo di $\int dr\,\hat G_r^{\,2}=\mathbb 1$. Sullo stato $|\theta\rangle=\cos\theta|H\rangle+\sin\theta|V\rangle$ la probabilità di «quasi H» è $\langle\theta|K_H^2|\theta\rangle=(1-\varepsilon)\cos^2\theta+\varepsilon\sin^2\theta$, che per $\varepsilon\to0$ diventa la legge di Malus. Lo stato dopo l'esito è $K_H|\theta\rangle$ rinormalizzato, cioè $\sqrt{1-\varepsilon}\cos\theta|H\rangle+\sqrt{\varepsilon}\sin\theta|V\rangle$ diviso la sua norma: la componente $V$ non sparisce, resta piccola. Il colpo GRW su due pacchetti lontani si comporta allo stesso modo, con un $\varepsilon$ enormemente piccolo.</p></div>
+
+<h2 id="s5" data-toc="Quattro esempi"><span class="n">4</span>Quattro esempi</h2>
+<p>Gli esempi mostrano che cosa fa un colpo a seconda di com'è larga la funzione d'onda rispetto a $\sigma$. I primi tre sono nel libro, il quarto (la gaussiana di larghezza qualunque) è un Project che svolgiamo per intero.</p>
+
+<h3>Una funzione d'onda piatta e larga</h3>
+<aside class="book" data-l="no" data-p="258"><div class="tag">Nei libri · Norsen, Fig. 9.2</div><p>La figura mostra $P(r)$ per una $\psi$ piatta: un gradino alto $1/L$ con bordi smussati su una larghezza di circa $\sigma$, e la gaussiana che resta dopo il colpo.</p></aside>
+<p>Sia $\psi(x,t^-)=1/\sqrt L$ in un intervallo di larghezza $L\gg\sigma$ e zero fuori (equazione 9.12 di Norsen, p. 257). Se $r$ sta dentro l'intervallo, lontano dai bordi più di qualche $\sigma$, la gaussiana $g_r^2$ cade tutta dove $|\psi|^2=1/L$, quindi
+$$P(r)=\int g_r(x)^2\,\frac1L\,dx=\frac1L\int g_r(x)^2\,dx=\frac1L ,$$
+per la (9.5). Se $r$ sta fuori, lontano dai bordi, $P(r)\approx0$. Questa è la (9.13). Il centro è quindi distribuito uniformemente dove la particella può stare, come direbbe Born. Dopo il colpo $\psi$ è $g_r(x)/\sqrt L$ rinormalizzata, cioè una gaussiana di larghezza $\sigma$ centrata nel punto casuale $r$.</p>
+
+<h3>Un autostato di posizione</h3>
+<p>All'estremo opposto c'è una funzione d'onda molto più stretta di $\sigma$, al limite una delta, $\psi(x,t^-)\sim\delta(x-a)$. Per normalizzarla Norsen usa un trucco formale, scusandosi con i matematici (equazioni 9.14-9.17, pp. 258-259): $\psi(x,t^-)=\delta(x-a)/\sqrt{\delta(0)}$. Il libro chiede di controllare i passaggi (Project 9.1); eccoli.</p>
+<ol class="steps">
+<li>Il prodotto con la delta valuta la funzione nel punto: $g_r(x)\,\delta(x-a)=g_r(a)\,\delta(x-a)$.</li>
+<li>Il quadrato contiene $\delta(x-a)^2$, che formalmente si scrive $\delta(0)\,\delta(x-a)$. Quindi $\left|g_r(x)\delta(x-a)/\sqrt{\delta(0)}\right|^2=g_r(a)^2\,\delta(x-a)$.</li>
+<li>Integrando in $x$: $P(r)=N(r)^2=g_r(a)^2=\dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-(r-a)^2/2\sigma^2}=g_a(r)^2$, per la simmetria fra $r$ e $a$.</li>
+<li>Lo stato dopo il colpo: $\psi(x,t^+)=\dfrac{g_r(x)\,\delta(x-a)}{N(r)\sqrt{\delta(0)}}=\dfrac{g_r(a)}{N(r)}\dfrac{\delta(x-a)}{\sqrt{\delta(0)}}=\psi(x,t^-)$, perché $N(r)=g_r(a)$.</li>
+</ol>
+<p>La delta non cambia, qualunque sia $r$ (Fig. 9.3, p. 259). Il centro del colpo è distribuito come una gaussiana di larghezza $\sigma$ attorno ad $a$: è la delta sfocata dalla convoluzione della sezione 3. Un oggetto già più localizzato di $\sigma$ non viene toccato.</p>
+
+<h3>Una gaussiana di larghezza qualunque</h3>
+<p>Il caso intermedio è una gaussiana $\psi(x)\propto e^{-x^2/4w_0^2}$, in cui $|\psi|^2$ ha deviazione standard $w_0$. Il libro dice solo che dopo il colpo la larghezza tende a $\sigma$ se $w_0\gg\sigma$ e resta $w_0$ se $w_0\ll\sigma$ (p. 259), e lascia il conto ai Projects 9.2 e 9.3 (p. 276). Eccolo.</p>
+<ol class="steps">
+<li>Il prodotto $e^{-x^2/4w_0^2}\,e^{-(x-r)^2/4\sigma^2}$ ha esponente
+$$-\frac{x^2}{4w_0^2}-\frac{x^2-2xr+r^2}{4\sigma^2}=-\frac14\left(\frac{1}{w_0^2}+\frac{1}{\sigma^2}\right)x^2+\frac{xr}{2\sigma^2}-\frac{r^2}{4\sigma^2}.$$</li>
+<li>Chiamiamo $w$ la larghezza definita da $\dfrac{1}{w^2}=\dfrac{1}{w_0^2}+\dfrac{1}{\sigma^2}$. L'esponente diventa $-\dfrac{1}{4w^2}\left(x^2-2x\,\dfrac{w^2}{\sigma^2}\,r\right)-\dfrac{r^2}{4\sigma^2}$.</li>
+<li>Completiamo il quadrato con $x_c=\dfrac{w^2}{\sigma^2}\,r$: si ha $x^2-2xx_c=(x-x_c)^2-x_c^2$, quindi l'esponente è $-\dfrac{(x-x_c)^2}{4w^2}+\dfrac{x_c^2}{4w^2}-\dfrac{r^2}{4\sigma^2}$.</li>
+<li>Gli ultimi due termini non dipendono da $x$: sono una costante che sparisce rinormalizzando. Dopo il colpo $\psi$ è di nuovo una gaussiana, $\psi(x,t^+)\propto e^{-(x-x_c)^2/4w^2}$, con
+$$w=\frac{w_0\,\sigma}{\sqrt{w_0^2+\sigma^2}},\qquad x_c=\frac{w_0^2}{w_0^2+\sigma^2}\,r .$$</li>
+<li>Limiti. Se $\sigma\gg w_0$, $w\approx w_0\sigma/\sigma=w_0$: il pacchetto stretto non cambia. Se $w_0\gg\sigma$, $w\approx w_0\sigma/w_0=\sigma$: il pacchetto largo viene ristretto a $\sigma$. Sono i due limiti chiesti dal Project 9.2.</li>
+</ol>
+<p>Per il Project 9.3 serve $P(r)$. Con $|\psi|^2=(2\pi w_0^2)^{-1/2}e^{-x^2/2w_0^2}$ si può usare la sezione 3: $P$ è la convoluzione di due gaussiane centrate in zero, quindi ha media zero e varianza $w_0^2+\sigma^2$. Il conto diretto conferma. L'integrando è $(2\pi w_0\sigma)^{-1}e^{-x^2/2w_0^2-(x-r)^2/2\sigma^2}$; completando il quadrato come sopra (con $2$ al posto di $4$) l'esponente diventa $-\frac{(x-x_c)^2}{2w^2}-\frac{r^2}{2(w_0^2+\sigma^2)}$, e l'integrale gaussiano in $x$ dà $\sqrt{2\pi}\,w$. Il prefattore è $\sqrt{2\pi}\,w/(2\pi w_0\sigma)=1/\sqrt{2\pi(w_0^2+\sigma^2)}$, perciò
+$$P(r)=\frac{1}{\sqrt{2\pi(w_0^2+\sigma^2)}}\,e^{-r^2/2(w_0^2+\sigma^2)} .$$
+Due numeri. Nel laboratorio i pacchetti hanno $w_0=0{,}35\,\sigma$: un colpo li restringe solo a $w=0{,}35/\sqrt{1{,}1225}\,\sigma\approx0{,}33\,\sigma$. Un pacchetto con $w_0=10\,\sigma$ diventa invece largo $0{,}995\,\sigma$.</p>
+
+<h3>Le scatole di Einstein: due delta lontane</h3>
+<aside class="book" data-l="no" data-p="260"><div class="tag">Nei libri · Norsen, Fig. 9.4</div><p>La figura mostra il colpo su due picchi in $\pm a$: dopo il colpo uno dei due picchi è cresciuto e l'altro è diventato piccolissimo, ma non è andato esattamente a zero.</p></aside>
+<p>Ora il caso che conta per la misura: una particella in sovrapposizione di due posizioni lontane, come nella scatola di Einstein divisa a metà. Norsen usa pesi uguali (equazioni 9.18-9.21, pp. 260-261); noi scriviamo pesi qualunque $c_-$ e $c_+$, con $|c_-|^2+|c_+|^2=1$ e $a\gg\sigma$:
+$$\psi(x,t^-)=c_-\frac{\delta(x+a)}{\sqrt{\delta(0)}}+c_+\frac{\delta(x-a)}{\sqrt{\delta(0)}} .$$
+Per $c_\pm=1/\sqrt2$ si ritrova la (9.18).</p>
+<ol class="steps">
+<li>Nel modulo quadro di $g_r\psi$ il termine misto contiene $\delta(x+a)\,\delta(x-a)$, che è zero per $a\neq0$ perché le due delta non sono mai diverse da zero nello stesso punto.</li>
+<li>Restano i due quadrati, ciascuno calcolato come nell'esempio della delta: $P(r)=|c_-|^2\,g_r(-a)^2+|c_+|^2\,g_r(a)^2=|c_-|^2\,G_\sigma(r+a)+|c_+|^2\,G_\sigma(r-a)$.</li>
+<li>$P(r)$ ha due gobbe larghe $\sigma$ in $\pm a$, ben separate perché $a\gg\sigma$. La probabilità che il centro cada vicino a $+a$ è l'area della gobba di destra, $|c_+|^2$; vicino a $-a$ è $|c_-|^2$. Questa è la regola di Born, ottenuta dalla dinamica (la generalizzazione a pesi qualunque è nostra; Norsen fa il caso 50 e 50).</li>
+<li>Supponiamo che il colpo cada in $r=+a$, come nel libro. Allora $N^2=|c_-|^2g_a(-a)^2+|c_+|^2g_a(a)^2$. Con $c_\pm=1/\sqrt2$ questa è la (9.19): $N^2=\frac12\frac{1}{\sqrt{2\pi\sigma^2}}\left[e^{-2a^2/\sigma^2}+1\right]$, perché $g_a(-a)^2=(2\pi\sigma^2)^{-1/2}e^{-(2a)^2/2\sigma^2}$.</li>
+<li>Lo stato dopo il colpo è
+$$\psi(x,t^+)=\frac{c_-\,g_a(-a)\,\delta(x+a)+c_+\,g_a(a)\,\delta(x-a)}{N\sqrt{\delta(0)}} .$$
+Il rapporto fra le ampiezze dei due picchi, a parte i $c_\pm$, è $g_a(-a)/g_a(a)=e^{-(2a)^2/4\sigma^2}=e^{-a^2/\sigma^2}$; il rapporto fra i pesi è il suo quadrato, $e^{-2a^2/\sigma^2}$. Norsen dice che si butta un termine piccolo per un fattore come $e^{-2a^2/\sigma^2}$: si riferisce ai pesi.</li>
+<li>Trascurando il picco perdente, $N\approx|c_+|\,g_a(a)$ e $\psi(x,t^+)\approx\dfrac{c_+}{|c_+|}\dfrac{\delta(x-a)}{\sqrt{\delta(0)}}$: la particella è in $+a$, a meno di una fase che non conta. Con $c_+=1/\sqrt2$ è la (9.21).</li>
+</ol>
+<p>Quanto è piccolo il picco perdente? Con $a=5\,\sigma$, che è la situazione del laboratorio, il rapporto dei pesi è $e^{-50}\approx2\times10^{-22}$. Piccolissimo, ma non zero: le code gaussiane non si annullano mai. Questo dettaglio tornerà nella sezione 8.</p>
+<div class="fig"><svg viewBox="0 0 640 200" width="100%" role="img" aria-label="Colpo GRW su due picchi in meno a e più a">
+  <line x1="40" y1="160" x2="600" y2="160" style="stroke:var(--ink);stroke-width:1"/>
+  <line x1="200" y1="160" x2="200" y2="60" style="stroke:var(--ink-2);stroke-width:2;stroke-dasharray:5 4"/>
+  <line x1="440" y1="160" x2="440" y2="60" style="stroke:var(--ink-2);stroke-width:2;stroke-dasharray:5 4"/>
+  <path d="M320,159.3 L328,158.7 L336,157.6 L344,155.9 L352,153.2 L360,149.1 L368,143.4 L376,135.8 L384,126.2 L392,115.0 L400,102.5 L408,89.9 L416,78.1 L424,68.5 L432,62.2 L440,60.0 L448,62.2 L456,68.5 L464,78.1 L472,89.9 L480,102.5 L488,115.0 L496,126.2 L504,135.8 L512,143.4 L520,149.1 L528,153.2 L536,155.9 L544,157.6 L552,158.7 L560,159.3" style="fill:none;stroke:var(--laser);stroke-width:1.8"/>
+  <line x1="446" y1="160" x2="446" y2="20" style="stroke:var(--ink);stroke-width:3"/>
+  <line x1="206" y1="160" x2="206" y2="157" style="stroke:var(--ink);stroke-width:3"/>
+  <text x="200" y="180" text-anchor="middle" style="fill:var(--ink-2);font-size:13px">−a</text>
+  <text x="440" y="180" text-anchor="middle" style="fill:var(--ink-2);font-size:13px">+a</text>
+  <text x="60" y="40" style="fill:var(--ink-2);font-size:12px">tratteggio: |ψ|² prima del colpo</text>
+  <text x="60" y="58" style="fill:var(--ink-2);font-size:12px">linea piena: dopo il colpo</text>
+  <text x="470" y="52" style="fill:var(--ink-2);font-size:12px">g_r con r ≈ +a</text>
+  <text x="212" y="150" style="fill:var(--ink-2);font-size:12px">resto ~ e^(−2a²/σ²)</text>
+</svg></div>
+<p>Un'ultima osservazione sulla doppia fenditura (Norsen, p. 261). Le fenditure sono di solito più distanti di $\sigma$, quindi un colpo durante il volo distruggerebbe le frange. Però un elettrone che vola per un millesimo di secondo ha probabilità $\lambda t=10^{-16}\cdot10^{-3}=10^{-19}$ di essere colpito (questo numero è nostro). Le frange restano.</p>
+
+<h2 id="s6" data-toc="Molte particelle: l'amplificazione"><span class="n">5</span>Molte particelle: l'amplificazione</h2>
+<div class="note"><p><b>Ripasso lampo: la funzione d'onda di più particelle.</b> Per due particelle sulla retta lo stato è una funzione di due variabili, $\Psi(x_1,x_2)$, e $|\Psi(x_1,x_2)|^2dx_1dx_2$ è la probabilità di trovare la particella 1 in $dx_1$ attorno a $x_1$ e la 2 in $dx_2$ attorno a $x_2$. La probabilità per la sola particella 2 si ottiene integrando sull'altra: $\int|\Psi(x_1,x_2)|^2dx_1$ (la distribuzione marginale). Lo stato si dice prodotto se $\Psi(x_1,x_2)=\psi(x_1)\,\phi(x_2)$; in notazione di Dirac è $|\psi\rangle\otimes|\phi\rangle$, con $\langle x_1,x_2|=\langle x_1|\otimes\langle x_2|$. Se non si può scrivere così, lo stato si dice entangled: un esempio è $\frac{1}{\sqrt2}[\delta(x_1-a)\delta(x_2-a)+\delta(x_1+a)\delta(x_2+a)]$, in cui le due particelle sono entrambe a destra o entrambe a sinistra. Per $N$ particelle in tre dimensioni $\Psi$ vive in uno spazio di $3N$ dimensioni, lo spazio delle configurazioni.</p></div>
+<p>In GRW ogni particella subisce colpi in modo indipendente, con lo stesso tasso $\lambda$ e la stessa regola. Un colpo sulla particella $k$ moltiplica $\Psi$ per $g_r(x_k)$, che dipende solo dalla coordinata di quella particella. Oltre a quando e dove, è casuale anche quale particella viene colpita (Norsen, p. 262).</p>
+
+<h3>Uno stato prodotto</h3>
+<p>Sia $\Psi(x_1,x_2,t^-)=\psi(x_1,t^-)\,\phi(x_2,t^-)$ e colpiamo la particella 2 (equazioni 9.22-9.25 di Norsen, p. 262). Allora $\Psi(t^+)=g_r(x_2)\Psi(t^-)/N(r)$ con
+$$N(r)^2=\int\!\!\int\left|g_r(x_2)\,\psi(x_1)\,\phi(x_2)\right|^2dx_1\,dx_2=\underbrace{\int|\psi(x_1)|^2dx_1}_{=1}\;\int\left|g_r(x_2)\phi(x_2)\right|^2dx_2 .$$
+L'integrale si separa perché l'integrando è un prodotto di una funzione di $x_1$ e una di $x_2$. Dunque $N(r)$ è quello che avrebbe la sola $\phi$, e
+$$\Psi(x_1,x_2,t^+)=\psi(x_1,t^-)\,\frac{g_r(x_2)\,\phi(x_2,t^-)}{N(r)} .$$
+La particella 1 non si accorge di nulla. Anche qui $P(r)=N(r)^2$.</p>
+
+<h3>Uno stato entangled</h3>
+<aside class="book" data-l="no" data-p="263"><div class="tag">Nei libri · Norsen, eq. (9.29)</div><p>Nella seconda riga della (9.29) il PDF stampa $\delta(x_2+a)\delta(x_2+a)$. È un refuso: va letto $\delta(x_1+a)\delta(x_2+a)$, come nella (9.26) e nella riga successiva.</p></aside>
+<p>Ora prendiamo lo stato entangled del ripasso e colpiamo la particella 2 (equazioni 9.26-9.30, pp. 263-264). Le formule per $N(r)$ e $P(r)$ hanno la stessa forma di prima; il calcolo di $P(r)$ è quello delle scatole di Einstein e dà due gobbe in $\pm a$ con area $1/2$ ciascuna. Supponiamo che il centro cada in $r\approx+a$.</p>
+<ol class="steps">
+<li>Si moltiplica per $g_a(x_2)$: $\Psi(t^+)\sim g_a(x_2)\,\frac{1}{\sqrt2}\left[\delta(x_1-a)\delta(x_2-a)+\delta(x_1+a)\delta(x_2+a)\right]$.</li>
+<li>Si distribuisce $g_a(x_2)$ su entrambi i termini.</li>
+<li>Ogni delta in $x_2$ fa valutare $g_a$ nel suo punto: $\Psi(t^+)\sim\frac{1}{\sqrt2}\left[g_a(a)\,\delta(x_1-a)\delta(x_2-a)+g_a(-a)\,\delta(x_1+a)\delta(x_2+a)\right]$.</li>
+<li>$g_a(a)$ è il picco della gaussiana, $g_a(-a)$ è più piccolo del fattore $e^{-a^2/\sigma^2}$, trascurabile se $2a\gg\sigma$. Rinormalizzando: $\Psi(x_1,x_2,t^+)=\delta(x_1-a)\,\delta(x_2-a)$, a parte la normalizzazione formale con $\delta(0)$.</li>
+</ol>
+<p>Il colpo era sulla particella 2, ma si sono localizzate tutte e due (Fig. 9.5, p. 264). Il motivo è che nello stato entangled la posizione di 2 è legata a quella di 1: scegliere il ramo per una sceglie il ramo per entrambe.</p>
+
+<h3>N particelle e il tasso Nλ</h3>
+<p>Lo stesso conto vale per un oggetto di $N$ particelle tenute insieme rigidamente, in sovrapposizione di due posizioni (equazioni 9.31-9.32, pp. 264-265):
+$$\Psi(t^-)\sim\frac{1}{\sqrt2}\left[\delta(x_1-a)\cdots\delta(x_N-a)+\delta(x_1+a)\cdots\delta(x_N+a)\right]\ \longrightarrow\ \Psi(t^+)\sim\delta(x_1-r)\cdots\delta(x_N-r),$$
+con $r=+a$ oppure $r=-a$ al 50 per cento. Basta un colpo su una qualsiasi delle $N$ particelle. Quanto si aspetta il primo colpo? Il libro dà il risultato, $\tau/N$; il ragionamento è questo.</p>
+<ol class="steps">
+<li>Per ciascuna particella la probabilità di nessun colpo fino a $t$ è $e^{-\lambda t}$ (sezione 2).</li>
+<li>I colpi sulle diverse particelle sono indipendenti, quindi la probabilità che nessuna sia colpita è il prodotto: $S_N(t)=\left(e^{-\lambda t}\right)^N=e^{-N\lambda t}$.</li>
+<li>È di nuovo un processo di Poisson, con tasso $N\lambda$. L'attesa media del primo colpo è $1/(N\lambda)=\tau/N$.</li>
+</ol>
+<div class="tbl"><table><thead><tr><th>Oggetto</th><th>$N$</th><th>Attesa media $\tau/N$</th></tr></thead><tbody>
+<tr><td>una particella</td><td>1</td><td>$10^{16}$ s $\approx3\times10^{8}$ anni</td></tr>
+<tr><td>due particelle</td><td>2</td><td>$\approx1{,}5\times10^{8}$ anni</td></tr>
+<tr><td>una molecola di fullerene C<sub>60</sub></td><td>$\approx10^{3}$</td><td>$10^{13}$ s $\approx3\times10^{5}$ anni</td></tr>
+<tr><td>un puntatore macroscopico</td><td>$\approx10^{23}$</td><td>$10^{-7}$ s $=100$ ns</td></tr>
+</tbody></table></div>
+<aside class="book" data-l="no" data-p="265"><div class="tag">Nei libri · Norsen §9.2</div><p>Il libro scrive che con $N\approx10^{23}$ si aspetta $\tau/N\approx30$ ns, cioè milioni o miliardi di colpi al secondo, e riporta la frase di Bell sul gatto che non resta vivo e morto per più di una frazione di secondo.</p></aside>
+<p>C'è una piccola discrepanza. Con i valori (9.2)-(9.3) dello stesso libro, $\tau/N=10^{16}\ \mathrm{s}/10^{23}=10^{-7}$ s $=100$ ns, non 30 ns. Con il $\tau\approx10^{15}$ s di Bell verrebbe 10 ns. Il valore di Norsen sta fra i due, ma non segue dai suoi numeri. L'ordine di grandezza, una frazione di microsecondo, non cambia. Bell fa lo stesso conto con un puntatore di $M\sim10^{20}$ argomenti e trova $10^{15}/10^{20}=10^{-5}$ s, la sua equazione (11) (Bell, art. 22, p. 215).</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Un colpo decide solo se i due rami sono più lontani di $\sigma$. Con separazione $2a$ il ramo perdente sopravvive con ampiezza relativa $e^{-a^2/\sigma^2}$. Se $2a=\sigma/2$, il fattore è $e^{-1/16}\approx0{,}94$: il colpo non distingue quasi nulla. Il collasso parte solo quando la separazione dei rami nello spazio delle configurazioni arriva a circa $\sigma$ (Norsen, pp. 265-266). Questo esempio numerico è nostro.</p></aside>
+
+<h2 id="s7" data-toc="La misura con il puntatore"><span class="n">6</span>La misura con il puntatore</h2>
+<aside class="book" data-l="no" data-p="266"><div class="tag">Nei libri · Norsen, Fig. 9.6</div><p>La figura segue nel tempo i pacchetti del centro di massa del puntatore: finché si sovrappongono i colpi non fanno nulla; quando si separano di circa $\sigma$, un colpo ne sceglie uno solo.</p></aside>
+<p>I colpi agiscono solo sulle posizioni. Come fa GRW a dare un esito definito anche a una misura di energia? Norsen usa l'esempio di una particella in una scatola (pp. 265-266). La particella ha autostati dell'energia $\psi_i(x)$, con autovalori $E_i$, ortonormali: $\int\psi_i^*(x)\psi_j(x)\,dx=\delta_{ij}$, come gli autovettori di un operatore autoaggiunto della Lezione 1. Lo stato iniziale è $\sum_ic_i\psi_i(x)$. Il puntatore è un oggetto di circa $10^{23}$ particelle; lo descriviamo con la coordinata $y$ del suo centro di massa, inizialmente in un pacchetto stretto $\phi_0(y)$.</p>
+<p>L'accoppiamento sposta il puntatore di una quantità proporzionale all'energia. Per linearità, partendo dalla sovrapposizione si ottiene la (9.33) di Norsen (p. 265):
+$$\Psi(x,y,t)=\sum_ic_i\,\psi_i(x,t)\,\phi_0(y-\kappa E_i t).$$
+Norsen qui usa di nuovo la lettera $\lambda$; per non confonderla con il tasso dei colpi la chiamiamo $\kappa$. Il pacchetto del ramo $i$ è centrato in $y_i(t)=\kappa E_it$. Il libro descrive a parole che cosa succede; il conto che segue, con l'ortonormalità, è nostro.</p>
+<ol class="steps">
+<li>All'inizio i pacchetti $\phi_0(y-y_i)$ si sovrappongono e sono separati meno di $\sigma$. I colpi sulle particelle del puntatore arrivano al ritmo di $10^7$ al secondo, ma, come nella trappola della sezione 5, non fanno quasi nulla.</li>
+<li>Col passare del tempo le distanze $|y_i-y_j|$ crescono. Quando superano di molto $\sigma$ e la larghezza di $\phi_0$, un colpo sul puntatore agisce come $g_r(y)$ sul centro di massa (le particelle sono legate rigidamente, quindi localizzarne una localizza tutto il puntatore). La distribuzione del centro è $P(r)=\int\!\!\int g_r(y)^2\,|\Psi(x,y)|^2\,dx\,dy$.</li>
+<li>Sviluppiamo il modulo quadro: $|\Psi|^2=\sum_{i,j}c_i^*c_j\,\psi_i^*(x)\psi_j(x)\,\phi_0^*(y-y_i)\phi_0(y-y_j)$. Integrando prima in $x$, l'ortonormalità dà $\delta_{ij}$ e uccide esattamente tutti i termini misti:
+$$\int|\Psi(x,y)|^2\,dx=\sum_i|c_i|^2\,|\phi_0(y-y_i)|^2 .$$</li>
+<li>Quindi $P(r)=\sum_i|c_i|^2\,\big(G_\sigma*|\phi_0|^2\big)(r-y_i)$: gobbe separate attorno alle posizioni $y_i$, ciascuna di area $|c_i|^2$ perché $G_\sigma*|\phi_0|^2$ è normalizzata (sezione 3). Il centro cade vicino a $y_k$ con probabilità $|c_k|^2$.</li>
+<li>Se il centro cade vicino a $y_k$, il prodotto $g_r(y)\,\phi_0(y-y_i)$ è trascurabile per ogni $i\neq k$, perché i due fattori non sono mai grandi nello stesso punto. Resta
+$$\Psi(x,y,t^+)\approx\psi_k(x)\;\frac{g_r(y)\,\phi_0(y-y_k)}{\|g_r\,\phi_0(\cdot-y_k)\|},$$
+a meno di una fase. La particella nella scatola è ora nell'autostato dell'energia $\psi_k$.</li>
+</ol>
+<p>Il risultato riproduce il terzo postulato: esito $E_k$ con probabilità $|c_k|^2$, e stato finale $\psi_k$. Nessun colpo ha toccato l'energia: l'informazione sull'energia era stata copiata nella posizione del puntatore, e l'entanglement ha trasferito alla particella la localizzazione del puntatore. Per questo non serve nessuna regola speciale per il collasso dei sottosistemi (Norsen, p. 266). Con i numeri della sezione 5, la decisione arriva in circa $10^{-7}$ s da quando i pacchetti si separano di $\sigma$.</p>
+<aside class="book" data-l="be" data-p="215"><div class="tag">Nei libri · Bell art. 22, eq. (12)</div><p>Bell scrive lo stato dopo la misura come $\phi_1\chi_1+\phi_2\chi_2$, con $\chi_{1,2}$ stati del puntatore macroscopicamente diversi. Ogni salto su un argomento del puntatore azzera di fatto uno dei due rami, con probabilità pari alla frazione di norma del ramo, che è la regola di Born.</p></aside>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>La particella nella scatola non viene mai colpita in modo rilevante: per lei il tasso resta $10^{-16}\ \mathrm{s^{-1}}$. Il collasso le arriva per interposta persona, attraverso il puntatore a cui è entangled. Se togli il puntatore, la sovrapposizione di energie dura centinaia di milioni di anni.</p></aside>
+
+<h2 id="s8" data-toc="Laboratorio: un colpo alla volta"><span class="n">7</span>Laboratorio: un colpo alla volta</h2>
+<p>Il laboratorio usa la convenzione di Norsen, con le lunghezze in unità di $\sigma=10^{-7}$ m. Lo stato è una sovrapposizione di due pacchetti gaussiani stretti (larghi $0{,}35\,\sigma$) centrati in $\pm5\,\sigma$, cioè $\pm0{,}5\ \mu$m, con peso $|c_1|^2$ a sinistra. Il pulsante «Un colpo» estrae il centro $r$ da $P(r)=\int|g_r\psi|^2dx$, moltiplica per $g_r$ e rinormalizza, cioè esegue i punti 3-5 dell'algoritmo della sezione 2. Fra un colpo e l'altro $\psi$ non evolve: il laboratorio isola l'effetto dei colpi. Il cursore $N$ non cambia il colpo, cambia solo il tempo medio di attesa $1/(N\lambda)$. «Ripeti 200 volte» estrae 200 centri dallo stato iniziale e conta quante volte cadono a sinistra.</p>
+<figure class="lab"><div class="plate"><div data-lab="grw" id="lab-grw"></div></div><figcaption><b>Figura D.1</b><i class="t">Un colpo GRW su due pacchetti.</i> Il tratteggio è $|\psi|^2$ prima dei colpi, la mezzatinta è $|\psi|^2$ adesso, la riga verticale è il centro dell'ultimo colpo. Prima prevedi dove può cadere il centro con $|c_1|^2=50\%$ e se può cadere vicino a $x=0$, poi premi «Un colpo». Prima prevedi la frequenza «sinistra» su 200 ripetizioni con $|c_1|^2=30\%$, poi premi «Ripeti 200 volte».</figcaption></figure>
+<p>Compiti di previsione. Per ciascuno scrivi la previsione con un conto, poi controlla.</p>
+<ol class="steps">
+<li>Con $|c_1|^2=50\%$, il centro può cadere vicino a $x=0$? Previsione: $P(r)$ è $|\psi|^2$ sfocata di $\sigma$, e a $5\,\sigma$ dai pacchetti la gaussiana vale circa $e^{-25/2}\approx4\times10^{-6}$ del suo massimo. Il centro cade sempre su uno dei due pacchetti.</li>
+<li>Dopo un colpo che cade a destra, quanto resta del pacchetto di sinistra? Con pacchetti di larghezza $w_0$ e colpo in $r=+a$, il rapporto dei pesi è $e^{-(2a)^2/2(w_0^2+\sigma^2)}$ (si ottiene dalla $P(r)$ della gaussiana nella sezione 4). Con $a=5$, $w_0=0{,}35$: $e^{-100/2{,}245}=e^{-44{,}5}\approx5\times10^{-20}$. Nel grafico il pacchetto di sinistra sparisce del tutto.</li>
+<li>Premi di nuovo «Un colpo». Di quanto si restringe il pacchetto rimasto? Previsione dalla sezione 4: da $0{,}35\,\sigma$ a $0{,}33\,\sigma$, circa il 6 per cento; il centro si sposta di poco verso $r$, di $\frac{w_0^2}{w_0^2+\sigma^2}(r-\bar x)\approx0{,}11\,(r-\bar x)$. Un oggetto già stretto quasi non sente i colpi.</li>
+<li>Con $|c_1|^2=30\%$ e 200 ripetizioni, che frequenza ti aspetti, e con che dispersione? Il numero di esiti a sinistra è binomiale: media $0{,}30$, deviazione standard della frequenza $\sqrt{p(1-p)/n}=\sqrt{0{,}21/200}\approx0{,}032$. Circa due volte su tre leggerai un valore fra $0{,}27$ e $0{,}33$.</li>
+<li>Porta il cursore a $N=10^0$, $10^3$ e $10^{23}$. Prevedi le attese: $3{,}2\times10^{8}$ anni, $3{,}2\times10^{5}$ anni, $10^{-7}$ s.</li>
+</ol>
+
+<h2 id="s9" data-toc="Che cosa esiste: GRWm, GRWf e la non località"><span class="n">8</span>Che cosa esiste: GRWm, GRWf e la non località</h2>
+<p>GRW risolve il problema della misura, ma ne lascia aperto un altro, il problema dell'ontologia: che cosa c'è nello spazio tridimensionale secondo la teoria? $\Psi$ è una funzione su uno spazio di $3N$ dimensioni e non ha un valore in un punto dello spazio ordinario (Norsen, p. 267; Bell, art. 22, p. 216). Ci sono due proposte.</p>
+
+<h3>GRWm: una densità di massa</h3>
+<p>La prima riprende un'idea di Schrödinger: la materia è una densità di massa continua costruita da $\Psi$ (equazioni 9.34-9.35 di Norsen, p. 267):
+$$\rho_i(x,t)=m_i\int|\Psi(x_1,\dots,x_N,t)|^2\,\delta(x_i-x)\,dx_1\cdots dx_N,\qquad\rho(x,t)=\sum_i\rho_i(x,t).$$
+La delta impone $x_i=x$, quindi $\rho_i(x,t)$ è la massa $m_i$ per la distribuzione marginale della particella $i$ nel punto $x$. Per una sola particella in una dimensione è semplicemente $\rho=m|\psi|^2$. Schrödinger aveva abbandonato questa idea perché con la sola evoluzione lineare $\rho$ è un disastro: il gatto vivo e il gatto morto sono due densità sovrapposte. Con la dinamica GRW invece $\rho$ ha l'aspetto giusto, e un'eventuale sfocatura macroscopica dura una frazione di secondo (Norsen, pp. 267-268). Resta la questione delle code: come abbiamo visto nelle scatole di Einstein, il ramo perdente non va mai esattamente a zero, quindi in GRWm sopravvive una copia debolissima del gatto. Maudlin ne ricava che GRWm ha qualcosa dei molti mondi (Norsen, Project 10.13, p. 307).</p>
+
+<h3>GRWf: i flash</h3>
+<aside class="book" data-l="be" data-p="216"><div class="tag">Nei libri · Bell art. 22, §3</div><p>Bell osserva che i salti GRW sono ben localizzati, ciascuno centrato in un punto dello spazio-tempo, e li propone come i «local beables» della teoria: un pezzo di materia è una galassia di questi eventi. In questo articolo Bell parla di salti ed eventi; la parola «flash» non compare.</p></aside>
+<p>La seconda proposta è di Bell. Ogni colpo avviene in un istante $t$ ed è centrato in un punto $\mathbf x$: è un evento puntiforme dello spazio-tempo. Bell propone di considerare questi eventi come ciò che esiste nello spazio fisico, i suoi local beables (Bell, art. 22, p. 216). Norsen riporta il passo e aggiunge che nella letteratura successiva questi punti di materia sono stati chiamati flash, da cui il nome GRWf (Norsen, p. 268). Il nome quindi non è di Bell.</p>
+<p>Nella Fig. 9.7 (p. 269) Norsen disegna il puntatore secondo le due versioni. Con i flash il puntatore è quasi sempre letteralmente nulla: una sezione a tempo fissato non incontra quasi mai un flash. La materia è puntiforme alla scala microscopica e appare continua solo se si media su intervalli di tempo e di spazio. Qualche numero (le stime sono nostre, sui Projects 9.7 e 9.8 di p. 277): un puntatore di 1 g contiene circa $6\times10^{23}$ nucleoni, quindi produce $6\times10^{23}\cdot10^{-16}\approx6\times10^{7}$ flash al secondo; una singola particella in una vita di 80 anni ($2{,}5\times10^{9}$ s) lampeggia con probabilità $\lambda t\approx2{,}5\times10^{-7}$. Con il $\tau$ di Bell questi numeri sarebbero dieci volte più grandi.</p>
+
+<h3>La non località</h3>
+<p>In entrambe le versioni GRW è non locale, come richiede il teorema di Bell (Norsen, p. 268). Norsen lo mostra con due scatole di Einstein, una da Alice e una da Bob, lontane un milione di miglia, nello stato entangled (9.36) (p. 269):
+$$\psi(x_1,x_2)=\frac{1}{\sqrt2}\left[\psi^A_L(x_1)\,\psi^B_L(x_2)+\psi^A_R(x_1)\,\psi^B_R(x_2)\right].$$
+La particella 1 è da Alice (metà sinistra $L$ o destra $R$ della sua scatola), la 2 da Bob.</p>
+<ol class="steps">
+<li>Prima di tutto, la densità di massa da Alice. Integrando $|\psi|^2$ su $x_2$, i termini misti contengono $\psi^{B*}_L\psi^B_R$, che è zero perché le due metà della scatola di Bob non si sovrappongono. Resta $\rho_A(x)=\frac m2\left[|\psi^A_L(x)|^2+|\psi^A_R(x)|^2\right]$: mezza massa in ciascuna metà.</li>
+<li>Bob apre la sua scatola e fa scattare un rivelatore. Un colpo su una particella del suo puntatore, entangled con la particella 2, sceglie per esempio il ramo $L$. Come nella sezione 6, lo stato diventa $\psi^A_L(x_1)\,\psi^B_L(x_2)$ (insieme al puntatore).</li>
+<li>Nello stesso istante la densità da Alice diventa $\rho_A(x)=m|\psi^A_L(x)|^2$: tutta la massa nella metà sinistra, a un milione di miglia dal colpo (Fig. 9.8, p. 270).</li>
+</ol>
+<p>In GRWf l'effetto riguarda la probabilità dei flash. Norsen riscrive lo stesso stato come (9.37) e osserva che c'è una probabilità piccolissima, ma non nulla, di un flash della particella di Alice nella metà $L_A$ entro il prossimo minuto. Se Bob misura la posizione della sua particella, questa probabilità raddoppia (se Bob la trova a sinistra) oppure si annulla (se la trova a destra), anche condizionando su tutto ciò che sta nel passato di Alice, compreso il fatto che finora non ci sono stati flash (p. 271). In formule, e questo conto è nostro: per un intervallo breve $\Delta t$ la probabilità è $\lambda\,\Delta t\cdot\frac12$ prima della misura di Bob, perché la particella è in $L_A$ con peso $\frac12$, e diventa $\lambda\,\Delta t\cdot1$ oppure $\lambda\,\Delta t\cdot0$ dopo. Bell descrive la stessa situazione con una coppia di neutroni nello stato di singoletto: i salti dal lato del primo rivelatore decidono anche l'altro lato, e GRW rende precisa l'azione a distanza già contenuta nel collasso ordinario (Bell, art. 22, pp. 216-217).</p>
+
+<h3>Nessun segnale: il Project 9.6 svolto</h3>
+<p>Il collasso istantaneo a distanza permette di mandare messaggi? No. Alice non sa distinguere un collasso causato da Bob da uno causato dai colpi sul suo stesso lato (Norsen, p. 270). Il Project 9.6 (pp. 276-277) lo trasforma in un conto, e spiega anche perché si usa $P(r)=N(r)^2$ e non $|\psi(r)|^2$. Due particelle entangled; la particella 1 subisce un colpo in $x_1=r$. Dobbiamo mostrare che la distribuzione della particella 2, mediata su tutti i centri possibili, non cambia. La soluzione non è nel libro; eccola.</p>
+<ol class="steps">
+<li>Prima del colpo la marginale della particella 2 è la (9.38): $P(x_2,t^-)=\int|\psi(x_1,x_2,t^-)|^2\,dx_1$.</li>
+<li>Dopo un colpo in $r$, lo stato è $\psi(t^+)=g_r(x_1)\psi(t^-)/N(r)$. La marginale mediata su $r$ con il peso $P(r)$ è la (9.39):
+$$P(x_2,t^+)=\int\!\!\int|\psi(x_1,x_2,t^+)|^2\,P(r)\,dx_1\,dr=\int\!\!\int\frac{g_r(x_1)^2\,|\psi(x_1,x_2,t^-)|^2}{N(r)^2}\,N(r)^2\,dx_1\,dr .$$</li>
+<li>Con $P(r)=N(r)^2$ i due fattori $N(r)^2$ si cancellano.</li>
+<li>Scambiando le integrazioni resta $\int|\psi(x_1,x_2,t^-)|^2\left[\int g_r(x_1)^2\,dr\right]dx_1$, e la parentesi vale 1 come nella sezione 3. Quindi $P(x_2,t^+)=P(x_2,t^-)$.</li>
+</ol>
+<p>Se invece si usasse $P(r)=|\psi(r)|^2$, o la marginale di 1 calcolata in $r$, al posto di $N(r)^2$ resterebbe nell'integrale il rapporto fra questa funzione e $N(r)^2$, che in generale non vale 1. La media della distribuzione di 2 dipenderebbe allora dal fatto che la particella 1 sia stata colpita o no. E Alice può decidere quanto spesso la particella 1 viene colpita: le basta accoppiarla a un grosso puntatore, che porta il tasso da $\lambda$ a $N\lambda$. Bob potrebbe leggere nelle sue statistiche la scelta di Alice, cioè ricevere un segnale istantaneo. Questo argomento sul ruolo di Alice è nostro; il libro chiede solo il conto.</p>
+<aside class="book" data-l="be" data-p="223"><div class="tag">Nei libri · Bell art. 22, appendice</div><p>Bell dimostra in generale che la statistica dei salti in un sottosistema dipende solo dalla parte dello stato che lo riguarda (la sua matrice densità ridotta, eqq. A.24-A.25), e non da ciò che accade nell'altro: quindi niente segnali (pp. 219 e 223). Il Project 9.6 è il caso più semplice di questo risultato.</p></aside>
+<p>Una parola sulla relatività. Essendo intrinsecamente casuali, le teorie a collasso sembrano andare d'accordo con la relatività meglio dell'onda pilota, che è deterministica. Esistono versioni relativistiche di GRWf (Tumulka, 2006) e di GRWm (Bedingham e altri, 2014), e la questione è ancora discussa (Norsen, pp. 271-272). Nell'articolo 22 Bell non costruisce una versione relativistica: mostra che il modello non relativistico conserva un residuo dell'invarianza di Lorentz, l'invarianza per traslazione del tempo relativo di due sistemi lontani, e ne conclude che GRW è invariante per Lorentz quanto lo può essere una teoria non relativistica (Bell, art. 22, pp. 218-220).</p>
+
+<h2 id="s10" data-toc="Si può mettere alla prova: test empirici e CSL"><span class="n">9</span>Si può mettere alla prova: test empirici e CSL</h2>
+<aside class="book" data-l="no" data-p="272"><div class="tag">Nei libri · Norsen §9.4</div><p>Fissate una scala di lunghezza $\sigma$ e una di tempo $\tau$, le teorie a collasso prevedono deviazioni dalla meccanica quantistica ordinaria, quindi sono falsificabili. Il libro passa in rassegna interferenza, riscaldamento, raggi X e il diagramma dei parametri.</p></aside>
+<p>A differenza delle interpretazioni che lasciano intatte tutte le previsioni, GRW cambia la fisica. Le differenze sono minuscole, ma si possono cercare.</p>
+
+<h3>Interferenza con oggetti sempre più grandi</h3>
+<p>Le frange spariscono se le due componenti restano separate più di $\sigma$ per un tempo più lungo dell'attesa media di un colpo. Con singoli neutroni la sovrapposizione dura una frazione di secondo, e il vincolo che si ricava è solo $\lambda\ll1\ \mathrm{s^{-1}}$: sedici ordini di grandezza sopra il valore di GRW, quindi inutile (Norsen, pp. 272-273). Il tasso efficace però è $N\lambda$. Nel 1999 il gruppo di Arndt e Zeilinger a Vienna ha osservato l'interferenza di molecole di fullerene C<sub>60</sub>: 60 atomi di carbonio, ciascuno con 12 nucleoni e 6 elettroni, fanno circa 1000 particelle, e il vincolo si avvicina di circa tre ordini di grandezza (p. 273). Per un tempo di volo dell'ordine del millisecondo (stima nostra) la probabilità di un colpo su una molecola è ancora $10^{3}\cdot10^{-16}\cdot10^{-3}=10^{-16}$.</p>
+
+<h3>Riscaldamento: quanta energia porta un colpo</h3>
+<p>Un colpo stringe la funzione d'onda, e una funzione d'onda più stretta contiene componenti di Fourier a impulso più alto, quindi più energia cinetica. Ne seguono un riscaldamento anomalo dei sistemi isolati e un'emissione spontanea di particelle energetiche (p. 273). Il libro si ferma qui e lascia il conto al Project 9.9 (p. 277). Questo conto non è nel libro: è una nostra stima.</p>
+<ol class="steps">
+<li>Calcoliamo l'aumento medio di $\langle p^2\rangle$ in un colpo, per una $\psi$ qualunque. Dopo un colpo in $r$ si ha $\langle p^2\rangle_r=\hbar^2\int\left|\partial_x(g_r\psi)\right|^2dx/N(r)^2$. Mediando su $r$ con peso $P(r)=N(r)^2$ i fattori $N(r)^2$ si cancellano, come nel Project 9.6: $\overline{\langle p^2\rangle}=\hbar^2\int dr\int|g_r'\psi+g_r\psi'|^2dx$, dove l'apice indica $\partial_x$.</li>
+<li>Sviluppando il modulo quadro ($g_r$ è reale) si hanno tre termini: $g_r'^2|\psi|^2$, $g_r^2|\psi'|^2$ e $g_rg_r'\,(\psi^*\psi'+\psi\psi'^*)$.</li>
+<li>Integriamo ciascuno in $r$. Il secondo: $\int g_r^2dr=1$, e resta $\int|\psi'|^2dx$, cioè il $\langle p^2\rangle/\hbar^2$ di prima. Il terzo: $g_rg_r'=\frac12\partial_x(g_r^2)$, e $\int\partial_x(g_r^2)\,dr=\partial_x\int g_r^2\,dr=\partial_x1=0$. Il primo: $g_r'=-\frac{x-r}{2\sigma^2}\,g_r$, quindi $\int g_r'^2dr=\frac{1}{4\sigma^4}\int(x-r)^2g_r^2\,dr=\frac{\sigma^2}{4\sigma^4}=\frac{1}{4\sigma^2}$, perché $g_r^2$ ha varianza $\sigma^2$.</li>
+<li>Risultato esatto: in media ogni colpo aumenta $\langle p^2\rangle$ di $\hbar^2/4\sigma^2$, quindi l'energia cinetica di
+$$\Delta E=\frac{\hbar^2}{8m\sigma^2}\qquad\text{per ogni direzione}.$$
+In tre dimensioni il risultato va moltiplicato per 3. Nella convenzione di Bell, con $\sigma^2=a^2/2$, si scrive $\hbar^2/4ma^2$.</li>
+<li>Numeri per un elettrone, con $\sigma=10^{-7}$ m: $\hbar^2=1{,}11\times10^{-68}\ \mathrm{J^2s^2}$, $8m_e\sigma^2=7{,}3\times10^{-44}\ \mathrm{kg\,m^2}$, quindi $\Delta E\approx1{,}5\times10^{-25}$ J $\approx10^{-6}$ eV per colpo. La potenza media è $\lambda\Delta E\approx1{,}5\times10^{-41}$ W per elettrone.</li>
+<li>Con una capacità termica di circa $\frac32k_B$ per particella (stima grezza), $dT/dt\sim\frac23\lambda\Delta E/k_B\approx7\times10^{-19}$ K/s, cioè circa $2\times10^{-11}$ K all'anno. In laboratorio non si vede; servono sistemi enormi, freddi e isolati, come il gas fra le galassie.</li>
+</ol>
+<p>Per un nucleone $\Delta E$ è 1836 volte più piccolo. Se il tasso fosse proporzionale alla massa, come suggerisce il Project 9.5, il prodotto $\lambda\,\Delta E$ sarebbe lo stesso per tutte le specie di particelle, e i colpi cadrebbero soprattutto sui nucleoni.</p>
+
+<h3>Raggi X e il diagramma dei parametri</h3>
+<p>Gli stessi colpi agiscono sugli elettroni legati negli atomi e possono dare loro impulsi di energia alta; per questo si cerca un'emissione spontanea di raggi X che la meccanica quantistica ordinaria non prevede (Norsen, p. 273, senza conti). Feldmann e Tumulka (2012) hanno riunito tutti i vincoli in un diagramma nel piano $(\sigma,\lambda)$, riprodotto da Norsen nella Fig. 9.9 (p. 274).</p>
+<div class="tbl"><table><thead><tr><th>Vincolo nella Fig. 9.9</th><th>Che cosa si osserva</th></tr></thead><tbody>
+<tr><td>I</td><td>emissione spontanea di raggi X</td></tr>
+<tr><td>II</td><td>riscaldamento del mezzo intergalattico</td></tr>
+<tr><td>III</td><td>riscaldamento dell'aria</td></tr>
+<tr><td>IV</td><td>decadimento delle supercorrenti</td></tr>
+<tr><td>V</td><td>esperimenti di diffrazione e interferenza</td></tr>
+</tbody></table></div>
+<p>Nel diagramma ci sono due punti di riferimento, i valori di GRW e quelli proposti da Adler. I vincoli più forti vengono da sistemi con moltissime particelle, come il mezzo intergalattico, non dall'interferenza. Tutti escludono la zona in alto a sinistra, con $\lambda$ grande e $\sigma$ piccolo, che Feldmann e Tumulka chiamano regione empiricamente confutata (ERR). Dal lato opposto c'è un vincolo di tipo diverso: gli oggetti macroscopici non devono restare sfocati oltre circa 1 mm per tempi che percepiamo, e questo esclude $\lambda$ troppo piccolo e $\sigma$ troppo grande. È la regione che Feldmann e Tumulka chiamano filosoficamente insoddisfacente e Norsen preferisce chiamare percettivamente insoddisfacente (PUR) (Fig. 9.10, p. 275; testo alle pp. 273-274). La regione esclusa dagli esperimenti avanza nel tempo, e secondo Norsen fra due o tre decenni si potrebbero sondare i valori di GRW (Fig. 9.11, p. 275). Un esempio del vincolo percettivo, dal Project 9.12 (p. 278, stima nostra): un carattere d'inchiostro contiene circa $10^{18}$ nucleoni, cioè $10^{18}\cdot10^{-16}=100$ flash al secondo, circa 3 per fotogramma a 30 fotogrammi al secondo. Troppo pochi per disegnare una lettera, se la materia sono i flash.</p>
+
+<h3>Un cenno a CSL</h3>
+<p>Nella localizzazione spontanea continua (CSL), proposta da Pearle, la localizzazione non avviene a colpi isolati: agisce di continuo, nello stesso tempo dell'evoluzione di Schrödinger (Norsen, p. 254). Questo toglie la sensazione di due leggi alternate, che era l'obiezione della sezione 1, e GRW resta la sua semplificazione didattica. Per farsi un'idea, e qui il cenno è nostro perché i due libri non scrivono le equazioni di CSL, si può pensare a colpi sempre più deboli e sempre più frequenti: al limite la funzione d'onda segue un'equazione stocastica continua, che produce le stesse conseguenze qualitative (un oggetto con molte particelle si localizza in fretta, la frequenza degli esiti è quella di Born, l'energia cresce lentamente). I vincoli sperimentali della Fig. 9.9 si applicano anche a CSL, con i suoi parametri.</p>
+
+<div class="check">
+  <h2 id="s11" data-toc="Per verificare di aver capito">Per verificare di aver capito</h2>
+  <p><b>1.</b> Una particella ha $\psi(x)\propto e^{-x^2/4w_0^2}$ con $w_0=\sigma$. Subisce un colpo centrato in $r=\sigma$. Quanto è larga la nuova gaussiana e dove è centrata? Con quale deviazione standard è distribuito il centro dei colpi?</p>
+  <p><b>2.</b> Un puntatore di 1 g (contate solo i nucleoni, circa $6\times10^{23}$) entra in una sovrapposizione di due posizioni distanti 1 mm. (a) Qual è l'attesa media del primo colpo con i numeri di Norsen e con quelli di Bell? (b) Con i numeri di Norsen, qual è la probabilità che la sovrapposizione sia ancora indecisa dopo 1 µs? (c) Quanta energia cinetica porta in media un colpo su un nucleone, per direzione?</p>
+  <p><b>Soluzioni in breve.</b> 1. Dalla sezione 4: $1/w^2=1/\sigma^2+1/\sigma^2$, quindi $w=\sigma/\sqrt2\approx0{,}71\,\sigma$; $x_c=\frac{\sigma^2}{2\sigma^2}\,r=r/2=\sigma/2$; il centro ha varianza $w_0^2+\sigma^2=2\sigma^2$, cioè deviazione standard $\sqrt2\,\sigma$. 2. (a) $N\lambda=6\times10^{23}\cdot10^{-16}=6\times10^{7}\ \mathrm{s^{-1}}$, attesa $1{,}7\times10^{-8}$ s; con Bell $N/\tau=6\times10^{8}\ \mathrm{s^{-1}}$, attesa $1{,}7\times10^{-9}$ s. (b) $1$ mm $\gg\sigma$, quindi basta un colpo: $S=e^{-N\lambda t}=e^{-60}\approx10^{-26}$. (c) $\Delta E=\hbar^2/8m_p\sigma^2=1{,}5\times10^{-25}\ \mathrm{J}/1836\approx8\times10^{-29}$ J $\approx5\times10^{-10}$ eV.</p>
+</div>
+<nav class="pager"><a href="oltre-bell.html"><small>← Indietro</small>Oltre Copenhagen · Il teorema di Bell</a><a class="next" href="oltre-molti-mondi.html"><small>Avanti →</small>Oltre Copenhagen · I molti mondi</a></nav></article></div></div></body></html>

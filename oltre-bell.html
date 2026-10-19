@@ -1,0 +1,518 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Il teorema di Bell · Oltre Copenhagen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="style.css"><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]},svg:{fontCache:"global"}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script><script src="labs.js" defer></script></head><body><header class="bar"><div class="bar-in"><a class="brand" href="index.html">Meccanica <span>Quantistica</span></a><nav class="nav" aria-label="Pagine"><a href="index.html">Home</a><a href="postulati.html">Lezione 1 · Postulati</a><a href="rappresentazioni.html">Lezione 2 · Rappresentazioni</a><a href="evoluzione.html">Lezione 3 · Evoluzione</a><a href="oltre-problemi.html" aria-current="page">Oltre Copenhagen</a><a href="linea.html">Linea temporale</a></nav></div></header><div class="wrap"><div class="layout"><aside class="toc" aria-label="Indice"><h2>In questa lezione</h2><ol></ol></aside><article><details class="toc-mobile"><summary>Indice della lezione</summary><ol></ol></details><p class="kicker"><b class="par">Oltre Copenhagen · C</b> · percorso parallelo con Norsen e Bell</p><h1 class="ht-shadow" data-t="Il teorema di Bell">Il teorema di Bell</h1><p class="lead">Dalla domanda di EPR a una disuguaglianza che la natura viola: che cosa si dimostra, con quali ipotesi, e che cosa resta a ciascuna interpretazione.</p>
+<h2 id="s1" data-toc="La mappa di questa parte">La mappa di questa parte</h2>
+<p>Immagina una sorgente che emette coppie di fotoni in direzioni opposte. A molti metri di distanza, da una parte Alice e dall'altra Bob mettono ciascuno un polarizzatore, con l'asse a un angolo che scelgono all'ultimo istante, e annotano per ogni fotone se passa o viene assorbito. Quando i due angoli sono uguali succede una cosa notevole: i due fotoni della stessa coppia si comportano sempre allo stesso modo. Se uno passa, passa anche l'altro; se uno viene assorbito, anche l'altro.</p>
+<p>Come fanno a mettersi d'accordo? Le risposte possibili sono due. La prima è che la risposta fosse scritta nei fotoni fin dalla partenza, come il colore dei calzini che un amico di Bell, il dottor Bertlmann, sceglieva ogni mattina diversi: se vedi che il sinistro è rosa sai che il destro non lo è, e nessuno pensa che qualcosa sia volato da un piede all'altro. La seconda è che la misura di Alice agisca a distanza sul fotone di Bob. Einstein, Podolsky e Rosen (EPR, 1935) scartarono la seconda perché viola la località, e ne conclusero che la meccanica quantistica, che non contiene risposte scritte in anticipo, è incompleta.</p>
+<p>Nel 1964 John Bell prese sul serio la prima risposta e ne ricavò una conseguenza controllabile. Se ogni fotone porta una risposta già fissata per ogni angolo, le statistiche raccolte con angoli diversi devono rispettare una disuguaglianza. La meccanica quantistica prevede che la disuguaglianza sia violata, e gli esperimenti, dal 1982 al 2015, danno ragione alla meccanica quantistica. Allora cade anche la prima risposta, e con essa la località da cui EPR l'avevano dedotta.</p>
+<p>Questa epoca riguarda tutte le interpretazioni, per un motivo preciso. Le ipotesi del teorema non usano il formalismo quantistico: parlano solo di probabilità di esiti, di impostazioni scelte liberamente e di che cosa può influenzare che cosa. Il teorema è quindi un vincolo su qualunque teoria che voglia riprodurre i dati, compresa quella che non è ancora stata inventata. Ogni interpretazione che incontri nel percorso deve dire quale ipotesi abbandona.</p>
+
+<div class="map">
+  <div class="row c1"><div class="box f"><b>EPR nella versione di Bohm</b>Su assi uguali gli esiti sono perfettamente correlati.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c2"><div class="box r"><b>Località</b>La misura di Alice non tocca il fotone di Bob.</div><div class="box c"><b>Valori predeterminati</b>Dedotti, non assunti: ogni fotone porta una risposta per ogni angolo.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c1"><div class="box p"><b>Disuguaglianze di Bell e CHSH</b>Ogni teoria localmente causale dà $|S|\le 2$.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c2"><div class="box f"><b>Meccanica quantistica</b>$S=2\sqrt2\approx2{,}83$ con gli angoli giusti.</div><div class="box f"><b>Esperimenti 1982-2015</b>$S\approx2{,}7$, scappatoie chiuse nel 2015.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c1"><div class="box c"><b>Teorema di località</b>Nessuna teoria localmente causale, con impostazioni libere, riproduce i dati.</div></div>
+</div>
+
+<p>Il percorso della pagina è questo. Nella sezione 1 ripassiamo quel tanto di stati a due particelle che serve. Nella 2 rifacciamo l'argomento di EPR e mostriamo che il determinismo ne è una conseguenza. Nella 3 calcoliamo la correlazione quantistica. Nelle sezioni 4 e 5 ricaviamo due disuguaglianze dal modello a valori predeterminati, nella 6 la disuguaglianza CHSH dalla sola località, nella 7 il massimo quantistico. Seguono il laboratorio, gli esperimenti e, nella sezione 10, la discussione di che cosa significhi tutto questo per le diverse interpretazioni.</p>
+
+<h2 id="s2" data-toc="Due sistemi: ripasso lampo"><span class="n">1</span>Due sistemi: ripasso lampo</h2>
+<p>Tutto il teorema di Bell parla di coppie: due fotoni, oppure due particelle di spin 1/2, che partono da una sorgente comune e vengono misurati lontano l'uno dall'altro. A lezione non avete ancora fatto gli stati a più particelle, quindi raccolgo qui il minimo indispensabile. Bastano gli strumenti che conosci già: basi ortonormali, proiettori, decomposizione spettrale e regola di Born.</p>
+
+<div class="note"><p><b>Ripasso lampo: lo spazio di due sistemi.</b> Il fotone 1 ha la base $\{|H\rangle_1,|V\rangle_1\}$, il fotone 2 un'altra copia della stessa base. Lo spazio degli stati della coppia si chiama prodotto tensoriale e si scrive $\mathcal H_1\otimes\mathcal H_2$. Una sua base ortonormale è formata dai quattro prodotti
+$$|HH\rangle\equiv|H\rangle_1\otimes|H\rangle_2,\qquad |HV\rangle,\qquad |VH\rangle,\qquad |VV\rangle,$$
+dove la prima lettera si riferisce sempre al fotone 1. La dimensione è $2\times2=4$, e lo stato più generale è $|\Psi\rangle=\sum_{i,j}c_{ij}\,|ij\rangle$ con $\sum_{i,j}|c_{ij}|^2=1$. Le regole di calcolo sono tre.</p>
+<ol>
+<li>Il prodotto $\otimes$ è lineare in ciascun fattore, per esempio $(a|H\rangle+b|V\rangle)\otimes|H\rangle=a|HH\rangle+b|VH\rangle$.</li>
+<li>Il prodotto scalare si fattorizza: $(\langle\phi_1|\otimes\langle\phi_2|)(|\chi_1\rangle\otimes|\chi_2\rangle)=\langle\phi_1|\chi_1\rangle\,\langle\phi_2|\chi_2\rangle$. Per questo i quattro prodotti di base sono ortonormali.</li>
+<li>Un operatore che agisce solo sul fotone 1 si scrive $A\otimes\mathbb 1$, e in generale $(A\otimes B)(|\chi_1\rangle\otimes|\chi_2\rangle)=A|\chi_1\rangle\otimes B|\chi_2\rangle$.</li>
+</ol>
+<p>La regola di Born diventa congiunta. La probabilità che il fotone 1 dia l'esito associato a $|\phi_1\rangle$ e il fotone 2 quello associato a $|\phi_2\rangle$ è $\big|(\langle\phi_1|\otimes\langle\phi_2|)\,|\Psi\rangle\big|^2$, cioè il modulo quadro del coefficiente di $|\phi_1\phi_2\rangle$ quando lo stato è scritto nella base dei due esiti. Il proiettore di questa domanda sì/no congiunta è $|\phi_1\rangle\langle\phi_1|\otimes|\phi_2\rangle\langle\phi_2|$, costruito come i proiettori della tappa «Proiettori: domande sì/no».</p></div>
+
+<div class="note"><p><b>Ripasso lampo: entanglement.</b> Uno stato della coppia si dice prodotto se si può scrivere come $|\chi_1\rangle\otimes|\chi_2\rangle$; in quel caso ciascun fotone ha un suo stato. Se non si può, lo stato si dice entangled (intrecciato), e i singoli fotoni non hanno uno stato proprio (Norsen, p. 65). C'è un test semplice. Sviluppiamo un prodotto generico con la regola 1:
+$$(a|H\rangle+b|V\rangle)\otimes(c|H\rangle+d|V\rangle)=ac\,|HH\rangle+ad\,|HV\rangle+bc\,|VH\rangle+bd\,|VV\rangle .$$
+I coefficienti formano la matrice $\begin{pmatrix}ac&amp;ad\\ bc&amp;bd\end{pmatrix}$, il cui determinante è $ac\,bd-ad\,bc=0$. Ne segue che, se la matrice dei coefficienti $c_{ij}$ di uno stato ha determinante diverso da zero, quello stato non è un prodotto. Vale anche il contrario, ma non ci servirà.</p></div>
+
+<aside class="book" data-l="no" data-p="65"><div class="tag">Nei libri · Norsen §2.6</div><p>Norsen non usa né il simbolo $\otimes$ né i ket: scrive i prodotti affiancati, $\psi^1_{+z}\psi^2_{-z}$, oppure come colonne con il pedice della particella. Le scritture in notazione di Dirac di questa pagina sono una traduzione nostra.</p></aside>
+
+<h3>I fotoni e il polarizzatore</h3>
+<p>Lo stato delle coppie di fotoni di questa pagina è
+$$|\Phi^+\rangle=\frac{1}{\sqrt2}\big(|HH\rangle+|VV\rangle\big).$$
+La sua matrice dei coefficienti è $\frac1{\sqrt2}\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}$, con determinante $\tfrac12\neq0$: lo stato è entangled. A parole: i due fotoni sono entrambi orizzontali oppure entrambi verticali, con probabilità $\tfrac12$ ciascuno, ma nessuno dei due ha una polarizzazione sua. Questo stato non compare nel Norsen, che parla dei fotoni di Aspect solo a parole (p. 235); lo scriviamo noi perché è quello del laboratorio.</p>
+<p>Un polarizzatore con l'asse all'angolo $\alpha$ lascia passare lo stato
+$$|\alpha\rangle=\cos\alpha\,|H\rangle+\sin\alpha\,|V\rangle$$
+e assorbe lo stato ortogonale $|\alpha_\perp\rangle=-\sin\alpha\,|H\rangle+\cos\alpha\,|V\rangle$. Associamo l'esito $+1$ al passaggio e $-1$ all'assorbimento. Per la decomposizione spettrale (tappa «Decomposizione spettrale») l'osservabile che corrisponde a questa misura è
+$$\Pi_\alpha=(+1)\,|\alpha\rangle\langle\alpha|+(-1)\,|\alpha_\perp\rangle\langle\alpha_\perp| .$$
+Scriviamola come matrice nella base $\{|H\rangle,|V\rangle\}$, con $c=\cos\alpha$ e $s=\sin\alpha$.</p>
+<ol class="steps">
+<li>Il proiettore sul passaggio è la colonna $(c,s)^T$ per la riga $(c,s)$: $|\alpha\rangle\langle\alpha|=\begin{pmatrix}c^2&amp;cs\\ cs&amp;s^2\end{pmatrix}$.</li>
+<li>Allo stesso modo, con la colonna $(-s,c)^T$: $|\alpha_\perp\rangle\langle\alpha_\perp|=\begin{pmatrix}s^2&amp;-cs\\ -cs&amp;c^2\end{pmatrix}$.</li>
+<li>Sottraendo e usando $c^2-s^2=\cos2\alpha$ e $2cs=\sin2\alpha$:
+$$\Pi_\alpha=\begin{pmatrix}\cos2\alpha&amp;\sin2\alpha\\ \sin2\alpha&amp;-\cos2\alpha\end{pmatrix}.$$</li>
+<li>Controlli. La somma dei due proiettori è $\mathbb 1$ (completezza), quindi $\Pi_\alpha^2=|\alpha\rangle\langle\alpha|+|\alpha_\perp\rangle\langle\alpha_\perp|=\mathbb 1$, come deve essere per un'osservabile con autovalori $\pm1$. Inoltre ruotare il polarizzatore di $90^\circ$ scambia passaggio e assorbimento: $\Pi_{\alpha+90^\circ}=-\Pi_\alpha$, perché $\cos2\alpha$ e $\sin2\alpha$ cambiano segno.</li>
+</ol>
+<p>Per un singolo fotone nello stato $|\theta\rangle$ la probabilità di passare è $|\langle\alpha|\theta\rangle|^2=\cos^2(\alpha-\theta)$: è la legge di Malus che conosci.</p>
+
+<div class="note"><p><b>Ripasso lampo: lo spin 1/2.</b> Una misura di spin lungo un asse, fatta con un magnete di Stern-Gerlach, ha due soli esiti, su o giù, che indichiamo con $\pm1$ (in unità di $\hbar/2$). Gli stati vivono in $\mathbb C^2$ con base $\psi_{+z}=(1,0)^T$ e $\psi_{-z}=(0,1)^T$ (Norsen, p. 62). Per un asse $\hat n$ nel piano $x$-$z$, inclinato di un angolo $\theta$ rispetto a $\hat z$, l'osservabile è (Norsen, eq. 2.66, p. 63)
+$$\hat\sigma_n=\cos\theta\,\hat\sigma_z+\sin\theta\,\hat\sigma_x=\begin{pmatrix}\cos\theta&amp;\sin\theta\\ \sin\theta&amp;-\cos\theta\end{pmatrix},$$
+con autovettori $\psi_{+n}=\big(\cos\tfrac\theta2,\ \sin\tfrac\theta2\big)^T$ per l'autovalore $+1$ e $\psi_{-n}=\big(\sin\tfrac\theta2,\ -\cos\tfrac\theta2\big)^T$ per l'autovalore $-1$ (eq. 2.67-2.68). Confronta $\hat\sigma_n$ con $\Pi_\alpha$: è la stessa matrice con $\theta=2\alpha$. Il dizionario tra i due sistemi è quindi
+$$|{+z}\rangle\leftrightarrow|H\rangle,\qquad|{-z}\rangle\leftrightarrow|V\rangle,\qquad\theta_{\rm spin}=2\,\alpha_{\rm pol}.$$
+Il motivo fisico è che per lo spin due stati opposti (su e giù) distano $180^\circ$, mentre per la polarizzazione due stati ortogonali (H e V) distano $90^\circ$ (Norsen, p. 235). Questo fattore 2 ci accompagnerà per tutta la pagina.</p></div>
+
+<h3>Il singoletto</h3>
+<p>La versione con lo spin, quella di Bohm e di Bell, usa due particelle di spin 1/2 nello stato di singoletto
+$$|\psi_s\rangle=\frac{1}{\sqrt2}\big(|{+z},{-z}\rangle-|{-z},{+z}\rangle\big),$$
+che Norsen scrive $\psi_s=\frac1{\sqrt2}\big(\psi^1_{+z}\psi^2_{-z}-\psi^1_{-z}\psi^2_{+z}\big)$ (eq. 2.78, p. 67; eq. 4.10, p. 117; eq. 8.1, p. 223). La matrice dei coefficienti è $\frac1{\sqrt2}\begin{pmatrix}0&amp;1\\-1&amp;0\end{pmatrix}$, con determinante $\tfrac12$: anche questo stato è entangled. Misurando entrambe le particelle lungo $z$, ciascun esito ha probabilità $\tfrac12$, ma i due esiti sono opposti con certezza. Il segno meno conta: con il segno più si avrebbe uno stato del tripletto, che non ha spin totale nullo (Norsen, pp. 117-118).</p>
+
+<h3>Lo stesso stato in ogni base</h3>
+<p>La proprietà che rende questi stati speciali è che hanno la stessa forma in qualunque base ruotata. Verifichiamolo per i fotoni. Con $c=\cos\alpha$, $s=\sin\alpha$:</p>
+<ol class="steps">
+<li>$|\alpha\rangle\otimes|\alpha\rangle=(c|H\rangle+s|V\rangle)\otimes(c|H\rangle+s|V\rangle)=c^2|HH\rangle+cs|HV\rangle+sc|VH\rangle+s^2|VV\rangle$, per la linearità.</li>
+<li>$|\alpha_\perp\rangle\otimes|\alpha_\perp\rangle=(-s|H\rangle+c|V\rangle)\otimes(-s|H\rangle+c|V\rangle)=s^2|HH\rangle-sc|HV\rangle-cs|VH\rangle+c^2|VV\rangle$.</li>
+<li>Sommando, i termini misti si cancellano e $c^2+s^2=1$:
+$$|\alpha\alpha\rangle+|\alpha_\perp\alpha_\perp\rangle=|HH\rangle+|VV\rangle .$$</li>
+<li>Quindi, per ogni angolo $\alpha$,
+$$|\Phi^+\rangle=\frac1{\sqrt2}\big(|\alpha\alpha\rangle+|\alpha_\perp\alpha_\perp\rangle\big).$$</li>
+</ol>
+<p>Per il singoletto vale l'analogo con un asse $\hat n$ qualsiasi (Norsen, eq. 8.5, p. 226): $|\psi_s\rangle=\frac1{\sqrt2}\big(|{+n},{-n}\rangle-|{-n},{+n}\rangle\big)$. Il conto è lo stesso, con gli autovettori della nota sullo spin al posto di $|\alpha\rangle$ e $|\alpha_\perp\rangle$.</p>
+
+<aside class="book" data-l="no" data-p="224"><div class="tag">Nei libri · Norsen §8.1</div><p>Norsen riscrive il singoletto nella base $x$ (eq. 8.3) e poi per un asse qualsiasi (eq. 8.5, p. 226). Rifacendo il conto si trova la stessa forma moltiplicata per $-1$. È una fase globale e non cambia nessuna probabilità, ma se ti esce quel segno non hai sbagliato.</p></aside>
+
+<h2 id="s3" data-toc="EPRB rivisitato: il determinismo dedotto"><span class="n">2</span>EPRB rivisitato: il determinismo dedotto</h2>
+<p>Torniamo ai calzini del dottor Bertlmann (Bell, art. 16, p. 150). Che il calzino destro non sia rosa lo sai guardando il sinistro, e nessuno pensa che guardare il sinistro abbia cambiato il destro: il colore di entrambi era stato deciso al mattino. La domanda di EPR, nella versione con due particelle dovuta a Bohm (EPRB), è se le correlazioni quantistiche siano dello stesso tipo.</p>
+
+<h3>Le correlazioni perfette</h3>
+<p>Dall'ultima formula della sezione 1 si leggono subito le probabilità quando Alice e Bob usano lo stesso angolo $\alpha$. Nella base $\{|\alpha\rangle,|\alpha_\perp\rangle\}$ lo stato $|\Phi^+\rangle$ contiene solo $|\alpha\alpha\rangle$ e $|\alpha_\perp\alpha_\perp\rangle$, con coefficienti $\frac1{\sqrt2}$. Quindi
+$$P(+,+)=P(-,-)=\tfrac12,\qquad P(+,-)=P(-,+)=0 .$$
+Gli esiti sono sempre uguali, qualunque sia l'angolo comune. Per il singoletto, con la (8.5), gli esiti lungo un asse comune sono sempre opposti.</p>
+
+<h3>L'argomento a parole</h3>
+<p>Ecco il ragionamento come lo ricostruisce Norsen (pp. 223-224), in cinque passi.</p>
+<ol class="steps">
+<li>Alice e Bob sono lontani e le loro misure sono eventi a separazione di tipo spazio, cioè nessun segnale che viaggi alla velocità della luce o più piano può collegarle.</li>
+<li>Alice misura all'angolo $\alpha$ e trova $+1$. Da quel momento sa con certezza che Bob, se misura allo stesso angolo, troverà $+1$.</li>
+<li>Per la località, la misura di Alice non può aver cambiato lo stato fisico del fotone di Bob. Quindi il fotone di Bob doveva avere già prima una proprietà che fissava l'esito «passa a $\alpha$». È il criterio di realtà di EPR: se si può prevedere con certezza un valore senza disturbare il sistema, a quel valore corrisponde qualcosa di reale (Norsen, pp. 107-108).</li>
+<li>Alice poteva scegliere qualunque angolo, anche all'ultimo istante. Quindi il fotone di Bob deve portare una risposta già fissata per ogni angolo. Per simmetria vale lo stesso per il fotone di Alice.</li>
+<li>L'obiezione di Bohr, secondo cui si può misurare un solo angolo per volta, non blocca l'inferenza. Far dipendere l'esistenza della proprietà del fotone lontano da quale angolo Alice sceglie di misurare sarebbe già una forma di nonlocalità (Norsen, p. 224).</li>
+</ol>
+<p>La conclusione è che il determinismo, cioè l'esistenza di risposte predeterminate, compare in EPR come conseguenza della località più le correlazioni perfette, senza essere assunto. Bell lo ripete più volte (art. 2, pp. 25-26; art. 16, p. 154), e Norsen ne fa il punto centrale della sua lettura (pp. 120 e 243).</p>
+
+<aside class="book" data-l="no" data-p="120"><div class="tag">Nei libri · Norsen §4.5</div><p>Norsen riporta la ricostruzione di Bell: per EPR ciò che è inviolabile è la causalità locale, e qualunque indeterminismo residuo rovinerebbe le correlazioni perfette. Racconta anche come Born confondesse il determinismo con la premessa di Einstein, mentre Pauli gli faceva notare che non lo era.</p></aside>
+
+<h3>Lo stesso argomento in formule</h3>
+<p>Questo conto non è nei libri, che fanno l'argomento a parole; lo aggiungiamo perché rende preciso il passo 3. Chiamiamo $\lambda$ la specificazione completa dello stato della coppia: può essere il solo vettore di stato, oppure il vettore di stato più altre variabili, oppure qualunque altra cosa. La sorgente produce valori di $\lambda$ con una densità di probabilità $\rho(\lambda)\ge0$, normalizzata. La località, nella forma che giustificheremo nella sezione 6, dice che, noto $\lambda$, l'esito di Alice non dipende né dall'impostazione né dall'esito di Bob, e viceversa:
+$$P(A,B\,|\,\alpha,\beta,\lambda)=P(A\,|\,\alpha,\lambda)\;P(B\,|\,\beta,\lambda).$$
+Poniamo $\beta=\alpha$ e chiamiamo $p=P(A{=}{+}1\,|\,\alpha,\lambda)$ e $q=P(B{=}{+}1\,|\,\alpha,\lambda)$.</p>
+<ol class="steps">
+<li>Le correlazioni perfette chiedono $P(+,-\,|\,\alpha,\alpha)=\int\rho(\lambda)\,p\,(1-q)\,d\lambda=0$. L'integrando è non negativo, quindi deve essere $p\,(1-q)=0$ per quasi ogni $\lambda$.</li>
+<li>Allo stesso modo $P(-,+\,|\,\alpha,\alpha)=0$ dà $(1-p)\,q=0$.</li>
+<li>Supponiamo $0\lt p\lt 1$. La prima equazione dà $q=1$; la seconda diventa $1-p=0$, cioè $p=1$, contro l'ipotesi. Quindi $p$ vale $0$ oppure $1$.</li>
+<li>Se $p=1$, la prima equazione dà $q=1$; se $p=0$, la seconda dà $q=0$. In ogni caso $q=p$.</li>
+<li>Dunque, per ogni angolo $\alpha$, il valore di $\lambda$ fissa con certezza un esito $A(\alpha,\lambda)=\pm1$, e l'esito di Bob è lo stesso: $B(\alpha,\lambda)=A(\alpha,\lambda)$. Per il singoletto si trova allo stesso modo $B(\hat n,\lambda)=-A(\hat n,\lambda)$.</li>
+</ol>
+<p>Proviamo ora a mettere al posto di $\lambda$ il solo vettore di stato, come vuole la lettura ortodossa, secondo cui $|\Phi^+\rangle$ è una descrizione completa. Nella sezione 3 vedremo che $P(A{=}{+}1\,|\,\alpha,\Phi^+)=\tfrac12$, mentre $P(A{=}{+}1\,|\,\alpha,B{=}{+}1,\Phi^+)=1$. La probabilità dell'esito di Alice cambia se si conosce l'esito lontano di Bob, quindi la fattorizzazione fallisce. È la stessa struttura delle scatole di Einstein (Norsen, eq. 4.1-4.4, pp. 105-106). Il dilemma di EPR è dunque netto: o località o completezza (Norsen, p. 106).</p>
+
+<h3>Il modello a tipi</h3>
+<p>Se valgono le risposte predeterminate, una coppia si descrive con una tabella. Norsen lo fa per lo spin con due soli assi, $x$ e $z$ (p. 225). Ogni particella porta una coppia di valori $\{x,z\}$, il partner ha i valori opposti, e i quattro tipi possibili compaiono con frequenza $25\%$ ciascuno.</p>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Particella 1 $\{x,z\}$</th><th>Particella 2 $\{x,z\}$</th><th>Frequenza</th></tr></thead><tbody>
+<tr><td>1</td><td>$\{+1,+1\}$</td><td>$\{-1,-1\}$</td><td>25%</td></tr>
+<tr><td>2</td><td>$\{+1,-1\}$</td><td>$\{-1,+1\}$</td><td>25%</td></tr>
+<tr><td>3</td><td>$\{-1,+1\}$</td><td>$\{+1,-1\}$</td><td>25%</td></tr>
+<tr><td>4</td><td>$\{-1,-1\}$</td><td>$\{+1,+1\}$</td><td>25%</td></tr>
+</tbody></table></div>
+<p>Questo modello locale riproduce tutte le previsioni quantistiche per misure lungo $x$ e $z$. Sullo stesso asse gli esiti sono sempre opposti. Con $x$ sulla particella 1 e $z$ sulla 2, la meccanica quantistica dà $\tfrac14$ per ciascuno dei quattro esiti congiunti (Norsen, eq. 8.4, p. 225), e la tabella dà lo stesso. Per i fotoni gli assi corrispondenti sono $0^\circ$ e $45^\circ$, e il partner ha gli stessi valori invece degli opposti. Per decenni la discussione si fermò qui. Bell la riaprì chiedendo che cosa succede con più assi, non ortogonali tra loro (Norsen, p. 226).</p>
+
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Le correlazioni perfette, da sole, non hanno niente di misterioso: il modello a calzini le spiega benissimo. Il conflitto con la meccanica quantistica compare solo quando Alice e Bob usano angoli diversi e non ortogonali. Per questo nessuno poté chiudere la questione tra il 1935 e il 1964.</p></aside>
+
+<h2 id="s4" data-toc="La correlazione quantistica, con il conto completo"><span class="n">3</span>La correlazione quantistica, con il conto completo</h2>
+<p>Per confrontare teorie diverse serve un numero che riassuma la statistica di una coppia di impostazioni. Si usa il valore atteso del prodotto degli esiti $AB$, che vale $+1$ quando gli esiti sono uguali e $-1$ quando sono diversi:
+$$E(\alpha,\beta)=P_{++}+P_{--}-P_{+-}-P_{-+}.$$
+È la (8.26) di Norsen (p. 232), che la chiama coefficiente di correlazione e la indica con $C$, e la (13) di Bell (art. 16, p. 164), che la indica con $E$. Vale $+1$ se gli esiti sono sempre uguali, $-1$ se sono sempre opposti e $0$ se non sono correlati.</p>
+
+<h3>I fotoni</h3>
+<p>Il libro dà solo il risultato (Norsen, p. 235) e non scrive lo stato dei fotoni; il conto completo lo facciamo noi. Polarizzatori agli angoli $\alpha$ (Alice) e $\beta$ (Bob), stato $|\Phi^+\rangle$.</p>
+<ol class="steps">
+<li>Dalle definizioni della sezione 1: $\langle\alpha|H\rangle=\cos\alpha$, $\langle\alpha|V\rangle=\sin\alpha$, $\langle\alpha_\perp|H\rangle=-\sin\alpha$, $\langle\alpha_\perp|V\rangle=\cos\alpha$. Le componenti sono reali, quindi coniugare non cambia nulla.</li>
+<li>Ampiezza di «passano entrambi», con la regola 2 del prodotto scalare:
+$$\langle\alpha\beta|\Phi^+\rangle=\tfrac1{\sqrt2}\big(\langle\alpha|H\rangle\langle\beta|H\rangle+\langle\alpha|V\rangle\langle\beta|V\rangle\big)=\tfrac1{\sqrt2}(\cos\alpha\cos\beta+\sin\alpha\sin\beta)=\tfrac1{\sqrt2}\cos(\alpha-\beta),$$
+per la formula di sottrazione del coseno.</li>
+<li>Alice passa, Bob no: $\langle\alpha\beta_\perp|\Phi^+\rangle=\tfrac1{\sqrt2}(-\cos\alpha\sin\beta+\sin\alpha\cos\beta)=\tfrac1{\sqrt2}\sin(\alpha-\beta)$.</li>
+<li>Alice no, Bob passa: $\langle\alpha_\perp\beta|\Phi^+\rangle=\tfrac1{\sqrt2}(-\sin\alpha\cos\beta+\cos\alpha\sin\beta)=-\tfrac1{\sqrt2}\sin(\alpha-\beta)$.</li>
+<li>Nessuno dei due: $\langle\alpha_\perp\beta_\perp|\Phi^+\rangle=\tfrac1{\sqrt2}(\sin\alpha\sin\beta+\cos\alpha\cos\beta)=\tfrac1{\sqrt2}\cos(\alpha-\beta)$.</li>
+<li>Moduli quadri (regola di Born congiunta), con $\Delta=\alpha-\beta$:
+$$P_{++}=P_{--}=\tfrac12\cos^2\Delta,\qquad P_{+-}=P_{-+}=\tfrac12\sin^2\Delta .$$
+La somma fa $\cos^2\Delta+\sin^2\Delta=1$, come deve.</li>
+<li>Correlazione: $E=\cos^2\Delta-\sin^2\Delta$, cioè
+$$\boxed{E(\alpha,\beta)=\cos2(\alpha-\beta)} .$$</li>
+</ol>
+<p>Controllo per un'altra strada, anch'esso aggiunto da noi. Per la decomposizione spettrale $\Pi_\alpha\otimes\Pi_\beta=\sum_{A,B}A\,B\;P^{(1)}_A\otimes P^{(2)}_B$, dove $P_\pm$ sono i proiettori sui due esiti, quindi $E=\langle\Phi^+|\Pi_\alpha\otimes\Pi_\beta|\Phi^+\rangle$. Con la matrice di $\Pi_\alpha$ trovata nella sezione 1, abbreviando $c_\alpha=\cos2\alpha$, $s_\alpha=\sin2\alpha$:</p>
+<ol class="steps">
+<li>$\Pi_\alpha|H\rangle=c_\alpha|H\rangle+s_\alpha|V\rangle$ e $\Pi_\alpha|V\rangle=s_\alpha|H\rangle-c_\alpha|V\rangle$ (le colonne della matrice).</li>
+<li>$(\Pi_\alpha\otimes\Pi_\beta)|HH\rangle=(c_\alpha|H\rangle+s_\alpha|V\rangle)\otimes(c_\beta|H\rangle+s_\beta|V\rangle)$: il coefficiente di $|HH\rangle$ è $c_\alpha c_\beta$, quello di $|VV\rangle$ è $s_\alpha s_\beta$.</li>
+<li>$(\Pi_\alpha\otimes\Pi_\beta)|VV\rangle=(s_\alpha|H\rangle-c_\alpha|V\rangle)\otimes(s_\beta|H\rangle-c_\beta|V\rangle)$: il coefficiente di $|HH\rangle$ è $s_\alpha s_\beta$, quello di $|VV\rangle$ è $c_\alpha c_\beta$.</li>
+<li>Il bra $\langle\Phi^+|=\frac1{\sqrt2}(\langle HH|+\langle VV|)$ raccoglie questi coefficienti:
+$$E=\tfrac12\big[(c_\alpha c_\beta+s_\alpha s_\beta)+(s_\alpha s_\beta+c_\alpha c_\beta)\big]=\cos2\alpha\cos2\beta+\sin2\alpha\sin2\beta=\cos2(\alpha-\beta).$$</li>
+</ol>
+<p>Un'osservazione che useremo nella sezione 10. La probabilità che passi il fotone di Alice, qualunque cosa faccia Bob, è $P_{++}+P_{+-}=\tfrac12\cos^2\Delta+\tfrac12\sin^2\Delta=\tfrac12$, e non dipende da $\beta$. Guardando solo i propri dati Alice vede una sequenza casuale al 50%, qualunque angolo scelga Bob. Per questo Bob non può mandarle messaggi ruotando il suo polarizzatore.</p>
+
+<aside class="book" data-l="no" data-p="235"><div class="tag">Nei libri · Norsen §8.4</div><p>Norsen spiega le due differenze tra fotoni e spin: gli angoli sono dimezzati, e sugli assi uguali la correlazione è positiva invece che negativa. Ne segue $C=\cos2\theta$ al posto di $-\cos\theta$, senza mostrare il conto.</p></aside>
+
+<h3>Lo spin</h3>
+<p>Per il singoletto il conto è nel libro (Norsen, pp. 228-232); lo riportiamo completando i passaggi lasciati al lettore. Misuriamo la particella 1 lungo $\hat z$ e la particella 2 lungo un asse $\hat n$ inclinato di $\theta$, e poniamo $c=\cos\frac\theta2$, $s=\sin\frac\theta2$.</p>
+<ol class="steps">
+<li>Gli autovettori di $\hat\sigma_n$ in termini di quelli di $\hat\sigma_z$ sono (eq. 8.11-8.12): $|{+n}\rangle=c|{+z}\rangle+s|{-z}\rangle$ e $|{-n}\rangle=s|{+z}\rangle-c|{-z}\rangle$.</li>
+<li>Invertiamo (eq. 8.13-8.14). Il libro dice che è un conto diretto; verifichiamolo: $c|{+n}\rangle+s|{-n}\rangle=(c^2+s^2)|{+z}\rangle+(cs-sc)|{-z}\rangle=|{+z}\rangle$ e $s|{+n}\rangle-c|{-n}\rangle=(sc-cs)|{+z}\rangle+(s^2+c^2)|{-z}\rangle=|{-z}\rangle$. La matrice di cambio di base è la propria inversa, quindi i coefficienti sono gli stessi.</li>
+<li>Sostituiamo solo nella particella 2 del singoletto:
+$$|\psi_s\rangle=\tfrac1{\sqrt2}\Big[|{+z}\rangle\big(s|{+n}\rangle-c|{-n}\rangle\big)-|{-z}\rangle\big(c|{+n}\rangle+s|{-n}\rangle\big)\Big].$$</li>
+<li>Sviluppando con la linearità (eq. 8.15):
+$$|\psi_s\rangle=\tfrac1{\sqrt2}\Big[s\,|{+z},{+n}\rangle-c\,|{+z},{-n}\rangle-c\,|{-z},{+n}\rangle-s\,|{-z},{-n}\rangle\Big].$$</li>
+<li>Le probabilità sono i moduli quadri dei coefficienti: $P_{++}=P_{--}=\tfrac12\sin^2\frac\theta2$ e $P_{+-}=P_{-+}=\tfrac12\cos^2\frac\theta2$ (eq. 8.16). Il libro scrive esplicitamente solo $P_{++}$.</li>
+<li>Correlazione (eq. 8.27): $C=\sin^2\frac\theta2-\cos^2\frac\theta2=-\cos\theta$.</li>
+</ol>
+<p>Poiché il singoletto ha la stessa forma per ogni asse, il risultato vale per qualunque coppia di assi con angolo relativo $\theta$ (Norsen, p. 229). Con i versori degli assi $\hat a$ e $\hat b$, $\cos\theta=\hat a\cdot\hat b$, e si ottiene la forma usata da Bell (art. 2, eq. 3, p. 26):
+$$E(\hat a,\hat b)=-\hat a\cdot\hat b .$$
+Norsen scrive solo $-\cos\theta$ e considera assi nel piano $x$-$z$; Bell scrive la forma vettoriale, valida anche fuori dal piano. Anche qui la probabilità marginale vale $P_{++}+P_{+-}=\tfrac12$ per ogni $\theta$.</p>
+
+<div class="tbl"><table><thead><tr><th></th><th>Spin, singoletto</th><th>Fotoni, $|\Phi^+\rangle$</th></tr></thead><tbody>
+<tr><td>Stato</td><td>$\frac1{\sqrt2}(|{+}{-}\rangle-|{-}{+}\rangle)$</td><td>$\frac1{\sqrt2}(|HH\rangle+|VV\rangle)$</td></tr>
+<tr><td>Stesso asse</td><td>esiti sempre opposti</td><td>esiti sempre uguali</td></tr>
+<tr><td>$P_{++}=P_{--}$</td><td>$\tfrac12\sin^2(\theta/2)$</td><td>$\tfrac12\cos^2\Delta$</td></tr>
+<tr><td>$P_{+-}=P_{-+}$</td><td>$\tfrac12\cos^2(\theta/2)$</td><td>$\tfrac12\sin^2\Delta$</td></tr>
+<tr><td>Correlazione</td><td>$-\cos\theta=-\hat a\cdot\hat b$</td><td>$\cos2\Delta$</td></tr>
+<tr><td>Nessuna correlazione per</td><td>$\theta=90^\circ$</td><td>$\Delta=45^\circ$</td></tr>
+<tr><td>Marginale $P(A{=}{+}1)$</td><td>$\tfrac12$</td><td>$\tfrac12$</td></tr>
+</tbody></table></div>
+<p>Il dizionario è $\theta=2\Delta$ più un cambio di segno globale. Nelle disuguaglianze con i valori assoluti, come la CHSH, il segno globale non conta.</p>
+
+<aside class="book" data-l="be" data-p="69"><div class="tag">Nei libri · Bell art. 7</div><p>Bell usa fotoni prodotti dal decadimento del $\pi^0$ in uno stato antisimmetrico, $\frac1{\sqrt2}\big(|0\rangle|\tfrac\pi2\rangle-|\tfrac\pi2\rangle|0\rangle\big)$ (eq. 17), per cui la probabilità che passino entrambi è $\tfrac12\sin^2(\theta-\phi)$ (eq. 18): i fotoni sono anticorrelati. Norsen parla invece dei fotoni di Aspect, correlati positivamente. Sono due stati diversi, ed entrambi danno una correlazione proporzionale a $\cos2(\theta-\phi)$ a meno del segno.</p></aside>
+
+<h2 id="s5" data-toc="Una disuguaglianza preliminare: tre assi e otto tipi"><span class="n">4</span>Una disuguaglianza preliminare: tre assi e otto tipi</h2>
+<p>Seguiamo Norsen (§8.2), che prima della disuguaglianza vera ne costruisce una più semplice. Usiamo lo spin, come il libro. Ammettiamo per ciascun lato tre assi $\hat a$, $\hat b$, $\hat c$, non necessariamente ortogonali. Per la (8.5) l'anticorrelazione è perfetta su ciascun asse comune; per l'argomento della sezione 2 ogni particella ha allora valori predeterminati $\pm1$ per tutti e tre gli assi, e il partner ha i valori opposti. I tipi possibili di coppia sono $2^3=8$, con frequenze $F_i\ge0$ e $\sum_iF_i=1$ (Norsen, p. 226).</p>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Particella 1 $\{a,b,c\}$</th><th>Particella 2 $\{a,b,c\}$</th><th>Frequenza</th></tr></thead><tbody>
+<tr><td>1</td><td>$\{+,+,+\}$</td><td>$\{-,-,-\}$</td><td>$F_1$</td></tr>
+<tr><td>2</td><td>$\{+,+,-\}$</td><td>$\{-,-,+\}$</td><td>$F_2$</td></tr>
+<tr><td>3</td><td>$\{+,-,+\}$</td><td>$\{-,+,-\}$</td><td>$F_3$</td></tr>
+<tr><td>4</td><td>$\{-,+,+\}$</td><td>$\{+,-,-\}$</td><td>$F_4$</td></tr>
+<tr><td>5</td><td>$\{+,-,-\}$</td><td>$\{-,+,+\}$</td><td>$F_5$</td></tr>
+<tr><td>6</td><td>$\{-,+,-\}$</td><td>$\{+,-,+\}$</td><td>$F_6$</td></tr>
+<tr><td>7</td><td>$\{-,-,+\}$</td><td>$\{+,+,-\}$</td><td>$F_7$</td></tr>
+<tr><td>8</td><td>$\{-,-,-\}$</td><td>$\{+,+,+\}$</td><td>$F_8$</td></tr>
+</tbody></table></div>
+<aside class="book" data-l="no" data-p="226"><div class="tag">Nei libri · Norsen §8.2</div><p>La tabella a otto tipi è a p. 226. Il libro ricava esplicitamente solo $P_{ab}(++)=F_3+F_5$ e lascia da verificare le altre due espressioni, che facciamo qui sotto.</p></aside>
+
+<h3>Le probabilità in termini dei tipi</h3>
+<p>Indichiamo con $P_{ab}(++)$ la probabilità che la particella 1, misurata lungo $\hat a$, dia $+1$, e che la particella 2, misurata lungo $\hat b$, dia $+1$. Siccome la particella 2 ha sempre i valori opposti, «la particella 2 dà $+1$ lungo $\hat b$» equivale a «la particella 1 ha $-1$ nella posizione $b$». Basta quindi leggere la colonna della particella 1.</p>
+<ol class="steps">
+<li>$P_{ab}(++)$: la particella 1 ha $a=+$ nei tipi $\{1,2,3,5\}$ e $b=-$ nei tipi $\{3,5,7,8\}$. L'intersezione è $\{3,5\}$, quindi $P_{ab}(++)=F_3+F_5$ (eq. 8.6).</li>
+<li>$P_{bc}(++)$: $b=+$ nei tipi $\{1,2,4,6\}$ e $c=-$ nei tipi $\{2,5,6,8\}$. L'intersezione è $\{2,6\}$, quindi $P_{bc}(++)=F_2+F_6$ (eq. 8.7).</li>
+<li>$P_{ac}(++)$: $a=+$ nei tipi $\{1,2,3,5\}$ e $c=-$ nei tipi $\{2,5,6,8\}$. L'intersezione è $\{2,5\}$, quindi $P_{ac}(++)=F_2+F_5$ (eq. 8.8).</li>
+<li>Poiché $F_3\ge0$ e $F_6\ge0$, vale $F_2+F_5\le(F_3+F_5)+(F_2+F_6)$ (eq. 8.9): il membro destro è il sinistro più due termini non negativi.</li>
+<li>Sostituendo i passi 1-3 si ottiene la disuguaglianza preliminare (eq. 8.10):
+$$P_{ac}(++)\le P_{ab}(++)+P_{bc}(++).$$</li>
+</ol>
+<p>C'è anche una lettura a parole, la stessa che Bell usa per i calzini (sezione 9). Una particella 1 che ha $+$ su $a$ e $-$ su $c$ ha, su $b$, o $+$ o $-$. Se ha $+$, ha «$+$ su $b$ e $-$ su $c$» ed è contata in $P_{bc}$; se ha $-$, ha «$+$ su $a$ e $-$ su $b$» ed è contata in $P_{ab}$. Non può sfuggire a entrambi i conteggi.</p>
+<p>Le ipotesi usate sono quattro (Norsen, pp. 228-231): (i) valori predeterminati su tutti e tre gli assi, che per EPR sono una conseguenza della località; (ii) anticorrelazione perfetta su ogni asse comune; (iii) frequenze $F_i$ che non dipendono dagli assi che verranno effettivamente misurati; (iv) $F_i\ge0$ e $\sum F_i=1$.</p>
+
+<h3>La previsione quantistica</h3>
+<p>Dalla sezione 3, $P(++)=\tfrac12\sin^2(\theta/2)$ per due assi ad angolo $\theta$. Prendiamo $\hat b=\hat z$ e mettiamo $\hat a$ e $\hat c$ a $-\theta$ e $+\theta$ da $\hat b$, così che tra $\hat a$ e $\hat c$ ci sia l'angolo $2\theta$ (eq. 8.17-8.19):
+$$P_{ab}(++)=P_{bc}(++)=\tfrac12\sin^2\tfrac\theta2,\qquad P_{ac}(++)=\tfrac12\sin^2\theta .$$
+La disuguaglianza diventa $\tfrac12\sin^2\theta\le\sin^2\frac\theta2$ (eq. 8.20). Studiamo quando è vera. Questo conto il libro lo lascia sottinteso; eccolo.</p>
+<ol class="steps">
+<li>Con la formula di duplicazione, $\sin^2\theta=4\sin^2\frac\theta2\cos^2\frac\theta2$, quindi la disuguaglianza è $2\sin^2\frac\theta2\cos^2\frac\theta2\le\sin^2\frac\theta2$.</li>
+<li>Per $\theta\neq0$ dividiamo per $\sin^2\frac\theta2\gt0$: $2\cos^2\frac\theta2\le1$.</li>
+<li>Poiché $2\cos^2\frac\theta2=1+\cos\theta$, la condizione è $\cos\theta\le0$.</li>
+<li>Quindi per $0\lt\theta\lt90^\circ$ la disuguaglianza è violata. Agli estremi $\theta=0$ e $\theta=90^\circ$ vale con il segno di uguale. Il libro dice che è falsa per $\theta\le\pi/2$ (p. 229), il che è impreciso solo agli estremi.</li>
+<li>La violazione è $f(\theta)=\tfrac12\sin^2\theta-\sin^2\frac\theta2=\tfrac12\sin^2\theta-\tfrac12(1-\cos\theta)$. La derivata è $f'(\theta)=\sin\theta\cos\theta-\tfrac12\sin\theta=\sin\theta\,(\cos\theta-\tfrac12)$, nulla per $\theta=60^\circ$.</li>
+<li>A $60^\circ$: $P_{ab}=P_{bc}=\tfrac12\sin^230^\circ=\tfrac18$ e $P_{ac}=\tfrac12\sin^260^\circ=\tfrac38$. La disuguaglianza chiederebbe $\tfrac38\le\tfrac18+\tfrac18=\tfrac14$, che è falso (eq. 8.21-8.24).</li>
+</ol>
+<p>Per i fotoni, aggiunta nostra, la correlazione su assi uguali è positiva e il partner ha gli stessi valori. Lo stesso ragionamento si fa allora con esiti discordi: $P_{ac}(+-)\le P_{ab}(+-)+P_{bc}(+-)$. Con $P(+-)=\tfrac12\sin^2\Delta$, $b=0^\circ$ e $a,c=\mp30^\circ$ si trova $\tfrac12\sin^260^\circ=\tfrac38$ contro $2\cdot\tfrac12\sin^230^\circ=\tfrac14$. Sono gli stessi numeri, con gli angoli dimezzati.</p>
+<p>Per un test sperimentale servono magneti (o polarizzatori) orientati a caso e all'ultimo istante, e poi il confronto delle frequenze (Norsen, p. 230).</p>
+
+<h2 id="s6" data-toc="La disuguaglianza di Bell del 1964"><span class="n">5</span>La disuguaglianza di Bell del 1964</h2>
+<p>Il test preliminare ha due difetti (Norsen, pp. 230-231). Il primo è che spreca dati: delle nove combinazioni di assi servono solo $ab$, $bc$ e $ac$, e circa due terzi delle coppie non entrano nel conto. Il secondo è più grave. Se per evitare lo spreco si tengono gli apparati fissi per lunghe serie, le coppie potrebbero, in linea di principio, portare con sé l'informazione su quali assi incontreranno. La sorgente potrebbe allora emettere tipi non anticorrelati, che Norsen chiama ribelli, oppure adattare le $F_i$ agli assi, e la derivazione cadrebbe. Servono quindi impostazioni scelte durante il volo, abbastanza tardi da essere inaccessibili all'altro lato. Per usare tutti i dati si passa alle correlazioni $C$.</p>
+
+<h3>Le correlazioni del modello a tipi</h3>
+<p>Per una coppia di tipo $i$ la particella 1 ha i valori $(a_i,b_i,c_i)$ e la particella 2 gli opposti. Se misuriamo $\hat a$ sulla 1 e $\hat b$ sulla 2, gli esiti sono $A=a_i$ e $B=-b_i$, e il loro prodotto è $AB=-a_ib_i$. I tipi con $a_i=b_i$ contribuiscono quindi con $-F_i$, quelli con $a_i\neq b_i$ con $+F_i$. Il libro chiede di verificare le tre espressioni; ecco come.</p>
+<ol class="steps">
+<li>Nella tabella, $a=b$ nei tipi 1, 2, 7, 8. Quindi $C(\hat a,\hat b)=F_3+F_4+F_5+F_6-F_1-F_2-F_7-F_8$ (eq. 8.29).</li>
+<li>$a=c$ nei tipi 1, 3, 6, 8. Quindi $C(\hat a,\hat c)=F_2+F_4+F_5+F_7-F_1-F_3-F_6-F_8$ (eq. 8.30).</li>
+<li>$b=c$ nei tipi 1, 4, 5, 8. Quindi $C(\hat b,\hat c)=F_2+F_3+F_6+F_7-F_1-F_4-F_5-F_8$ (eq. 8.31).</li>
+</ol>
+
+<h3>La disuguaglianza</h3>
+<p>Norsen enuncia la (8.32) e lascia come esercizio (Progetto 8.2) di mostrare che equivale alla disuguaglianza di Bell. Ecco il conto.</p>
+<ol class="steps">
+<li>Sottraiamo la (8.30) dalla (8.29) tipo per tipo. Per $F_1$, $F_4$, $F_5$, $F_8$ i segni sono uguali e si cancellano; $F_3$ e $F_6$ passano da $-1$ a $+1$ e danno $+2$; $F_2$ e $F_7$ passano da $+1$ a $-1$ e danno $-2$. Quindi
+$$C(\hat a,\hat b)-C(\hat a,\hat c)=2\,(F_3+F_6-F_2-F_7).$$</li>
+<li>Scriviamo $1=\sum_iF_i$ e aggiungiamo la (8.31): i tipi 1, 4, 5, 8 si cancellano e gli altri raddoppiano,
+$$1+C(\hat b,\hat c)=2\,(F_2+F_3+F_6+F_7).$$</li>
+<li>Con $x=F_3+F_6\ge0$ e $y=F_2+F_7\ge0$ vale $|x-y|\le x+y$, cioè (eq. 8.32) $|F_3+F_6-F_7-F_2|\le F_2+F_3+F_6+F_7$.</li>
+<li>Moltiplicando per 2 e usando i passi 1 e 2 si ottiene la disuguaglianza di Bell del 1964 (eq. 8.33):
+$$\big|C(\hat a,\hat b)-C(\hat a,\hat c)\big|\le1+C(\hat b,\hat c).$$</li>
+</ol>
+<p>Violazione quantistica (Norsen, p. 233). Mettiamo $\hat b$ in mezzo e $\hat a$, $\hat c$ a $60^\circ$ da esso, da parti opposte. Allora $C(\hat a,\hat b)=-\cos60^\circ=-\tfrac12$, $C(\hat a,\hat c)=-\cos120^\circ=+\tfrac12$ e $C(\hat b,\hat c)=-\tfrac12$. La disuguaglianza chiederebbe $|-\tfrac12-\tfrac12|=1\le1-\tfrac12=\tfrac12$, che è falso (eq. 8.34-8.35).</p>
+<p>Che $60^\circ$ sia la scelta migliore il libro non lo dimostra; lo facciamo noi. Con angoli $\theta$ tra $\hat a$ e $\hat b$ e tra $\hat b$ e $\hat c$, per $\theta$ piccolo la violazione è $g(\theta)=(\cos\theta-\cos2\theta)-(1-\cos\theta)=2\cos\theta-\cos2\theta-1$. La derivata è $g'(\theta)=-2\sin\theta+2\sin2\theta=2\sin\theta\,(2\cos\theta-1)$, nulla per $\cos\theta=\tfrac12$, cioè $\theta=60^\circ$, dove $g=1+\tfrac12-1=\tfrac12$.</p>
+
+<aside class="book" data-l="no" data-p="233"><div class="tag">Nei libri · Norsen §8.3</div><p>A p. 233 ci sono le (8.32)-(8.38): la disuguaglianza del 1964, la sua gemella (8.37) e la loro somma, che è la CHSH. Per la (8.37) con la sola tabella a tre assi il conto torna solo se $\hat a'=\hat a$; per $\hat a'$ diverso servirebbe una tabella a quattro assi, e il risultato generale arriva nel §8.6.</p></aside>
+
+<h3>Come la ricavò Bell</h3>
+<p>Nell'articolo del 1964 Bell non usa tabelle ma funzioni (art. 2, pp. 26-29). Lo stato completo è $\lambda$, distribuito con densità $\rho(\lambda)$, e gli esiti sono funzioni $A(\hat a,\lambda)=\pm1$ e $B(\hat b,\lambda)=\pm1$ (eq. 1). L'ipotesi vitale, dice Bell, è che $B$ non dipenda da $\hat a$ e $A$ non dipenda da $\hat b$. La correlazione, che Bell indica con $P$, è (eq. 2)
+$$P(\hat a,\hat b)=\int d\lambda\,\rho(\lambda)\,A(\hat a,\lambda)\,B(\hat b,\lambda).$$
+La derivazione procede così (le giustificazioni tra parentesi le aggiungiamo noi dove Bell va veloce).</p>
+<ol class="steps">
+<li>Poiché $AB\ge-1$, $P\ge-1$. Il valore $-1$ per $\hat a=\hat b$, cioè l'anticorrelazione perfetta del singoletto, si raggiunge solo se $A(\hat a,\lambda)=-B(\hat a,\lambda)$ per quasi ogni $\lambda$ (eq. 13). È il determinismo della sezione 2.</li>
+<li>Sostituendo nella correlazione: $P(\hat a,\hat b)=-\int d\lambda\,\rho(\lambda)\,A(\hat a,\lambda)A(\hat b,\lambda)$ (eq. 14).</li>
+<li>Con un terzo versore $\hat c$, e usando $A(\hat b,\lambda)^2=1$ per riscrivere $A(\hat a)A(\hat c)=A(\hat a)A(\hat b)\,A(\hat b)A(\hat c)$:
+$$P(\hat a,\hat b)-P(\hat a,\hat c)=\int d\lambda\,\rho(\lambda)\,A(\hat a,\lambda)A(\hat b,\lambda)\big[A(\hat b,\lambda)A(\hat c,\lambda)-1\big].$$</li>
+<li>Il modulo di un integrale con $\rho\ge0$ è al più l'integrale del modulo; $|A(\hat a)A(\hat b)|=1$; e la parentesi quadra è $\le0$, quindi il suo modulo è $1-A(\hat b)A(\hat c)$:
+$$\big|P(\hat a,\hat b)-P(\hat a,\hat c)\big|\le\int d\lambda\,\rho(\lambda)\big[1-A(\hat b,\lambda)A(\hat c,\lambda)\big].$$</li>
+<li>Il primo termine a destra vale 1 per la normalizzazione, il secondo è $P(\hat b,\hat c)$ per il passo 2. Si ottiene la (15):
+$$1+P(\hat b,\hat c)\ge\big|P(\hat a,\hat b)-P(\hat a,\hat c)\big| .$$</li>
+</ol>
+<p>È la stessa disuguaglianza di Norsen, con $P$ al posto di $C$. Bell ne trae subito una conseguenza (art. 2, p. 29). Per $\hat c$ vicino a $\hat b$ il membro sinistro, $1+P(\hat b,\hat c)$, deve essere almeno del primo ordine nell'angolo tra $\hat b$ e $\hat c$, perché il membro destro in generale lo è. Quindi la correlazione locale non può avere un minimo stazionario in $\hat b=\hat c$. Quella quantistica invece lo ha: $1-\cos\theta_{bc}\approx\theta_{bc}^2/2$ è del secondo ordine. Esempio numerico, che non è nel libro: $\hat a\perp\hat c$ e $\hat b$ a $45^\circ$ da entrambi, nello stesso piano. Allora $1+P(\hat b,\hat c)=1-0{,}707=0{,}293$, mentre $|P(\hat a,\hat b)-P(\hat a,\hat c)|=|-0{,}707-0|=0{,}707$.</p>
+<p>Per i fotoni, aggiunta nostra, si rifà il conto con $B(\hat a,\lambda)=+A(\hat a,\lambda)$ e si trova $|E(a,b)-E(a,c)|\le1-E(b,c)$. Con $a=0^\circ$, $b=30^\circ$, $c=60^\circ$: $E(a,b)=\cos60^\circ=\tfrac12$, $E(a,c)=\cos120^\circ=-\tfrac12$, $E(b,c)=\tfrac12$, e la disuguaglianza chiederebbe $1\le\tfrac12$.</p>
+
+<aside class="book" data-l="be" data-p="28"><div class="tag">Nei libri · Bell art. 2</div><p>Alle pp. 27-28 Bell mostra prima che cosa un modello locale riesce a fare: per esempio $A=\mathrm{sign}(\hat a\cdot\boldsymbol\lambda)$, $B=-\mathrm{sign}(\hat b\cdot\boldsymbol\lambda)$ con $\boldsymbol\lambda$ uniforme sulla sfera dà $P=-1+2\theta/\pi$, giusto a $0^\circ$, $90^\circ$ e $180^\circ$ e sbagliato altrove. Nella stampa della (9) c'è un refuso: si legge $B(a,b)$ dove si intende $B(\mathbf b,\boldsymbol\lambda)$.</p></aside>
+
+<h2 id="s7" data-toc="CHSH dalla sola causalità locale"><span class="n">6</span>CHSH dalla sola causalità locale</h2>
+<p>La disuguaglianza del 1964 ha ancora due punti deboli. Usa le correlazioni perfette, che in un esperimento reale non si ottengono mai esattamente, e passa per i valori predeterminati. Nei lavori della maturità, come l'articolo sui beables locali (art. 7) e la conferenza del 1980 (art. 16), Bell elimina l'intermediario: non passa più per la catena località, poi determinismo, poi disuguaglianza, ma ricava la disuguaglianza direttamente da una definizione precisa di località (Norsen, p. 244). Il risultato è la disuguaglianza di Clauser, Horne, Shimony e Holt (CHSH, 1969).</p>
+
+<h3>Che cosa vuol dire localmente causale</h3>
+<p>Un'immagine di Bell (art. 16, p. 163). Le frequenze di infarti a Lille e a Lione sono correlate, ma nessuno pensa che un infarto a Lille ne provochi uno a Lione: dipendono entrambe da cause comuni, come il tempo atmosferico o il giorno della settimana. Se si specificano tutte le cause comuni, la correlazione residua sparisce. La causalità locale chiede proprio questo: le correlazioni tra eventi lontani devono essere spiegate da cause comuni nel passato.</p>
+<p>La definizione di Bell, nella parafrasi di Norsen (figura 8.4, p. 245): in una teoria localmente causale, se si specifica completamente ciò che accade in una regione 3 che scherma il cono di luce passato della regione 1, gli eventi nella regione 2, a separazione di tipo spazio da 1, diventano irrilevanti per le previsioni su 1. Nella situazione di Bell, la regione 3 è una fetta di spazio-tempo abbastanza ampia da schermare 1 da 2 e anche 2 da 1 (Norsen, p. 245).</p>
+
+<div class="fig"><svg viewBox="0 0 520 260" width="100%" role="img" aria-label="Diagramma spazio-temporale: regioni 1 e 2 a separazione di tipo spazio, coni di luce passati, regione 3 che li scherma, sorgente in basso">
+<text x="12" y="20" style="fill:var(--ink-2);font-size:12px">tempo ↑</text>
+<rect x="10" y="190" width="500" height="26" style="fill:var(--paper);stroke:var(--hg);stroke-width:1.5"/>
+<text x="20" y="207" style="fill:var(--ink-2);font-size:12px">regione 3: stato completo λ della coppia</text>
+<path d="M90 70 L10 150" style="stroke:var(--ink-2);stroke-dasharray:4 3;fill:none"/>
+<path d="M150 70 L270 190" style="stroke:var(--ink-2);stroke-dasharray:4 3;fill:none"/>
+<path d="M370 70 L250 190" style="stroke:var(--ink-2);stroke-dasharray:4 3;fill:none"/>
+<path d="M430 70 L510 150" style="stroke:var(--ink-2);stroke-dasharray:4 3;fill:none"/>
+<path d="M260 240 L120 70" style="stroke:var(--laser);stroke-width:1.5;fill:none"/>
+<path d="M260 240 L400 70" style="stroke:var(--laser);stroke-width:1.5;fill:none"/>
+<circle cx="260" cy="240" r="5" style="fill:var(--laser)"/>
+<text x="272" y="246" style="fill:var(--ink-2);font-size:12px">sorgente</text>
+<rect x="90" y="40" width="60" height="30" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="120" y="60" text-anchor="middle" style="fill:var(--ink);font-size:13px">1</text>
+<rect x="370" y="40" width="60" height="30" style="fill:var(--paper);stroke:var(--ink);stroke-width:1.5"/>
+<text x="400" y="60" text-anchor="middle" style="fill:var(--ink);font-size:13px">2</text>
+<text x="120" y="30" text-anchor="middle" style="fill:var(--ink-2);font-size:12px">Alice: sceglie α, ottiene A</text>
+<text x="400" y="30" text-anchor="middle" style="fill:var(--ink-2);font-size:12px">Bob: sceglie β, ottiene B</text>
+<path d="M155 55 L365 55" style="stroke:var(--ink-2);stroke-dasharray:2 4;fill:none"/>
+<text x="260" y="50" text-anchor="middle" style="fill:var(--ink-2);font-size:11px">separazione di tipo spazio</text>
+</svg></div>
+
+<h3>Le ipotesi, tutte esplicite</h3>
+<p>Elenchiamo le ipotesi una per una, così da sapere in seguito che cosa può abbandonare chi vuole sfuggire al teorema. La H1, la H2 e la H4 sono esplicite nel libro; la H3 è implicita nel testo del §8.6 e viene alla luce nei Progetti 8.4 e 8.12 e nella nota 3 di p. 250; la H5 è sottintesa.</p>
+<ul>
+<li><b>H1, completezza di $\lambda$.</b> $\lambda$ è la specificazione completa dello stato della coppia nella regione 3, ed è del tutto generale: può essere il vettore di stato, il vettore di stato più variabili nascoste, o altro (Norsen, p. 245).</li>
+<li><b>H2, causalità locale.</b> Noto $\lambda$, impostazione ed esito di un lato sono irrilevanti per le probabilità dell'altro lato.</li>
+<li><b>H3, indipendenza delle impostazioni.</b> La distribuzione $\rho(\lambda)$ non dipende dalle impostazioni $\alpha$ e $\beta$. In pratica la si garantisce scegliendo le impostazioni a caso e all'ultimo istante. In inglese la si chiama ipotesi di «no conspiracy».</li>
+<li><b>H4, esiti dicotomici.</b> $A,B\in\{+1,-1\}$.</li>
+<li><b>H5, probabilità vere.</b> $\rho(\lambda)\ge0$, $\int\rho(\lambda)\,d\lambda=1$, e le probabilità condizionate stanno tra 0 e 1.</li>
+</ul>
+<p>Non si assume il determinismo: $P(A\,|\,\alpha,\lambda)$ può essere qualunque numero tra 0 e 1. Non si assume nemmeno che $\lambda$ sia fatto di variabili nascoste.</p>
+
+<h3>La derivazione passo per passo</h3>
+<p>Seguiamo Norsen (eq. 8.45-8.56, pp. 245-248). Il Progetto 8.3 ammette che molti passi sono trattati in fretta; le giustificazioni dei passi 5, 9, 10, 11 e 13 le aggiungiamo noi. Chiamiamo $a,a'$ le due impostazioni di Alice e $b,b'$ quelle di Bob; Norsen chiama $\hat c$ quella che qui è $b'$.</p>
+<ol class="steps">
+<li>Regola del prodotto delle probabilità condizionate, $P(X,Y|Z)=P(X|Y,Z)\,P(Y|Z)$, con $X=A$, $Y=B$, $Z=(\alpha,\beta,\lambda)$ (eq. 8.45):
+$$P(A,B\,|\,\alpha,\beta,\lambda)=P(A\,|\,\alpha,\beta,B,\lambda)\;P(B\,|\,\alpha,\beta,\lambda).$$
+È un'identità, vera in qualunque teoria.</li>
+<li>H2 applicata alla regione 1: noto $\lambda$, impostazione ed esito di Bob sono ridondanti, quindi $P(A\,|\,\alpha,\beta,B,\lambda)=P(A\,|\,\alpha,\lambda)$ (eq. 8.46).</li>
+<li>H2 applicata alla regione 2, con la regione 3 che scherma anche 2 da 1: $P(B\,|\,\alpha,\beta,\lambda)=P(B\,|\,\beta,\lambda)$ (eq. 8.47).</li>
+<li>Sostituendo i passi 2 e 3 nel passo 1 si ottiene la fattorizzazione (eq. 8.48):
+$$P(A,B\,|\,\alpha,\beta,\lambda)=P(A\,|\,\alpha,\lambda)\;P(B\,|\,\beta,\lambda).$$</li>
+<li>La correlazione misurata è la media di $AB$ su tutti gli esiti e su tutti i $\lambda$ prodotti dalla sorgente (eq. 8.49, prima riga):
+$$E(\alpha,\beta)=\int\sum_{A,B}A\,B\;P(A,B\,|\,\alpha,\beta,\lambda)\,\rho(\lambda)\,d\lambda .$$
+Qui si scrive $\rho(\lambda)$ e non $\rho(\lambda\,|\,\alpha,\beta)$: è il primo punto in cui entra H3, ed è la risposta al Progetto 8.4.</li>
+<li>Si usa la fattorizzazione del passo 4 dentro la somma.</li>
+<li>Una doppia somma di un prodotto di un fattore che dipende solo da $A$ e uno che dipende solo da $B$ si separa, $\sum_{A,B}f(A)g(B)=\big(\sum_Af(A)\big)\big(\sum_Bg(B)\big)$:
+$$E(\alpha,\beta)=\int\Big[\sum_AA\,P(A|\alpha,\lambda)\Big]\Big[\sum_BB\,P(B|\beta,\lambda)\Big]\rho(\lambda)\,d\lambda=\int\bar A(\alpha,\lambda)\,\bar B(\beta,\lambda)\,\rho(\lambda)\,d\lambda .$$</li>
+<li>Abbiamo chiamato $\bar A(\alpha,\lambda)=(+1)P(+|\alpha,\lambda)+(-1)P(-|\alpha,\lambda)$ l'esito medio di Alice dato $\lambda$ (eq. 8.50), e analogamente $\bar B$.</li>
+<li>Con $p=P(+|\alpha,\lambda)$ si ha $\bar A=p-(1-p)=2p-1$, e poiché $0\le p\le1$ (H4 e H5), $|\bar A|\le1$; lo stesso per $\bar B$ (eq. 8.51-8.52).</li>
+<li>Sottraiamo le correlazioni per $(a,b)$ e $(a,b')$ e raccogliamo $\bar A(a,\lambda)$ (eq. 8.53):
+$$E(a,b)-E(a,b')=\int\bar A(a,\lambda)\big[\bar B(b,\lambda)-\bar B(b',\lambda)\big]\rho(\lambda)\,d\lambda .$$
+Si può raccogliere perché $\bar A(a,\lambda)$ è lo stesso nei due termini (non dipende dall'impostazione di Bob, per H2) e perché la densità $\rho$ è la stessa (H3). Qui H3 diventa indispensabile: due correlazioni misurate in serie diverse di coppie finiscono sotto lo stesso integrale.</li>
+<li>Il modulo di un integrale con peso $\rho\ge0$ è al più l'integrale del modulo, e $|\bar A\,g|\le|g|$ perché $|\bar A|\le1$ (eq. 8.54):
+$$\big|E(a,b)-E(a,b')\big|\le\int\big|\bar B(b,\lambda)-\bar B(b',\lambda)\big|\,\rho(\lambda)\,d\lambda .$$</li>
+<li>Stesso procedimento con $a'$ e il segno più (eq. 8.55):
+$$\big|E(a',b)+E(a',b')\big|\le\int\big|\bar B(b,\lambda)+\bar B(b',\lambda)\big|\,\rho(\lambda)\,d\lambda .$$</li>
+<li>Sommiamo i passi 11 e 12 e poniamo $x=\bar B(b,\lambda)$, $y=\bar B(b',\lambda)$, con $|x|,|y|\le1$. Serve $|x-y|+|x+y|\le2$. Supponiamo $|x|\ge|y|$: allora $x-y$ e $x+y$ hanno lo stesso segno di $x$ (o sono nulli), quindi $|x-y|+|x+y|=|(x-y)+(x+y)|=2|x|$. In generale $|x-y|+|x+y|=2\max(|x|,|y|)\le2$.</li>
+<li>Con $\int\rho\,d\lambda=1$ si ottiene la CHSH (eq. 8.56):
+$$\boxed{\big|E(a,b)-E(a,b')\big|+\big|E(a',b)+E(a',b')\big|\le2} .$$</li>
+</ol>
+<p>Il laboratorio usa la combinazione senza valori assoluti
+$$S=E(a,b)-E(a,b')+E(a',b)+E(a',b').$$
+Per la disuguaglianza triangolare $|S|\le|E(a,b)-E(a,b')|+|E(a',b)+E(a',b')|\le2$, quindi anche $|S|\le2$.</p>
+
+<aside class="book" data-l="be" data-p="67"><div class="tag">Nei libri · Bell art. 7</div><p>Bell ricava la fattorizzazione (eq. 6) applicando due volte la causalità locale (eq. 2, p. 65), con $N$ che specifica tutti i beables nella sovrapposizione dei coni passati. Il beable è il nome di Bell per ciò che esiste davvero, contrapposto all'osservabile. Nell'art. 16 (eq. 14, p. 164) la CHSH compare come $|E(a,b)+E(a,b')+E(a',b)-E(a',b')|\le2$: è la stessa disuguaglianza con le impostazioni etichettate diversamente.</p></aside>
+
+<h3>Tre osservazioni</h3>
+<p>La prima. Il modello a tipi delle sezioni 4 e 5 è il caso particolare in cui $\lambda$ è il tipo di coppia, $\rho(\lambda)$ diventa la lista delle frequenze $F_i$ e ogni $P(A|\alpha,\lambda)$ vale 0 oppure 1. La derivazione appena fatta mostra che il determinismo non serve: basta la fattorizzazione.</p>
+<p>La seconda. La meccanica quantistica ortodossa, con $\lambda=|\Phi^+\rangle$ e nient'altro, ha $P(+|\alpha,\Phi^+)=\tfrac12$ per ogni angolo, quindi $\bar A=\bar B=0$. Se valesse la fattorizzazione prevederebbe $E=0$ per tutti gli angoli. Prevede invece $E=\cos2\Delta$, quindi viola la (8.48). Per $\Delta=0$ è esattamente la violazione di tipo EPR della sezione 2.</p>
+<p>La terza, che non è nei due libri. Nella letteratura (Jarrett, Shimony) la condizione del passo 2 si spezza in due: indipendenza dall'esito (non dipendere da $B$) e indipendenza dal parametro (non dipendere da $\beta$). La meccanica quantistica ortodossa rispetta la seconda, perché la marginale vale $\tfrac12$ qualunque sia $\beta$, e viola la prima. Norsen non usa questa distinzione, e per il teorema non serve.</p>
+
+<h2 id="s8" data-toc="Il massimo quantistico: 2√2 e il limite di Tsirelson"><span class="n">7</span>Il massimo quantistico: 2√2 e il limite di Tsirelson</h2>
+<p>Ora mettiamo nella combinazione $S$ la correlazione quantistica dei fotoni, $E=\cos2(\alpha-\beta)$, con gli angoli
+$$a=0^\circ,\qquad a'=45^\circ,\qquad b=22{,}5^\circ,\qquad b'=67{,}5^\circ .$$</p>
+<ol class="steps">
+<li>$E(a,b)=\cos2(0^\circ-22{,}5^\circ)=\cos(-45^\circ)=\tfrac1{\sqrt2}$.</li>
+<li>$E(a,b')=\cos2(0^\circ-67{,}5^\circ)=\cos(-135^\circ)=-\tfrac1{\sqrt2}$.</li>
+<li>$E(a',b)=\cos2(45^\circ-22{,}5^\circ)=\cos45^\circ=\tfrac1{\sqrt2}$.</li>
+<li>$E(a',b')=\cos2(45^\circ-67{,}5^\circ)=\cos(-45^\circ)=\tfrac1{\sqrt2}$.</li>
+<li>$S=\tfrac1{\sqrt2}-\big(-\tfrac1{\sqrt2}\big)+\tfrac1{\sqrt2}+\tfrac1{\sqrt2}=\tfrac4{\sqrt2}=2\sqrt2\approx2{,}83$.</li>
+</ol>
+<p>È $\sqrt2$ volte il limite locale, circa il 40% in più (Norsen, p. 235). Per lo spin Norsen usa gli angoli doppi, $\hat a$ a $0^\circ$, $\hat b$ a $45^\circ$, $\hat a'$ a $90^\circ$, $\hat c$ a $135^\circ$ (figura 8.1, p. 234), e con $C=-\cos\theta$ trova $-\tfrac1{\sqrt2}$, $+\tfrac1{\sqrt2}$, $-\tfrac1{\sqrt2}$, $-\tfrac1{\sqrt2}$, quindi $|-\sqrt2|+|-\sqrt2|=2\sqrt2$ (eq. 8.39-8.43). La traduzione per i fotoni è nostra. Bell, nell'art. 7, usa per i fotoni le stesse differenze di angolo, $22{,}5^\circ$, $45^\circ$ e $67{,}5^\circ$ (eq. 23, p. 70).</p>
+
+<aside class="book" data-l="no" data-p="234"><div class="tag">Nei libri · Norsen §8.3</div><p>Norsen afferma che gli angoli della figura 8.1 danno la discrepanza massima tra meccanica quantistica e località, ma non lo dimostra. Le due giustificazioni che seguono sono nostre.</p></aside>
+
+<h3>Perché proprio questi angoli</h3>
+<p>Proviamo una famiglia di angoli equispaziati: $a=0$, $b=\varphi$, $a'=2\varphi$, $b'=3\varphi$. Le differenze sono $a-b=-\varphi$, $a-b'=-3\varphi$, $a'-b=\varphi$, $a'-b'=-\varphi$, quindi, con $u=2\varphi$,
+$$S(u)=\cos u-\cos3u+\cos u+\cos u=3\cos u-\cos3u .$$</p>
+<ol class="steps">
+<li>A $u=0$ (tutti gli angoli uguali) $S=3-1=2$: si sta esattamente sul limite.</li>
+<li>La derivata è $S'(u)=-3\sin u+3\sin3u$, nulla quando $\sin3u=\sin u$.</li>
+<li>A parte $u=0$, la prima soluzione è $3u=\pi-u$, cioè $u=\pi/4$ e $\varphi=22{,}5^\circ$.</li>
+<li>Lì $S=3\cos45^\circ-\cos135^\circ=\tfrac3{\sqrt2}+\tfrac1{\sqrt2}=2\sqrt2$.</li>
+</ol>
+
+<h3>Il limite di Tsirelson</h3>
+<p>Questo risultato non è in nessuno dei due libri; lo aggiungiamo perché risponde a una domanda naturale: con altri stati e altri angoli si può fare meglio di $2\sqrt2$? La risposta è no. Chiamiamo $A=\Pi_a$, $A'=\Pi_{a'}$ le osservabili di Alice, $B=\Pi_b$, $B'=\Pi_{b'}$ quelle di Bob. Dalla sezione 1 sappiamo che $A^2=A'^2=B^2=B'^2=\mathbb 1$. Definiamo l'operatore
+$$\mathcal B=A\otimes(B-B')+A'\otimes(B+B'),$$
+il cui valore atteso in qualunque stato $|\Psi\rangle$ è proprio $S$.</p>
+<ol class="steps">
+<li>Con $X=B-B'$ e $Y=B+B'$, e usando $(P\otimes Q)(R\otimes T)=PR\otimes QT$:
+$$\mathcal B^2=A^2\otimes X^2+AA'\otimes XY+A'A\otimes YX+A'^2\otimes Y^2 .$$</li>
+<li>$X^2+Y^2=2B^2+2B'^2=4\,\mathbb 1$, perché i termini misti $BB'$ e $B'B$ si cancellano.</li>
+<li>$XY=B^2+BB'-B'B-B'^2=[B,B']$ e $YX=B^2-BB'+B'B-B'^2=-[B,B']$.</li>
+<li>Quindi
+$$\mathcal B^2=4\,\mathbb 1\otimes\mathbb 1+[A,A']\otimes[B,B'] .$$</li>
+<li>Chiamiamo norma di un operatore $M$ il massimo di $\|M\vec v\|$ sui vettori di norma 1. Poiché $A^\dagger A=A^2=\mathbb 1$, $A$ conserva le lunghezze, e così $A'$; quindi $\|AA'\|=\|A'A\|=1$ e $\|[A,A']\|\le2$. Lo stesso vale per $[B,B']$.</li>
+<li>Il valore atteso di un operatore è al più la sua norma, e la norma di un prodotto tensoriale è il prodotto delle norme. Quindi $\langle\mathcal B^2\rangle\le4+2\cdot2=8$.</li>
+<li>La varianza non è mai negativa (tappa «Indeterminazione»): $\langle\mathcal B^2\rangle-\langle\mathcal B\rangle^2\ge0$. Quindi $S^2=\langle\mathcal B\rangle^2\le8$ e
+$$|S|\le2\sqrt2 .$$</li>
+</ol>
+<p>Il passo 4 dice anche una cosa istruttiva. Se le due osservabili di Alice commutassero, $[A,A']=0$, si avrebbe $\mathcal B^2=4$ e quindi $|S|\le2$: nessuna violazione. Per violare la CHSH ciascun lato deve usare due osservabili incompatibili, nel senso della tappa «Osservabili compatibili». Per i polarizzatori lo si può calcolare. Scrivendo $\Pi_\alpha=\cos2\alpha\,\sigma_z+\sin2\alpha\,\sigma_x$, dove $\sigma_z$ e $\sigma_x$ sono le matrici della nota sullo spin, si trova
+$$[\Pi_a,\Pi_{a'}]=\sin2(a'-a)\,[\sigma_z,\sigma_x],\qquad[\sigma_z,\sigma_x]=\begin{pmatrix}0&amp;2\\-2&amp;0\end{pmatrix},$$
+la cui norma è $2|\sin2(a'-a)|$. È massima per $a'-a=45^\circ$: ecco perché negli angoli ottimali le due impostazioni di ciascun lato distano $45^\circ$.</p>
+
+<h2 id="s9" data-toc="Laboratorio: misurare S"><span class="n">8</span>Laboratorio: misurare S</h2>
+<figure class="lab"><div class="plate"><div data-lab="chsh" id="lab-chsh"></div></div><figcaption><b>Figura C.1</b><i class="t">La CHSH con coppie di fotoni.</i> Quattro cursori per gli angoli $a$, $a'$ (Alice) e $b$, $b'$ (Bob). Il grafico mostra la correlazione in funzione di $\Delta=\alpha-\beta$: la curva continua è quella quantistica, $\cos2\Delta$, il tratteggio è il modello locale, $1-4|\Delta|/\pi$; i quattro punti sono le quattro coppie di impostazioni. Prima prevedi $S$ quantistico e locale con il pulsante «Angoli ottimali», poi premilo; prima stima l'errore su 1000 coppie, poi premi «Misura 1000 coppie».</figcaption></figure>
+
+<p>Il laboratorio fa tre cose. Calcola $S=E(a,b)-E(a,b')+E(a',b)+E(a',b')$ con la correlazione quantistica e con quella di un modello locale. Disegna le due correlazioni in funzione della differenza di angolo $\Delta$, riportata tra $-90^\circ$ e $90^\circ$ perché un polarizzatore ruotato di $180^\circ$ è lo stesso polarizzatore. E simula un esperimento: per ogni coppia sceglie a caso una delle quattro combinazioni di impostazioni, come in un test vero, estrae gli esiti con le probabilità quantistiche e con il modello locale, e stima $S$ con il suo errore statistico.</p>
+
+<h3>Il modello locale del laboratorio</h3>
+<p>Il modello e il suo conto non sono nei libri, anche se sono la versione per fotoni del modello di Bell (art. 2, eq. 9-10, pp. 27-28). Ogni coppia porta una polarizzazione nascosta $\lambda$, distribuita uniformemente tra $0$ e $\pi$ (un asse a $\lambda$ e uno a $\lambda+\pi$ sono lo stesso asse). Ciascun fotone passa se il suo asse nascosto dista meno di $45^\circ$ da quello del polarizzatore: $A=\mathrm{sgn}\cos2(\alpha-\lambda)$ e $B=\mathrm{sgn}\cos2(\beta-\lambda)$, con la stessa $\lambda$. È un modello locale e deterministico, quindi rispetta la CHSH.</p>
+<ol class="steps">
+<li>L'insieme dei $\lambda$ per cui Alice ottiene $+1$ è un arco lungo $\pi/2$ centrato in $\alpha$, su una circonferenza di lunghezza $\pi$. Quindi $P(A{=}{+}1)=\tfrac12$, come in meccanica quantistica.</li>
+<li>L'arco di Bob è centrato in $\beta$. Per $|\Delta|\le\pi/2$ i due archi si sovrappongono per un tratto lungo $\pi/2-|\Delta|$, quindi ciascuno sporge dall'altro per un tratto lungo $|\Delta|$.</li>
+<li>Gli esiti sono diversi quando $\lambda$ cade in una delle due sporgenze: $P(\text{diversi})=2|\Delta|/\pi$.</li>
+<li>$E_{\rm loc}=P(\text{uguali})-P(\text{diversi})=1-2P(\text{diversi})=1-\dfrac{4|\Delta|}{\pi}$.</li>
+<li>Confronto con Bell: per lo spin il suo modello dà $P=-1+2\theta/\pi$; con $\theta=2\Delta$ e il cambio di segno del dizionario si ottiene proprio $1-4\Delta/\pi$.</li>
+</ol>
+<p>Il modello locale coincide con la meccanica quantistica a $\Delta=0$, $\pm45^\circ$ e $\pm90^\circ$, dove $E$ vale $1$, $0$ e $-1$. Sono gli angoli della tabella a quattro tipi della sezione 2 e i soli punti discussi per decenni (Bell, art. 16, p. 157). La differenza sta negli angoli intermedi: a $\Delta=22{,}5^\circ$ la meccanica quantistica dà $0{,}707$, il modello locale $0{,}5$. La CHSH sfrutta proprio quegli angoli.</p>
+
+<h3>Compiti di previsione</h3>
+<ol>
+<li>Premi «Angoli ottimali» ($0^\circ$, $45^\circ$, $22{,}5^\circ$, $67{,}5^\circ$; i cursori vanno a passi di mezzo grado). Prima prevedi $S$ quantistico e $S$ locale. Poi controlla. Dovresti trovare $2{,}828$ e $2{,}000$: con gli angoli ottimali il modello locale tocca il limite senza superarlo.</li>
+<li>Metti tutti e quattro i cursori allo stesso angolo. Prevedi $S$ nei due casi prima di guardare. (Ogni correlazione vale 1, quindi $S=1-1+1+1=2$ per entrambi.)</li>
+<li>Con gli angoli ottimali, aggiungi $90^\circ$ sia a $b$ sia a $b'$ (cioè $b=112{,}5^\circ$, $b'=157{,}5^\circ$). Prevedi che cosa succede a $S$. Ruotare di $90^\circ$ un polarizzatore scambia passaggio e assorbimento, quindi ogni correlazione con $b$ o $b'$ cambia segno e $S\to-S$. Per questo la disuguaglianza si scrive con il valore assoluto.</li>
+<li>Metti $a'=a$. Prevedi il massimo di $S$ che riesci a ottenere muovendo gli altri cursori. (Con $a'=a$ si ha $S=2E(a,b)\le2$: senza due impostazioni diverse Alice non può violare niente, come previsto dal commutatore della sezione 7.)</li>
+<li>Prima di premere «Misura 1000 coppie», stima l'errore. Ogni combinazione riceve circa 250 coppie; la varianza di $AB=\pm1$ è $1-E^2$, che agli angoli ottimali vale $\tfrac12$. L'errore su ciascuna $E$ è quindi $\sqrt{0{,}5/250}\approx0{,}045$ e quello su $S$, somma di quattro termini indipendenti, $\sqrt{4\cdot0{,}5/250}\approx0{,}09$. Poi premi più volte e guarda quanto fluttua il risultato. Di quante deviazioni standard sta sopra 2?</li>
+<li>Prova a trovare angoli per cui il modello locale dà $S\gt2$. Prima di provare, decidi se è possibile.</li>
+</ol>
+
+<h2 id="s10" data-toc="Gli esperimenti, le scappatoie e i calzini di Bertlmann"><span class="n">9</span>Gli esperimenti, le scappatoie e i calzini di Bertlmann</h2>
+<p>Sui dati c'è accordo generale: la meccanica quantistica ha ragione e i modelli locali torto (Norsen, p. 239). Ecco i passaggi principali, con le scappatoie che ciascun esperimento lasciava aperte.</p>
+<div class="tbl"><table><thead><tr><th>Anno</th><th>Gruppo</th><th>Che cosa</th><th>Risultato</th></tr></thead><tbody>
+<tr><td>1982</td><td>Aspect, Grangier, Roger</td><td>Fotoni da una cascata di atomi di calcio, polarizzatori fissi. Primo test sistematico della CHSH (Norsen, p. 235).</td><td>$S=2{,}697\pm0{,}015$, contro $2{,}70\pm0{,}05$ previsto dalla meccanica quantistica tenendo conto di efficienze e allineamento (eq. 8.44, p. 235)</td></tr>
+<tr><td>1982</td><td>Aspect, Dalibard, Roger</td><td>Commutatori acusto-ottici che cambiano l'impostazione ogni 10 ns circa, contro circa 40 ns di volo della luce tra i due lati; commutazione quasi periodica, non davvero casuale (pp. 237-238).</td><td>Accordo con la meccanica quantistica</td></tr>
+<tr><td>1998</td><td>Weihs, Jennewein, Simon, Weinfurter, Zeilinger</td><td>Conversione parametrica, fibre ottiche ai capi opposti di un campus, generatori fisici di numeri casuali e modulatori elettro-ottici: scelte casuali e a separazione di tipo spazio (p. 238).</td><td>$S=2{,}73\pm0{,}02$</td></tr>
+<tr><td>2015</td><td>Hensen et al.; Giustina et al.; Shalm et al.</td><td>Spin di elettroni separati da 1,3 km (Hensen); fotoni (Giustina, Shalm). Le scappatoie principali chiuse nello stesso esperimento (p. 238; bibliografia a p. 251).</td><td>Violazione della disuguaglianza</td></tr>
+</tbody></table></div>
+<p>Il valore di Aspect è circa 46 deviazioni standard sopra 2, perché $(2{,}697-2)/0{,}015\approx46$; il conto è nostro.</p>
+
+<h3>Le scappatoie</h3>
+<p>Una scappatoia è un'ipotesi della derivazione che un dato esperimento non garantisce. Norsen ne discute due (p. 236), e la terza compare nei progetti e nelle note.</p>
+<ul>
+<li><b>Scappatoia della rivelazione.</b> I rivelatori non registrano tutti i fotoni. Per confrontare con la CHSH si assume che le coppie rivelate siano un campione non distorto di tutte. Aspect la riteneva improbabile, perché nessuna teoria suggerisce che le coppie rivelate siano diverse dalle altre (Norsen, p. 236). Bell osserva che con inefficienze forti la disuguaglianza diventa banalmente soddisfatta, e che la linea del limite di Bell tracciata nei grafici sperimentali richiede estrapolazioni (art. 7, pp. 70-71).</li>
+<li><b>Scappatoia della località.</b> Se gli apparati restano fermi, le impostazioni sono decise dentro i coni passati di entrambi i lati, e un segnale lento potrebbe in principio informare l'altro lato. È il problema dei tipi ribelli della sezione 5 (Norsen, pp. 236-237). Bell la indicava già nel 1964 come il punto cruciale (art. 2, p. 31). La chiudono le impostazioni cambiate durante il volo, in parte con Aspect e Dalibard, in modo pieno con Weihs.</li>
+<li><b>Scappatoia della libertà.</b> Le impostazioni potrebbero essere correlate con $\lambda$ da cause comuni nel passato, contro la H3. Nessun esperimento può escluderla del tutto; ne parliamo nella sezione 10.</li>
+</ul>
+
+<aside class="book" data-l="no" data-p="237"><div class="tag">Nei libri · Norsen §8.4</div><p>Norsen descrive i commutatori di Aspect: acqua attraversata da un'onda stazionaria a circa 50 MHz, che devia il fotone verso uno di due polarizzatori. Per Weihs nota che il modulatore ruota la polarizzazione del fotone invece del polarizzatore.</p></aside>
+
+<h3>I calzini di Bertlmann e le lavatrici</h3>
+<p>Nella conferenza del 1980 (art. 16) Bell racconta il teorema senza formule, con i calzini del dottor Bertlmann. È anche la versione più vicina alla disuguaglianza preliminare della sezione 4. La ricostruiamo seguendo le pp. 158-160.</p>
+<ol class="steps">
+<li>Si mettono alla prova calzini nuovi con lavaggi a $0^\circ$, $45^\circ$ e $90^\circ$ (gradi centigradi), chiedendo se il calzino sopravvive. Per qualunque insieme di calzini vale
+$$N(\text{passa a }0^\circ,\text{ non a }45^\circ)+N(\text{passa a }45^\circ,\text{ non a }90^\circ)\ge N(\text{passa a }0^\circ,\text{ non a }90^\circ).$$
+Il motivo è lo stesso della sezione 4: un calzino del terzo gruppo o passa a $45^\circ$, e allora sta nel secondo, o non passa, e allora sta nel primo.</li>
+<li>La disuguaglianza è empiricamente vuota, perché un calzino non si può lavare tre volte da nuovo. Ma i calzini di Bertlmann vengono in coppie, e se un calzino supera un test lo supera anche il compagno. Si può allora fare un test su un calzino e l'altro sul compagno.</li>
+<li>Con l'ipotesi di campionamento casuale (le frazioni misurate su sottoinsiemi scelti a caso valgono per tutto l'insieme) si passa alle probabilità. Questa ipotesi è l'antenata della H3.</li>
+<li>Per le particelle del singoletto le temperature diventano angoli dei magneti, e l'accoppiamento è opposto: se una particella passa, il compagno fallirebbe. La disuguaglianza diventa
+$$P(\text{uno passa a }0^\circ,\text{ l'altro a }45^\circ)+P(45^\circ,90^\circ)\ge P(0^\circ,90^\circ).$$</li>
+<li>In meccanica quantistica la probabilità che entrambi passino è $\tfrac12\sin^2\frac{a-b}2$ (art. 16, eq. 4, p. 157, la stessa della sezione 3). Con differenze di $45^\circ$, $45^\circ$ e $90^\circ$:
+$$\tfrac12\sin^222{,}5^\circ+\tfrac12\sin^222{,}5^\circ=0{,}1464\ \ \text{contro}\ \ \tfrac12\sin^245^\circ=0{,}25 ,$$
+e $0{,}1464\ge0{,}25$ è falso.</li>
+</ol>
+<p>Bell riassume così: se l'intervento da un lato non ha effetti causali sull'altro, i risultati devono essere predeterminati, e questo contraddice la meccanica quantistica per impostazioni non parallele (art. 16, p. 160).</p>
+
+<aside class="book" data-l="be" data-p="158"><div class="tag">Nei libri · Bell art. 16</div><p>Bell attribuisce la versione con i lavaggi a d'Espagnat, che segue Wigner; in una nota ricorda la variante di d'Espagnat con donne giovani e fumatrici. Nella §4 dello stesso articolo toglie le ipotesi superflue (correlazioni perfette, determinismo, spin) e arriva alla CHSH con una scatola nera a ingressi e uscite.</p></aside>
+
+<h2 id="s11" data-toc="Che cosa significa"><span class="n">10</span>Che cosa significa</h2>
+<p>Sui dati c'è accordo. Il disaccordo riguarda che cosa se ne debba concludere (Norsen, p. 239).</p>
+
+<h3>L'argomento in due parti</h3>
+<p>Una lettura molto diffusa dice che Bell avrebbe dimostrato l'impossibilità delle variabili nascoste. Norsen la trova in molti autori (pp. 239-240) e la confuta con un fatto: la teoria di de Broglie e Bohm è una teoria a variabili nascoste ed è in accordo con tutti gli esperimenti. Bell stesso, ispirato proprio da Bohm, ne fu il principale sostenitore (p. 240).</p>
+<p>Una variante più sottile, che Norsen attribuisce a Mermin, dice che il teorema lascia una scelta tra località senza variabili nascoste e variabili nascoste senza località, e che la prima sembra ovvia (pp. 240-241). Per Norsen anche questa è sbagliata, perché dimentica EPR. L'argomento completo ha due parti (p. 242):</p>
+<ol class="steps">
+<li>EPR: località, più correlazioni perfette, implica valori predeterminati (sezione 2).</li>
+<li>Bell: valori predeterminati implicano una disuguaglianza che gli esperimenti violano (sezioni 4 e 5).</li>
+<li>Quindi la località implica un conflitto con l'esperimento, ed è falsa.</li>
+</ol>
+<p>In logica: se $L\Rightarrow X$ e $X\Rightarrow\text{contraddizione}$, allora non $L$. La lettura di Mermin isola soltanto $(L\text{ e }X)\Rightarrow\text{contraddizione}$, che lascerebbe libero di scegliere quale delle due abbandonare. L'opzione «località senza variabili nascoste» non esiste, perché la località da sola porta già alle variabili nascoste. Era anche la posizione di Bell (Norsen, pp. 242-243).</p>
+
+<h3>Il teorema di località nella forma di Norsen</h3>
+<p>La derivazione della sezione 6 permette di dirlo ancora più direttamente, senza passare per EPR (Norsen, §8.6, p. 248).</p>
+<div class="note"><p><b>Teorema di località di Bell.</b> Ogni teoria localmente causale (H2), in cui le impostazioni sono indipendenti dallo stato della coppia (H3) e gli esiti sono $\pm1$ con probabilità ben definite (H4, H5), soddisfa $|S|\le2$. Gli esperimenti danno $|S|\gt2$. Quindi la natura non è localmente causale. Nella derivazione non entrano né il determinismo né il realismo, e non ci si salva dichiarando completa la meccanica quantistica, che viola la fattorizzazione già da sola. Per questo Bell lo chiamava teorema della disuguaglianza di località.</p></div>
+<p>Restano però alcune ipotesi, ed è lì che le interpretazioni si dividono: la causalità locale stessa, la libertà delle impostazioni, il fatto tacito che ogni misura abbia un solo esito definito, e la struttura spazio-temporale relativistica, che Bell stesso mette tra le riserve (art. 7, p. 72).</p>
+
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Il teorema di Bell non dice che le variabili nascoste sono impossibili, e non dice che sono le variabili nascoste a essere confutate. Dice che è impossibile la località, con o senza variabili nascoste. La teoria di de Broglie e Bohm, che ha variabili nascoste, riproduce tutti i dati proprio perché è nonlocale.</p></aside>
+
+<h3>Che cosa resta per ciascuna interpretazione</h3>
+<div class="tbl"><table><thead><tr><th>Interpretazione</th><th>Ipotesi che cade</th><th>Come si manifesta</th><th>Dove</th></tr></thead><tbody>
+<tr><td>Copenhagen (funzione d'onda completa, collasso)</td><td>H2, località</td><td>Il collasso su un lato cambia istantaneamente le probabilità sull'altro</td><td>Norsen, p. 106; Bell, art. 7, p. 66</td></tr>
+<tr><td>Onda pilota (de Broglie-Bohm)</td><td>H2, in modo esplicito</td><td>La velocità di una particella dipende dalla posizione istantanea dell'altra</td><td>Norsen, pp. 208-214</td></tr>
+<tr><td>GRW (collasso spontaneo)</td><td>H2</td><td>Un colpo su un lato localizza istantaneamente anche l'altro</td><td>Norsen, pp. 268-271</td></tr>
+<tr><td>Molti mondi</td><td>Discusso: forse l'ipotesi tacita di un esito unico</td><td>Nessun collasso, tutti gli esiti avvengono</td><td>Norsen, pp. 297-304</td></tr>
+<tr><td>Superdeterminismo</td><td>H3, libertà delle impostazioni</td><td>Impostazioni e $\lambda$ correlate da cause comuni</td><td>Norsen, p. 250</td></tr>
+</tbody></table></div>
+<p><b>Copenhagen.</b> Se la funzione d'onda è tutto, il collasso provocato dalla misura di Alice cambia lo stato del fotone di Bob a distanza. La teoria viola la località già nella situazione di EPR, anzi già con le scatole di Einstein (Norsen, p. 106), e Bell nota che la meccanica quantistica ordinaria, anche quella relativistica dei campi, non è localmente causale (art. 7, p. 66). Tra le posizioni possibili Bell elenca anche quella che attribuisce a Bohr: sotto un certo livello non c'è nessuna realtà da descrivere, e la teoria fondamentale resta vaga (art. 16, p. 166).</p>
+<p><b>Onda pilota.</b> Qui la nonlocalità è scritta nell'equazione guida. Per due particelle la velocità della particella 1 al tempo $t$ si calcola dalla funzione d'onda valutata nella posizione attuale $X_2(t)$ della particella 2 (Norsen, eq. 7.54, p. 209), che può essere lontanissima. Nell'esempio di Norsen una misura di Bob sulla particella 2 ferma istantaneamente la particella 1 (pp. 209-214). Bell lo sapeva fin dall'inizio: il modello di Bohm è nonlocale, e il teorema dice che deve esserlo ogni teoria che riproduca la meccanica quantistica (art. 2, p. 25). La teoria però non permette segnali, perché la sua statistica è quella quantistica. Norsen e Bell la giudicano comunque l'opzione meglio costruita, e considerano la nonlocalità un tratto reale del mondo più che un difetto (Norsen, p. 311).</p>
+<p><b>GRW.</b> Anche le teorie a collasso spontaneo sono nonlocali, come richiede il teorema (Norsen, p. 268). Nella versione con la densità di massa, un colpo su una particella del puntatore di Bob fa raccogliere istantaneamente anche la densità di massa della particella di Alice da una parte o dall'altra (p. 270). Nella versione a lampi, la probabilità di un lampo dalla parte di Alice raddoppia o si annulla secondo l'esito di Bob, anche conoscendo tutto il cono di luce passato (p. 271). Per Norsen queste teorie, essendo irriducibilmente stocastiche, sembrano conciliarsi meglio con la relatività, e ne esistono versioni relativistiche (p. 271).</p>
+<p><b>Molti mondi.</b> Gli everettiani sostengono che la loro teoria sia l'unica localmente causale, per due motivi: la nonlocalità veniva dal collasso, che hanno eliminato, e Bell assume esiti singoli e definiti, che in Everett non ci sono (Norsen, pp. 297-298). Norsen concede che Bell assumesse tacitamente esiti unici. Osserva però che per giudicare una teoria esistente conviene applicarle direttamente la definizione di località, e lì nascono due ostacoli. Se esiste solo la funzione d'onda nello spazio delle configurazioni, le parole locale e nonlocale non si applicano nemmeno; e le probabilità non funzionano come al solito, perché tutti gli esiti avvengono e la somma delle probabilità assegnate agli esiti fa 2 (pp. 298-299). In un esempio esplicito, ogni puntatore si divide localmente in due, ma le due divisioni lontane sono correlate in un modo che sembra impossibile da spiegare localmente (pp. 300-303). La conclusione di Norsen è che la questione resta aperta (pp. 303-304).</p>
+
+<aside class="book" data-l="no" data-p="250"><div class="tag">Nei libri · Norsen, Progetto 8.12</div><p>Nella nota 3 Norsen ricorda che l'indipendenza di $\rho(\lambda)$ dalle impostazioni è chiamata ipotesi di «no conspiracies», e che Gerard 't Hooft è tra chi la nega per conciliare meccanica quantistica e relatività. Il progetto chiede di confrontarla con l'assegnazione casuale dei pazienti in uno studio clinico.</p></aside>
+
+<h3>Il ruolo delle variabili libere</h3>
+<p>La H3 merita un discorso a parte. Bell la mette tra le riserve del suo articolo del 1975: si assume che le impostazioni siano variabili libere, non determinate da ciò che sta nella sovrapposizione dei coni passati. Aggiunge che senza questa libertà non saprebbe nemmeno formulare un'idea di causalità locale (art. 7, p. 72). Nella conferenza del 1980 elenca i modi di scegliere le impostazioni: lotterie, generatori radioattivi, fisici che decidono a piacere. Nessuno di questi esclude in modo assoluto una correlazione con $\lambda$, ma una correlazione del genere sarebbe una cospirazione ancora più sconcertante della nonlocalità (art. 16, p. 165).</p>
+<p>Il confronto di Norsen con la medicina aiuta (p. 250). Uno studio clinico assegna i pazienti a farmaco e placebo con un sorteggio, proprio perché si assume che il sorteggio non sia correlato con lo stato di salute dei pazienti. Chi rifiuta la H3 per salvare la località dovrebbe, per coerenza, dubitare anche di ogni sperimentazione randomizzata.</p>
+
+<h3>Nonlocalità senza telefono</h3>
+<p>Nella sezione 3 abbiamo visto che la marginale di Alice vale $\tfrac12$ qualunque angolo scelga Bob. Nessuna teoria che riproduca la meccanica quantistica permette quindi di mandare messaggi più veloci della luce, e Bell lo ricollega alla commutatività locale della teoria dei campi (art. 7, pp. 71-72). La nonlocalità che il teorema impone non è un telefono. Il conflitto con la relatività resta però profondo: Bell arrivò a considerare il ritorno a un riferimento privilegiato, non rilevabile, alla maniera di Lorentz e Poincaré (Norsen, pp. 242-243; Bell, art. 16, p. 165). Riconciliare la nonlocalità con la relatività è, per Norsen, il vero problema aperto lasciato da questa storia (p. 311).</p>
+
+<div class="check">
+  <h2 id="s12" data-toc="Per verificare di aver capito">Per verificare di aver capito</h2>
+  <p><b>1.</b> Con i fotoni e $E=\cos2(\alpha-\beta)$, calcola $S=E(a,b)-E(a,b')+E(a',b)+E(a',b')$ per $a=0^\circ$, $a'=30^\circ$, $b=15^\circ$, $b'=45^\circ$. Calcola poi $S$ per il modello locale, con $E_{\rm loc}=1-4|\Delta|/180^\circ$ (angoli in gradi). Controlla nel laboratorio.</p>
+  <p><b>2.</b> Uno studente usa per i fotoni gli angoli ottimali dello spin, $a=0^\circ$, $b=45^\circ$, $a'=90^\circ$, $b'=135^\circ$. Quanto trova per $S$? Che cosa ha dimenticato?</p>
+  <p><b>3.</b> (Norsen, Progetto 8.10, p. 249.) Due gemelli, in stanze separate, rispondono a una di tre domande sì/no scelta a caso; quando ricevono la stessa domanda rispondono sempre allo stesso modo. Si osserva $P(Q_1{=}\text{sì},Q_2{=}\text{no})=20\%$, $P(Q_2{=}\text{sì},Q_3{=}\text{no})=15\%$ e $P(Q_1{=}\text{sì},Q_3{=}\text{no})=40\%$. Che cosa ne concludi?</p>
+  <p><b>4.</b> Per il singoletto, verifica che la probabilità che la particella 1 dia $+1$ lungo $\hat z$ è $\tfrac12$ qualunque sia l'asse $\hat n$ scelto per la particella 2.</p>
+  <p><b>Soluzioni in breve.</b> (1) $E(a,b)=\cos30^\circ=0{,}866$, $E(a,b')=\cos90^\circ=0$, $E(a',b)=\cos30^\circ=0{,}866$, $E(a',b')=\cos(-30^\circ)=0{,}866$, quindi $S=3\cdot0{,}866=2{,}598\gt2$: violazione. Per il modello locale $E_{\rm loc}(15^\circ)=1-\tfrac13=0{,}667$ ed $E_{\rm loc}(45^\circ)=0$, quindi $S_{\rm loc}=3\cdot0{,}667=2{,}000$. (2) Tutte le differenze sono multipli dispari di $45^\circ$, quindi $2\Delta$ è un multiplo dispari di $90^\circ$ e ogni $E$ è nulla: $S=0$. Ha dimenticato il fattore 2, $\theta_{\rm spin}=2\alpha_{\rm pol}$: per i fotoni gli angoli vanno dimezzati. (3) Con risposte predeterminate e uguali nei due gemelli, chi ha $Q_1=$ sì e $Q_3=$ no ha $Q_2=$ no, ed è contato nella prima probabilità, oppure $Q_2=$ sì, ed è contato nella seconda. Quindi dovrebbe valere $40\%\le20\%+15\%=35\%$, che è falso: o i gemelli comunicano tra le stanze, o le domande non sono scelte in modo indipendente dalle loro risposte, o i dati sono sbagliati. È la disuguaglianza preliminare con correlazione positiva. (4) Dalla (8.15), $P(+z,+n)+P(+z,-n)=\tfrac12\sin^2\frac\theta2+\tfrac12\cos^2\frac\theta2=\tfrac12$, indipendente da $\theta$.</p>
+</div>
+<nav class="pager"><a href="oltre-onda-pilota.html"><small>← Indietro</small>Oltre Copenhagen · L'onda pilota di de Broglie e Bohm</a><a class="next" href="oltre-grw.html"><small>Avanti →</small>Oltre Copenhagen · Il collasso spontaneo</a></nav></article></div></div></body></html>

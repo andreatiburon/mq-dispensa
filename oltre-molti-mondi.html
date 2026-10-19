@@ -1,0 +1,418 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>I molti mondi · Oltre Copenhagen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="style.css"><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]},svg:{fontCache:"global"}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script><script src="labs.js" defer></script></head><body><header class="bar"><div class="bar-in"><a class="brand" href="index.html">Meccanica <span>Quantistica</span></a><nav class="nav" aria-label="Pagine"><a href="index.html">Home</a><a href="postulati.html">Lezione 1 · Postulati</a><a href="rappresentazioni.html">Lezione 2 · Rappresentazioni</a><a href="evoluzione.html">Lezione 3 · Evoluzione</a><a href="oltre-problemi.html" aria-current="page">Oltre Copenhagen</a><a href="linea.html">Linea temporale</a></nav></div></header><div class="wrap"><div class="layout"><aside class="toc" aria-label="Indice"><h2>In questa lezione</h2><ol></ol></aside><article><details class="toc-mobile"><summary>Indice della lezione</summary><ol></ol></details><p class="kicker"><b class="par">Oltre Copenhagen · E</b> · percorso parallelo con Norsen e Bell</p><h1 class="ht-shadow" data-t="I molti mondi">I molti mondi</h1><p class="lead">Everett prende la funzione d'onda alla lettera: è tutto ciò che esiste e segue sempre l'equazione di Schrödinger. Vediamo che cosa ne viene per la misura, la probabilità, l'ontologia e la località.</p>
+<h2 id="s1" data-toc="La mappa di questa parte">La mappa di questa parte</h2>
+<p>Nelle pagine precedenti abbiamo visto tre modi di uscire dal problema della misura. Bell li riassume con un dilemma: la funzione d'onda o non è tutto, oppure non è giusta (Norsen, p. 252). L'onda pilota sceglie la prima strada e aggiunge le posizioni delle particelle. GRW sceglie la seconda e modifica l'equazione di Schrödinger con collassi spontanei. Copenhagen, a modo suo, sceglie entrambe: tiene un mondo classico separato e fa collassare ψ quando si misura.</p>
+<p>Hugh Everett, negli anni Cinquanta, propone la quarta possibilità, la più semplice da enunciare. La funzione d'onda è tutto ed è giusta. Non si aggiunge niente e non si modifica niente: si toglie il collasso. Il prezzo si paga dopo, quando si chiede perché vediamo un solo risultato, che cosa vogliano dire le probabilità e che cosa esista nello spazio tridimensionale. La pagina segue questo filo.</p>
+<div class="map">
+  <div class="row c1"><div class="box f"><b>Il problema della misura</b>Per linearità il puntatore finisce in una sovrapposizione di posizioni diverse. Bell: ψ non è tutto, oppure non è giusta.</div></div>
+  <div class="arrow">↓</div>
+  <div class="row c2">
+    <div class="box r"><b>Le altre teorie cambiano qualcosa</b>Copenhagen aggiunge il collasso, l'onda pilota le posizioni, GRW una dinamica non lineare.</div>
+    <div class="box p"><b>Everett: solo Process 2</b>ψ è tutto ed è giusta. Si toglie il collasso e si prende sul serio la sovrapposizione, osservatore compreso (§1-2).</div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="row">
+    <div class="box c"><b>Rami</b>Stato relativo, ramificazione, decoerenza. Resta aperto il problema della base preferita (§3-4).</div>
+    <div class="box r"><b>Probabilità</b>Contare i rami dà sempre 1/2; pesarli con |c|² è la regola di Born. Circolarità e tentativi di uscirne (§5-8).</div>
+    <div class="box r"><b>Ontologia e località</b>Che cosa esiste in tre dimensioni? E in che senso la teoria sarebbe locale (§9-10)?</div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="row c1"><div class="box c"><b>La lettura di Bell</b>Everett come onda pilota senza traiettorie: contano le memorie presenti, non il passato (§11).</div></div>
+</div>
+
+<h2 id="s2" data-toc="Il problema e la proposta di Everett"><span class="n">1</span>Il problema e la proposta di Everett</h2>
+<aside class="book" data-l="no" data-p="279"><div class="tag">Nei libri · Norsen §10.0</div><p>La storia: Everett era dottorando di Wheeler, che gli fece attenuare la tesi nella versione del 1957 sullo «stato relativo». La versione lunga uscì solo nel 1973, curata da DeWitt e Graham.</p></aside>
+<p>Everett divide la meccanica quantistica dei libri di testo in due regole di evoluzione, e le chiama Process 1 e Process 2 (Norsen, p. 280).</p>
+<ul>
+  <li><b>Process 1</b> è il collasso. Quando si misura un'osservabile, lo stato salta in modo discontinuo e casuale su un autostato, con la probabilità data dalla formula di Born. È il terzo postulato che conosciamo dalla Lezione 1, insieme alla regola sullo stato dopo la misura: lo stato viene proiettato con il proiettore $P_k = |a_k\rangle\langle a_k|$ e poi rinormalizzato.</li>
+  <li><b>Process 2</b> è l'evoluzione con l'equazione di Schrödinger, continua e deterministica, che vale quando nessuno misura.</li>
+</ul>
+<div class="note"><p><b>Ripasso lampo: l'equazione di Schrödinger.</b> Lo stato evolve con $i\hbar\,\frac{d}{dt}|\psi(t)\rangle = H|\psi(t)\rangle$, dove $H$ è l'hamiltoniana, un operatore autoaggiunto. Due proprietà ci servono in tutta la pagina. (1) È <i>lineare</i>: se $|\psi_1(t)\rangle$ e $|\psi_2(t)\rangle$ sono soluzioni, anche $c_1|\psi_1(t)\rangle + c_2|\psi_2(t)\rangle$ lo è, perché la derivata e $H$ sono lineari. Quindi l'evoluzione si scrive $|\psi(t)\rangle = U(t)|\psi(0)\rangle$ con $U(t)$ lineare, e $U\big(\sum_i c_i|i\rangle\big) = \sum_i c_i\,U|i\rangle$. (2) $U(t)$ è <i>unitario</i>, $U^\dagger U = \mathbb 1$, come la matrice del cambio di base della tappa t19. Allora conserva i prodotti scalari: $\langle U\alpha|U\beta\rangle = \langle\alpha|U^\dagger U|\beta\rangle = \langle\alpha|\beta\rangle$. In particolare due stati ortogonali restano ortogonali per sempre, e la norma resta 1.</p></div>
+<p>Il problema è quando applicare il Process 1. Gli strumenti e gli osservatori sono fatti di atomi, e gli atomi obbediscono al Process 2. Non esiste una regola precisa che dica dove il Process 2 smette di valere. Per l'universo intero, poi, la difficoltà diventa una contraddizione: un osservatore esterno all'universo che lo misuri e lo faccia collassare non c'è (Norsen, p. 280). È proprio la motivazione cosmologica che Bell attribuisce a Everett: se la funzione d'onda è quella del mondo, l'interpretazione usuale, che parla di statistiche raccolte da un osservatore esterno, non si applica (Bell, art. 11, p. 104).</p>
+<aside class="book" data-l="be" data-p="104"><div class="tag">Nei libri · Bell, art. 11</div><p>Bell osserva che Copenhagen non ha questo problema solo perché mette il mondo classico logicamente prima di quello quantistico, e accetta il confine vago tra i due perché quantitativamente irrilevante.</p></aside>
+<p>La proposta di Everett è abolire il Process 1. La meccanica ondulatoria con il solo Process 2 è, per lui, una descrizione completa di ogni sistema isolato, e la funzione d'onda è l'entità fisica fondamentale (Norsen, p. 280). Non c'è un postulato della misura, perché una misura è un'interazione come le altre. Tutto il resto della pagina serve a capire se questa scelta regge.</p>
+
+<h2 id="s3" data-toc="La misura senza collasso"><span class="n">2</span>La misura senza collasso</h2>
+<p>Partiamo da un'immagine concreta. Una particella in una buca di potenziale infinita (Norsen la chiama PIB, <i>particle in a box</i>) ha gli autostati dell'energia $\psi_k(x)$, con energie $E_k$. Sono ortonormali: $\int\psi_k^*(x)\psi_i(x)\,dx = \delta_{ik}$. Per misurarne l'energia usiamo uno strumento con una lancetta. La coordinata della lancetta è $y$, e prima della misura la lancetta sta a riposo vicino a $y = 0$, descritta da un pacchetto stretto $\phi_0(y)$. Vogliamo uno strumento che sposti la lancetta tanto più quanto più alta è l'energia.</p>
+
+<h3>L'interazione di misura</h3>
+<p>Se la particella è già in un autostato $\psi_k$, la misura ideale fa questo (Norsen, p. 281):</p>
+$$\psi_k(x)\,\phi_0(y)\;\longrightarrow\;\psi_k(x)\,\phi_0(y-\lambda E_k t).\qquad\text{(10.1)}$$
+<p>Qui $t$ è la durata dell'interazione e $\lambda$ è una costante di accoppiamento tra particella e lancetta. La lancetta trasla di $Y_k = \lambda E_k t$, una posizione che si legge e da cui si ricava $E_k$, mentre la particella resta nel suo autostato. Attenzione al simbolo: nella pagina su GRW la stessa lettera $\lambda$ indicava il tasso dei collassi, qui è un'altra cosa.</p>
+<div class="note"><p><b>Da dove viene la (10.1).</b> Questo modello non è nel capitolo di Norsen, che si limita a supporre la (10.1); lo aggiungiamo per vedere che non c'è niente di misterioso. Prendiamo un'hamiltoniana di interazione $H_{\rm int} = -i\hbar\lambda\,H_{\rm box}\,\partial_y$, dove $H_{\rm box}$ è l'hamiltoniana della particella, e trascuriamo tutto il resto durante il breve tempo dell'interazione. L'equazione di Schrödinger $i\hbar\,\partial_t\Psi = H_{\rm int}\Psi$ diventa $\partial_t\Psi = -\lambda\,H_{\rm box}\,\partial_y\Psi$. Su uno stato $\psi_k(x)\phi(y,t)$ l'operatore $H_{\rm box}$ dà $E_k\psi_k$, e resta $\partial_t\phi = -\lambda E_k\,\partial_y\phi$. È l'equazione del trasporto con velocità $v = \lambda E_k$: la soluzione è $\phi(y,t) = \phi_0(y - vt)$, come si verifica derivando, perché $\partial_t\phi_0(y-vt) = -v\,\phi_0'(y-vt)$ e $\partial_y\phi_0(y-vt) = \phi_0'(y-vt)$. Questa è la (10.1).</p></div>
+
+<div class="note"><p><b>Ripasso lampo: il prodotto tensoriale.</b> Due sistemi, A con spazio $\mathcal H_A$ e base $\{|a_i\rangle\}$ e B con spazio $\mathcal H_B$ e base $\{|b_j\rangle\}$, si descrivono insieme nello spazio $\mathcal H_A\otimes\mathcal H_B$, che ha come base le coppie $|a_i\rangle\otimes|b_j\rangle$, scritte anche $|a_i\rangle|b_j\rangle$. Se A ha dimensione $d_A$ e B dimensione $d_B$, lo spazio composto ha dimensione $d_A d_B$. Il simbolo $\otimes$ è lineare in ciascun fattore: $(\alpha|a\rangle + \beta|a'\rangle)\otimes|b\rangle = \alpha|a\rangle|b\rangle + \beta|a'\rangle|b\rangle$. Il prodotto scalare si fa fattore per fattore: $\big(\langle a|\langle b|\big)\big(|a'\rangle|b'\rangle\big) = \langle a|a'\rangle\langle b|b'\rangle$. Uno stato generico è $\sum_{ij}c_{ij}|a_i\rangle|b_j\rangle$. Se $c_{ij} = \alpha_i\beta_j$ lo stato è un <i>prodotto</i> $\big(\sum_i\alpha_i|a_i\rangle\big)\big(\sum_j\beta_j|b_j\rangle\big)$ e ciascun sistema ha un suo stato; altrimenti lo stato è <i>entangled</i> e nessuno dei due sistemi ha uno stato proprio. Con due fotoni, $|H\rangle|V\rangle$ è un prodotto, mentre $\frac{1}{\sqrt2}(|H\rangle|H\rangle + |V\rangle|V\rangle)$ non lo è: in dimensione 2×2 uno stato è prodotto solo se $c_{11}c_{22} = c_{12}c_{21}$, e qui $\frac12\neq 0$. Nella base delle posizioni la funzione d'onda del sistema composto è $\Psi(x,y) = \big(\langle x|\langle y|\big)|\Psi\rangle$, e uno stato prodotto ha $\Psi(x,y) = \psi(x)\phi(y)$.</p></div>
+
+<p>In notazione di Dirac chiamiamo $|\phi_k\rangle$ lo stato della lancetta spostata, cioè quello con $\langle y|\phi_k\rangle = \phi_0(y - Y_k)$. La (10.1) diventa $|\psi_k\rangle|\phi_0\rangle\to|\psi_k\rangle|\phi_k\rangle$. Ora prepariamo la particella in una sovrapposizione $|\psi\rangle = \sum_i c_i|\psi_i\rangle$, con $\sum_i|c_i|^2 = 1$. Che cosa fa il Process 2?</p>
+<ol class="steps">
+  <li>Lo stato iniziale è $\big(\sum_i c_i|\psi_i\rangle\big)\otimes|\phi_0\rangle$.</li>
+  <li>Per la linearità di $\otimes$ nel primo fattore, è uguale a $\sum_i c_i\,|\psi_i\rangle|\phi_0\rangle$.</li>
+  <li>L'operatore di evoluzione $U$ è lineare (ripasso qui sopra), quindi agisce termine per termine: $U\sum_i c_i|\psi_i\rangle|\phi_0\rangle = \sum_i c_i\,U|\psi_i\rangle|\phi_0\rangle$.</li>
+  <li>Su ogni termine vale la (10.1): $U|\psi_i\rangle|\phi_0\rangle = |\psi_i\rangle|\phi_i\rangle$.</li>
+  <li>Il risultato è $\sum_i c_i\,|\psi_i\rangle|\phi_i\rangle$, che in funzioni d'onda si legge</li>
+</ol>
+$$\Big(\sum_i c_i\,\psi_i(x)\Big)\phi_0(y)\;\longrightarrow\;\sum_i c_i\,\psi_i(x)\,\phi_0(y-\lambda E_i t).\qquad\text{(10.2)}$$
+<p>Lo stato finale è entangled: la lancetta non ha una posizione propria. Se le energie sono diverse e gli spostamenti $\lambda|E_i - E_k|t$ sono molto più grandi della larghezza di $\phi_0$, i pacchetti della lancetta non si sovrappongono e $\langle\phi_i|\phi_k\rangle\approx\delta_{ik}$. Allora si controlla subito (il conto non è nel libro) che la norma è rimasta 1, come deve per l'unitarietà: $\big\|\sum_i c_i|\psi_i\rangle|\phi_i\rangle\big\|^2 = \sum_{ik}c_k^*c_i\langle\psi_k|\psi_i\rangle\langle\phi_k|\phi_i\rangle = \sum_i|c_i|^2 = 1$.</p>
+<p>Con il nostro esempio ricorrente il conto è lo stesso. Un fotone polarizzato $|\theta\rangle = \cos\theta\,|H\rangle + \sin\theta\,|V\rangle$ attraversa un cubo polarizzatore seguito da un rivelatore con lancetta, che va in $|\phi_H\rangle$ o in $|\phi_V\rangle$ secondo la strada presa. Idealizziamo la misura in modo che il fotone non venga assorbito (questa versione con la polarizzazione è nostra). Dalla regola $|H\rangle|\phi_0\rangle\to|H\rangle|\phi_H\rangle$, $|V\rangle|\phi_0\rangle\to|V\rangle|\phi_V\rangle$ e dalla linearità viene</p>
+$$|\theta\rangle|\phi_0\rangle\;\longrightarrow\;\cos\theta\,|H\rangle|\phi_H\rangle + \sin\theta\,|V\rangle|\phi_V\rangle .$$
+<p>Le tre teorie viste finora considerano la (10.2) un problema e lo risolvono ciascuna a modo suo (Norsen, p. 281). Copenhagen dice che lo strumento andava trattato con il Process 1. L'onda pilota accetta la (10.2) ma mette lo stato reale della lancetta nelle posizioni delle sue particelle. GRW dice che per un oggetto macroscopico la (10.2) non si forma, o dura troppo poco per vederla. Everett dice che la (10.2) va bene così.</p>
+
+<h3>Anche l'osservatore entra nella sovrapposizione</h3>
+<aside class="book" data-l="no" data-p="282"><div class="tag">Nei libri · Norsen §10.1</div><p>Il passo della tesi di Everett sull'ameba intelligente con una buona memoria, che continua a dividersi: ogni copia ricorda una storia definita.</p></aside>
+<p>Il problema della (10.2) sembrava questo: una lancetta in più posizioni insieme dovrebbe apparire sfocata, e nessuno ha mai visto una lancetta sfocata. Everett chiede di calcolare che cosa vede un osservatore secondo la meccanica quantistica stessa. Chiamiamo $z$ i suoi (moltissimi) gradi di libertà e $\chi_0(z)$ il suo stato «pronto». Se guarda una lancetta che sta in $y_k$, finisce in uno stato $\chi_k(z)$ in cui ha visto la lancetta in $y_k$, se lo ricorda e lo dirà se interrogato (Norsen, p. 282):</p>
+$$\phi_0(y-y_k)\,\chi_0(z)\;\longrightarrow\;\phi_0(y-y_k)\,\chi_k(z).\qquad\text{(10.3)}$$
+<p>Ora l'osservatore guarda la lancetta nello stato (10.2), scritto con $y_i = \lambda E_i t$. Ripetiamo gli stessi passi.</p>
+<ol class="steps">
+  <li>Stato iniziale: $\big(\sum_i c_i|\psi_i\rangle|\phi_i\rangle\big)\otimes|\chi_0\rangle = \sum_i c_i|\psi_i\rangle|\phi_i\rangle|\chi_0\rangle$, per la linearità di $\otimes$.</li>
+  <li>L'evoluzione è lineare e agisce termine per termine.</li>
+  <li>Su ciascun termine vale la (10.3), che non tocca la particella: $|\psi_i\rangle|\phi_i\rangle|\chi_0\rangle\to|\psi_i\rangle|\phi_i\rangle|\chi_i\rangle$.</li>
+  <li>Quindi:</li>
+</ol>
+$$\Big(\sum_i c_i\,\psi_i(x)\,\phi_0(y-y_i)\Big)\chi_0(z)\;\longrightarrow\;\sum_i c_i\,\psi_i(x)\,\phi_0(y-y_i)\,\chi_i(z).\qquad\text{(10.4)}$$
+<p>L'osservatore non sceglie un risultato: si aggroviglia anche lui nella sovrapposizione. Però guardiamo che cosa compare in ciascun termine. C'è una particella con energia $E_i$, una lancetta in $y_i$ e un osservatore che ricorda di aver visto la lancetta in $y_i$. In nessun termine compare un osservatore che ricorda una lancetta sfocata. Everett ne conclude che l'osservatore si è diviso in tanti osservatori, ciascuno dei quali vede un risultato definito, come un'ameba che si divide e le cui copie ricordano tutte lo stesso passato fino alla divisione (Norsen, p. 282).</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Viene da pensare che un osservatore in sovrapposizione debba percepire qualcosa di strano. La (10.4) dice il contrario. Uno stato «ho visto una lancetta sfocata» sarebbe un vettore $|\chi_{\rm sfoc}\rangle$ preciso dello spazio dell'osservatore, e la dinamica (10.3) non lo produce mai, perché ogni termine contiene un $\chi_i$ con un ricordo definito. Se c'è un paradosso, riguarda l'esistenza di più osservatori; ciò che ciascuno di loro vede è del tutto ordinario.</p></aside>
+
+<h2 id="s4" data-toc="Lo stato relativo"><span class="n">3</span>Lo stato relativo</h2>
+<p>In uno stato entangled come la (10.2) né la particella né la lancetta hanno uno stato proprio. Everett osserva però che si può definire lo stato di una parte <i>relativo</i> a uno stato dell'altra: lo stato della lancetta, dato che la particella è in $\psi_k$. L'immagine è quella di una tabella a doppia entrata: non c'è una riga sola che descriva la lancetta, ma per ogni colonna (ogni stato della particella) si può leggere la riga corrispondente.</p>
+
+<h3>La definizione come prodotto scalare parziale</h3>
+<p>Lo stato della lancetta relativo alla particella in $\psi_k$ è (Norsen, p. 283)</p>
+$$\phi_{\text{rel. a }\psi_k}(y)\sim\int\psi_k^*(x)\,\Psi(x,y)\,dx ,\qquad\text{(10.5)}$$
+<p>dove $\Psi(x,y)$ è lo stato congiunto (10.2) e il simbolo $\sim$ ricorda che il secondo membro non è normalizzato. Si integra solo su $x$: è un prodotto scalare fatto soltanto sulla particella, e il risultato è ancora una funzione di $y$, cioè uno stato della lancetta.</p>
+<p>In notazione di Dirac è il <b>prodotto scalare parziale</b> $\big(\langle\psi_k|\otimes\mathbb 1\big)|\Psi\rangle$. Sui vettori prodotto si definisce così: $\big(\langle a|\otimes\mathbb 1\big)\big(|a'\rangle|b\rangle\big) = \langle a|a'\rangle\,|b\rangle$, un numero per un vettore di B; sugli altri vettori si estende per linearità. Per vedere che coincide con la (10.5) proiettiamo su $\langle y|$ e inseriamo l'identità $\int|x\rangle\langle x|\,dx = \mathbb 1$ della base delle posizioni (tappa t21):</p>
+$$\langle y|\big(\langle\psi_k|\otimes\mathbb 1\big)|\Psi\rangle = \int dx\,\langle\psi_k|x\rangle\,\big(\langle x|\langle y|\big)|\Psi\rangle = \int\psi_k^*(x)\,\Psi(x,y)\,dx .$$
+<p>Ora calcoliamo, con lo stato (10.2).</p>
+<ol class="steps">
+  <li>Sostituiamo: $\int\psi_k^*(x)\sum_i c_i\,\psi_i(x)\,\phi_0(y-\lambda E_i t)\,dx$.</li>
+  <li>Scambiamo somma e integrale (la somma è finita, o comunque convergente) e portiamo fuori ciò che non dipende da $x$: $\sum_i c_i\,\phi_0(y-\lambda E_i t)\int\psi_k^*(x)\psi_i(x)\,dx$.</li>
+  <li>Usiamo l'ortonormalità degli autostati dell'energia, $\int\psi_k^*\psi_i\,dx = \delta_{ik}$: della somma sopravvive solo $i = k$.</li>
+</ol>
+$$\phi_{\text{rel. a }\psi_k}(y)\sim c_k\,\phi_0(y-\lambda E_k t).\qquad\text{(10.6)}$$
+<p>Per normalizzare dividiamo per $|c_k|$. Resta un fattore di fase $c_k/|c_k|$ che non conta, perché uno stato è un raggio (tappa t4):</p>
+$$\phi_{\text{rel. a }\psi_k}(y) = \phi_0(y-\lambda E_k t).\qquad\text{(10.7)}$$
+<p>Relativamente alla particella in $\psi_k$, la lancetta indica esattamente $E_k$. Vale anche il viceversa, ed è un conto che il libro enuncia senza svolgere: lo stato della particella relativo alla lancetta in $\phi_k$ è $\big(\mathbb 1\otimes\langle\phi_k|\big)|\Psi\rangle = \sum_i c_i\langle\phi_k|\phi_i\rangle|\psi_i\rangle = c_k|\psi_k\rangle$, purché i pacchetti della lancetta siano ortogonali. Con l'osservatore della (10.4) la cosa si estende: relativamente alla particella in $\psi_k$, la lancetta indica $E_k$ e l'osservatore ricorda di averlo letto (Norsen, p. 283). Lo stato (10.4) non è un caos: è una mescolanza ordinata di storie ciascuna coerente.</p>
+
+<h3>La stessa cosa con i proiettori della Lezione 1</h3>
+<p>Il prodotto scalare parziale è parente stretto di un'operazione che conosciamo. Nella Lezione 1 il proiettore $P_k = |\psi_k\rangle\langle\psi_k|$ rispondeva alla domanda sì/no «la particella è in $\psi_k$?» (tappa t9). Sul sistema composto la stessa domanda si fa con $P_k\otimes\mathbb 1$, che agisce sulla particella e lascia stare la lancetta:</p>
+<ol class="steps">
+  <li>$(P_k\otimes\mathbb 1)\sum_i c_i|\psi_i\rangle|\phi_i\rangle = \sum_i c_i\,(P_k|\psi_i\rangle)\,|\phi_i\rangle$, per la definizione di $A\otimes B$ sui vettori prodotto e per linearità.</li>
+  <li>$P_k|\psi_i\rangle = |\psi_k\rangle\langle\psi_k|\psi_i\rangle = \delta_{ik}|\psi_k\rangle$.</li>
+  <li>Quindi $(P_k\otimes\mathbb 1)|\Psi\rangle = |\psi_k\rangle\otimes c_k|\phi_k\rangle$: la particella in $\psi_k$ per lo stato relativo non normalizzato (10.6).</li>
+  <li>La norma al quadrato di questo vettore è $|c_k|^2$, la probabilità di Born dell'esito $E_k$ (tappa t12).</li>
+</ol>
+<p>Questo confronto non è nel libro, e mostra bene dove sta la differenza tra le due teorie. Il collasso di Copenhagen prende <i>uno</i> di questi vettori, $(P_k\otimes\mathbb 1)|\Psi\rangle$, e lo rinormalizza, buttando gli altri. Everett li tiene tutti insieme. Per la completezza dei proiettori, $\sum_k P_k = \mathbb 1$ (tappa t10), la loro somma ridà lo stato intero:</p>
+$$\sum_k(P_k\otimes\mathbb 1)|\Psi\rangle = \Big(\sum_k P_k\otimes\mathbb 1\Big)|\Psi\rangle = |\Psi\rangle .$$
+<p>I rami di Everett sono esattamente i pezzi in cui la decomposizione spettrale taglia lo stato. Il collasso ne sceglie uno; Everett dice che non serve scegliere.</p>
+
+<h3>Project 10.3 svolto</h3>
+<aside class="book" data-l="no" data-p="304"><div class="tag">Nei libri · Norsen, Project 10.3</div><p>Il testo chiede gli stati relativi per lo stato (10.29); le soluzioni che seguono non sono nel libro.</p></aside>
+<p>Una misura dell'energia ha prodotto lo stato congiunto</p>
+$$\psi(x,y) = \frac{1}{\sqrt2}\big[\psi_1(x)\phi_1(y) + \psi_2(x)\phi_2(y)\big],\qquad\text{(10.29)}$$
+<p>dove $\phi_n(y)$ è un pacchetto stretto attorno alla posizione $Y_n$ che indica l'energia $E_n$. Le lancette in posizioni diverse non si sovrappongono, quindi $\langle\phi_1|\phi_2\rangle\approx 0$. Il libro chiede tre stati relativi (Norsen, pp. 304-305).</p>
+<ol class="steps">
+  <li><b>La lancetta relativa a $\psi_1$.</b> $\big(\langle\psi_1|\otimes\mathbb 1\big)|\psi\rangle = \frac{1}{\sqrt2}\big[\langle\psi_1|\psi_1\rangle|\phi_1\rangle + \langle\psi_1|\psi_2\rangle|\phi_2\rangle\big] = \frac{1}{\sqrt2}|\phi_1\rangle$. Normalizzato: $\phi_1$. La lancetta indica $E_1$.</li>
+  <li><b>La particella relativa a $\phi_2$.</b> $\big(\mathbb 1\otimes\langle\phi_2|\big)|\psi\rangle = \frac{1}{\sqrt2}\big[\langle\phi_2|\phi_1\rangle|\psi_1\rangle + \langle\phi_2|\phi_2\rangle|\psi_2\rangle\big]\approx\frac{1}{\sqrt2}|\psi_2\rangle$. Normalizzato: $\psi_2$. Qui serve davvero che le lancette siano ortogonali; se non lo fossero, nello stato relativo comparirebbe anche un pezzo di $\psi_1$.</li>
+  <li><b>La lancetta relativa a $\chi_+ = \frac{1}{\sqrt2}(\psi_1 + \psi_2)$.</b> $\big(\langle\chi_+|\otimes\mathbb 1\big)|\psi\rangle = \frac{1}{\sqrt2}\cdot\frac{1}{\sqrt2}\big(\langle\psi_1| + \langle\psi_2|\big)\big(|\psi_1\rangle|\phi_1\rangle + |\psi_2\rangle|\phi_2\rangle\big) = \frac12\big(|\phi_1\rangle + |\phi_2\rangle\big)$, perché sopravvivono solo i prodotti $\langle\psi_1|\psi_1\rangle$ e $\langle\psi_2|\psi_2\rangle$. La norma al quadrato è $\frac14(1 + 1 + 2\,\mathrm{Re}\langle\phi_1|\phi_2\rangle)\approx\frac12$, quindi lo stato normalizzato è $\frac{1}{\sqrt2}(\phi_1 + \phi_2)$.</li>
+</ol>
+<p>Il terzo risultato è inquietante. Relativamente alla particella in $\chi_+$, la lancetta è in una sovrapposizione macroscopica di due posizioni: proprio la situazione che Everett voleva rendere innocua. Lo stato relativo dipende dalla base in cui si guarda l'altro sistema. Ci torniamo nella prossima sezione con il nome che gli dà Bell: il problema della base preferita.</p>
+
+<h2 id="s5" data-toc="Ramificazione, decoerenza e base preferita"><span class="n">4</span>Ramificazione, decoerenza e base preferita</h2>
+<aside class="book" data-l="no" data-p="284"><div class="tag">Nei libri · Norsen §10.1, Fig. 10.1</div><p>L'albero della ramificazione: ogni interazione successiva estende la sovrapposizione e moltiplica i rami, ciascuno dei quali resta una storia coerente.</p></aside>
+<p>Dopo la misura il mondo continua a interagire con la lancetta. Le molecole d'aria vicine vengono spinte in modo diverso secondo dove si ferma la lancetta. Se l'osservatore telefona alla mamma per raccontarle il risultato, anche la mamma entra nella sovrapposizione, e così l'inchiostro della rivista che pubblicherà l'esperimento (Norsen, pp. 283-284). Ogni interazione si tratta come la (10.3) e moltiplica i termini, ma relativamente a una data posizione della lancetta tutto resta definito e sensato. Per Everett tutte le possibilità si realizzano davvero, e il mondo si ramifica di continuo.</p>
+<p>C'è però un solo universo. Non vengono create dal nulla copie del mondo una accanto all'altra, quindi non si viola la conservazione dell'energia. I rami sono configurazioni diverse sovrapposte nello stesso oggetto fisico, la funzione d'onda (Norsen, p. 285). Norsen usa l'immagine dei fari di un'auto di giorno: davanti ai fari ci sono la luce dei fari, che va avanti, e quella del sole, che scende. Sono due configurazioni dello stesso campo elettromagnetico nello stesso posto, e non si disturbano.</p>
+
+<h3>Perché i rami non interferiscono più</h3>
+<p>Due pacchetti d'onda possono interferire se si sovrappongono. Ma la funzione d'onda vive nello spazio delle configurazioni, quindi la sovrapposizione che conta è quella in quello spazio (Norsen, p. 285). Qui entra il conto che rende i rami stabili.</p>
+<p>Nella (10.2) abbiamo descritto la lancetta con una sola coordinata $y$, il centro di massa. In realtà la lancetta ha qualcosa come $N\approx 10^{23}$ particelle, e quando si sposta di $d$ si sposta di $d$ ciascuna di esse. I due pacchetti, nello spazio delle configurazioni, differiscono di $d$ in ognuna delle $10^{23}$ coordinate. Per il teorema di Pitagora in molte dimensioni la loro distanza è</p>
+$$D = \sqrt{\underbrace{d^2 + d^2 + \cdots + d^2}_{N\ \text{volte}}} = d\sqrt N .$$
+<p>Con $d = 1$ cm: $\sqrt{10^{23}} = 10^{11{,}5}\approx 3{,}16\times10^{11}$, quindi $D\approx 3{,}16\times10^{11}\times10^{-2}\ \text{m} = 3{,}16\times10^{9}\ \text{m}$. In miglia ($1$ miglio $= 1609$ m) sono circa $2\times10^6$ miglia, i «due milioni di miglia» di Norsen (Norsen, p. 286), circa otto volte la distanza Terra-Luna. E la separazione cresce ancora, man mano che l'aria e il resto dell'ambiente vengono coinvolti.</p>
+<p>Quanto vale allora la sovrapposizione dei due rami? Questo conto non è nel libro, ma rende quantitativa l'immagine. Per un pacchetto gaussiano $\phi(y) = (2\pi s^2)^{-1/4}e^{-y^2/(4s^2)}$, la cui densità $|\phi|^2$ ha deviazione standard $s$, calcoliamo il prodotto scalare con lo stesso pacchetto traslato di $d$.</p>
+<ol class="steps">
+  <li>$\langle\phi_0|\phi_d\rangle = (2\pi s^2)^{-1/2}\int e^{-[y^2 + (y-d)^2]/(4s^2)}\,dy$.</li>
+  <li>Completiamo il quadrato: $y^2 + (y-d)^2 = 2\big(y - \tfrac d2\big)^2 + \tfrac{d^2}{2}$.</li>
+  <li>L'integrale si spezza: $e^{-d^2/(8s^2)}\,(2\pi s^2)^{-1/2}\int e^{-(y-d/2)^2/(2s^2)}\,dy$, e l'integrale gaussiano vale $\sqrt{2\pi s^2}$.</li>
+  <li>Quindi $\langle\phi_0|\phi_d\rangle = e^{-d^2/(8s^2)}$ per una coordinata.</li>
+  <li>Con $N$ coordinate tutte traslate di $d$ il prodotto scalare è il prodotto dei fattori, $e^{-Nd^2/(8s^2)} = e^{-D^2/(8s^2)}$.</li>
+</ol>
+<p>Il punto sta nell'esponente $N$. Anche se ogni particella si spostasse solo di una larghezza, $d = s$, il fattore per coordinata sarebbe $e^{-1/8}\approx 0{,}88$, del tutto innocuo, ma per $10^{23}$ coordinate diventa $e^{-1{,}25\times10^{22}}$. La sovrapposizione è zero in ogni senso pratico. E siccome l'evoluzione è unitaria e conserva i prodotti scalari, resterà zero: per far interferire di nuovo i due rami bisognerebbe riportare nello stesso punto dello spazio delle configurazioni tutte le $10^{23}$ coordinate, aria compresa. È questo che si chiama <b>decoerenza</b>.</p>
+<p>Si collega a ciò che sappiamo sull'interferenza tra stato puro e miscela (tappa t13). Le frange vengono dal termine incrociato $2\,\mathrm{Re}(\Psi_1^*\Psi_2)$ in $|\Psi_1 + \Psi_2|^2$. Se i due rami hanno supporti separati nello spazio delle configurazioni, questo prodotto è nullo punto per punto, e i due rami si comportano, per qualunque esperimento fattibile, come una miscela. Per Norsen si parla di rami distinti solo da quando la differenza è macroscopica; prima, con una differenza microscopica, l'interferenza resta possibile (Norsen, p. 302, didascalia della Fig. 10.6). Everett aggiunge in nota che tutti i rami sono reali allo stesso modo e che, proprio perché non si influenzano, nessun osservatore si accorge della divisione (Norsen, p. 286).</p>
+
+<h3>Le fasi casuali: la versione di Weinberg</h3>
+<aside class="book" data-l="we" data-p="114"><div class="tag">Nei libri · Weinberg §3.7</div><p>La decoerenza come fasi casuali sui termini della sovrapposizione, con la stima di Joos e Zeh e l'avvertenza che leggerne i pesi come probabilità è circolare.</p></aside>
+<p>Weinberg (pp. 113-115) racconta la decoerenza in un modo complementare a quello di Norsen. Dopo la misura ideale lo stato è $\sum_n c_n|n\rangle|a_n\rangle$ (eq. 3.7.6, p. 113), dove $|a_n\rangle$ è lo stato dell'apparato che ha registrato $n$. Un apparato macroscopico non è mai isolato: lo urtano di continuo anche i fotoni del corpo nero a temperatura ambiente. Questi urti non trasformano un puntatore che indica $n$ in uno che indica $n'$, ma cambiano a caso la fase di ciascun termine (eq. 3.7.7, p. 114):</p>
+$$\sum_n c_n|n\rangle|a_n\rangle\;\longrightarrow\;\sum_n e^{i\phi_n}\,c_n|n\rangle|a_n\rangle .$$
+<p>La media di un'osservabile $A$ in questo stato è $\sum_{n,n'}c_{n'}^*c_n\,e^{i(\phi_n-\phi_{n'})}\langle n'a_{n'}|A|n\,a_n\rangle$. Se le fasi fluttuano in modo indipendente, la media su di esse dà $\overline{e^{i(\phi_n-\phi_{n'})}}=0$ per $n\neq n'$, e restano solo i termini diagonali (eq. 3.7.8):</p>
+$$\overline{\langle A\rangle}=\sum_n |c_n|^2\,\langle n\,a_n|A|n\,a_n\rangle .$$
+<p>Joos e Zeh hanno stimato che la radiazione a temperatura ambiente rende casuali, in un secondo, le fasi di due traiettorie di elettroni distanti appena 1 mm (Weinberg, p. 114). Ma Weinberg avverte subito (p. 115) che leggere i $|c_n|^2$ come probabilità è circolare: la formula della media come elemento di matrice viene a sua volta dalla regola di Born. La decoerenza spiega perché i rami non interferiscono; non spiega da dove vengano le probabilità.</p>
+
+<h3>Il problema della base preferita</h3>
+<aside class="book" data-l="be" data-p="107"><div class="tag">Nei libri · Bell, art. 11</div><p>Bell ammette di non essere sicuro di aver capito Everett su questo punto, ma ritiene che Everett si limiti tacitamente a una sola espansione, quella che rende diagonali le letture degli strumenti.</p></aside>
+<p>Bell solleva una domanda che il Project 10.3 ci ha già fatto intravedere (Bell, art. 11, p. 107). Uno stato del mondo si può espandere in infiniti modi diversi, uno per ogni base dello strumento. Se ogni termine è un universo, quale espansione definisce gli universi? Bell prende uno strumento con due letture, 1 e 2, negli stati $\phi_1$ e $\phi_2$. Si potrebbe espandere con la stessa legittimità matematica sugli stati</p>
+$$\phi_\pm = \frac{\phi_1\pm\phi_2}{\sqrt2}\qquad\text{oppure}\qquad\phi'_\pm = \frac{\phi_1\pm i\,\phi_2}{\sqrt2}.$$
+<p>Per noi è un'immagine familiare: se $\phi_1$ e $\phi_2$ fossero $|H\rangle$ e $|V\rangle$, $\phi_\pm$ sarebbero le polarizzazioni a $\pm45°$ e $\phi'_\pm$ le due polarizzazioni circolari. In questi stati la lettura dello strumento non ha un valore definito. Bell introduce l'operatore di lettura $R$, con $R\phi_n = n\phi_n$, e gli operatori $Q$ e $P$ legati allo stesso modo a $\phi_\pm$ e $\phi'_\pm$. I conti che seguono sono nostri.</p>
+<ol class="steps">
+  <li>Nella base $(\phi_1,\phi_2)$, $R = \begin{pmatrix}1 &amp; 0\\ 0 &amp; 2\end{pmatrix}$.</li>
+  <li>$R\phi_+ = \frac{1}{\sqrt2}(\phi_1 + 2\phi_2)$, che non è proporzionale a $\phi_+$: $\phi_+$ non è autostato di $R$.</li>
+  <li>Valore medio e dispersione: $\langle R\rangle = \frac{1 + 2}{2} = \frac32$, $\langle R^2\rangle = \frac{1 + 4}{2} = \frac52$, quindi $(\Delta R)^2 = \frac52 - \frac94 = \frac14$ e $\Delta R = \frac12\neq 0$.</li>
+  <li>Scegliendo per $Q$ gli autovalori $\pm1$ (Bell non li specifica), $Q = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix}$, e $RQ - QR = \begin{pmatrix}0 &amp; -1\\ 1 &amp; 0\end{pmatrix}\neq 0$: $R$ e $Q$ non sono compatibili (tappa t14).</li>
+</ol>
+<p>Lo stesso vale per lo stato del Project 10.3. Con $\chi_\pm = \frac{1}{\sqrt2}(\psi_1\pm\psi_2)$ si verifica, sviluppando i prodotti, che</p>
+$$\frac{1}{\sqrt2}\big[\psi_1\phi_1 + \psi_2\phi_2\big] = \frac{1}{\sqrt2}\Big[\chi_+\,\frac{\phi_1 + \phi_2}{\sqrt2} + \chi_-\,\frac{\phi_1 - \phi_2}{\sqrt2}\Big].$$
+<p>Infatti il secondo membro vale $\frac{1}{2\sqrt2}\big[(\psi_1 + \psi_2)(\phi_1 + \phi_2) + (\psi_1 - \psi_2)(\phi_1 - \phi_2)\big]$, e i termini misti $\psi_1\phi_2$ e $\psi_2\phi_1$ si cancellano. È lo stesso vettore, scritto come somma di due rami in due modi. Nel primo ogni ramo ha una lancetta in una posizione definita; nel secondo ogni ramo ha una lancetta in sovrapposizione di due posizioni. La matematica di ψ non dice quale dei due sia la vera divisione in mondi.</p>
+<p>La conclusione di Bell è che Everett aggiunge tacitamente una preferenza per le letture degli strumenti, cioè per gli operatori come $R$ e non per quelli come $Q$ o $P$, e che la aggiunge per far corrispondere la teoria all'esperienza umana (Bell, art. 11, p. 107). Bell vede in questo un primo punto di contatto con de Broglie, dove sono le posizioni delle particelle ad avere un ruolo privilegiato. La seconda domanda viene da sé: se le letture degli strumenti sono così fondamentali, che cos'è esattamente uno strumento? Gli oggetti reali sono fatti di elettroni e protoni, i loro confini sono sfumati, e una teoria fondamentale non dovrebbe dipendere da una divisione del mondo in strumento e resto (Bell, art. 11, pp. 107-108).</p>
+<p>La risposta oggi più diffusa tra gli everettiani è che la base la sceglie la decoerenza, cioè l'argomento di Norsen sullo spazio delle configurazioni. Un'osservazione che non è nei nostri due libri la rende plausibile. Se aggiungiamo l'ambiente E che registra a sua volta, lo stato diventa $\frac{1}{\sqrt2}(\psi_1\phi_1E_1 + \psi_2\phi_2E_2)$, e riscritto con $\chi_\pm$ diventa $\frac{1}{\sqrt2}\big[\chi_+\frac{\phi_1E_1 + \phi_2E_2}{\sqrt2} + \chi_-\frac{\phi_1E_1 - \phi_2E_2}{\sqrt2}\big]$. Ora i rami ruotati non sono nemmeno prodotti: lancetta e ambiente restano aggrovigliati dentro ciascun ramo. Con tre o più sistemi, la scomposizione in termini che sono prodotti di stati ortogonali di ciascun sistema, quando esiste, è unica (è un teorema noto della teoria dell'informazione quantistica, che qui non dimostriamo). Resta il fatto, sottolineato da Bell, che bisogna comunque dire quali sono i sistemi.</p>
+
+<h2 id="s6" data-toc="Contare i rami"><span class="n">5</span>Contare i rami</h2>
+<aside class="book" data-l="no" data-p="287"><div class="tag">Nei libri · Norsen §10.2</div><p>Norsen usa uno spin preparato in $\psi_{+x}$ e misurato lungo $z$, con gli esiti chiamati testa (H) e croce (T); la Fig. 10.2 disegna l'albero per $N = 4$.</p></aside>
+<p>Togliendo la regola di Born dagli assiomi si toglie quasi tutto il contenuto verificabile della teoria, perché è con le probabilità che si confronta la meccanica quantistica con gli esperimenti. Everett deve quindi recuperarla in qualche modo (Norsen, pp. 286-287). Cominciamo dal caso più facile, due esiti con ampiezze uguali.</p>
+<p>Norsen usa lo stato di spin $\psi_{+x} = \frac{1}{\sqrt2}(\psi_{+z} + \psi_{-z})$ (10.8). Lo spin non l'abbiamo ancora fatto, ma qui conta solo che sia un sistema a due esiti con ampiezze uguali, e il nostro fotone a $45°$ è identico: $|45°\rangle = \frac{1}{\sqrt2}(|H\rangle + |V\rangle)$. Chiamiamo testa (H) l'esito $|H\rangle$ e croce (T) l'esito $|V\rangle$, per stare con le lettere di Norsen. Ripetiamo la misura su $N$ fotoni preparati tutti a $45°$ e seguiamo lo stato.</p>
+<ol class="steps">
+  <li>Dopo il primo fotone, con la (10.4): $\frac{1}{\sqrt2}\big(|H\rangle|m_H\rangle + |V\rangle|m_T\rangle\big)$, dove $|m_H\rangle$ è l'osservatore che ricorda «testa».</li>
+  <li>Il secondo fotone, misurato in ciascun ramo, divide ogni ramo in due: $\frac12\big(|HH\rangle|m_{HH}\rangle + |HV\rangle|m_{HT}\rangle + |VH\rangle|m_{TH}\rangle + |VV\rangle|m_{TT}\rangle\big)$.</li>
+  <li>Per induzione, dopo $N$ fotoni ci sono $2^N$ termini, uno per ogni sequenza di esiti, ciascuno con ampiezza $\big(\frac{1}{\sqrt2}\big)^N = 2^{-N/2}$ e quindi peso $|c|^2 = 2^{-N}$.</li>
+</ol>
+<div class="fig"><svg viewBox="0 0 640 230" width="100%" role="img" aria-label="Albero dei rami per tre misure">
+  <g style="stroke:var(--ink-2)" stroke-width="1.2" fill="none">
+    <line x1="40" y1="115" x2="200" y2="60"/><line x1="40" y1="115" x2="200" y2="170"/>
+    <line x1="200" y1="60" x2="350" y2="32"/><line x1="200" y1="60" x2="350" y2="88"/>
+    <line x1="200" y1="170" x2="350" y2="142"/><line x1="200" y1="170" x2="350" y2="198"/>
+    <line x1="350" y1="32" x2="480" y2="18"/><line x1="350" y1="32" x2="480" y2="46"/>
+    <line x1="350" y1="88" x2="480" y2="74"/><line x1="350" y1="88" x2="480" y2="102"/>
+    <line x1="350" y1="142" x2="480" y2="128"/><line x1="350" y1="142" x2="480" y2="156"/>
+    <line x1="350" y1="198" x2="480" y2="184"/><line x1="350" y1="198" x2="480" y2="212"/>
+  </g>
+  <g style="fill:var(--laser)"><circle cx="40" cy="115" r="4"/><circle cx="200" cy="60" r="3"/><circle cx="200" cy="170" r="3"/><circle cx="350" cy="32" r="3"/><circle cx="350" cy="88" r="3"/><circle cx="350" cy="142" r="3"/><circle cx="350" cy="198" r="3"/></g>
+  <g style="fill:var(--ink-2)" font-size="12" font-family="monospace">
+    <text x="112" y="78">H</text><text x="112" y="160">T</text>
+    <text x="490" y="22">HHH · 3 teste</text><text x="490" y="50">HHT · 2</text><text x="490" y="78">HTH · 2</text><text x="490" y="106">HTT · 1</text>
+    <text x="490" y="132">THH · 2</text><text x="490" y="160">THT · 1</text><text x="490" y="188">TTH · 1</text><text x="490" y="216">TTT · 0</text>
+    <text x="20" y="140">ψ</text><text x="170" y="225">1ª misura</text><text x="320" y="225">2ª</text><text x="450" y="225">3ª</text>
+  </g>
+</svg></div>
+<p>Il disegno mostra l'albero per $N = 3$: otto rami, ciascuno con peso $1/8$. Contiamo quanti rami hanno $n$ teste. Scegliere quali delle $N$ misure danno testa si fa in $\binom Nn$ modi, quindi (Norsen, p. 288)</p>
+$$g_N(n) = \binom Nn = \frac{N!}{n!\,(N-n)!},\qquad f_N(n) = \binom Nn\Big(\frac12\Big)^N ,\qquad\text{(10.9-10.10)}$$
+<p>dove $g_N(n)$ è il numero di rami con $n$ teste e $f_N(n)$ la loro frazione sul totale $2^N$. Per $N = 3$ le frazioni sono $\frac18,\frac38,\frac38,\frac18$; per $N = 4$ sono $\frac{1}{16},\frac{4}{16},\frac{6}{16},\frac{4}{16},\frac{1}{16}$. Già qui la maggioranza dei rami ha circa metà teste.</p>
+
+<h3>La forma gaussiana e la sua larghezza</h3>
+<p>Per $N$ grande Norsen scrive $f_N(n)\sim e^{-(n-N/2)^2/(N/2)}$ (10.11), una gaussiana centrata in $N/2$ con semilarghezza $\sqrt N/2$. Il libro lo afferma; ecco il conto, con l'approssimazione di Stirling $\ln m!\approx m\ln m - m$.</p>
+<ol class="steps">
+  <li>$\ln f_N(n) = \ln N! - \ln n! - \ln(N-n)! - N\ln 2$.</li>
+  <li>Con Stirling i termini $-m$ si cancellano ($-N + n + (N-n) = 0$), e la parte che dipende da $n$ è $F(n) = -n\ln n - (N-n)\ln(N-n)$.</li>
+  <li>Derivata prima: $F'(n) = -\ln n - 1 + \ln(N-n) + 1 = \ln\frac{N-n}{n}$, nulla per $n = N/2$: il massimo è a metà.</li>
+  <li>Derivata seconda: $F''(n) = -\frac1n - \frac{1}{N-n}$, che in $n = N/2$ vale $-\frac2N - \frac2N = -\frac4N$.</li>
+  <li>Sviluppo di Taylor al secondo ordine attorno al massimo, con $\delta = n - N/2$: $\ln f_N\approx\text{cost} - \frac12\cdot\frac4N\,\delta^2 = \text{cost} - \frac{\delta^2}{N/2}$. Questa è la (10.11).</li>
+  <li>Confrontando con la gaussiana $e^{-\delta^2/(2\sigma^2)}$: $2\sigma^2 = N/2$, cioè $\sigma = \sqrt N/2$. È anche la deviazione standard della binomiale, $\sqrt{N\cdot\frac12\cdot\frac12}$.</li>
+</ol>
+<p>La larghezza cresce come $\sqrt N$, ma la frazione di teste $n/N$ ha larghezza $\sigma/N = 1/(2\sqrt N)$, che va a zero. Con $N = 100$, $\sigma = 5$, e il conto esatto con la binomiale (nostro) dà che il $73\%$ dei rami ha tra 45 e 55 teste. I mondi «ribelli» esistono: c'è un ramo con 100 teste di fila, e in quel ramo un fisico concluderebbe che la regola di Born è falsa. Ma è un ramo su $2^{100}$, cioè una frazione $7{,}9\times10^{-31}$ (Norsen, pp. 288-289). Per ampiezze uguali, dunque, quasi tutti i rami mostrano le frequenze di Born, e il conteggio dei rami sembra fare il lavoro della regola.</p>
+
+<h2 id="s7" data-toc="Pesare i rami: la circolarità"><span class="n">6</span>Pesare i rami: la circolarità</h2>
+<p>Il guaio arriva appena le ampiezze sono diverse (Norsen, pp. 289-290). Norsen prende lo stato $\psi_{+n} = \sqrt p\,\psi_{+z} + \sqrt q\,\psi_{-z}$, con $p + q = 1$ (10.12). Per noi è il fotone $|\theta\rangle = \cos\theta\,|H\rangle + \sin\theta\,|V\rangle$, con $p = \cos^2\theta$ e $q = \sin^2\theta$: è la legge di Malus. Con $\theta = 30°$, per esempio, $p = 3/4$.</p>
+<p>Ripetendo $N$ misure, l'albero è identico a prima. Ci sono ancora $2^N$ rami, e ancora $\binom Nn$ di essi hanno $n$ teste. Cambiano solo le ampiezze. Se contiamo i rami come prima, la frequenza tipica di teste resta $1/2$ qualunque sia $p$. La regola di Born invece vuole circa $Np$ teste: con $N = 100$ e $p = 0{,}9$, circa 90 teste invece di 50. Il conteggio ingenuo dà la risposta sbagliata.</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Con $N = 100$ e $p = 0{,}9$, i rami con esattamente 90 teste sono $\binom{100}{90}\approx1{,}7\times10^{13}$, che sembrano tanti. Ma su $2^{100}\approx1{,}3\times10^{30}$ rami sono una frazione $1{,}4\times10^{-17}$ (conto nostro). Contando i rami, i mondi in cui si osservano le statistiche di Born sono un'infima minoranza, e i mondi tipici vedono metà teste. Eppure noi vediamo le statistiche di Born.</p></aside>
+<p>Il rimedio è dare a ogni ramo un <b>peso</b>. Un ramo con $n$ teste e $N-n$ croci ha ampiezza $(\sqrt p)^n(\sqrt q)^{N-n}$, quindi modulo quadro</p>
+$$w_N(n) = p^n q^{N-n},\qquad f^w_N(n) = g_N(n)\,w_N(n) = \binom Nn p^n q^{N-n}.\qquad\text{(10.13-10.14)}$$
+<p>Per $N = 4$ il ramo HHHH pesa $p^4$, ognuno dei quattro rami con tre teste pesa $p^3q$, ognuno dei sei con due teste pesa $p^2q^2$ (Norsen, p. 289). La frazione pesata è normalizzata, per il teorema del binomio: $\sum_n f^w_N(n) = (p + q)^N = 1$.</p>
+
+<h3>Project 10.4: il picco è in $Np$</h3>
+<p>Il libro chiede di dimostrarlo con Stirling nella forma $\ln m!\approx m\ln m$ (Norsen, p. 305). La soluzione non è nel libro; eccola.</p>
+<ol class="steps">
+  <li>$\ln f^w_N\approx N\ln N - n\ln n - (N-n)\ln(N-n) + n\ln p + (N-n)\ln q$.</li>
+  <li>Deriviamo in $n$. La derivata di $m\ln m$ è $\ln m + 1$, e i due $+1$ si cancellano: $\frac{d}{dn}\ln f^w_N = -\ln n + \ln(N-n) + \ln p - \ln q$.</li>
+  <li>Poniamo la derivata uguale a zero: $\ln\frac{(N-n)\,p}{n\,q} = 0$, cioè $(N-n)p = nq$.</li>
+  <li>Risolviamo: $Np = n(p + q) = n$. Il picco è in $n = Np$.</li>
+  <li>Come bonus (conto nostro), la derivata seconda $-\frac1n - \frac{1}{N-n}$ in $n = Np$ vale $-\frac{1}{Np} - \frac{1}{Nq} = -\frac{1}{Npq}$, quindi la larghezza è $\sigma = \sqrt{Npq}$. Per $p = 1/2$ si ritrova $\sqrt N/2$.</li>
+</ol>
+
+<h3>Project 10.5: quattro lanci con $p = 3/4$</h3>
+<p>Il libro dà $f^w(4) = (3/4)^4\approx0{,}316$ e chiede gli altri valori (Norsen, p. 305). Con $p = 3/4$ e $q = 1/4$ conviene scrivere tutto in 256-esimi, perché $4^4 = 256$: $f^w(n) = \binom 4n\,3^n/256$.</p>
+<div class="tbl"><table><thead><tr><th>$n$ teste</th><th>rami $\binom 4n$</th><th>frazione dei rami</th><th>peso di ciascun ramo</th><th>frazione pesata $f^w(n)$</th></tr></thead><tbody>
+<tr><td>0</td><td>1</td><td>0,0625</td><td>$1/256$</td><td>$1/256\approx0{,}004$</td></tr>
+<tr><td>1</td><td>4</td><td>0,25</td><td>$3/256$</td><td>$12/256\approx0{,}047$</td></tr>
+<tr><td>2</td><td>6</td><td>0,375</td><td>$9/256$</td><td>$54/256\approx0{,}211$</td></tr>
+<tr><td>3</td><td>4</td><td>0,25</td><td>$27/256$</td><td>$108/256\approx0{,}422$</td></tr>
+<tr><td>4</td><td>1</td><td>0,0625</td><td>$81/256$</td><td>$81/256\approx0{,}316$</td></tr>
+</tbody></table></div>
+<p>La somma è $256/256 = 1$, come deve. Il massimo pesato è in $n = 3 = Np$, quello del conteggio in $n = 2$. Con $N$ piccolo il picco non cade sempre esattamente su $Np$, che può non essere intero; un criterio esatto (nostro) si ottiene dal rapporto tra termini consecutivi, $\frac{f^w(n+1)}{f^w(n)} = \frac{N-n}{n+1}\cdot\frac pq$, che è maggiore di 1 se e solo se $n &lt; Np - q$. Qui $Np - q = 2{,}75$, quindi $f^w$ cresce fino a $n = 3$ e poi cala.</p>
+
+<h3>Dove sta il cerchio</h3>
+<p>Il rimedio funziona, ma guardiamo che cosa abbiamo usato. Per uno stato generico $\Psi = \sum_i c_i\psi_i$ (10.15) abbiamo dato al ramo $i$ il peso</p>
+$$w_i = |c_i|^2 .\qquad\text{(10.16)}$$
+<p>Questa <i>è</i> la regola di Born. Il ragionamento è circolare: si mette la regola di Born nei pesi e si ottiene la regola di Born nelle frequenze (Norsen, pp. 290-291).</p>
+<aside class="book" data-l="no" data-p="291"><div class="tag">Nei libri · Norsen §10.2, Fig. 10.4</div><p>La figura confronta $g_N(n)$, piccata in $N/2$, il peso $w_N(n)$ e il loro prodotto $f^w_N(n)$, piccato in $Np$, per $p = 3/4$.</p></aside>
+<p>C'è poi un problema più profondo. Per Everett nessun ramo è più reale degli altri. Ma un peso non banale, che cos'altro misura se non quanto è reale un ramo? Norsen immagina due soli rami: in uno si accende una luce rossa, con peso $1/100$, nell'altro una luce blu, con peso $99/100$. Dire che il 99% dei mondi ha la luce blu ha senso per un osservatore esterno, quasi divino, che vede il ramo blu più intenso. Ma è proprio l'osservatore esterno che Everett voleva abolire (Norsen, p. 291).</p>
+
+<h2 id="s8" data-toc="Uscire dal cerchio? Everett, Cauchy e le decisioni razionali"><span class="n">7</span>Uscire dal cerchio? Everett, Cauchy e le decisioni razionali</h2>
+<p>Norsen discute due strade (Norsen, pp. 291-292). La prima prova a dimostrare che $|c|^2$ è l'unico peso matematicamente ragionevole: se ci si riuscisse, il senso di circolarità si ridurrebbe molto. La seconda cambia il significato dei pesi.</p>
+
+<h3>L'argomento di Everett del 1957 (Project 10.9)</h3>
+<aside class="book" data-l="no" data-p="306"><div class="tag">Nei libri · Norsen, Project 10.9</div><p>Il libro riporta l'argomento di Everett fino alla (10.32) e chiede di completarne i passaggi e di valutare se elimini la circolarità. Completamento e valutazione che seguono sono nostri.</p></aside>
+<p>Cerchiamo una funzione $w$ che assegni un peso a ogni termine di $\psi = \sum_i c_i\psi_i$, con i $\psi_i$ normalizzati (Norsen, pp. 305-306).</p>
+<ol class="steps">
+  <li><b>Il peso dipende solo dal modulo.</b> Con i $\psi_i$ normalizzati, il peso di un termine può dipendere solo dal numero $c_i$. Una fase si può assorbire nello stato, $c_i\psi_i = |c_i|\,(e^{i\alpha}\psi_i)$, quindi $w(c_i) = w(|c_i|)$.</li>
+  <li><b>Un ramo che si divide.</b> Più tardi il ramo $n$ si divide in sotto-rami: $c_n\psi_n = \sum_j a_j\phi_j$, con i $\phi_j$ ortonormali. Prendendo la norma al quadrato dei due membri, per Pitagora: $|c_n|^2 = \sum_j|a_j|^2$.</li>
+  <li><b>Additività.</b> Everett chiede che la divisione conservi il peso totale: $w(c_n) = \sum_j w(a_j)$ (10.30).</li>
+  <li><b>Combinando 1, 2 e 3:</b> $w\big(\sqrt{\textstyle\sum_j|a_j|^2}\big) = \sum_j w(|a_j|)$ (10.31).</li>
+  <li><b>Cambio di funzione.</b> Con $g(x) = w(\sqrt x)$ per $x\ge 0$, e $x_j = |a_j|^2$, la (10.31) diventa $g\big(\sum_j x_j\big) = \sum_j g(x_j)$ (10.32). È l'equazione funzionale di Cauchy, sull'intervallo $[0,1]$ perché i pesi sono al più 1.</li>
+  <li><b>$g(0) = 0$.</b> Con due termini entrambi nulli: $g(0) = 2g(0)$.</li>
+  <li><b>Interi e razionali.</b> Con $m$ termini uguali, $g(mx) = m\,g(x)$. Chiamiamo $c = g(1)$. Da $g(1) = g(m\cdot\frac1m) = m\,g(\frac1m)$ viene $g(\frac1m) = \frac cm$, e quindi $g(\frac km) = k\,g(\frac1m) = c\,\frac km$. Su tutti i razionali, $g(r) = cr$.</li>
+  <li><b>Regolarità.</b> Un peso non può essere negativo, quindi $g\ge0$. Allora per $y &gt; x$ vale $g(y) = g(x) + g(y-x)\ge g(x)$: $g$ è crescente. Preso $x$ reale e due razionali $r_1 &lt; x &lt; r_2$ vicini quanto vogliamo, $c\,r_1\le g(x)\le c\,r_2$, e al limite $g(x) = cx$.</li>
+  <li><b>Conclusione.</b> $w(|a|) = g(|a|^2) = c\,|a|^2$. Se i pesi di tutti i rami devono sommare a 1, $\sum_i c\,|c_i|^2 = c = 1$, e $w = |c|^2$.</li>
+</ol>
+<p>Che cosa dimostra, esattamente? Dimostra che <i>se</i> esiste un peso che dipende solo dal modulo dell'ampiezza, non è negativo ed è additivo nelle divisioni successive, allora quel peso è $|c|^2$. L'ipotesi che fa tutto il lavoro è l'additività (10.30), e va giustificata per conto suo. Si noti (osservazione nostra) che il semplice conteggio dei rami, $w = 1$ per ogni ramo, la viola: un ramo che si divide in tre varrebbe 1 prima e 3 dopo. Ma chiedere che i pesi si sommino sui sotto-rami è chiedere che si comportino come una misura di probabilità, cioè assumere buona parte di ciò che si vuole ottenere. E l'argomento non dice perché un peso, una volta trovato, debba essere interpretato come una probabilità: l'obiezione della luce rossa e blu resta intatta. Norsen lascia la domanda aperta.</p>
+<p>Anche Bell, nell'articolo per i cosmologi, osserva che Everett e DeWitt sembrano considerare inevitabile la scelta di pesi proporzionali alla norma; lui non vede perché, pur riconoscendo che è una scelta ragionevole con diverse belle proprietà (Bell, art. 15, p. 146). E aggiunge che la situazione è la stessa dell'onda pilota, dove la distribuzione iniziale $|\psi|^2$ è anch'essa una scelta.</p>
+
+<h3>L'operatore di frequenza di Hartle</h3>
+<aside class="book" data-l="we" data-p="123"><div class="tag">Nei libri · Weinberg §3.7</div><p>La stima (3.7.19) per l'operatore di frequenza, con la dimostrazione completa e le tre ragioni per cui, secondo Weinberg, non basta a derivare la regola di Born.</p></aside>
+<p>C'è un'altra strada, che Weinberg presenta nei dettagli (pp. 122-125) attribuendola a Hartle (1968). Invece di contare o pesare i rami, si costruisce un'osservabile che misura la frequenza, e ci si chiede se lo stato everettiano ne sia un autostato.</p>
+<p>Si prendono $N$ copie dello stesso sistema, ciascuna nello stato $\sum_n c_n|n\rangle$. Lo stato complessivo è il prodotto tensoriale (eq. 3.7.16, p. 122; con la decoerenza ogni termine prende una fase casuale, eq. 3.7.17, che nel conto che segue non conta)</p>
+$$|\Psi\rangle=\sum_{n_1n_2\dots n_N}c_{n_1}c_{n_2}\cdots c_{n_N}\,|n_1n_2\dots n_N\rangle .$$
+<p>L'operatore di frequenza dell'esito $n$ agisce sugli stati di base contando quante copie stanno in $n$ (eq. 3.7.18, p. 123):</p>
+$$\hat P_n\,|n_1n_2\dots n_N\rangle=\frac{N_n}{N}\,|n_1n_2\dots n_N\rangle ,$$
+<p>dove $N_n$ è il numero di indici uguali a $n$. Se $|\Psi\rangle$ fosse un autostato di $\hat P_n$ con autovalore $|c_n|^2$, il secondo postulato (un autostato ha un valore definito) direbbe che la frequenza è certamente $|c_n|^2$, senza assumere la regola di Born. Non è vero, ma è vero quasi (eq. 3.7.19, p. 123):</p>
+$$\big\|(\hat P_n-|c_n|^2)\,|\Psi\rangle\big\|^2=\frac{|c_n|^2\,(1-|c_n|^2)}{N}\le\frac{1}{4N}.$$
+<p>La dimostrazione, nei passi del libro (pp. 123-124), con $x_m=|c_m|^2$:</p>
+<ol class="steps">
+<li>Raggruppa i termini secondo i numeri di occupazione $N_1,N_2,\dots$, con $\sum_m N_m=N$. Gli stati di base sono ortonormali e $\hat P_n$ è diagonale su di essi, quindi
+$$\big\|(\hat P_n-x_n)|\Psi\rangle\big\|^2=\sum_{N_1N_2\dots}\Big(\prod_m x_m^{N_m}\Big)\Big(\frac{N_n}{N}-x_n\Big)^2\frac{N!}{N_1!\,N_2!\cdots}.$$
+Il fattore multinomiale conta quante sequenze $n_1\dots n_N$ hanno quei numeri di occupazione.</li>
+<li>Per il teorema multinomiale $\sum_{N_1N_2\dots}\prod_m x_m^{N_m}\,\frac{N!}{N_1!\,N_2!\cdots}=S^N$, con $S=\sum_m x_m$.</li>
+<li>Il fattore $N_n$ si ottiene derivando, perché $x_n\partial_{x_n}x_n^{N_n}=N_n\,x_n^{N_n}$. Sviluppando $(N_n/N-x_n)^2=N_n^2/N^2-2x_nN_n/N+x_n^2$ si ha
+$$\big\|(\hat P_n-x_n)|\Psi\rangle\big\|^2=\Big[\frac{1}{N^2}\big(x_n\partial_{x_n}\big)^2-\frac{2x_n}{N}\,x_n\partial_{x_n}+x_n^2\Big]S^N .$$</li>
+<li>Le derivate: $x_n\partial_{x_n}S^N=N x_n S^{N-1}$ e $\big(x_n\partial_{x_n}\big)^2S^N=N(N-1)\,x_n^2S^{N-2}+N x_n S^{N-1}$.</li>
+<li>Con la normalizzazione $S=1$: $\dfrac{N(N-1)x_n^2+Nx_n}{N^2}-2x_n^2+x_n^2=\dfrac{x_n-x_n^2}{N}=\dfrac{x_n(1-x_n)}{N}$. Il massimo di $x(1-x)$ è $\tfrac14$, in $x=\tfrac12$.</li>
+</ol>
+<p>Weinberg spiega perché questo non basta (pp. 124-125). Primo: per $N$ finito lo stato non è un autostato, e per $N\to\infty$ gli stati non tendono a nessun limite, perché lo spazio di Hilbert cambia con $N$. Hartle, e poi Farhi, Goldstone e Gutmann, hanno costruito uno spazio per $N=\infty$ in cui gli autovalori sono proprio $|c_n|^2$; ma per usarlo bisogna estendere il postulato sugli autovalori a quello spazio, cosa che a Weinberg sembra una forzatura. Secondo: se si rafforza il postulato dicendo che uno stato quasi autostato ha quasi certamente quel valore, si reintroduce un'affermazione probabilistica. Terzo, il più sottile: la stima misura la distanza da un autostato con la norma quantistica $\|\Psi\|=\langle\Psi|\Psi\rangle^{1/2}$, e dare ai prodotti scalari il significato di probabilità è proprio la regola di Born. È la stessa circolarità dei pesi dei rami, in una forma più raffinata.</p>
+
+<h3>L'approccio delle decisioni razionali</h3>
+<p>La seconda strada, oggi molto discussa, è dovuta a Deutsch e Wallace, e Norsen la presenta attraverso un riassunto di Saunders (Norsen, p. 292). I pesi smettono di essere fatti oggettivi sul mondo e diventano una misura di quanto un osservatore dentro il mondo everettiano debba tenere a ciascuno dei suoi discendenti. Si dimostra che un agente razionale, per raggiungere i suoi scopi, non ha altra scelta che pesare le utilità dei possibili esiti con il modulo quadro delle ampiezze dei rami. In questo senso, si dice, la regola di Born è derivata.</p>
+<p>Norsen elenca tre obiezioni, e la questione resta controversa.</p>
+<ul>
+  <li>Bisogna accettare la definizione di razionalità che la dimostrazione richiede, e non è ovvio che sia quella giusta.</li>
+  <li>La dimostrazione dice come dovrebbe comportarsi chi crede già nella teoria di Everett. Non dice perché noi, guardando i dati, dovremmo interpretarli in modo everettiano.</li>
+  <li>Non è chiaro che la parola probabilità abbia ancora un senso in un quadro in cui tutto ciò che può succedere succede con certezza.</li>
+</ul>
+<p>La conclusione di Norsen è che il concetto di probabilità, nella teoria di Everett, va stirato fino a diventare qualcosa di diverso, e che è un tema che ritorna (Norsen, p. 292).</p>
+
+<h2 id="s9" data-toc="Laboratorio: contare e pesare"><span class="n">8</span>Laboratorio: contare e pesare</h2>
+<p>Il laboratorio mette sotto gli occhi le due curve delle sezioni 5 e 6. Un sistema a due esiti con probabilità di Born $p = |\alpha|^2$ viene misurato $n$ volte. In ascissa c'è la frequenza osservata $k/n$. Le barre scure sono la frazione dei rami con $k$ esiti «su», $\binom nk/2^n$; quelle ambrate sono il peso degli stessi rami, $\binom nk p^k(1-p)^{n-k}$. Sotto il grafico il laboratorio conta quanti rami hanno una frequenza entro $\pm0{,}1$ da $p$, e quanto pesano.</p>
+<figure class="lab"><div class="plate"><div data-lab="rami" id="lab-rami"></div></div><figcaption><b>Figura E.1</b><i class="t">Contare i rami o pesarli.</i> Barre scure: frazione dei rami, piccata in $k/n = 1/2$ con larghezza $1/(2\sqrt n)$. Barre ambrate: peso dei rami, piccato in $k/n = p$ con larghezza $\sqrt{p(1-p)/n}$. Prima prevedi: con $p = 50\%$ le due serie coincidono? Poi porta $p$ al $90\%$ con $n = 20$ e prevedi dove cade ciascun picco e quale serie è più larga; controlla che i rami con frequenza vicina a $p$ siano circa lo $0{,}6\%$ del totale ma pesino circa il $96\%$. Infine porta $n$ a 40 e prevedi come cambiano i due numeri.</figcaption></figure>
+<p>Ecco le previsioni da confrontare con lo schermo, calcolate con le formule della pagina.</p>
+<div class="tbl"><table><thead><tr><th>$p$</th><th>$n$</th><th>picco del conteggio</th><th>picco del peso</th><th>rami entro $\pm0{,}1$ da $p$</th><th>peso di quei rami</th></tr></thead><tbody>
+<tr><td>50%</td><td>20</td><td>0,5</td><td>0,5</td><td>0,737</td><td>0,737</td></tr>
+<tr><td>50%</td><td>40</td><td>0,5</td><td>0,5</td><td>0,846</td><td>0,846</td></tr>
+<tr><td>90%</td><td>20</td><td>0,5</td><td>0,9</td><td>0,006</td><td>0,957</td></tr>
+<tr><td>90%</td><td>40</td><td>0,5</td><td>0,9</td><td>0,0001</td><td>0,985</td></tr>
+</tbody></table></div>
+<p>Con $p = 1/2$ contare e pesare sono la stessa cosa, ed è per questo che il caso 50/50 della sezione 5 sembrava funzionare. Appena $p\neq1/2$ le due serie si separano, e al crescere di $n$ si separano sempre di più: i rami con le statistiche di Born diventano una frazione sempre più piccola del totale, mentre il loro peso tende a 1. Tutto il contenuto empirico sta nelle barre ambrate, cioè nella scelta di pesare con $|c|^2$.</p>
+
+<h2 id="s10" data-toc="Che cosa esiste: densità di massa ed emergenza"><span class="n">9</span>Che cosa esiste: densità di massa ed emergenza</h2>
+<p>Finora abbiamo dato per scontato che ogni ramo descriva un mondo tridimensionale sensato, con tavoli, gatti e osservatori. Ma la funzione d'onda di $N$ particelle è una funzione di $3N$ coordinate, un campo nello spazio delle configurazioni, e non è ovvio come descriva qualcosa che succede nello spazio ordinario (Norsen, pp. 292-293). È il problema dell'ontologia che abbiamo incontrato nelle pagine precedenti.</p>
+
+<h3>La densità di massa di Schrödinger</h3>
+<p>Una risposta è l'idea originale di Schrödinger, già usata nella pagina su GRW: dalla funzione d'onda si calcola un campo di densità di massa nello spazio tridimensionale (Norsen, p. 293). Per la particella $i$, di massa $m_i$,</p>
+$$\rho_i(x,t) = m_i\int|\Psi(x_1,\dots,x_N,t)|^2\,\delta(x - x_i)\,dx_1\cdots dx_N,\qquad\rho(x,t) = \sum_i\rho_i(x,t).\qquad\text{(10.17-10.18)}$$
+<p>La delta di Dirac fa una cosa semplice: integrando su $x_i$ pone $x_i = x$, e restano integrate tutte le altre coordinate. Quindi $\rho_i(x)$ è $m_i$ per la densità di probabilità marginale della particella $i$ nel punto $x$. Con una sola particella, $\rho(x) = m\,|\psi(x)|^2$.</p>
+<p>In GRW sopravvive un solo ramo, e la densità descrive un mondo che sembra giusto. In Everett sopravvivono tutti, e la densità è la somma di tutti i rami, come un vecchio televisore mal sintonizzato che mostra più canali insieme (Norsen, p. 293, che riprende Allori, Goldstein, Tumulka e Zanghì). Ma i programmi dei vari canali non interagiscono. Un osservatore fatto della densità di un ramo interagisce solo con la densità dello stesso ramo, e per lui il mondo è coerente. Vediamolo con le formule (Norsen, p. 294). Scriviamo la funzione d'onda come somma di pacchetti macroscopicamente distinti,</p>
+$$\Psi = \sum_\alpha c_\alpha\Psi_\alpha,\qquad\int\Psi_\beta^*\,\Psi_\alpha\,dx_1\cdots dx_N = 0\quad(\alpha\neq\beta).\qquad\text{(10.19-10.20)}$$
+<p>Il libro afferma che dalla (10.17) segue</p>
+$$\rho_i(x,t) = \sum_\alpha|c_\alpha|^2\rho_i^\alpha(x,t),\qquad\rho_i^\alpha(x,t) = m_i\int|\Psi_\alpha|^2\,\delta(x - x_i)\,dx_1\cdots dx_N .\qquad\text{(10.21-10.22)}$$
+
+<h3>Il passaggio sui termini incrociati</h3>
+<p>Questo passaggio il libro non lo scrive, e la sola ortogonalità (10.20) non basta. Eccolo. Il modulo quadro di una somma è</p>
+$$\Big|\sum_\alpha c_\alpha\Psi_\alpha\Big|^2 = \sum_\alpha|c_\alpha|^2|\Psi_\alpha|^2 + \sum_{\alpha\neq\beta}c_\beta^*c_\alpha\,\Psi_\beta^*\Psi_\alpha .$$
+<p>Il primo pezzo, messo nella (10.17), dà proprio la (10.21). I termini incrociati danno $m_i\int c_\beta^*c_\alpha\Psi_\beta^*\Psi_\alpha\,\delta(x - x_i)\,dx_1\cdots dx_N$. La (10.20) dice che l'integrale di $\Psi_\beta^*\Psi_\alpha$ su <i>tutte</i> le coordinate è zero, mentre qui si integra su tutte tranne una. In generale non basta. Un esempio con una sola particella: nella buca, $\varphi_1$ e $\varphi_2$ sono ortogonali, ma la densità di $c_1\varphi_1 + c_2\varphi_2$ contiene il termine $2m\,\mathrm{Re}(c_1^*c_2)\,\varphi_1(x)\varphi_2(x)$, che in $x = L/4$ vale $2m\,\mathrm{Re}(c_1^*c_2)\cdot\frac2L\sin\frac\pi4\sin\frac\pi2\neq0$. I termini incrociati spariscono per un'altra ragione: rami macroscopicamente distinti hanno <b>supporti disgiunti</b> nello spazio delle configurazioni, come nel conto della sezione 4. In ogni punto $(x_1,\dots,x_N)$ almeno uno dei due è praticamente nullo, quindi $\Psi_\beta^*\Psi_\alpha\approx0$ punto per punto, e il suo integrale con la delta è nullo qualunque cosa si integri. Il libro accenna a questo quando richiama la §10.1. Notiamo anche che l'ortogonalità si conserverebbe comunque, perché l'evoluzione è unitaria; ciò che la distinzione macroscopica garantisce è che i supporti restino disgiunti.</p>
+<p>Il libro conclude scrivendo $\rho = \sum_\alpha\rho_\alpha$ con $\rho_\alpha = \sum_i\rho_i^\alpha$ (10.23-10.24). Confrontando con la (10.21) manca il fattore $|c_\alpha|^2$: sommando la (10.21) su $i$ viene $\rho = \sum_\alpha|c_\alpha|^2\rho_\alpha$, oppure bisogna intendere il fattore assorbito in $\rho_\alpha$ (questa discrepanza la segnaliamo noi; Norsen, p. 294). Il senso non cambia: la densità totale si spezza in pezzi indipendenti, uno per ramo, come i canali del televisore. Lev Vaidman, tra gli everettiani, legge la teoria proprio così (Norsen, p. 295).</p>
+
+<h3>Il monismo della funzione d'onda e l'emergenza</h3>
+<aside class="book" data-l="no" data-p="296"><div class="tag">Nei libri · Norsen §10.3</div><p>L'esempio della palla da biliardo su un tavolo quadrato, matematicamente isomorfa a due perline che scorrono su un filo senza urtarsi: l'isomorfismo non fa esistere le perline.</p></aside>
+<p>La maggior parte degli everettiani rifiuta però di postulare una densità di massa (Norsen, p. 295). La virtù della teoria, dicono, è il <b>monismo della funzione d'onda</b>: esiste solo ψ, che obbedisce a Schrödinger, e basta. Aggiungere un'ontologia esplicita nello spazio tridimensionale assomiglierebbe troppo all'onda pilota, che gli everettiani considerano ingombra. Ma dire soltanto «la funzione d'onda è tutto» lascia aperto il problema di come nasca il nostro mondo di oggetti nello spazio.</p>
+<p>La risposta di David Wallace è l'<b>emergenza</b> (Norsen, pp. 295-296). Nel Modello Standard ci sono quark ed elettroni ma non tigri, eppure le tigri sono reali: sono strutture, configurazioni stabili della materia microscopica. Allo stesso modo i mondi macroscopici sono strutture nella funzione d'onda universale. Ogni pacchetto decoerente si comporta, dal punto di vista dinamico, come un sistema classico macroscopico, e una sovrapposizione di pacchetti è dinamicamente isomorfa a una collezione di sistemi classici indipendenti.</p>
+<p>Norsen risponde che l'isomorfismo è vero ma non risolve il problema. Un pacchetto stretto che si muove nello spazio a $3N$ dimensioni è matematicamente equivalente a $N$ traiettorie nello spazio a 3 dimensioni. Ma l'equivalenza matematica non fa esistere fisicamente le $N$ particelle, come la palla da biliardo non fa esistere le perline. Il nodo è il carattere <i>trans-dimensionale</i> dell'emergenza richiesta. Che una tigre emerga da onde nello spazio tridimensionale non è un problema; il problema è che emerga da onde che vivono in uno spazio del tutto diverso e di dimensione enorme (Norsen, p. 296).</p>
+<p>Wallace ha suggerito che anche la tridimensionalità dello spazio potrebbe essere emergente. Norsen ribatte che, se ci inganniamo perfino su questo, non si vede perché dovremmo fidarci dei dati sperimentali su cui la meccanica quantistica si fonda (Norsen, pp. 296-297). Il dilemma finale è netto. Se si sceglie una struttura particolare, come la densità di massa, come ontologia della teoria, quella è ontologia aggiuntiva, e allora tanto vale l'onda pilota, che non ha i problemi della probabilità. Se non la si sceglie, resta da spiegare perché proprio quella struttura descriva il nostro mondo (Norsen, p. 297).</p>
+
+<h2 id="s11" data-toc="Località: perché le probabilità sommano a due"><span class="n">10</span>Località: perché le probabilità sommano a due</h2>
+<p>Gli everettiani sostengono che la loro teoria è l'unica, tra le opzioni realiste, a rispettare la località (Norsen, pp. 297-298). Gli argomenti sono due.</p>
+<ol>
+  <li>Nelle altre teorie la non località veniva dal collasso, che agisce istantaneamente su tutta la funzione d'onda. Everett il collasso l'ha tolto.</li>
+  <li>Il teorema di Bell assume che ogni misura abbia un esito definito e unico. In Everett tutti gli esiti si realizzano, quindi il teorema non si applica.</li>
+</ol>
+<p>Norsen concede che Bell assumeva tacitamente esiti singoli. Ma osserva che il teorema serve a diagnosticare le teorie non ancora inventate; per una teoria che esiste già conviene applicare direttamente la definizione di causalità locale vista nelle pagine su Bell (Norsen, p. 298). E qui si incontrano due ostacoli.</p>
+<ul>
+  <li><b>L'ontologia.</b> Se esiste solo ψ nello spazio a $3N$ dimensioni, le parole locale e non locale, che parlano di eventi in regioni dello spazio ordinario, non si applicano. Norsen dice che una teoria così non è nemmeno non locale (Norsen, pp. 298-299).</li>
+  <li><b>La probabilità.</b> La condizione di Bell è formulata con probabilità condizionate $P(\cdot|\lambda)$, dove qui $\lambda$ indica lo stato completo prima della misura (non la costante di accoppiamento della (10.1)). In una teoria ordinaria gli esiti si escludono a vicenda e $P(\text{su}|\lambda) + P(\text{giù}|\lambda) = 1$. In Everett entrambi gli esiti si realizzano con certezza, e la somma vale 2 (Norsen, p. 299):</li>
+</ul>
+$$P(\text{su}|\lambda) + P(\text{giù}|\lambda) = 1\ \ \text{(usuale)},\qquad P(\text{su}|\lambda) + P(\text{giù}|\lambda) = 2\ \ \text{(Everett)}.\qquad\text{(10.25-10.26)}$$
+<p>Con una cosa che si comporta così le condizioni di Bell non si possono nemmeno scrivere nel modo solito.</p>
+
+<h3>La scatola di Einstein con i fatti relazionali</h3>
+<aside class="book" data-l="no" data-p="302"><div class="tag">Nei libri · Norsen §10.4, Figg. 10.5-10.6</div><p>Le due figure disegnano la stessa evoluzione della densità di massa: la prima senza, la seconda con l'indicazione di quali pezzi stanno nello stesso ramo.</p></aside>
+<p>Per avere qualcosa di concreto Norsen adotta la versione con la densità di massa esplicita e riprende la scatola di Einstein (Norsen, p. 300). Una particella è divisa tra due mezze scatole lontane. Alice, vicino alla scatola di sinistra, e Bob, vicino a quella di destra, al tempo $t = 0$ controllano se la particella è nella loro mezza scatola. Ognuno ha una lancetta che si sposta di $d$ se rivela la particella e resta ferma se non la rivela; $y$ è la lancetta di Alice, $z$ quella di Bob. Prima delle misure</p>
+$$\Psi(x,y,z) = \frac{1}{\sqrt2}\big[\psi_L(x) + \psi_R(x)\big]\phi_0(y)\,\chi_0(z),\qquad\text{(10.27)}$$
+<p>dove $\psi_L$ e $\psi_R$ sono diverse da zero solo nella mezza scatola di sinistra e di destra. Dopo le misure, con gli stessi passi della sezione 2:</p>
+<ol class="steps">
+  <li>Per linearità di $\otimes$, $\Psi = \frac{1}{\sqrt2}\psi_L\phi_0\chi_0 + \frac{1}{\sqrt2}\psi_R\phi_0\chi_0$.</li>
+  <li>Se la particella è a sinistra, Alice la rivela e Bob no: $\psi_L\phi_0(y)\chi_0(z)\to\psi_L\phi_0(y-d)\chi_0(z)$.</li>
+  <li>Se è a destra, succede il contrario: $\psi_R\phi_0(y)\chi_0(z)\to\psi_R\phi_0(y)\chi_0(z-d)$.</li>
+  <li>Per linearità dell'evoluzione:</li>
+</ol>
+$$\Psi(x,y,z) = \frac{1}{\sqrt2}\big[\psi_L(x)\,\phi_0(y-d)\,\chi_0(z) + \psi_R(x)\,\phi_0(y)\,\chi_0(z-d)\big].\qquad\text{(10.28)}$$
+<p>I due termini sono ben separati nello spazio delle configurazioni, perché $y$ e $z$ stanno per moltissime coordinate. La densità di massa è $\rho = \rho_1 + \rho_2$, un mondo per termine (Norsen, pp. 300-301). Calcoliamo quella della lancetta di Alice, di massa $M$ (conto nostro): con la (10.17), $\rho_A(y') = M\int|\Psi(x,y',z)|^2\,dx\,dz$. Il termine incrociato contiene $\int\psi_L^*\psi_R\,dx = 0$, che qui è nullo esattamente perché $\psi_L$ e $\psi_R$ hanno supporti disgiunti. Restano i due quadrati, ciascuno con $\int|\psi|^2 dx = \int|\chi|^2dz = 1$:</p>
+$$\rho_A(y') = \frac M2\big[\,|\phi_0(y'-d)|^2 + |\phi_0(y')|^2\,\big].$$
+<p>Metà della lancetta di Alice si sposta e metà resta ferma, e lo stesso per Bob. Visto dall'alto, con gli occhi di chi guarda solo $\rho$ (Fig. 10.5), sembra tutto locale: la lancetta di Alice si divide in risposta al fatto, locale, che nella sua mezza scatola c'è mezza particella, e lo stesso fa quella di Bob (Norsen, p. 301).</p>
+<p>Ma $\rho$ non dice tutto. Ci sono <b>fatti relazionali</b>, contenuti nella (10.28), su quali pezzi di densità stanno nello stesso ramo (Norsen, p. 302). Lo si vede con i proiettori. Sia $P_A^{\text{sì}} = \mathbb 1\otimes|\phi_d\rangle\langle\phi_d|\otimes\mathbb 1$ la domanda «la lancetta di Alice si è spostata?», con $\phi_d(y) = \phi_0(y - d)$, e $P_B^{\text{sì}}$ l'analoga per Bob. Applichiamo entrambe alla (10.28) (conto nostro):</p>
+<ol class="steps">
+  <li>Sul primo termine $P_B^{\text{sì}}$ dà il fattore $\langle\chi_d|\chi_0\rangle\approx0$: la lancetta di Bob lì è ferma.</li>
+  <li>Sul secondo termine $P_A^{\text{sì}}$ dà il fattore $\langle\phi_d|\phi_0\rangle\approx0$: la lancetta di Alice lì è ferma.</li>
+  <li>Quindi $P_A^{\text{sì}}P_B^{\text{sì}}\Psi\approx0$: non esiste un ramo in cui entrambi hanno visto la particella. Allo stesso modo non esiste un ramo in cui nessuno dei due l'ha vista.</li>
+</ol>
+<p>Se le due divisioni fossero indipendenti, quando più tardi Alice e Bob si incontrano per confrontare i risultati ci sarebbero quattro rami: Alice-sì con Bob-sì, Alice-sì con Bob-no, Alice-no con Bob-sì, Alice-no con Bob-no. Ce ne sono solo due, Alice-sì con Bob-no e Alice-no con Bob-sì. Le due nascite di mondi, avvenute in punti separati da una distanza di tipo spazio, sono correlate in un modo che sembra impossibile da capire localmente (Norsen, pp. 302-303).</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Prima delle misure non ci sono ancora due mondi. La differenza tra $\psi_L$ e $\psi_R$ è microscopica, e Alice e Bob potrebbero ancora riportare insieme le due mezze scatole e osservare interferenza. I mondi nascono solo quando la differenza coinvolge un numero macroscopico di gradi di libertà (Norsen, p. 302, didascalia della Fig. 10.6).</p></aside>
+<p>La conclusione di Norsen è prudente. Una violazione pulita della località di Bell non si può dimostrare, perché probabilità e ontologia della teoria sono troppo oscure per formulare la condizione; e resta aperta anche la compatibilità con la relatività (Norsen, pp. 303-304). Il Project 10.10 chiede di verificare che, nella sola Fig. 10.5, la condizione di località è formalmente rispettata. Il capitolo si chiude con lo sconcerto di DeWitt davanti a più di $10^{100}$ copie leggermente imperfette di sé stesso. Per Norsen l'idea è elegante e compatibile con l'esperienza, ma su probabilità, ontologia e località resta, più dell'onda pilota e di GRW, un lavoro in corso (Norsen, p. 304).</p>
+
+<h2 id="s12" data-toc="La lettura di Bell: un'onda pilota senza traiettorie"><span class="n">11</span>La lettura di Bell: un'onda pilota senza traiettorie</h2>
+<p>Bell discusse Everett in più articoli, e lo lesse in un modo sorprendente, come un parente stretto dell'onda pilota. Ne seguiamo due.</p>
+
+<h3>L'espansione sulla base della memoria (art. 11)</h3>
+<aside class="book" data-l="be" data-p="105"><div class="tag">Nei libri · Bell, art. 11</div><p>L'esempio della lastra fotografica attraversata da una particella ionizzante: per l'analisi di Mott e Heisenberg hanno peso apprezzabile solo i pattern di annerimento allineati e coerenti tra lastre diverse.</p></aside>
+<p>Bell divide il mondo in A, la parte che registra degli strumenti (la «memoria»), con coordinate $a$, e B, il resto, con coordinate $b$. Presa una base completa $\phi_n(a)$ degli stati di A, la funzione d'onda del mondo si espande come (Bell, art. 11, p. 105)</p>
+$$\psi(a,b,t) = \sum_n\phi_n(a)\,\chi_n(b,t),\qquad\text{(E)}$$
+<p>e il peso del termine $n$ è la norma $\int db\,|\chi_n(b,t)|^2$. Se i $\phi_n$ sono ortonormali, si vede subito (osservazione nostra) che $\chi_n(b,t) = \int\phi_n^*(a)\,\psi(a,b,t)\,da$: è lo stato relativo non normalizzato della sezione 3, quello del resto del mondo relativo alla memoria in $\phi_n$, e il peso è il $|c_k|^2$ di allora. Già Mott e Heisenberg mostrano che hanno peso apprezzabile solo i $\phi_n$ in cui le registrazioni sono coerenti tra loro, ed Everett estende la cosa alle memorie dei computer e delle persone.</p>
+<p>La lettura tradizionale, dice Bell, riduce di tanto in tanto la funzione d'onda tenendo un gruppo di termini macroscopicamente indistinguibili, $\psi\to N\sum'\phi_n\chi_n$ (E′), con probabilità pari al peso totale del gruppo; quando farlo resta vago, ma senza conseguenze pratiche (Bell, art. 11, p. 106). Everett non riduce mai: tutti i rami $\phi_n\chi_n$ sono realizzati, e ogni rappresentante dell'osservatore conosce solo la propria memoria $\phi_n$. Everett prova anche ad associare a ogni ramo un passato unico, con la struttura ad albero. Per Bell il tentativo non riesce e va contro lo spirito della teoria. Non abbiamo accesso al passato, ma solo a memorie presenti, e alla teoria basta spiegare le correlazioni tra le memorie presenti (Bell, art. 11, pp. 106-107).</p>
+<p>Dopo le due obiezioni che abbiamo visto nella sezione 4, Bell confronta Everett con de Broglie e trova tre differenze (Bell, art. 11, pp. 108-109).</p>
+<ol>
+  <li>Le variabili privilegiate di Everett sono letture di strumenti, vagamente antropocentriche. Quelle di de Broglie sono le posizioni microscopiche, da cui le grandezze macroscopiche si ricavano con medie su scala grossolana.</li>
+  <li>In Everett tutte le configurazioni sono realizzate, in de Broglie una sola.</li>
+  <li>Everett non collega le configurazioni di istanti diversi in traiettorie; de Broglie lo fa, in modo deterministico, con l'equazione guida.</li>
+</ol>
+<p>La sintesi di Bell è che da Everett si impara che le traiettorie si possono togliere. Si può ridistribuire la configurazione a caso da un istante all'altro, con peso $|\psi|^2$, perché le memorie fanno parte della configurazione istantanea (Bell, art. 11, p. 109). Questa teoria, che toglie le traiettorie di de Broglie e gli altri rami di Everett, è logicamente coerente. A Bell non piace per due motivi: vorrebbe prendere più sul serio il passato del mondo e il proprio, e una realtà definita a un solo istante sembra fissare un sistema di riferimento di Lorentz privilegiato.</p>
+
+<h3>«Everett (?)» nell'articolo per i cosmologi (art. 15)</h3>
+<aside class="book" data-l="be" data-p="144"><div class="tag">Nei libri · Bell, art. 15, §5</div><p>Il paragrafo si intitola proprio «Everett (?)», con il punto interrogativo: Bell avverte che i lettori di Everett e DeWitt potrebbero non riconoscere la sua formulazione.</p></aside>
+<p>Nell'articolo per i cosmologi Bell dice esplicitamente che la sua teoria di Everett è l'onda pilota senza traiettorie. Esistono configurazioni istantanee $x$, distribuite con probabilità $|\psi|^2$ tra i mondi possibili, ma non c'è nessun accoppiamento tra configurazioni di tempi diversi (Bell, art. 15, p. 144). Per i lettori di Everett e DeWitt aggiunge quattro osservazioni.</p>
+<ul>
+  <li>(A) I molti universi sono stravaganti, non servono a niente nella teoria e si possono togliere senza conseguenze (Bell, art. 15, pp. 144-145).</li>
+  <li>(B) In Everett e DeWitt le variabili classiche sono di fatto le letture degli strumenti, che sono una nozione vaga (p. 145).</li>
+  <li>(C) I pesi proporzionali alla norma sono una scelta ragionevole ma non inevitabile, come l'ensemble $|\psi|^2$ nell'onda pilota (pp. 145-146).</li>
+  <li>(D) La struttura ad albero non è fondamentale. A livello microscopico non c'è un'asimmetria temporale tra ramificazione e ricongiungimento dei rami, e anzi il ricongiungimento, cioè l'interferenza, è il tratto tipico della meccanica quantistica, come nella somma sui cammini di Feynman (p. 146).</li>
+</ul>
+<p>Senza traiettorie e senza albero, nessun presente è legato a un passato particolare. La tesi di Bell è che questo non conta: abbiamo solo memorie e registrazioni, che sono configurazioni presenti delle $x$, segni su un quaderno, contenuti di una memoria di computer o di un cervello. La teoria deve spiegare le correlazioni tra questi fenomeni presenti, e lo fa come la meccanica quantistica ordinaria (Bell, art. 15, p. 147). Ma il giudizio finale è severo: «Everett's replacement of the past by memories is a radical solipsism» (Bell, art. 15, p. 147). È un solipsismo esteso alla dimensione temporale, che non si può confutare ma che, preso sul serio, renderebbe difficile prendere sul serio qualunque altra cosa. Bell lo paragona alla tesi della creazione del mondo nel 4004 a.C., con alberi già dotati di anelli e rocce piene di fossili di creature mai vissute (Bell, art. 15, p. 147).</p>
+
+<h3>Il confronto</h3>
+<div class="tbl"><table><thead><tr><th></th><th>Everett secondo Norsen</th><th>Everett letto da Bell</th><th>Onda pilota</th></tr></thead><tbody>
+<tr><td>Che cosa esiste</td><td>Solo ψ; i mondi sono strutture (Wallace) oppure pezzi di $\rho$ (Vaidman)</td><td>ψ e una configurazione istantanea $x$ (art. 15); con i molti universi, tutte le configurazioni (art. 11)</td><td>ψ e una configurazione $x(t)$</td></tr>
+<tr><td>Collasso</td><td>No</td><td>No</td><td>No; solo collasso efficace</td></tr>
+<tr><td>Esiti definiti</td><td>In ogni ramo</td><td>Nella configurazione presente</td><td>Nella configurazione</td></tr>
+<tr><td>Probabilità</td><td>Pesi $|c|^2$: circolarità, Cauchy, decisioni razionali</td><td>Distribuzione $|\psi|^2$ a ogni istante, postulata</td><td>$|\psi|^2$ iniziale, conservata dall'equazione guida</td></tr>
+<tr><td>Passato</td><td>Albero dei rami</td><td>Solo memorie presenti</td><td>Traiettorie</td></tr>
+<tr><td>Base o variabili privilegiate</td><td>Dalla decoerenza</td><td>Letture degli strumenti, vaghe</td><td>Posizioni microscopiche</td></tr>
+<tr><td>Località</td><td>Rivendicata, ma la condizione non si formula bene</td><td>Realtà a un solo istante: sistema di Lorentz privilegiato?</td><td>Non locale</td></tr>
+</tbody></table></div>
+<p>La lettura di Bell non è quella degli everettiani di oggi, che tengono i molti rami e tolgono qualunque configurazione. Ma mette in luce un punto che resta valido. Everett e de Broglie hanno la stessa funzione d'onda con la stessa equazione di Schrödinger lineare ed esatta, e differiscono per ciò che, oltre a ψ, viene usato per collegare la teoria all'esperienza: letture di strumenti per Everett, posizioni per de Broglie.</p>
+
+<div class="check">
+  <h2 id="s13" data-toc="Per verificare di aver capito">Per verificare di aver capito</h2>
+  <p><b>1. Stato relativo e base.</b> Dopo la misura di un fotone a $\theta = 30°$ lo stato è $\cos\theta\,|H\rangle|\phi_H\rangle + \sin\theta\,|V\rangle|\phi_V\rangle$, con $\langle\phi_H|\phi_V\rangle = 0$. (a) Quanto pesano i due rami? (b) Qual è lo stato della lancetta relativo al fotone in $|45°\rangle = \frac{1}{\sqrt2}(|H\rangle + |V\rangle)$? Ha una posizione definita? (Risultati: (a) $3/4$ e $1/4$. (b) Il prodotto scalare parziale dà $\frac{1}{\sqrt2}(\cos\theta\,\phi_H + \sin\theta\,\phi_V)$, di norma al quadrato $\frac12$; normalizzato è $\frac{\sqrt3}{2}\phi_H + \frac12\phi_V$, una sovrapposizione macroscopica.)</p>
+  <p><b>2. Contare e pesare.</b> Con $N = 10$ misure e $p = 3/4$, calcola $f^w(7)$ e $f^w(8)$ e trova il massimo con il criterio $n &lt; Np - q$. Dove sta invece il massimo del conteggio dei rami? (Risultati: $f^w(7) = 120\cdot3^7/4^{10}\approx0{,}250$, $f^w(8) = 45\cdot3^8/4^{10}\approx0{,}282$; $Np - q = 7{,}25$, quindi il massimo pesato è in $n = 8$; il conteggio ha il massimo in $n = 5$.)</p>
+  <p><b>3. Decoerenza.</b> Se ognuna delle $10^{23}$ particelle della lancetta si sposta di una sola larghezza $s$ del suo pacchetto, quanto vale la sovrapposizione tra i due rami? E se le particelle coinvolte fossero solo 10? (Risultati: $e^{-10^{23}/8}$, cioè zero a ogni effetto; con 10 particelle $e^{-10/8}\approx0{,}29$, e l'interferenza sarebbe ancora visibile.)</p>
+  <p><b>4. La scatola di Einstein.</b> Nello stato (10.28), calcola la densità di massa della lancetta di Bob e l'ampiezza del ramo in cui né Alice né Bob rivelano la particella. Perché le due risposte insieme mostrano che $\rho$ da sola non contiene tutti i fatti? (Risultati: $\rho_B(z') = \frac M2[|\chi_0(z'-d)|^2 + |\chi_0(z')|^2]$; l'ampiezza è zero, perché nel primo termine la lancetta di Alice è spostata e nel secondo quella di Bob. La densità di ciascuna lancetta è divisa a metà, ma solo due delle quattro combinazioni compaiono come rami.)</p>
+</div>
+<nav class="pager"><a href="oltre-grw.html"><small>← Indietro</small>Oltre Copenhagen · Il collasso spontaneo</a><a class="next" href="oltre-bilancio.html"><small>Avanti →</small>Oltre Copenhagen · Bilancio</a></nav></article></div></div></body></html>

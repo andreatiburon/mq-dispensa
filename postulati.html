@@ -1,0 +1,341 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>I postulati · Dispensa MQ</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="style.css"><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]},svg:{fontCache:"global"}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script><script src="labs.js" defer></script></head><body><header class="bar"><div class="bar-in"><a class="brand" href="index.html">Meccanica <span>Quantistica</span></a><nav class="nav" aria-label="Pagine"><a href="index.html">Home</a><a href="postulati.html" aria-current="page">Lezione 1 · Postulati</a><a href="rappresentazioni.html">Lezione 2 · Rappresentazioni</a><a href="evoluzione.html">Lezione 3 · Evoluzione</a><a href="oltre-problemi.html">Oltre Copenhagen</a><a href="linea.html">Linea temporale</a></nav></div></header><div class="wrap"><div class="layout"><aside class="toc" aria-label="Indice"><h2>In questa lezione</h2><ol></ol></aside><article><details class="toc-mobile"><summary>Indice della lezione</summary><ol></ol></details><p class="kicker"><b>Lezione 1</b> · quaderno pp. 36-45</p><h1 class="ht-shadow" data-t="I postulati">I postulati</h1><p class="lead">Che cos'è uno stato, che cos'è una misura, con che probabilità esce un risultato e quando due grandezze si possono conoscere insieme. Un esempio concreto per ogni concetto: la polarizzazione di un fotone.</p>
+<h2 id="s1" data-toc="La mappa della lezione">La mappa della lezione</h2>
+<p>La lezione sembra un elenco di definizioni, ma ha una struttura precisa. A p. 35 avevi scritto che la nuova teoria deve avere tre caratteristiche. Ognuno dei tre postulati serve a realizzarne una, e tutto il resto sono conseguenze.</p>
+<div class="map" aria-label="Mappa logica">
+  <div class="row c1"><div class="box f"><b>Fenomeni (pp. 33-35)</b>fenditure, elettroni, fullerene</div></div>
+  <div class="arrow">↓</div>
+  <div class="row">
+    <div class="box r"><b>Sovrapposizione</b>le frange</div>
+    <div class="box r"><b>Probabilità</b>un punto alla volta</div>
+    <div class="box r"><b>Quantizzazione</b>risultati discreti</div>
+  </div>
+  <div class="row"><div class="arrow">↓</div><div class="arrow">↓</div><div class="arrow">↓</div></div>
+  <div class="row">
+    <div class="box p"><b>1° postulato</b>stato = raggio in $\mathcal H$</div>
+    <div class="box p"><b>3° postulato</b>media $=\langle\psi|A|\psi\rangle$</div>
+    <div class="box p"><b>2° postulato</b>osservabile: $A = A^\dagger$</div>
+  </div>
+  <div class="arrow">↘ ↓ ↙</div>
+  <div class="row c1"><div class="box p"><b>Formula di Born</b>$P(a|\psi) = |\langle a|\psi\rangle|^2$</div></div>
+  <div class="arrow">↙ ↘</div>
+  <div class="row c2">
+    <div class="box c"><b>Osservabili compatibili</b>$[A,B]=0$, numeri quantici</div>
+    <div class="box c"><b>Heisenberg</b>$[A,B]\neq 0$, vincolo</div>
+  </div>
+</div>
+
+<h2 id="s2" data-toc="L'esempio che useremo per tutta la lezione"><span class="n">0</span>L'esempio che useremo per tutta la lezione</h2>
+<p>Negli appunti gli esempi sono astratti. Teniamo in mente un sistema concreto dall'inizio alla fine: <strong>la polarizzazione di un fotone</strong>. Secondo la mappa dei libri del vault, il Picasso ricava i postulati proprio da esperimenti di polarizzazione.</p>
+<ul>
+  <li>Un fotone polarizzato orizzontalmente lo chiamiamo $|H\rangle$, uno polarizzato verticalmente $|V\rangle$.</li>
+  <li>Un polarizzatore ruotato di un angolo $\theta$ lascia passare lo stato $|\theta\rangle = \cos\theta\,|H\rangle + \sin\theta\,|V\rangle$.</li>
+  <li>Il fatto sperimentale è la <strong>legge di Malus</strong>: se mandi luce polarizzata $H$ su un polarizzatore a $\theta$, passa la frazione $\cos^2\theta$ dell'intensità.</li>
+  <li>Con un fotone alla volta succede quello che succede con le fenditure di p. 34: ogni fotone o passa intero o non passa, e $\cos^2\theta$ diventa la probabilità che passi.</li>
+</ul>
+<p>Lo spazio di Hilbert di questo sistema ha due dimensioni, quindi si fa tutto con matrici $2\times 2$. La struttura logica è identica a quella dell'elettrone nella doppia fenditura.</p>
+
+<h2 id="s3" data-toc="Primo postulato: perché uno stato è un raggio"><span class="n">1</span>Primo postulato: perché uno stato è un raggio (p. 36)</h2>
+<aside class="book" data-l="pi" data-p="59"><div class="tag">Nei libri · Picasso §3.4, pp. 59-60</div><p>Il Picasso costruisce tutto il formalismo partendo proprio dalla polarizzazione di un fotone: l'interferenza impone la sovrapposizione, quindi uno spazio vettoriale, e lo stato del fotone si ricava dal campo elettrico dell'onda piana.</p></aside>
+
+<p><strong>L'idea semplice.</strong> Due vettori che differiscono solo per un fattore complesso, come $|\psi\rangle$ e $-3i\,|\psi\rangle$, descrivono lo stesso fotone, perché nessun esperimento li distingue. Il raggio è l'insieme di tutti questi vettori fisicamente uguali.</p>
+<p><strong>Perché nessun esperimento li distingue.</strong> Le uniche cose misurabili sono probabilità, date dalla formula di Born (p. 42):</p>
+$$P(a|\psi) = \frac{|\langle a|\psi\rangle|^2}{\langle a|a\rangle\,\langle\psi|\psi\rangle}.$$
+<p>Sostituiamo $\psi$ con $\alpha\psi$, dove $\alpha$ è un numero complesso diverso da zero.</p>
+<ul>
+  <li>Il numeratore diventa $|\langle a|\alpha\psi\rangle|^2 = |\alpha|^2\,|\langle a|\psi\rangle|^2$, perché $\alpha$ esce dal prodotto scalare per linearità.</li>
+  <li>Il denominatore diventa $\langle a|a\rangle\,\langle\alpha\psi|\alpha\psi\rangle = |\alpha|^2\,\langle a|a\rangle\langle\psi|\psi\rangle$.</li>
+  <li>Il fattore $|\alpha|^2$ si semplifica e la probabilità resta identica.</li>
+</ul>
+<p>Tutta la fisica dipende quindi solo dal raggio. Il vettore nullo va escluso perché darebbe $0/0$: non descrive nessuno stato.</p>
+<p><strong>Perché lo spazio proiettivo non è uno spazio di Hilbert.</strong> I raggi non si possono sommare. Prendi il raggio di $|H\rangle$ e quello di $|V\rangle$:</p>
+<ul>
+  <li>sommando i rappresentanti $|H\rangle$ e $|V\rangle$ ottieni $|H\rangle + |V\rangle$, cioè la polarizzazione diagonale a $+45°$;</li>
+  <li>sommando $|H\rangle$ e $-|V\rangle$, che rappresenta lo <em>stesso</em> raggio di $|V\rangle$, ottieni $|H\rangle - |V\rangle$, cioè la polarizzazione a $-45°$.</li>
+</ul>
+<p>Un polarizzatore a $+45°$ lascia passare tutto il primo stato e niente del secondo: sono fisicamente diversi. La somma di due raggi quindi non è definita. Per questo nei conti si lavora con un rappresentante normalizzato, $\langle\psi|\psi\rangle = 1$, come alla fine di p. 36.</p>
+<div class="note"><p><strong>La lezione nascosta.</strong> Una fase globale non conta: $|\psi\rangle$ e $e^{i\varphi}|\psi\rangle$ sono lo stesso stato. Una fase relativa conta: $|H\rangle + |V\rangle$ e $|H\rangle - |V\rangle$ sono stati diversi. L'interferenza vive tutta nelle fasi relative.</p></div>
+
+<h2 id="s4" data-toc="La cassetta degli attrezzi: quattro regole di Dirac"><span class="n">2</span>La cassetta degli attrezzi: quattro regole di Dirac (pp. 37-41)</h2>
+<aside class="book" data-l="pi" data-p="60"><div class="tag">Nei libri · Picasso §3.4</div><p>Perché la fase globale non conta: nel campo elettrico il fattore comune $e^{i\varphi_1}$ si cambia spostando l'origine dei tempi o delle coordinate, quindi non può avere significato fisico. Conta solo la differenza di fase, che decide se la luce è polarizzata linearmente, circolarmente o ellitticamente.</p></aside>
+<aside class="book" data-l="sa" data-p="8"><div class="tag">Nei libri · Sakurai §1.1, pp. 8-9</div><p>La strada alternativa del Sakurai: atomi d'argento in un campo magnetico disomogeneo. Il fascio si divide in due macchie invece di allargarsi, cioè $S_z$ vale solo $\pm\hbar/2$. È lo stesso ruolo che qui ha la polarizzazione.</p></aside>
+
+<p>Le dimostrazioni sembrano a scatti perché usano sempre le stesse quattro regole senza nominarle. Eccole, ciascuna con il suo esempio.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Regola</th><th>Formula</th><th>Esempio</th></tr></thead>
+  <tbody>
+    <tr><td>R1 · ket-bra = operatore</td><td>$(|\psi\rangle\langle\chi|)\,|\xi\rangle = |\psi\rangle\,\langle\chi|\xi\rangle$ (p. 39)</td><td>$|H\rangle\langle H|$ applicato a uno stato tiene solo la sua parte $H$</td></tr>
+    <tr><td>R2 · complesso coniugato</td><td>$\langle\psi|A|\chi\rangle^* = \langle\chi|A^\dagger|\psi\rangle$</td><td>È la definizione di aggiunto (p. 38) scritta con bra e ket</td></tr>
+    <tr><td>R3 · identità inserita</td><td>$\mathbb 1 = \sum_i |a_i\rangle\langle a_i|$, base ortonormale (p. 41)</td><td>$\mathbb 1 = |H\rangle\langle H| + |V\rangle\langle V|$</td></tr>
+    <tr><td>R4 · decomposizione spettrale</td><td>$A = \sum_i a_i\,|a_i\rangle\langle a_i|$ (p. 41)</td><td>vedi sotto</td></tr>
+  </tbody>
+</table></div>
+<p>La R3 è il trucco che fa scorrere quasi tutte le dimostrazioni: dove serve una base, inserisci un $\mathbb 1$ scritto come somma di proiettori.</p>
+<h3>Il proiettore: l'ombra di un vettore</h3>
+<p>Nel testo uso $P_H = |H\rangle\langle H|$, ma la direzione $H$ non ha niente di speciale: è il caso con i conti più facili, cioè un polarizzatore a $0°$. Qualsiasi direzione $\theta$ dà un proiettore, $P_\theta = |\theta\rangle\langle\theta|$, e tutto quello che segue vale per ogni $\theta$.</p>
+<p><strong>L'idea semplice.</strong> Un bastone piantato storto, con il sole a picco: la sua ombra a terra è la proiezione del bastone sul terreno. Tiene la parte del bastone che sta lungo il terreno e butta via quella verticale. Due proprietà dell'ombra sono la definizione stessa di proiettore:</p>
+<ol>
+  <li>l'ombra sta sempre sul terreno, qualunque sia l'inclinazione del bastone;</li>
+  <li>l'ombra di un'ombra è l'ombra stessa: proiettare due volte è come proiettare una volta.</li>
+</ol>
+<p><strong>Con i vettori che conosci.</strong> Per proiettare $\vec v$ lungo un versore $\hat n$ si fa $\vec v \mapsto (\hat n\cdot\vec v)\,\hat n$. Il prodotto $\hat n\cdot\vec v$ è un numero (quanto di $\vec v$ c'è lungo $\hat n$), e $\hat n$ è la direzione in cui metterlo. In notazione di Dirac è identico:</p>
+$$P_\theta|\psi\rangle = |\theta\rangle\langle\theta|\psi\rangle = \underbrace{|\theta\rangle}_{\text{direzione}}\;\underbrace{\langle\theta|\psi\rangle}_{\text{numero}}.$$
+<p>Il bra «mangia» lo stato in ingresso e restituisce un numero; il ket mette quel numero lungo la direzione $\theta$. Nel disegno i coefficienti sono reali, quindi lo stato si può disegnare come una freccia nel piano $H$-$V$.</p>
+<div class="fig">
+<svg viewBox="0 0 680 330" width="100%" role="img" aria-label="Il vettore di stato psi, la direzione theta del polarizzatore e la proiezione di psi lungo theta">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="160" y1="290" x2="420" y2="290" style="stroke:var(--muted)" stroke-width="1" marker-end="url(#ah)"/>
+  <line x1="160" y1="290" x2="160" y2="44" style="stroke:var(--muted)" stroke-width="1" marker-end="url(#ah)"/>
+  <text x="428" y="294" style="fill:var(--muted)" font-size="13">|H⟩</text>
+  <text x="170" y="50" style="fill:var(--muted)" font-size="13">|V⟩</text>
+  <line x1="160" y1="290" x2="432" y2="163" style="stroke:var(--warm)" stroke-width="1.3" stroke-dasharray="6 5"/>
+  <text x="440" y="160" style="fill:var(--warm)" font-size="13">|θ⟩ polarizzatore</text>
+  <line x1="270" y1="100" x2="323" y2="214" style="stroke:var(--muted)" stroke-width="0.8" stroke-dasharray="3 4"/>
+  <line x1="160" y1="290" x2="268" y2="104" style="stroke:var(--ink)" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="278" y="96" style="fill:var(--ink)" font-size="15">|ψ⟩</text>
+  <line x1="160" y1="290" x2="319" y2="216" style="stroke:var(--hot)" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="332" y="238" style="fill:var(--hot)" font-size="14">Pθ|ψ⟩ = |θ⟩⟨θ|ψ⟩</text>
+  <text x="470" y="262" style="fill:var(--muted)" font-size="12.5">lunghezza della freccia rossa: ⟨θ|ψ⟩</text>
+  <text x="470" y="282" style="fill:var(--muted)" font-size="12.5">intensità che passa: |⟨θ|ψ⟩|²</text>
+</svg>
+</div>
+
+<figure class="lab"><div class="plate"><div data-lab="malus" id="lab-malus"></div></div><figcaption><b>Figura 1.1</b><i class="t">Il polarizzatore come proiettore.</i> Muovi lo stato e l'asse del polarizzatore. La freccia rossa è l'ombra dello stato sull'asse: la sua lunghezza è l'ampiezza, il suo quadrato la probabilità di passare.</figcaption></figure>
+<h3>Perché $|\theta\rangle\langle\theta|$ è un proiettore</h3>
+<p>Per definizione $P$ è un proiettore se $P^2 = P$ (proiettare due volte è come proiettare una volta) e se è hermitiano, $P^\dagger = P$. La prima proprietà, un passaggio alla volta:</p>
+$$P_\theta^2 = \big(|\theta\rangle\langle\theta|\big)\big(|\theta\rangle\langle\theta|\big) = |\theta\rangle\,\underbrace{\langle\theta|\theta\rangle}_{=\,1}\,\langle\theta| = |\theta\rangle\langle\theta| = P_\theta.$$
+<ul>
+  <li>Nel primo passaggio scrivo il prodotto dei due operatori uno dopo l'altro.</li>
+  <li>Nel secondo raggruppo il bra e il ket centrali: $\langle\theta|\theta\rangle$ è un numero, e vale 1 perché $|\theta\rangle$ è normalizzato. Lo stesso conto è a p. 40, con $\langle\psi|\psi\rangle$ al denominatore perché lì lo stato non è normalizzato.</li>
+  <li>L'hermitianità segue dalla regola di p. 39, $(|\psi\rangle\langle\chi|)^\dagger = |\chi\rangle\langle\psi|$, con $\psi = \chi = \theta$.</li>
+</ul>
+<p><strong>In matrici.</strong> Si scrive $|\theta\rangle$ come colonna $\begin{pmatrix}\cos\theta\\ \sin\theta\end{pmatrix}$ e $\langle\theta|$ come riga $(\cos\theta\ \ \sin\theta)$; colonna per riga dà la matrice</p>
+$$P_\theta = \begin{pmatrix}\cos^2\theta &amp; \cos\theta\sin\theta\\ \cos\theta\sin\theta &amp; \sin^2\theta\end{pmatrix},\qquad P_H = P_{0°} = \begin{pmatrix}1 &amp; 0\\ 0 &amp; 0\end{pmatrix}.$$
+<p>Per $P_H$ si vede a occhio: tiene la componente $H$ e azzera quella $V$, e al quadrato resta uguale. Per $\theta$ generico, l'elemento in alto a sinistra di $P_\theta^2$ è $\cos^2\theta\cos^2\theta + \cos^2\theta\sin^2\theta = \cos^2\theta(\cos^2\theta + \sin^2\theta) = \cos^2\theta$, uguale a quello di $P_\theta$; gli altri tre si controllano allo stesso modo.</p>
+
+<h3>Perché un polarizzatore è proprio questo operatore</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Proprietà di $P_\theta$</th><th>Che cosa vedi sul banco ottico</th></tr></thead>
+  <tbody>
+    <tr><td>L'uscita è sempre lungo $|\theta\rangle$</td><td>La luce che esce è sempre polarizzata lungo l'asse del polarizzatore, qualunque fosse quella in ingresso</td></tr>
+    <tr><td>La lunghezza dell'uscita è $\langle\theta|\psi\rangle$</td><td>La frazione che passa è $|\langle\theta|\psi\rangle|^2$; con $\psi = H$ viene $\cos^2\theta$, la legge di Malus</td></tr>
+    <tr><td>$P_\theta^2 = P_\theta$</td><td>Un secondo polarizzatore identico dopo il primo non toglie più niente</td></tr>
+    <tr><td>Autovalore $1$, autovettore $|\theta\rangle$</td><td>Un fotone già polarizzato lungo $\theta$ passa tutto</td></tr>
+    <tr><td>Autovalore $0$, autovettore $|\theta + 90°\rangle$</td><td>Un fotone polarizzato perpendicolarmente viene bloccato del tutto</td></tr>
+  </tbody>
+</table></div>
+<p><strong>Esempio.</strong> Un fotone $|H\rangle$ su un polarizzatore a $\theta$: $P_\theta|H\rangle = |\theta\rangle\langle\theta|H\rangle = \cos\theta\,|\theta\rangle$. Esce polarizzato lungo $\theta$, con probabilità $\cos^2\theta$ di passare.</p>
+<div class="note"><p>Un singolo fotone non esce «accorciato»: o passa intero, e allora è nello stato $|\theta\rangle$, o non passa. Il vettore $P_\theta|\psi\rangle$ porta due informazioni insieme: la sua lunghezza al quadrato è la probabilità di passare, la sua direzione è lo stato dopo il passaggio. Che dopo la misura lo stato diventi $|\theta\rangle$ è il postulato della misura, che negli appunti non c'è ancora.</p></div>
+
+<h3>I conti con Dirac: tre regole</h3>
+<ol class="steps">
+  <li><strong>Regola A, i numeri escono fuori:</strong> $\langle a|\,(c\,|b\rangle) = c\,\langle a|b\rangle$. È la linearità del prodotto scalare (p. 36).</li>
+  <li><strong>Regola B, il bra si distribuisce sulla somma:</strong> $\langle a|\big(|b\rangle + |c\rangle\big) = \langle a|b\rangle + \langle a|c\rangle$, come $\hat n\cdot(\vec u + \vec w) = \hat n\cdot\vec u + \hat n\cdot\vec w$.</li>
+  <li><strong>Regola C, la base è ortonormale:</strong> $\langle H|H\rangle = \langle V|V\rangle = 1$ e $\langle H|V\rangle = \langle V|H\rangle = 0$. Fisicamente: un fotone verticale non ha nessuna componente orizzontale (un polarizzatore $H$ lo blocca del tutto), uno orizzontale passa tutto.</li>
+</ol>
+
+<h3>Il prodotto scalare con Dirac, la ricetta</h3>
+<p>Il prodotto scalare $\langle\psi|\chi\rangle$ è un numero complesso che misura «quanto $\chi$ assomiglia a $\psi$». Il suo modulo quadro è una probabilità (p. 42). Si calcola sempre in quattro passi.</p>
+<ol class="steps">
+  <li><strong>Scrivi i due ket nella base.</strong>
+  $$|\psi\rangle = \sum_i c_i\,|e_i\rangle,\qquad |\chi\rangle = \sum_j d_j\,|e_j\rangle.$$</li>
+  <li><strong>Trasforma il primo in bra, coniugando i coefficienti.</strong>
+  $$\langle\psi| = \sum_i c_i^*\,\langle e_i|.$$
+  È qui che entra il complesso coniugato: viene dalla simmetria $(\psi,\chi) = (\chi,\psi)^*$ di p. 36.</li>
+  <li><strong>Moltiplica tutto per tutto</strong> (regole A e B): ogni termine del bra con ogni termine del ket.
+  $$\langle\psi|\chi\rangle = \sum_i\sum_j c_i^*\,d_j\,\langle e_i|e_j\rangle.$$</li>
+  <li><strong>Usa l'ortonormalità</strong> (regola C): $\langle e_i|e_j\rangle = \delta_{ij}$, cioè $1$ se $i = j$ e $0$ altrimenti. Dei termini incrociati non resta niente:
+  $$\boxed{\langle\psi|\chi\rangle = \sum_i c_i^*\,d_i}.$$</li>
+</ol>
+<p>In matrici è la stessa cosa: il bra è la riga dei coefficienti coniugati, il ket è la colonna, e si fa riga per colonna,</p>
+$$\langle\psi|\chi\rangle = (c_1^*\ \ c_2^*)\begin{pmatrix}d_1\\ d_2\end{pmatrix} = c_1^*d_1 + c_2^*d_2.$$
+<p><strong>Due proprietà da tenere a mente.</strong> Scambiando l'ordine si ottiene il coniugato, $\langle\chi|\psi\rangle = \langle\psi|\chi\rangle^*$; quindi in generale l'ordine conta. Il prodotto di un vettore con se stesso è reale e positivo, $\langle\psi|\psi\rangle = \sum_i |c_i|^2 \ge 0$: è la norma al quadrato.</p>
+
+<h3>Quattro esempi con la polarizzazione</h3>
+<p><strong>1. Una componente:</strong> $\langle\theta|H\rangle$. Con $|\theta\rangle = \cos\theta\,|H\rangle + \sin\theta\,|V\rangle$ i coefficienti sono $(\cos\theta, \sin\theta)$ e $(1, 0)$:</p>
+$$\langle\theta|H\rangle = \cos\theta\cdot 1 + \sin\theta\cdot 0 = \cos\theta.$$
+<p>Al quadrato dà $\cos^2\theta$: la legge di Malus.</p>
+<p><strong>2. Due stati ortogonali:</strong> $|D\rangle = \tfrac{1}{\sqrt 2}(|H\rangle + |V\rangle)$ e $|\bar D\rangle = \tfrac{1}{\sqrt 2}(|H\rangle - |V\rangle)$, cioè $+45°$ e $-45°$. I coefficienti sono $\tfrac{1}{\sqrt 2}(1, 1)$ e $\tfrac{1}{\sqrt 2}(1, -1)$:</p>
+$$\langle D|\bar D\rangle = \tfrac12\big(1\cdot 1 + 1\cdot(-1)\big) = 0.$$
+<p>Sono ortogonali: un fotone a $-45°$ non passa mai un polarizzatore a $+45°$. È l'esempio della fase relativa del paragrafo 1.</p>
+<p><strong>3. Perché serve il coniugato:</strong> la norma dello stato circolare $|R\rangle = \tfrac{1}{\sqrt 2}(|H\rangle + i\,|V\rangle)$. Con il coniugato il bra ha coefficienti $\tfrac{1}{\sqrt 2}(1, -i)$:</p>
+$$\langle R|R\rangle = \tfrac12\big(1\cdot 1 + (-i)\cdot i\big) = \tfrac12(1 + 1) = 1.$$
+<p>Senza il coniugato verrebbe $\tfrac12(1 + i\cdot i) = \tfrac12(1 - 1) = 0$: uno stato fisico con norma zero, che è assurdo. Il coniugato serve proprio a rendere $\langle\psi|\psi\rangle$ reale e positivo.</p>
+<p><strong>4. Un prodotto complesso:</strong> $\langle R|D\rangle$, coefficienti $\tfrac{1}{\sqrt 2}(1, -i)$ per il bra e $\tfrac{1}{\sqrt 2}(1, 1)$ per il ket:</p>
+$$\langle R|D\rangle = \tfrac12\big(1\cdot 1 + (-i)\cdot 1\big) = \tfrac12(1 - i),\qquad |\langle R|D\rangle|^2 = \tfrac14\,|1 - i|^2 = \tfrac14\cdot 2 = \tfrac12.$$
+<p>Il numero è complesso, ma la probabilità, cioè il suo modulo quadro, è reale: $\tfrac12$. Un fotone diagonale ha probabilità $\tfrac12$ di essere trovato circolare destro.</p>
+
+<h3>Perché $P_H|D\rangle = \tfrac{1}{\sqrt 2}|H\rangle$</h3>
+<p>Lo stato diagonale è $|D\rangle = \tfrac{1}{\sqrt 2}\big(|H\rangle + |V\rangle\big)$: metà $H$ e metà $V$, in fase. Applichiamo il proiettore:</p>
+$$P_H|D\rangle = |H\rangle\langle H|\;\tfrac{1}{\sqrt 2}\big(|H\rangle + |V\rangle\big).$$
+<ol class="steps">
+  <li><strong>Regola A.</strong> Il numero $\tfrac{1}{\sqrt 2}$ esce fuori:
+  $$= \tfrac{1}{\sqrt 2}\;|H\rangle\;\langle H|\big(|H\rangle + |V\rangle\big).$$</li>
+  <li><strong>Regola B.</strong> Il bra $\langle H|$ si distribuisce sulla somma:
+  $$= \tfrac{1}{\sqrt 2}\;|H\rangle\;\big(\langle H|H\rangle + \langle H|V\rangle\big).$$</li>
+  <li><strong>Regola C.</strong> I due prodotti scalari valgono $1$ e $0$:
+  $$= \tfrac{1}{\sqrt 2}\;|H\rangle\;(1 + 0) = \tfrac{1}{\sqrt 2}\,|H\rangle.$$</li>
+</ol>
+<p><strong>Come si legge.</strong> Il numero tra parentesi al passo 2 è $\langle H|D\rangle = \tfrac{1}{\sqrt 2}$: quanto $H$ c'è dentro $D$. Il proiettore lo mette davanti al ket $|H\rangle$. La probabilità di passare è il modulo quadro dell'ampiezza: $|\langle H|D\rangle|^2 = \tfrac12 = \cos^2 45°$.</p>
+<p><strong>Perché $\tfrac{1}{\sqrt 2}$ e non $\tfrac12$.</strong> Il bra di $D$ si ottiene coniugando i coefficienti (qui reali). Con le tre regole:</p>
+$$\langle D|D\rangle = \tfrac12\big(\langle H|H\rangle + \langle H|V\rangle + \langle V|H\rangle + \langle V|V\rangle\big) = \tfrac12\,(1 + 0 + 0 + 1) = 1.$$
+<p>Il quadrato di $\tfrac{1}{\sqrt 2}$ è $\tfrac12$, e due metà fanno 1: lo stato è normalizzato.</p>
+
+<h3>Lo stesso conto con le matrici</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Dirac</th><th>Matrici</th><th>Che cosa ottieni</th></tr></thead>
+  <tbody>
+    <tr><td>ket $|\psi\rangle$</td><td>vettore colonna</td><td>un vettore</td></tr>
+    <tr><td>bra $\langle\psi|$</td><td>vettore riga, coefficienti coniugati</td><td>un vettore riga</td></tr>
+    <tr><td>$\langle a|b\rangle$</td><td>riga × colonna</td><td>un numero</td></tr>
+    <tr><td>$|a\rangle\langle b|$</td><td>colonna × riga</td><td>una matrice, cioè un operatore</td></tr>
+  </tbody>
+</table></div>
+<p>Nella base $\{H, V\}$: $|H\rangle = \begin{pmatrix}1\\0\end{pmatrix}$, $|V\rangle = \begin{pmatrix}0\\1\end{pmatrix}$, $|D\rangle = \tfrac{1}{\sqrt 2}\begin{pmatrix}1\\1\end{pmatrix}$, $\langle H| = (1\ \ 0)$.</p>
+$$P_H = |H\rangle\langle H| = \begin{pmatrix}1\\0\end{pmatrix}(1\ \ 0) = \begin{pmatrix}1\cdot 1 &amp; 1\cdot 0\\ 0\cdot 1 &amp; 0\cdot 0\end{pmatrix} = \begin{pmatrix}1 &amp; 0\\ 0 &amp; 0\end{pmatrix}$$
+$$P_H|D\rangle = \begin{pmatrix}1 &amp; 0\\ 0 &amp; 0\end{pmatrix}\frac{1}{\sqrt 2}\begin{pmatrix}1\\1\end{pmatrix} = \frac{1}{\sqrt 2}\begin{pmatrix}1\cdot 1 + 0\cdot 1\\ 0\cdot 1 + 0\cdot 1\end{pmatrix} = \frac{1}{\sqrt 2}\begin{pmatrix}1\\0\end{pmatrix} = \frac{1}{\sqrt 2}\,|H\rangle$$
+$$\langle H|D\rangle = (1\ \ 0)\,\frac{1}{\sqrt 2}\begin{pmatrix}1\\1\end{pmatrix} = \frac{1}{\sqrt 2}\,(1\cdot 1 + 0\cdot 1) = \frac{1}{\sqrt 2}$$
+
+<h3>Un secondo esempio, al contrario</h3>
+<p>Polarizzatore diagonale e fotone orizzontale: $P_D|H\rangle = |D\rangle\langle D|H\rangle$. Il bra di $D$ è $\langle D| = \tfrac{1}{\sqrt 2}\big(\langle H| + \langle V|\big)$, quindi con le regole A, B e C:</p>
+$$\langle D|H\rangle = \tfrac{1}{\sqrt 2}\big(\langle H|H\rangle + \langle V|H\rangle\big) = \tfrac{1}{\sqrt 2}(1 + 0) = \tfrac{1}{\sqrt 2},\qquad P_D|H\rangle = \tfrac{1}{\sqrt 2}\,|D\rangle.$$
+<p>Esce un fotone <strong>diagonale</strong>, con probabilità $\tfrac12$: l'uscita è allineata al polarizzatore, non allo stato che è entrato.</p>
+<div class="note"><p>Con coefficienti complessi, passando da ket a bra i coefficienti vanno coniugati: se $|R\rangle = \tfrac{1}{\sqrt 2}\big(|H\rangle + i|V\rangle\big)$, allora $\langle R| = \tfrac{1}{\sqrt 2}\big(\langle H| - i\langle V|\big)$. Dimenticare questo segno è l'errore più comune nei conti.</p></div>
+
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>Due polarizzatori incrociati, $H$ e poi $V$, bloccano tutto. Con un terzo a $45°$ in mezzo passa un quarto dei fotoni: aggiungere un filtro fa passare più luce. È lo stesso fenomeno degli Stern-Gerlach in sequenza $z$, $x$, $z$ del Sakurai (p. 9, fig. 1.3c), dove la componente bloccata ricompare.</p></aside>
+<p class="ref">Nei libri: Shankar §1.8, es. 1.8.2 ricava autovalori e autovettori di un proiettore senza conti (p. 49).</p>
+<h3>Che cosa non è un proiettore</h3>
+<ul>
+  <li>L'osservabile $A = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}$ non è un proiettore: $A^2 = \mathbb 1 \neq A$. Non filtra niente, assegna $+1$ agli stati $H$ e $-1$ agli stati $V$.</li>
+  <li>Una lamina che ruota la polarizzazione non è un proiettore: non butta via niente, tutta la luce che entra esce.</li>
+</ul>
+<p>Un proiettore è una <strong>domanda con risposta sì o no</strong>: «il fotone è polarizzato lungo $\theta$?». Per questo la decomposizione spettrale $A = (+1)\,P_H + (-1)\,P_V$ è fatta di proiettori: un'osservabile è un insieme di domande sì/no, una per ogni risultato possibile, ciascuna con il suo valore.</p>
+
+<h3>Che cos'è fisicamente un'osservabile?</h3>
+<p>Un cristallo birifrangente manda i fotoni $H$ in un rivelatore che segna $+1$ e i fotoni $V$ in un rivelatore che segna $-1$. L'operatore che lo descrive è</p>
+$$A = (+1)\,|H\rangle\langle H| + (-1)\,|V\rangle\langle V| = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}.$$
+<p>Questa è la decomposizione spettrale (R4), e si legge così: <strong>un'osservabile è l'elenco dei risultati possibili, ciascuno incollato al polarizzatore che seleziona gli stati che danno quel risultato con certezza.</strong></p>
+<p>Le proprietà degli autoaggiunti di p. 39 diventano requisiti fisici:</p>
+<ul>
+  <li><strong>autovalori reali</strong>, perché un rivelatore segna numeri reali;</li>
+  <li><strong>autoket di autovalori diversi ortogonali</strong>, perché un fotone $H$ non fa mai scattare il rivelatore $V$: risultati diversi devono essere perfettamente distinguibili.</li>
+</ul>
+
+<h2 id="s5" data-toc="Secondo e terzo postulato, e la formula di Born"><span class="n">3</span>Secondo e terzo postulato, e la formula di Born (pp. 41-42)</h2>
+<p><strong>Secondo postulato</strong>: a ogni osservabile corrisponde un operatore autoaggiunto, e i risultati possibili della misura sono i suoi autovalori. Ecco la quantizzazione: se lo spettro è discreto escono solo quei valori. Nel nostro esempio escono $+1$ o $-1$, mai $0.3$.</p>
+<p><strong>Terzo postulato</strong>: se ripeti la misura su tante copie preparate nello stesso stato, la media dei risultati è $\langle A\rangle_\psi = \langle\psi|A|\psi\rangle$, con $\psi$ normalizzato.</p>
+<h3>Da qui a Born, un passaggio alla volta</h3>
+<ol class="steps">
+  <li>Nella media inseriamo la decomposizione spettrale (R4):
+  $$\langle\psi|A|\psi\rangle = \langle\psi|\Big(\sum_i a_i\,|a_i\rangle\langle a_i|\Big)|\psi\rangle.$$</li>
+  <li>Per linearità la somma e i numeri $a_i$ escono fuori:
+  $$= \sum_i a_i\,\langle\psi|a_i\rangle\langle a_i|\psi\rangle.$$</li>
+  <li>Per la R2 con $A = \mathbb 1$ vale $\langle\psi|a_i\rangle = \langle a_i|\psi\rangle^*$, e un numero per il suo coniugato è il modulo quadro:
+  $$= \sum_i a_i\,|\langle a_i|\psi\rangle|^2.$$</li>
+  <li>In statistica la media di una grandezza che vale $a_i$ con probabilità $P(a_i)$ è $\sum_i a_i P(a_i)$. Confrontando:
+  $$\boxed{P(a_i|\psi) = |\langle a_i|\psi\rangle|^2}.$$</li>
+</ol>
+<div class="note"><p>Negli appunti il passo 4 è un «da cui segue». Per renderlo rigoroso (aggiunta mia): considera l'osservabile che vale $1$ se esce $a_j$ e $0$ altrimenti. Per p. 41 è la funzione $f(A)$ con $f(a_i) = \delta_{ij}$, cioè il proiettore $P(a_j)$. La sua media è $\langle\psi|a_j\rangle\langle a_j|\psi\rangle = |\langle a_j|\psi\rangle|^2$, e la media di una grandezza che vale $1$ quando succede un evento e $0$ altrimenti è, per definizione, la probabilità di quell'evento.</p></div>
+<p><strong>Verifica sull'esempio.</strong> Con $\psi = |D\rangle$: $P(+1) = |\langle H|D\rangle|^2 = \tfrac12$, $P(-1) = \tfrac12$ e $\langle A\rangle = (+1)\cdot\tfrac12 + (-1)\cdot\tfrac12 = 0$. È quello che ti aspetti da un fotone a $45°$.</p>
+<figure class="lab"><div class="plate"><div data-lab="born" id="lab-born"></div></div><figcaption><b>Figura 1.2</b><i class="t">Un fotone alla volta.</i> Ogni fotone passa intero oppure viene bloccato: il singolo esito è casuale. Manda fotoni a gruppi e guarda la frequenza avvicinarsi alla previsione di Born.</figcaption></figure>
+<h2 id="s6" data-toc="Osservabili compatibili e set minimo"><span class="n">4</span>Osservabili compatibili e set minimo (pp. 42-43)</h2>
+<aside class="book" data-l="pi" data-p="78"><div class="tag">Nei libri · Picasso §4.4</div><p>Conseguenze dei postulati e postulato di von Neumann sulla misura: subito dopo una misura con esito $a$, lo stato è l'autostato corrispondente. Nel laboratorio: il fotone che passa esce polarizzato lungo l'asse.</p></aside>
+<h3>L'interferenza: p. 42 riletta con la doppia fenditura di p. 34</h3>
+<p>Prendiamo $|\psi\rangle = c_1|\psi_1\rangle + c_2|\psi_2\rangle$, dove $|\psi_1\rangle$ significa «è passato dalla fenditura 1» e $|\psi_2\rangle$ «è passato dalla 2». La probabilità di arrivare nel punto $a$ dello schermo è</p>
+$$P(a) = |c_1|^2|\langle a|\psi_1\rangle|^2 + |c_2|^2|\langle a|\psi_2\rangle|^2 + 2\,\mathrm{Re}\!\left(c_1^*c_2\,\langle a|\psi_1\rangle^*\langle a|\psi_2\rangle\right).$$
+<ul>
+  <li>I primi due termini sono le due campane azzurre di p. 34: è quello che farebbero delle palline, le probabilità si sommano.</li>
+  <li>Il terzo è il <strong>termine d'interferenza</strong>: produce le frange e dipende dalla fase relativa tra $c_1$ e $c_2$.</li>
+  <li>Quando accendi le lampadine di p. 34 per vedere da dove passa l'elettrone, questo termine sparisce e resta la somma delle due campane: «è come se l'altra fenditura non ci fosse».</li>
+</ul>
+<p>È la differenza tra uno <strong>stato puro</strong>, che è una sovrapposizione e ha il termine d'interferenza, e una <strong>miscela</strong>, in cui l'incertezza è classica e l'interferenza non c'è (margine di p. 42).</p>
+
+<figure class="lab"><div class="plate"><div data-lab="fasori" id="lab-fas"></div></div><figcaption><b>Figura 1.3</b><i class="t">Da dove vengono le frange.</i> Le due strade danno due ampiezze complesse, $a_1 = c_1\langle a|\psi_1\rangle$ e $a_2 = c_2\langle a|\psi_2\rangle$. La probabilità è il quadrato della loro somma, non la somma dei quadrati: cambia la fase relativa e guarda comparire le frange.</figcaption></figure>
+<aside class="book" data-l="pi" data-p="59"><div class="tag">Nei libri · Picasso §3.3, fig. 3.6</div><p>Gli specchi mobili: se dal rinculo di uno specchio si può sapere da dove è passato il fotone (esperimento fatto con i neutroni), le frange spariscono. Nel laboratorio equivale ad azzerare il termine d'interferenza.</p></aside>
+
+<p><strong>L'analogia.</strong> Pesca una carta da un mazzo. «È un 7» non basta a sapere quale carta sia, perché ce ne sono quattro: il valore è <em>degenere</em>. «7 di cuori» la identifica. Valore e seme si possono chiedere insieme senza disturbarsi: sono <em>compatibili</em>. Insieme etichettano ogni carta in modo unico, e nessuna delle due basta da sola: sono un <em>set minimo</em>. Aggiungere «colore rosso» non serve, perché il colore è già deciso dal seme.</p>
+<p>La meccanica quantistica fa esattamente questo. I <strong>numeri quantici</strong> sono le risposte a un set minimo di domande compatibili, e servono a dare un nome unico a ogni stato di base.</p>
+<p><strong>Perché servono più osservabili.</strong> Se un autovalore $a$ ha più autoket indipendenti, dire «$A$ vale $a$» non individua lo stato, come «è un 7». Serve una seconda osservabile $B$ che distingua gli stati dentro quel gruppo, cioè dentro l'autospazio $\mathcal H_a$. Ma $B$ deve poter avere un valore preciso insieme ad $A$, e qui entra il teorema di p. 43.</p>
+<h3>Il teorema: $[A,B] = 0$ implica una base comune di autoket</h3>
+<ol class="steps">
+  <li><strong>$B$ non fa uscire dall'autospazio di $A$.</strong> Se $A|a\rangle = a|a\rangle$, allora
+  $$A\,(B|a\rangle) = B\,A|a\rangle = a\,(B|a\rangle),$$
+  dove nel primo passaggio ho scambiato $A$ e $B$, cosa lecita perché commutano. Quindi $B|a\rangle$ è ancora un autoket di $A$ con lo stesso autovalore: $B$ manda $\mathcal H_a$ in se stesso («$\mathcal H_a$ è invariante»).</li>
+  <li><strong>Caso non degenere.</strong> $\mathcal H_a$ ha dimensione 1, quindi $B|a\rangle$ è un multiplo di $|a\rangle$: $B|a\rangle = b|a\rangle$, e $|a\rangle$ è già autoket di entrambi.</li>
+  <li><strong>Caso degenere.</strong> Dentro $\mathcal H_a$, di dimensione $D$, l'operatore $B$ è una matrice hermitiana $D\times D$, quindi si può diagonalizzare lì dentro. Gli autoket trovati sono autoket di $B$ e restano autoket di $A$, perché ogni vettore di $\mathcal H_a$ lo è.</li>
+</ol>
+<h3>Un esempio da fare con carta e penna</h3>
+<p>In tre dimensioni, con base $e_1, e_2, e_3$:</p>
+$$A = \begin{pmatrix}1 &amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 2\end{pmatrix},\qquad B = \begin{pmatrix}0 &amp; 1 &amp; 0\\ 1 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 1\end{pmatrix}.$$
+<ul>
+  <li><strong>Commutano</strong>: sia $AB$ sia $BA$ danno $\begin{pmatrix}0 &amp; 1 &amp; 0\\ 1 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 2\end{pmatrix}$.</li>
+  <li><strong>$A$ da solo non basta</strong>: $a = 1$ è degenere, con autospazio generato da $e_1$ ed $e_2$. Inoltre $e_1$ non è autoket di $B$, perché $Be_1 = e_2$.</li>
+  <li><strong>Si diagonalizza $B$ dentro quell'autospazio</strong>: $\tfrac{1}{\sqrt 2}(e_1 + e_2)$ ha $b = +1$, $\tfrac{1}{\sqrt 2}(e_1 - e_2)$ ha $b = -1$. Il terzo vettore $e_3$ ha $a = 2$, $b = +1$.</li>
+  <li><strong>Le coppie $(a,b)$ sono $(1,+1)$, $(1,-1)$, $(2,+1)$, tutte diverse</strong>: la coppia etichetta ogni stato in modo unico.</li>
+  <li><strong>Anche $B$ da solo non basta</strong>: $b = +1$ compare due volte.</li>
+</ul>
+<p>Quindi $\{A, B\}$ è un <strong>set completo di osservabili che commutano</strong>, ed è <strong>minimo</strong>: togliendone uno la degenerazione torna. Se una coppia $(a,b)$ fosse ancora ripetuta, servirebbe un terzo operatore $C$: è il $|a,b;c_i\rangle$ di p. 43.</p>
+<p class="ref">Anticipazione: nell'atomo di idrogeno l'energia $E_n$ è degenere, e il set minimo è energia, $L^2$ e $L_z$ (più lo spin). Da lì nascono i numeri quantici $|n,l,m\rangle$.</p>
+
+<h2 id="s7" data-toc="Heisenberg: che cosa dice e come si dimostra"><span class="n">5</span>Heisenberg: che cosa dice e come si dimostra (pp. 44-45)</h2>
+<aside class="book" data-l="pi" data-p="94"><div class="tag">Nei libri · Picasso §4.10</div><p>Osservabili compatibili e insiemi completi di osservabili: è la base dei numeri quantici che userete per l'atomo di idrogeno.</p></aside>
+
+<p><strong>Che cosa dice.</strong> Prepari tante copie dello stesso stato $\psi$. Su metà misuri $A$, sull'altra metà misuri $B$. Ottieni due istogrammi larghi $\Delta A_\psi$ e $\Delta B_\psi$ (i grafici di p. 44). La relazione</p>
+$$\Delta A_\psi\,\Delta B_\psi \ge \tfrac12\,\big|\langle\psi|[A,B]|\psi\rangle\big|$$
+<p>dice che nessuna preparazione rende stretti entrambi gli istogrammi, se $A$ e $B$ non commutano. È un limite sullo stato, non sullo strumento: per questo serve $\delta A \ll \Delta A_\psi$, cioè uno strumento più fine della larghezza intrinseca. E non riguarda misure fatte in sequenza («non stiamo facendo misure simultanee né sequenziali»).</p>
+<h3>L'esempio che conosci già: la fenditura di p. 34</h3>
+<p>Restringere la fenditura vuol dire stringere la posizione trasversale, $\Delta z \sim d$. Il primo minimo di diffrazione cade dove $\sin(\Delta\phi/2) = 0$ con $\Delta\phi = 2\pi$, cioè $\tfrac{2\pi}{\lambda}\,d\sin\theta = 2\pi$, quindi $\sin\theta = \lambda/d$. L'impulso trasversale si allarga di</p>
+$$\Delta p_z \sim p\sin\theta = \frac{h}{\lambda}\cdot\frac{\lambda}{d} = \frac{h}{d}.$$
+<p>Il prodotto è $\Delta z\,\Delta p_z \sim h$, indipendente da $d$: stringi una distribuzione e l'altra si allarga. È la frase di p. 44 «modifico anche su B, allargandosi».</p>
+<h3>La dimostrazione in cinque passi</h3>
+<p><strong>Notazione.</strong> Chiamiamo $\bar A = A - \langle A\rangle_\psi$ la versione centrata di $A$, e allo stesso modo $\bar B$. Sono ancora hermitiani, perché togliamo un numero reale per l'identità.</p>
+<ol class="steps">
+  <li><strong>Le varianze come lunghezze.</strong> Definiamo $|\xi\rangle = \bar A|\psi\rangle$ e $|\eta\rangle = \bar B|\psi\rangle$. Allora
+  $$\langle\xi|\xi\rangle = \langle\psi|\bar A^\dagger\bar A|\psi\rangle = \langle\psi|\bar A^2|\psi\rangle = \Delta A^2_\psi,$$
+  usando che il bra di $\bar A|\psi\rangle$ è $\langle\psi|\bar A^\dagger$ e che $\bar A^\dagger = \bar A$. Negli appunti qui manca il quadrato. Allo stesso modo $\langle\eta|\eta\rangle = \Delta B^2_\psi$.</li>
+  <li><strong>Schwarz.</strong> Per due vettori qualsiasi
+  $$|\langle\xi|\eta\rangle|^2 \le \langle\xi|\xi\rangle\,\langle\eta|\eta\rangle = \Delta A^2_\psi\,\Delta B^2_\psi.$$
+  Resta da stimare dal basso il numero complesso $z = \langle\xi|\eta\rangle = \langle\psi|\bar A\bar B|\psi\rangle$.</li>
+  <li><strong>Il prodotto spezzato in due.</strong> Vale
+  $$\bar A\bar B = \tfrac12[\bar A,\bar B] + \tfrac12\{\bar A,\bar B\},$$
+  che si verifica sviluppando: $\tfrac12(\bar A\bar B - \bar B\bar A) + \tfrac12(\bar A\bar B + \bar B\bar A) = \bar A\bar B$.</li>
+  <li><strong>Parte reale e parte immaginaria.</strong> L'anticommutatore di due hermitiani è hermitiano, il commutatore è anti-hermitiano (margine di p. 44). La media di un hermitiano è reale: per la R2, $\langle\psi|H|\psi\rangle^* = \langle\psi|H^\dagger|\psi\rangle = \langle\psi|H|\psi\rangle$. Quella di un anti-hermitiano $K$, con $K^\dagger = -K$, soddisfa $\langle K\rangle^* = -\langle K\rangle$, quindi è immaginaria pura. Allora
+  $$z = \underbrace{\tfrac12\langle\{\bar A,\bar B\}\rangle}_{\text{reale}} + \underbrace{\tfrac12\langle[\bar A,\bar B]\rangle}_{\text{immaginario puro}},$$
+  e per ogni numero complesso $|z|^2 = (\mathrm{Re}\,z)^2 + (\mathrm{Im}\,z)^2 \ge (\mathrm{Im}\,z)^2$. Buttare la parte reale è il «$\ge$» dell'ultima riga di p. 44.</li>
+  <li><strong>Togliere le barre.</strong> Sviluppando,
+  $$[A - a\mathbb 1,\, B - b\mathbb 1] = [A,B] - b[A,\mathbb 1] - a[\mathbb 1,B] + ab[\mathbb 1,\mathbb 1] = [A,B],$$
+  perché l'identità commuta con tutto: sono i «tre termini su quattro che si semplificano» di p. 45. Mettendo insieme i passi 2, 4 e 5 e facendo la radice:
+  $$\Delta A^2_\psi\,\Delta B^2_\psi \ge \tfrac14\,\big|\langle[A,B]\rangle_\psi\big|^2 \quad\Longrightarrow\quad \Delta A_\psi\,\Delta B_\psi \ge \tfrac12\,\big|\langle[A,B]\rangle_\psi\big|.$$</li>
+</ol>
+<h3>Verifica con la polarizzazione</h3>
+<p>Prendiamo $A = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}$ (misura $H/V$) e $B = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix}$ (misura $\pm 45°$). Il commutatore è $[A,B] = \begin{pmatrix}0 &amp; 2\\ -2 &amp; 0\end{pmatrix} \neq 0$.</p>
+<ul>
+  <li><strong>Stato circolare</strong> $\psi = \tfrac{1}{\sqrt 2}(|H\rangle + i|V\rangle)$: $\Delta A = \Delta B = 1$ e $\langle[A,B]\rangle = 2i$. Il prodotto vale $1 \ge \tfrac12\cdot 2 = 1$: c'è uguaglianza. La luce circolare è massimamente incerta su entrambe le domande.</li>
+  <li><strong>Stato $\psi = |H\rangle$</strong>: $\Delta A = 0$, ma il limite inferiore vale $\tfrac12\,|\langle H|[A,B]|H\rangle| = 0$, quindi nessuna contraddizione. Il limite dipende dallo stato. Per posizione e impulso invece $[x,p] = i\hbar\,\mathbb 1$, e il limite $\hbar/2$ è lo stesso per ogni stato.</li>
+</ul>
+
+<h2 id="s8" data-toc="Lo schema da tenere davanti"><span class="n">6</span>Lo schema da tenere davanti</h2>
+<aside class="book" data-l="sh" data-p="255"><div class="tag">Nei libri · Shankar §9.2</div><p>La stessa dimostrazione con la disuguaglianza di Schwarz, passo per passo.</p></aside>
+<aside class="book" data-l="sh" data-p="257"><div class="tag">Nei libri · Shankar §9.3</div><p>Quando vale l'uguaglianza $\Delta x\,\Delta p = \hbar/2$: lo stato che la realizza è un pacchetto gaussiano, l'analogo della luce circolare nell'esempio qui sopra.</p></aside>
+
+<div class="tbl"><table>
+  <thead><tr><th>Concetto</th><th>In una frase</th><th>Esempio concreto</th></tr></thead>
+  <tbody>
+    <tr><td>Raggio</td><td>Vettori che differiscono per un fattore: stessa fisica, perché Born non cambia</td><td>$|H\rangle$ e $-|H\rangle$</td></tr>
+    <tr><td>Fase relativa</td><td>Distingue stati diversi</td><td>$|H\rangle \pm |V\rangle$, diagonale a $\pm 45°$</td></tr>
+    <tr><td>Proiettore</td><td>Un filtro che passa (1) o blocca (0)</td><td>Polarizzatore, legge di Malus</td></tr>
+    <tr><td>Osservabile</td><td>Risultati possibili incollati ai rispettivi proiettori</td><td>Cristallo birifrangente con uscite $\pm 1$</td></tr>
+    <tr><td>Born</td><td>Probabilità = (ampiezza)$^2$</td><td>$P = \cos^2\theta$</td></tr>
+    <tr><td>Interferenza</td><td>Termine incrociato $2\,\mathrm{Re}(\dots)$</td><td>Frange della doppia fenditura; spariscono con le lampadine</td></tr>
+    <tr><td>Compatibili</td><td>$[A,B] = 0$ se e solo se esiste una base comune</td><td>Valore e seme di una carta</td></tr>
+    <tr><td>Set minimo</td><td>Il minimo numero di domande compatibili che etichettano ogni stato</td><td>Numeri quantici $n, l, m$</td></tr>
+    <tr><td>Heisenberg</td><td>Se $[A,B]\neq 0$, nessuna preparazione stringe entrambe le distribuzioni</td><td>Fenditura stretta, diffrazione larga</td></tr>
+  </tbody>
+</table></div>
+<p class="ref">Per approfondire, pagine fisiche dei PDF secondo la mappa del vault (non rilette per questa pagina). Postulati: Shankar 4.1-4.2 p. 133; Picasso capp. 3-4 pp. 53-103; Sakurai 1.1 e 1.4 pp. 8s-26. Indeterminazione: Shankar 9.1-9.5 p. 255; Sakurai 1.4 p. 18d. Per giocare con le fenditure: Banco delle fenditure.</p>
+
+<div class="check">
+  <h2 id="s9" data-toc="Per verificare di aver capito">Per verificare di aver capito</h2>
+  <p>Il fotone è nello stato $\tfrac{1}{\sqrt 2}(|H\rangle - |V\rangle)$. Qual è la probabilità che passi un polarizzatore a $+45°$? E come si confronta con lo stato $\tfrac{1}{\sqrt 2}(|H\rangle + |V\rangle)$, che sulla misura $H/V$ dà esattamente le stesse probabilità? Se la risposta ti torna, hai in mano la differenza tra fase globale e fase relativa, che è la chiave di tutta la lezione.</p>
+  <p>Seconda prova, sui proiettori: un fotone $|H\rangle$ attraversa un polarizzatore a $45°$ e poi uno a $90°$. Calcola $P_V\,P_{45°}\,|H\rangle$ partendo da destra: prima $P_D|H\rangle$, poi applica $P_V$ al risultato (ti serve $\langle V|D\rangle$). Che probabilità ottieni? E senza il polarizzatore centrale, cioè con $P_V|H\rangle$?</p>
+</div>
+<nav class="pager"><a href="index.html"><small>← Indietro</small>Home</a><a class="next" href="rappresentazioni.html"><small>Avanti →</small>Lezione 2 · Rappresentazioni</a></nav></article></div></div></body></html>

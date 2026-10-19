@@ -1,0 +1,420 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Evoluzione temporale · Dispensa MQ</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="style.css"><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]},svg:{fontCache:"global"}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script><script src="labs.js" defer></script></head><body><header class="bar"><div class="bar-in"><a class="brand" href="index.html">Meccanica <span>Quantistica</span></a><nav class="nav" aria-label="Pagine"><a href="index.html">Home</a><a href="postulati.html">Lezione 1 · Postulati</a><a href="rappresentazioni.html">Lezione 2 · Rappresentazioni</a><a href="evoluzione.html" aria-current="page">Lezione 3 · Evoluzione</a><a href="oltre-problemi.html">Oltre Copenhagen</a><a href="linea.html">Linea temporale</a></nav></div></header><div class="wrap"><div class="layout"><aside class="toc" aria-label="Indice"><h2>In questa lezione</h2><ol></ol></aside><article><details class="toc-mobile"><summary>Indice della lezione</summary><ol></ol></details><p class="kicker"><b>Lezione 3</b> · quaderno pp. 47-50</p><h1 class="ht-shadow" data-t="Evoluzione temporale">Evoluzione temporale</h1><p class="lead">La lezione del 19 ottobre 2026, quaderno pp. 47-50, ricostruita passo per passo: dalla funzione d'onda come densità di probabilità all'operatore di evoluzione, al suo generatore e all'inizio delle simmetrie.</p>
+<h2 id="s1" data-toc="La mappa della lezione">La mappa della lezione</h2>
+<p>La lezione scorsa si è chiusa sulla <strong>rappresentazione di Schrödinger</strong>: lo stato astratto $|\psi\rangle$ diventa la funzione d'onda $\psi(x) = \langle x|\psi\rangle$, e lo spazio di Hilbert diventa $L^2(-\infty, \infty)$, lo spazio delle funzioni a quadrato integrabile. Finora però lo stato era una fotografia: abbiamo detto che cos'è uno stato in un istante, come si misura e come si scrive in una base. Questa lezione risponde alla domanda che manca: <strong>come cambia lo stato quando passa il tempo?</strong></p>
+<p>Il professore ci arriva in tre mosse. Prima chiude i conti con la posizione: spiega perché $|\psi(x)|^2$ è davvero una densità di probabilità, usando una versione «a righello» dell'operatore posizione che ha uno spettro numerabile. Poi costruisce l'evoluzione temporale come una mappa sui raggi, la porta sui vettori con un operatore $U$ e ne ricava, con pochissime ipotesi, il generatore $K$ e l'equazione di Schrödinger. Infine apre il capitolo sulle simmetrie, partendo dalla meccanica lagrangiana.</p>
+<div class="map" aria-label="Il filo della lezione">
+  <div class="row c1"><div class="box f"><b>Rappresentazione di Schrödinger</b>$\psi(x) = \langle x|\psi\rangle$, $\mathcal H \to L^2$ (p. 47)</div></div>
+  <div class="arrow">↓ che cosa significa $|\psi|^2$?</div>
+  <div class="row c2">
+    <div class="box c"><b>$|\psi(x)|^2$ è una densità</b>$\langle f(\hat x)\rangle = \int f\,|\psi|^2$ (p. 47)</div>
+    <div class="box c"><b>Posizione a righello $\hat x_\varepsilon$</b>proiettori $\hat E$, spettro numerabile (p. 48)</div>
+  </div>
+  <div class="arrow">↓ e nel tempo?</div>
+  <div class="row">
+    <div class="box r"><b>Identità</b>$u(t_0,t_0) = \mathbb 1$</div>
+    <div class="box r"><b>Invertibilità</b>$u^{-1}(t,t_0) = u(t_0,t)$</div>
+    <div class="box r"><b>Composizione</b>$u(t_2,t_1)\,u(t_1,t_0) = u(t_2,t_0)$</div>
+  </div>
+  <div class="arrow">↓ dai raggi ai vettori (p. 48)</div>
+  <div class="row c2">
+    <div class="box p"><b>Postulato 4</b>$|\psi(t)\rangle = U(t,t_0)|\psi(t_0)\rangle$, $U$ lineare e isometrico (p. 49)</div>
+    <div class="box p"><b>$U$ è unitario</b>$U^\dagger = U^{-1}$ (p. 49)</div>
+  </div>
+  <div class="arrow">↓ tempi vicini</div>
+  <div class="row c1"><div class="box p"><b>Generatore hermitiano $K$</b>$i\frac{d}{dt}|\psi(t)\rangle = K(t)|\psi(t)\rangle$ (p. 49)</div></div>
+  <div class="arrow">↓ risolvo per $U$</div>
+  <div class="row">
+    <div class="box c"><b>$K$ costante</b>$U = e^{-iK(t-t_0)}$</div>
+    <div class="box c"><b>$K(t)$ commutanti</b>$U = e^{-i\int K}$</div>
+    <div class="box c"><b>Caso generale</b>$U = T\,e^{-i\int K}$, serie di Dyson (p. 50)</div>
+  </div>
+  <div class="arrow">↓ la stessa struttura per ogni trasformazione</div>
+  <div class="row c1"><div class="box f"><b>Simmetrie</b>si parte dalla meccanica lagrangiana (p. 50)</div></div>
+</div>
+<p class="ref">In questa pagina distinguo sempre tre cose: ciò che sta negli appunti (con la pagina del quaderno), ciò che sta nei libri (con la pagina fisica del PDF) e ciò che aggiungo io, che dichiaro con una frase esplicita. La traccia che il professore segue quasi alla lettera per l'evoluzione temporale è il Sakurai, §2.1.</p>
+
+<h2 id="s2" data-toc="Il ripasso: perché |ψ(x)|² è una densità"><span class="n">1</span>Il ripasso: perché $|\psi(x)|^2$ è una densità (p. 47)</h2>
+<aside class="book" data-l="pi" data-p="128"><div class="tag">Nei libri · Picasso §6.6</div><p>Il Picasso scrive le stesse formule per i valori medi di $q$ e di una funzione $f(q)$, eq. (6.31), e nota che in esse compare sempre il fattore $|\psi_A|^2$, mentre nel valor medio dell'impulso no. Da qui parte la domanda sul significato fisico di $|\psi|^2$.</p></aside>
+<p>La lezione si apre con un ripasso in fondo a p. 47. Il punto di partenza è il dizionario della lezione scorsa: $\mathcal H \to L^2(-\infty,\infty)$ e $|\psi\rangle \to \psi(x)$. La domanda è che cosa ci dice la funzione $\psi(x)$ sui risultati delle misure di posizione.</p>
+<h3>Il valor medio della posizione</h3>
+<ol class="steps">
+  <li>Il valor medio di un'osservabile nello stato $|\psi\rangle$ è $\langle\hat x\rangle_\psi = \langle\psi|\hat x|\psi\rangle$ (Lezione 1).</li>
+  <li>Inserisco l'identità della base continua, $\mathbb 1 = \int dx\,|x\rangle\langle x|$, tra $\langle\psi|$ e $\hat x$:
+  $$\langle\psi|\hat x|\psi\rangle = \int_{-\infty}^{\infty}dx\,\langle\psi|x\rangle\,\langle x|\hat x|\psi\rangle.$$</li>
+  <li>Il primo fattore è il complesso coniugato della funzione d'onda: $\langle\psi|x\rangle = \langle x|\psi\rangle^* = \psi^*(x)$.</li>
+  <li>Per il secondo fattore prendo l'aggiunto dell'equazione agli autovalori $\hat x|x\rangle = x|x\rangle$. Siccome $\hat x$ è hermitiano e $x$ è reale, viene $\langle x|\hat x = x\,\langle x|$, quindi $\langle x|\hat x|\psi\rangle = x\,\langle x|\psi\rangle = x\,\psi(x)$.</li>
+  <li>Mettendo insieme, come negli appunti:
+  $$\langle\hat x\rangle_\psi = \int_{-\infty}^{\infty}dx\,\psi^*(x)\,x\,\psi(x) = \int_{-\infty}^{\infty}dx\,x\,|\psi(x)|^2.$$</li>
+</ol>
+<p>Lo stesso conto vale per qualsiasi funzione della posizione. Dalla decomposizione spettrale della Lezione 1, una funzione di un operatore agisce sugli autovettori agendo sull'autovalore: $f(\hat x)|x\rangle = f(x)|x\rangle$. Ripetendo i passi 2-5 con $f(\hat x)$ al posto di $\hat x$ si ottiene la formula di p. 47:</p>
+$$\langle f(\hat x)\rangle_\psi = \langle\psi|f(\hat x)|\psi\rangle = \int_{-\infty}^{\infty}dx\,f(x)\,|\psi(x)|^2.$$
+<h3>Perché questo dice che $|\psi|^2$ è una densità</h3>
+<p>Ricorda come funziona una variabile aleatoria continua $X$ con densità $\rho(x)$: la probabilità di cadere tra $x$ e $x + dx$ è $\rho(x)\,dx$, e la media di qualunque funzione di $X$ si calcola come $\int f(x)\,\rho(x)\,dx$. Una densità è quindi una funzione $\rho \geq 0$, con $\int\rho\,dx = 1$, che restituisce tutte le medie in questo modo.</p>
+<p>La funzione $\rho(x) = |\psi(x)|^2$ ha tutte e tre le proprietà: è non negativa perché è un modulo quadro; ha integrale 1 perché $\int|\psi|^2dx = \langle\psi|\psi\rangle = 1$ per uno stato normalizzato; e la formula qui sopra dice che restituisce la media di ogni $f(\hat x)$. Per questo gli appunti concludono «$|\psi(x)|^2$ è densità di probabilità». È la regola di Born con l'indice continuo: nel caso discreto la probabilità del risultato $i$ era $|c_i|^2$, qui la probabilità per unità di lunghezza è $|\psi(x)|^2$.</p>
+<p>Il passaggio da «le medie tornano» a «è la probabilità» si può rendere del tutto esplicito scegliendo una $f$ particolare: la funzione che vale 1 dentro un intervallo e 0 fuori. È esattamente quello che il professore fa a p. 48, e lo vediamo nella sezione 2.</p>
+<h3>La fase: «è fisica? spoiler sì!»</h3>
+<p>Ogni numero complesso si scrive come modulo per fase, quindi ogni funzione d'onda si scrive come negli appunti:</p>
+$$\psi(x) = e^{i\varphi(x)}\,|\psi(x)|,\qquad \varphi(x)\ \text{reale}.$$
+<p>Le medie di tutte le $f(\hat x)$ dipendono solo da $|\psi|^2$, quindi nessuna misura di posizione vede la fase $\varphi(x)$. La domanda scritta sotto la formula è se allora la fase abbia significato fisico. La risposta è che dipende da come è fatta:</p>
+<ul>
+  <li>se $\varphi$ è una <strong>costante</strong>, il fattore $e^{i\varphi}$ moltiplica tutto il vettore: è una fase globale, $|\psi\rangle$ ed $e^{i\varphi}|\psi\rangle$ sono lo stesso raggio, e per il primo postulato descrivono lo stesso stato;</li>
+  <li>se $\varphi(x)$ <strong>cambia da punto a punto</strong>, ogni $x$ è un vettore di base $|x\rangle$ diverso, e una fase che cambia con $x$ è una fase relativa tra componenti diverse. Le fasi relative sono fisiche, come nella Lezione 1.</li>
+</ul>
+<p>L'analogia con la polarizzazione è precisa. Gli stati $|D\rangle = \tfrac{1}{\sqrt2}(|H\rangle + |V\rangle)$ e $|R\rangle = \tfrac{1}{\sqrt2}(|H\rangle + i|V\rangle)$ hanno gli stessi moduli delle componenti, quindi danno le stesse probabilità alla domanda «$H$ o $V$?». Differiscono solo per la fase relativa, e infatti la domanda «$+45°$ o $-45°$?» li distingue. Per una particella su una retta, $|\psi(x)|$ fissa la statistica della posizione, e la fase $\varphi(x)$ fissa la statistica di altre grandezze, per esempio l'impulso.</p>
+<div class="note"><p><b>Anticipazione: la fase e l'impulso.</b> A lezione l'impulso nella base $x$ non è ancora stato fatto; dai corsi precedenti sai che agisce come $-i\hbar\,\frac{d}{dx}$. Questo conto non è negli appunti. Scrivo $\psi = e^{i\varphi}R$ con $R = |\psi|$ reale. Allora $\psi' = (i\varphi' R + R')\,e^{i\varphi}$, e
+$$\langle\hat p\rangle = \int dx\,\psi^*\Big(-i\hbar\,\frac{d\psi}{dx}\Big) = \int dx\,R\,(-i\hbar)(i\varphi' R + R') = \hbar\int dx\,\varphi'(x)\,R^2 \;-\; i\hbar\int dx\,R\,R'.$$
+L'ultimo integrale è $\big[R^2/2\big]_{-\infty}^{+\infty} = 0$, perché $R \to 0$ all'infinito. Resta $\langle\hat p\rangle = \hbar\int\varphi'(x)\,|\psi(x)|^2\,dx$: la media dell'impulso è la media della pendenza della fase. Con $\varphi = kx$ viene $\langle\hat p\rangle = \hbar k$, la relazione di de Broglie. È la stazione «Stesso |ψ(x)|, stato diverso» della <a href="linea.html">linea temporale</a>.</p></div>
+<aside class="book" data-l="pi" data-p="130"><div class="tag">Nei libri · Picasso §6.6</div><p>Il Picasso fa lo stesso ragionamento: $\psi_1$ e $\psi_2 = e^{i\varphi(x)}\psi_1$ sono indistinguibili con misure di posizione ma sono stati diversi, distinguibili per esempio dal valor medio di $p$. Osserva che è lo stesso problema del significato delle componenti di un vettore in una base discreta.</p></aside>
+
+<h2 id="s3" data-toc="La posizione discretizzata"><span class="n">2</span>La posizione discretizzata (p. 48)</h2>
+<aside class="book" data-l="pi" data-p="129"><div class="tag">Nei libri · Picasso §6.6</div><p>È la discussione a cui rimandano gli appunti («Picasso per discussione»). Il Picasso introduce l'operatore $E_{\Delta,x'}(q)$, funzione caratteristica dell'intervallo, mostra che è un proiettore con autovalori 0 e 1 e ne ricava $p_1 = \int_\Delta|\psi_A|^2dx \simeq |\psi_A(x')|^2\Delta$.</p></aside>
+<aside class="book" data-l="pi" data-p="138"><div class="tag">Nei libri · Picasso §6.9</div><p>Qui c'è l'operatore $q_\Delta = \sum_n x_n E_{\Delta,x_n}(q)$, cioè il $\hat x_\varepsilon$ del professore, con l'immagine del righello che legge i decimi di millimetro e la convergenza in norma $q_\Delta \to q$.</p></aside>
+<p><strong>Il problema.</strong> Gli appunti lo scrivono in grassetto: l'operatore posizione ha spettro continuo, non numerabile. Gli «autovettori» $|x\rangle$ hanno $\langle x|x\rangle = \delta(0)$, cioè norma infinita, e quindi non stanno in $L^2$ (lo avevamo notato a p. 47, sul punto interrogativo accanto a $\hat x|x\rangle = x|x\rangle$). Tutto il formalismo della Lezione 1, con autovettori ortonormali, somme e proiettori, è stato costruito per spettri discreti. La strategia del professore è discretizzare: sostituire la posizione con un'osservabile che ha uno spettro numerabile e che le somiglia quanto vogliamo.</p>
+<h3>Il mattone: il proiettore su un intervallo</h3>
+<p>Fisso un punto $x_0$ e una larghezza $\varepsilon$, e chiamo $I_{x_0,\varepsilon} = [x_0 - \tfrac\varepsilon2,\ x_0 + \tfrac\varepsilon2]$ l'intervallo centrato in $x_0$. L'operatore $\hat E_{x_0,\varepsilon}$ agisce sulle funzioni d'onda moltiplicandole per la <strong>funzione caratteristica</strong> dell'intervallo:</p>
+$$\big(\hat E_{x_0,\varepsilon}\,\psi\big)(x) = E_{x_0,\varepsilon}(x)\,\psi(x),\qquad E_{x_0,\varepsilon}(x) = \begin{cases} 1 &amp; \text{se } x \in I_{x_0,\varepsilon},\\ 0 &amp; \text{se } x \notin I_{x_0,\varepsilon}.\end{cases}$$
+<p class="ref">Nota sulla trascrizione: nella seconda riga gli appunti scrivono $x \in I_{x_0,\varepsilon}$; va letto $x \notin I_{x_0,\varepsilon}$.</p>
+<p>In parole: $\hat E$ lascia intatta la funzione d'onda dentro l'intervallo e la spegne fuori. Gli appunti elencano le sue proprietà; eccole con la dimostrazione.</p>
+<ol class="steps">
+  <li><strong>È un proiettore.</strong> Applicarlo due volte vuol dire moltiplicare per $E(x)^2$. Siccome $E$ vale solo 0 o 1, e $0^2 = 0$, $1^2 = 1$, si ha $E^2 = E$, quindi $\hat E^2 = \hat E$.</li>
+  <li><strong>È hermitiano.</strong> Per due funzioni $\chi$ e $\psi$: $\langle\chi|\hat E\psi\rangle = \int\chi^*\,E\,\psi\,dx = \int (E\chi)^*\,\psi\,dx = \langle\hat E\chi|\psi\rangle$, perché $E$ è reale.</li>
+  <li><strong>Gli autovalori sono 0 e 1.</strong> Se $\psi$ è nulla fuori da $I$, allora $E\psi = \psi$: autovalore 1. È la nota degli appunti «se moltiplico per una funzione di prova, $E\cdot f = f$» con $f$ a supporto nell'intervallo. Queste funzioni formano lo spazio $L^2(I)$ («sarebbe uno spazio $L^2(I)$»). Se $\psi$ è nulla dentro $I$, allora $E\psi = 0$: autovalore 0.</li>
+  <li><strong>Gli autovettori sono completi.</strong> Ogni funzione si spezza in un pezzo dentro e uno fuori: $\psi = E\psi + (1 - E)\psi$. Quindi $\hat E$ è un'osservabile, molto degenere (Picasso, p. 129).</li>
+</ol>
+<p><strong>Che domanda fa $\hat E$.</strong> È la domanda sì/no «la particella è nell'intervallo $I$?», esattamente come il polarizzatore $|\theta\rangle\langle\theta|$ della Lezione 1 faceva la domanda «il fotone passa?». Per il terzo postulato la probabilità della risposta «sì» è il valor medio del proiettore:</p>
+$$P(x \in I) = \langle\psi|\hat E_{x_0,\varepsilon}|\psi\rangle = \int dx\,E_{x_0,\varepsilon}(x)\,|\psi(x)|^2 = \int_{I_{x_0,\varepsilon}}|\psi(x)|^2\,dx.$$
+<p>Il Picasso lo dice così: il valor medio di $\hat E$ è $0\cdot p_0 + 1\cdot p_1 = p_1$, cioè coincide con la probabilità di trovare la particella dentro (p. 129). Se l'intervallo è piccolo, l'integrale vale circa $|\psi(x_0)|^2\,\varepsilon$: la probabilità per unità di lunghezza è $|\psi|^2$. È la dimostrazione pulita della conclusione della sezione 1, ottenuta usando soltanto un proiettore vero, che sta in $L^2$ senza problemi.</p>
+<h3>La posizione «a righello»</h3>
+<p>Ora divido tutta la retta in intervalli di larghezza $\varepsilon$ centrati nei punti $x_m = \varepsilon\,m$, con $m$ intero positivo o negativo, e chiamo $\hat E_m = \hat E_{x_m,\varepsilon}$. Gli appunti definiscono:</p>
+$$\hat x_\varepsilon \;\to\; x_\varepsilon(x) = \sum_m x_m\,E_{x_m,\varepsilon}(x),\qquad x_m \equiv \varepsilon\cdot m.$$
+<p>La funzione $x_\varepsilon(x)$ è una scala: vale $x_m$ su tutto l'intervallo $m$-esimo. È la posizione letta con un righello che ha le tacche ogni $\varepsilon$: se la particella è nell'intervallo $m$, il righello dice $x_m$.</p>
+<ul>
+  <li>Gli intervalli non si sovrappongono e coprono la retta, quindi $\hat E_m\hat E_n = \delta_{mn}\hat E_m$ e $\sum_m\hat E_m = \mathbb 1$. Allora $\hat x_\varepsilon = \sum_m x_m\hat E_m$ è <strong>già scritto come decomposizione spettrale</strong> (Lezione 1): gli autovalori sono i numeri $x_m$, un insieme numerabile, e l'autospazio di $x_m$ è $L^2(I_m)$.</li>
+  <li>È hermitiano, perché è la moltiplicazione per una funzione reale.</li>
+  <li>Ammette un insieme numerabile e completo di autofunzioni. Questo dettaglio lo aggiungo io: ogni autospazio $L^2(I_m)$ ha una base ortonormale numerabile, per esempio le onde $e^{2\pi i k x/\varepsilon}/\sqrt\varepsilon$ ristrette all'intervallo, con $k$ intero. Unendo le basi di tutti gli intervalli si ottiene una base numerabile di $L^2$ fatta di autofunzioni di $\hat x_\varepsilon$. Per $\hat x$ una base del genere non esiste.</li>
+</ul>
+<p>La probabilità che il righello dica $x_m$ è $P(m) = \langle\psi|\hat E_m|\psi\rangle = \int_{I_m}|\psi|^2dx$, e il valor medio è</p>
+$$\langle\hat x_\varepsilon\rangle_\psi = \sum_m x_m\,P(m) = \sum_m x_m\int_{I_m}|\psi(x)|^2\,dx.$$
+<h3>Il limite $\varepsilon \to 0$</h3>
+<p>Accanto al disegno della scala il professore annota: «se prendo il valor medio», «e guardo questo come fit ottengo $f(x) = x$», «o tendendo $\varepsilon \to 0$». L'idea è che la scala approssima la retta $y = x$. Si può dire quanto bene, con un conto che non è negli appunti:</p>
+<ol class="steps">
+  <li>Dentro l'intervallo $m$-esimo la scala vale $x_m$ e la retta vale $x$, con $|x - x_m| \leq \varepsilon/2$. Quindi $|x_\varepsilon(x) - x| \leq \varepsilon/2$ per ogni $x$.</li>
+  <li>La differenza dei valori medi è $\langle\hat x_\varepsilon\rangle - \langle\hat x\rangle = \int\big(x_\varepsilon(x) - x\big)|\psi(x)|^2dx$.</li>
+  <li>Il modulo di un integrale è al più l'integrale del modulo: $\big|\langle\hat x_\varepsilon\rangle - \langle\hat x\rangle\big| \leq \frac\varepsilon2\int|\psi|^2dx = \frac\varepsilon2$.</li>
+</ol>
+<p>Quindi per $\varepsilon \to 0$ i valori medi, e allo stesso modo le probabilità di qualunque intervallo, convergono a quelli di $\hat x$. Il Picasso dice di più: la convergenza è in norma, $\lim_{\Delta\to0}(q_\Delta - q) = 0$ (p. 138). Lui scrive $\|q_\Delta - q\| = \Delta$; con intervalli centrati la distanza massima tra scala e retta è $\Delta/2$, ma per il limite non cambia nulla.</p>
+<p class="ref">Sul disegno degli appunti: i gradini sembrano appoggiati sugli intervalli $[m\varepsilon, (m+1)\varepsilon]$. Con la definizione scritta sopra, centrata, il gradino di quota $x_m$ sta su $[x_m - \varepsilon/2,\ x_m + \varepsilon/2]$, a cavallo della retta. Le due scelte differiscono solo per uno spostamento di mezzo gradino e hanno lo stesso limite.</p>
+<figure class="lab"><div class="plate"><div data-lab="discreto" id="lab-discreto"></div></div><figcaption><b>Figura 3.1</b><i class="t">La posizione discretizzata.</i> In alto, la densità $|\psi(x)|^2$ di una funzione d'onda con due gobbe, in mezzatinta, con la retta $y = x$ (tratteggio) e la scala $x_\varepsilon(x) = \sum_m x_m E_{x_m,\varepsilon}(x)$. In basso, le colonne sono le probabilità $P(m) = \int_{I_m}|\psi|^2dx$; il triangolo segna $\langle\hat x_\varepsilon\rangle = \sum_m x_m P(m)$, la tacca $\langle\hat x\rangle$. Prima prevedi di quanto può differire al massimo $\langle\hat x_\varepsilon\rangle$ da $\langle\hat x\rangle$ quando $\varepsilon = 1{,}5$ (guarda la distanza tra scala e retta). Poi porta il cursore a 1,5 e a 2 e confronta: l'errore vero è molto più piccolo del limite $\varepsilon/2$, perché dentro ogni intervallo gli scarti a destra e a sinistra di $x_m$ in parte si compensano. Infine stringi $\varepsilon$ e guarda le colonne ridisegnare la forma di $|\psi|^2$.</figcaption></figure>
+<h3>La «discussione sul Ballentine»: dove vivono i $|x\rangle$</h3>
+<aside class="book" data-l="ba" data-p="43"><div class="tag">Nei libri · Ballentine §1.4</div><p>Il Ballentine indica due soluzioni rigorose al fatto che un operatore autoaggiunto può non avere autovettori in $\mathcal H$: lavorare con i proiettori, che sono sempre ben definiti, oppure allargare lo spazio alla tripletta $\Omega \subset \mathcal H \subset \Omega^\times$, lo spazio di Hilbert «equipaggiato» (rigged Hilbert space).</p></aside>
+<p>Accanto alle tre righe $|\psi\rangle \to \psi(x) = \langle x|\psi\rangle$, $\hat x|x\rangle = x|x\rangle$ e $\langle x|x'\rangle = \delta(x - x')$ gli appunti rimandano a una «discussione sul Ballentine», che è il testo del corso. Il Ballentine osserva che il problema degli autovettori della posizione ha due soluzioni matematicamente pulite (p. 43):</p>
+<ol>
+  <li><strong>Usare solo proiettori.</strong> Il teorema spettrale garantisce che i proiettori su intervalli di autovalori esistono sempre in $\mathcal H$, anche quando gli autovettori non esistono. È la strada che il professore ha appena seguito con $\hat E_{x_0,\varepsilon}$.</li>
+  <li><strong>Allargare lo spazio.</strong> Si prende uno spazio più piccolo $\Omega$ di funzioni molto regolari, quelle per cui $\int|\varphi(x)|^2(1 + |x|)^m dx \lt \infty$ per ogni $m$, cioè che vanno a zero più velocemente di qualunque potenza. Il suo «coniugato» $\Omega^\times$ contiene tutte le funzioni $\chi$ il cui prodotto scalare $\int\chi^*\varphi\,dx$ con ogni $\varphi \in \Omega$ è finito. Più è piccolo $\Omega$, più è grande $\Omega^\times$ (p. 43), e si ottiene la catena $\Omega \subset \mathcal H \subset \Omega^\times$.</li>
+</ol>
+<p>Nello spazio grande $\Omega^\times$ entrano oggetti che in $L^2$ non stanno: le onde piane $e^{ikx}$, che non vanno a zero all'infinito e sono autofunzioni dell'operatore $i\,d/dx$, e la delta $\delta(x - \lambda)$, che è autofunzione della posizione (Ballentine, p. 44). Il teorema spettrale generalizzato garantisce che ogni operatore autoaggiunto ha un insieme completo di autovettori in $\Omega^\times$. Per la delta il conto è immediato: integrata contro una funzione regolare $\varphi$, $\int\varphi(x)\,x\,\delta(x - x')\,dx = x'\varphi(x') = \int\varphi(x)\,x'\,\delta(x - x')\,dx$, quindi $x\,\delta(x - x') = x'\,\delta(x - x')$ come distribuzioni, che è $\hat x|x'\rangle = x'|x'\rangle$ scritto nella base $x$.</p>
+<p>L'immagine da tenere: gli stati fisici stanno in $\mathcal H$; i $|x\rangle$ stanno in una cassetta degli attrezzi più grande, e hanno senso quando li si accoppia a stati regolari, come in $\psi(x) = \langle x|\psi\rangle$. La prima soluzione, quella dei proiettori, ci dice anche che cosa sono fisicamente: le autofunzioni di $\hat x_\varepsilon$, nulle fuori da un intervallo, hanno $\Delta x \leq \varepsilon$ e norma finita, e sono gli «autostati approssimati» della posizione che un apparato reale può preparare (Picasso, p. 139).</p>
+
+<h2 id="s4" data-toc="L'evoluzione come mappa sui raggi"><span class="n">3</span>L'evoluzione come mappa sui raggi (p. 48)</h2>
+<aside class="book" data-l="sa" data-p="42"><div class="tag">Nei libri · Sakurai §2.1</div><p>«Come cambia un ket di stato nel tempo?» è la domanda con cui il Sakurai apre il capitolo sulla dinamica. Introduce $U(t,t_0)$ per analogia con le traslazioni spaziali e ne chiede subito l'unitarietà, motivata dalla conservazione della probabilità, eq. (2.1.9)-(2.1.11), e la composizione (2.1.12).</p></aside>
+<p><strong>L'idea.</strong> Un sistema isolato preparato in uno stato al tempo $t_0$ si trova, al tempo $t$, in un altro stato. Per il primo postulato uno stato fisico è un <strong>raggio</strong>, cioè un vettore definito a meno di un fattore complesso, quindi l'oggetto naturale è una mappa che porta raggi in raggi. L'insieme di tutti i raggi si chiama <strong>spazio proiettivo</strong> $\mathcal P(\mathcal H)$. Il disegno di p. 48 è una curva in questo spazio: lo stato parte da $r(t_0)$, passa per $r(t_1)$ e $r(t_2)$ e arriva a $r(t)$.</p>
+<div class="fig"><svg viewBox="0 0 560 190" width="100%" role="img" aria-label="Lo spazio proiettivo degli stati con la curva dell'evoluzione da r(t0) a r(t)">
+  <ellipse cx="280" cy="98" rx="240" ry="80" style="fill:var(--paper);stroke:var(--ink-2);stroke-width:1.2"/>
+  <path d="M90 130 C 160 40, 250 160, 330 90 S 440 60, 470 80" style="fill:none;stroke:var(--laser);stroke-width:2.2"/>
+  <circle cx="90" cy="130" r="5" style="fill:var(--ink)"/>
+  <circle cx="205" cy="98" r="4.5" style="fill:var(--hg)"/>
+  <circle cx="330" cy="90" r="4.5" style="fill:var(--hg)"/>
+  <circle cx="470" cy="80" r="5" style="fill:var(--ink)"/>
+  <text x="62" y="152" style="fill:var(--ink-2);font-size:14px">r(t₀)</text>
+  <text x="190" y="124" style="fill:var(--ink-2);font-size:14px">r(t₁)</text>
+  <text x="318" y="116" style="fill:var(--ink-2);font-size:14px">r(t₂)</text>
+  <text x="466" y="106" style="fill:var(--ink-2);font-size:14px">r(t)</text>
+  <text x="110" y="62" style="fill:var(--ink-2);font-size:13px">u(t₁, t₀)</text>
+  <text x="250" y="56" style="fill:var(--ink-2);font-size:13px">u(t₂, t₁)</text>
+  <text x="372" y="160" style="fill:var(--ink-2);font-size:13px">spazio proiettivo 𝒫(ℋ)</text>
+</svg></div>
+<p>Gli appunti chiamano $u(t,t_0)$ la mappa sui raggi, $u(t,t_0):\ r(t_0) \mapsto r(t)$, e le fanno tre richieste.</p>
+<ol class="steps">
+  <li><strong>Identità:</strong> $u(t_0,t_0) = \mathbb 1$. Se non passa tempo, lo stato non cambia.</li>
+  <li><strong>Invertibilità:</strong> $u^{-1}(t,t_0) = u(t_0,t)$. Dallo stato al tempo $t$ si può risalire a quello al tempo $t_0$, evolvendo all'indietro. È la richiesta che l'evoluzione di un sistema isolato non perda informazione.</li>
+  <li><strong>Composizione:</strong> $u(t_2,t_1)\,u(t_1,t_0) = u(t_2,t_0)$. Evolvere da $t_0$ a $t_1$ e poi da $t_1$ a $t_2$ equivale a evolvere direttamente da $t_0$ a $t_2$. Il Sakurai avverte che la formula si legge da destra verso sinistra (p. 42): il primo tratto di tempo sta a destra.</li>
+</ol>
+<p>Un'osservazione che non è negli appunti: la seconda richiesta segue dalle altre due. Scegliendo $t_2 = t_0$ nella composizione si ha $u(t_0,t_1)\,u(t_1,t_0) = u(t_0,t_0) = \mathbb 1$, quindi $u(t_0,t_1)$ è l'inversa di $u(t_1,t_0)$, purché la mappa «all'indietro» $u(t_0,t_1)$ sia definita. È per questo che il professore, nella nota a margine di p. 49, sottolinea che l'evoluzione ha bisogno dell'invertibilità e chiede che cosa succederebbe se non l'avesse. Una risposta parziale la conosci già: la misura, con il salto dello stato sull'autostato (Lezione 1), non è invertibile, e infatti non è descritta da questa evoluzione.</p>
+<h3>Dai raggi ai vettori</h3>
+<p>I raggi sono scomodi per fare i conti: non si possono sommare, perché la somma di due raggi dipende dalle fasi dei rappresentanti che scegli. Il professore allora passa ai vettori (fine di p. 48): scelgo un rappresentante $e(t_0)$ nel raggio iniziale e prendo il rappresentante corrispondente $e(t)$ nel raggio finale. Su questa scelta fa due richieste.</p>
+<ul>
+  <li><strong>L'evoluzione conserva la norma.</strong> Se lo stato è normalizzato a $t_0$, deve restarlo: le probabilità di tutti i risultati di una misura devono sommare a 1 a ogni istante. Il Sakurai lo dice con l'esempio di uno spin che precede: le singole probabilità cambiano, la loro somma no (p. 42).</li>
+  <li><strong>L'operatore è lineare.</strong> Se lo stato iniziale è una sovrapposizione $a|\psi_1\rangle + b|\psi_2\rangle$, lo stato finale è la stessa sovrapposizione degli stati evoluti. È ciò che mantiene l'interferenza: nella doppia fenditura le due strade evolvono ciascuna per conto suo, e le frange nascono perché le ampiezze evolute si sommano.</li>
+</ul>
+<aside class="book" data-l="ba" data-p="79"><div class="tag">Nei libri · Ballentine §3.1</div><p>Il teorema di Wigner: ogni mappa dello spazio degli stati che conserva $|\langle\varphi|\psi\rangle|$ si realizza con un operatore unitario (lineare) o antiunitario (antilineare). Il Ballentine aggiunge che una trasformazione continua deve essere lineare, perché $U(\ell) = U(\ell/2)\,U(\ell/2)$ e il prodotto di due antilineari è lineare.</p></aside>
+<p>Le due richieste non sono arbitrarie. Un'evoluzione sui raggi che conserva le probabilità di transizione $|\langle\varphi|\psi\rangle|^2$ è, per il <strong>teorema di Wigner</strong>, realizzata da un operatore unitario oppure antiunitario (Ballentine, p. 79; Weinberg, p. 99). Per l'evoluzione temporale la seconda possibilità è esclusa, perché l'evoluzione dipende con continuità dal tempo e l'argomento della radice quadrata del Ballentine la costringe a essere lineare. C'è infine la libertà delle fasi: un operatore sui vettori che realizza una mappa sui raggi è definito a meno di una fase, e la composizione vale in generale solo a meno di un fattore $e^{i\omega}$ (Ballentine, p. 82, eq. 3.7). Il Postulato 4 sceglie le fasi in modo che la composizione valga esattamente.</p>
+
+<h2 id="s5" data-toc="Il Postulato 4: isometrico e invertibile vuol dire unitario"><span class="n">4</span>Il Postulato 4: isometrico e invertibile vuol dire unitario (p. 49)</h2>
+<aside class="book" data-l="sh" data-p="161"><div class="tag">Nei libri · Shankar §4.3</div><p>Lo Shankar chiama postulato IV direttamente l'equazione di Schrödinger $i\hbar|\dot\psi\rangle = H|\psi\rangle$. Qui, come nel Sakurai, il postulato è l'esistenza di $U$ con le sue proprietà, e l'equazione di Schrödinger è una conseguenza.</p></aside>
+<p>A p. 49 gli appunti mettono tutto insieme in una parentesi graffa con l'etichetta <strong>Postulato 4</strong>:</p>
+<div class="note"><p><b>Postulato 4.</b> Lo stato al tempo $t$ è $|\psi(t)\rangle \equiv U(t,t_0)\,|\psi(t_0)\rangle$, dove l'operatore di evoluzione temporale $U(t,t_0)$ è (i) lineare e isometrico; (ii) $U(t_0,t_0) = \mathbb 1$; (iii) invertibile; (iv) soddisfa la regola di composizione $U(t_2,t_1)\,U(t_1,t_0) = U(t_2,t_0)$.</p></div>
+<p>Subito dopo, una freccia: «$U$ è unitario». Ecco la dimostrazione, con un passo 0 che aggiungo io per collegare «isometrico» a ciò che serve.</p>
+<ol class="steps">
+  <li><strong>(Passo aggiunto) Conservare la norma basta a conservare i prodotti scalari.</strong> Per un operatore lineare, se $\|U\psi\| = \|\psi\|$ per ogni $\psi$, allora $(U\psi, U\chi) = (\psi,\chi)$ per ogni coppia. Il motivo è l'identità di polarizzazione, che scrive il prodotto scalare usando solo norme:
+  $$(\psi,\chi) = \tfrac14\Big(\|\psi + \chi\|^2 - \|\psi - \chi\|^2 - i\,\|\psi + i\chi\|^2 + i\,\|\psi - i\chi\|^2\Big).$$
+  Applico $U$: per linearità $U(\psi + i\chi) = U\psi + iU\chi$, e così via, quindi ogni norma a destra resta uguale, e resta uguale anche il prodotto scalare. Per verificare l'identità basta sviluppare $\|\psi + i\chi\|^2 = \|\psi\|^2 + \|\chi\|^2 + i(\psi,\chi) - i(\chi,\psi)$ e le analoghe.</li>
+  <li><strong>Isometria.</strong> Per ogni $\psi$ e $\chi$: $(\psi,\chi) = (U\psi, U\chi)$.</li>
+  <li><strong>Definizione di aggiunto.</strong> $(U\psi, U\chi) = (\psi, U^\dagger U\chi)$. Quindi $(\psi, U^\dagger U\chi) = (\psi,\chi)$, cioè $(\psi, (U^\dagger U - \mathbb 1)\chi) = 0$ per ogni $\psi$.</li>
+  <li><strong>Un vettore ortogonale a tutto è nullo.</strong> Scelgo $\psi = (U^\dagger U - \mathbb 1)\chi$: viene $\|(U^\dagger U - \mathbb 1)\chi\|^2 = 0$, quindi $(U^\dagger U - \mathbb 1)\chi = 0$ per ogni $\chi$. Cioè $U^\dagger U = \mathbb 1$: è la «conseguenza isometria» degli appunti.</li>
+  <li><strong>Qui serve l'invertibilità.</strong> Moltiplico $U^\dagger U = \mathbb 1$ a destra per $U^{-1}$, che esiste per la richiesta (iii): $U^\dagger U U^{-1} = U^{-1}$, cioè $U^\dagger = U^{-1}$.</li>
+  <li><strong>L'altra metà.</strong> Allora $UU^\dagger = UU^{-1} = \mathbb 1$ (la riga in blu degli appunti). Avendo sia $U^\dagger U = \mathbb 1$ sia $UU^\dagger = \mathbb 1$, $U$ è unitario.</li>
+</ol>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>In dimensione finita il passo 4 sarebbe superfluo: se $U^\dagger U = \mathbb 1$, $U$ è iniettivo, e una matrice quadrata iniettiva è anche invertibile. In dimensione infinita no. Ricorda lo shift della Lezione 2, $V|e_n\rangle = |e_{n+1}\rangle$: conserva tutti i prodotti scalari, quindi $V^\dagger V = \mathbb 1$, ma nessun vettore va in $|e_1\rangle$ e $VV^\dagger = \mathbb 1 - |e_1\rangle\langle e_1|$. È l'albergo di Hilbert: tutti gli ospiti si spostano di una stanza e la prima resta vuota. Un'evoluzione fatta così non si potrebbe invertire, perché lo stato $|e_1\rangle$ non sarebbe l'evoluto di nessuno. Per questo nel Postulato 4 l'invertibilità è scritta a parte.</p></aside>
+<aside class="book" data-l="ba" data-p="104"><div class="tag">Nei libri · Ballentine §3.7</div><p>Il Ballentine fa il percorso inverso: parte dall'equazione differenziale per $U(t,t_0)$, calcola $\partial_t(U^\dagger U) = \frac{i}{\hbar}\,U^\dagger(H^\dagger - H)U$ e conclude che $U$ resta unitario se e solo se $H$ è hermitiano. Qui invece l'unitarietà viene prima e l'hermitianità del generatore ne segue.</p></aside>
+
+<h2 id="s6" data-toc="Il generatore K e l'equazione di Schrödinger"><span class="n">5</span>Il generatore $K$ e l'equazione di Schrödinger (p. 49)</h2>
+<aside class="book" data-l="sa" data-p="43"><div class="tag">Nei libri · Sakurai §2.1</div><p>L'operatore di evoluzione infinitesima è $\mathcal U(t_0 + dt, t_0) = 1 - i\Omega\,dt$ con $\Omega$ hermitiano, eq. (2.1.15)-(2.1.16). $\Omega$ ha le dimensioni di una frequenza; con la relazione di Planck-Einstein $E = \hbar\omega$ e l'idea classica che la hamiltoniana genera l'evoluzione, il Sakurai pone $\Omega = H/\hbar$, eq. (2.1.20).</p></aside>
+<h3>L'evoluzione per un tempo piccolo</h3>
+<p>La richiesta (ii), insieme alla continuità nel tempo, dice che per $t$ vicino a $t_0$ l'operatore $U(t,t_0)$ è vicino all'identità. Se è anche derivabile, si può scrivere il primo termine dello sviluppo, come negli appunti:</p>
+$$U(t,t_0) = \mathbb 1 - i\,(t - t_0)\,K + O\big((t - t_0)^2\big).$$
+<p>Qui $K$ è un operatore. Gli appunti lo chiamano <strong>generatore del flusso di evoluzione temporale</strong> e scrivono sotto «operatore hermitiano», che è quello che dimostriamo tra poco. Il fattore $-i$ davanti è una convenzione scelta proprio perché $K$ risulti hermitiano: senza di esso il coefficiente sarebbe un operatore antihermitiano. Una precisazione sul tempo a cui valutare $K$: negli appunti compare prima $K(t)$, poi $K(t_0)$. Al primo ordine è lo stesso, perché $K(t) - K(t_0)$ è a sua volta di ordine $t - t_0$ e, moltiplicato per il $(t - t_0)$ che sta davanti, finisce nel resto $O\big((t-t_0)^2\big)$. Lo Shankar fa la stessa osservazione (p. 166). In modo preciso, $K(t_0) = i\,\partial_t U(t,t_0)\big|_{t = t_0}$.</p>
+<h3>$K$ è hermitiano</h3>
+<p class="ref">Nota sulla trascrizione: nella prima riga del conto gli appunti scrivono $U^\dagger(t+\Delta t,t_0)\,U(t_0,t+\Delta t)$; il secondo fattore va letto $U(t+\Delta t,t_0)$, come nella definizione, e con $t = t_0$ il conto dà $K^\dagger = K$.</p>
+<ol class="steps">
+  <li>Uso l'unitarietà appena dimostrata, con $\Delta t$ piccolo: $\mathbb 1 = U^\dagger(t_0 + \Delta t, t_0)\;U(t_0 + \Delta t, t_0)$.</li>
+  <li>Lo sviluppo di $U$ è $\mathbb 1 - i\Delta t\,K(t_0) + O(\Delta t^2)$. Il suo aggiunto si ottiene coniugando i numeri e prendendo l'aggiunto degli operatori; $\Delta t$ è reale e $(-i)^* = i$, quindi $U^\dagger = \mathbb 1 + i\Delta t\,K^\dagger(t_0) + O(\Delta t^2)$.</li>
+  <li>Moltiplico:
+  $$\mathbb 1 = \big(\mathbb 1 + i\Delta t\,K^\dagger\big)\big(\mathbb 1 - i\Delta t\,K\big) + O(\Delta t^2) = \mathbb 1 + i\Delta t\,\big(K^\dagger(t_0) - K(t_0)\big) + O(\Delta t^2).$$
+  Il prodotto $\Delta t^2\,K^\dagger K$ finisce nel resto.</li>
+  <li>L'uguaglianza vale per ogni $\Delta t$ piccolo, quindi il coefficiente di $\Delta t$ deve essere nullo: $K^\dagger(t_0) = K(t_0)$. Siccome $t_0$ è qualsiasi, $K(t)$ è hermitiano a ogni istante.</li>
+</ol>
+<h3>L'equazione differenziale per lo stato</h3>
+<ol class="steps">
+  <li>Uso la composizione (iv) per spezzare l'evoluzione fino a $t + \Delta t$ in due tratti: $|\psi(t+\Delta t)\rangle = U(t+\Delta t,t_0)|\psi(t_0)\rangle = U(t+\Delta t,t)\,U(t,t_0)|\psi(t_0)\rangle = U(t+\Delta t,t)\,|\psi(t)\rangle$. Gli appunti scrivono direttamente l'ultima espressione; è qui che la composizione lavora.</li>
+  <li>Il tratto $U(t+\Delta t,t)$ è infinitesimo, quindi lo sviluppo con il generatore al tempo $t$:
+  $$|\psi(t+\Delta t)\rangle = \big(\mathbb 1 - i\Delta t\,K(t) + O(\Delta t^2)\big)|\psi(t)\rangle.$$</li>
+  <li>Sottraggo $|\psi(t)\rangle$: $|\psi(t+\Delta t)\rangle - |\psi(t)\rangle = -i\Delta t\,K(t)|\psi(t)\rangle + O(\Delta t^2)$.</li>
+  <li>Divido per $\Delta t$ e faccio il limite $\Delta t \to 0$; il resto, diviso per $\Delta t$, va a zero:
+  $$\frac{d}{dt}|\psi(t)\rangle \equiv \lim_{\Delta t\to0}\frac{|\psi(t+\Delta t)\rangle - |\psi(t)\rangle}{\Delta t} = -i\,K(t)\,|\psi(t)\rangle.$$</li>
+  <li>Moltiplico per $i$ e ottengo «l'equazione differenziale che volevo»:
+  $$\boxed{\;i\,\frac{d}{dt}|\psi(t)\rangle = K(t)\,|\psi(t)\rangle\;}$$</li>
+</ol>
+<h3>L'equazione per l'operatore $U$</h3>
+<p>Sostituisco $|\psi(t)\rangle = U(t,t_0)|\psi(t_0)\rangle$ nell'equazione appena trovata: $i\frac{d}{dt}\big(U(t,t_0)|\psi(t_0)\rangle\big) = K(t)\,U(t,t_0)|\psi(t_0)\rangle$. Lo stato iniziale non dipende da $t$, quindi la derivata agisce solo su $U$: $\big(i\frac{d}{dt}U(t,t_0)\big)|\psi(t_0)\rangle = K(t)\,U(t,t_0)|\psi(t_0)\rangle$. Due operatori che danno lo stesso risultato su ogni vettore sono uguali, quindi</p>
+$$i\,\frac{d}{dt}U(t,t_0) = K(t)\,U(t,t_0),\qquad U(t_0,t_0) = \mathbb 1.$$
+<p>Questa è l'equazione di Schrödinger per l'operatore di evoluzione. Con la condizione iniziale determina $U$ completamente, e la sezione 6 la risolve. Il Sakurai segue l'ordine opposto: ricava prima l'equazione per $U$ dalla composizione, eq. (2.1.23)-(2.1.25), e poi quella per il ket moltiplicando a destra per lo stato iniziale, eq. (2.1.26)-(2.1.27) (Sakurai, p. 43).</p>
+<div class="note"><p><b>Ripasso lampo: da $K$ alla hamiltoniana.</b> A p. 49 la costante $\hbar$ non compare ancora, e $K$ ha le dimensioni dell'inverso di un tempo, cioè di una frequenza. La relazione di Planck-Einstein $E = \hbar\omega$ suggerisce di legare questa frequenza all'energia: $K = H/\hbar$, con $H$ l'operatore hamiltoniano (Sakurai, p. 43). Lo vedremo a lezione; intanto, con questa sostituzione l'equazione diventa $i\hbar\,\frac{d}{dt}|\psi(t)\rangle = H|\psi(t)\rangle$. Per una particella in una dimensione con $H = \frac{\hat p^2}{2m} + V(\hat x)$, nella base delle posizioni, è l'equazione che conosci dai corsi precedenti:
+$$i\hbar\,\frac{\partial\psi(x,t)}{\partial t} = -\frac{\hbar^2}{2m}\,\frac{\partial^2\psi(x,t)}{\partial x^2} + V(x)\,\psi(x,t).$$</p></div>
+<h3>Il «?» del professore: quanto velocemente evolve lo stato?</h3>
+<p>In fondo a p. 49 c'è la domanda «la derivata $\frac{d}{dt}|\psi(t)\rangle$ mi dice quanto veloce evolve l'evoluto?». La risposta che segue non è negli appunti né nei capitoli citati; è un conto mio, che si fa con quello che abbiamo. La lunghezza del vettore derivata è $\big\|\frac{d}{dt}|\psi\rangle\big\|^2 = \langle\psi|K^2|\psi\rangle$, ma non tutta questa velocità è fisica. Spezzo la derivata in una parte lungo $|\psi\rangle$ e una perpendicolare:</p>
+<ol class="steps">
+  <li>La componente lungo lo stato è $\langle\psi|\frac{d}{dt}\psi\rangle = -i\langle\psi|K|\psi\rangle = -i\langle K\rangle$, un numero immaginario puro. Muoversi lungo $|\psi\rangle$ di una quantità immaginaria vuol dire cambiare la fase, cioè restare nello stesso raggio: non è un cambiamento fisico.</li>
+  <li>La parte perpendicolare è $-i\big(K - \langle K\rangle\big)|\psi\rangle$, e il quadrato della sua norma è $\langle\psi|(K - \langle K\rangle)^2|\psi\rangle = \langle K^2\rangle - \langle K\rangle^2 = (\Delta K)^2$.</li>
+</ol>
+<p>Quindi il raggio si muove con velocità $\Delta K$, lo scarto quadratico medio del generatore. Se lo stato è un autostato di $K$, $\Delta K = 0$ e il raggio non si muove affatto: lo stato cambia solo di fase. Sono gli <strong>stati stazionari</strong>, per i quali il Sakurai scrive $|a'\rangle \to |a'\rangle\,e^{-iE_{a'}t/\hbar}$ (p. 44, metà destra). Con $K = H/\hbar$, più l'energia è indeterminata, più in fretta lo stato può cambiare.</p>
+
+<h2 id="s7" data-toc="I tre casi: costante, commutante, ordinato nel tempo"><span class="n">6</span>I tre casi: costante, commutante, ordinato nel tempo (p. 50)</h2>
+<aside class="book" data-l="sa" data-p="44"><div class="tag">Nei libri · Sakurai §2.1</div><p>Gli stessi tre casi, con la verifica per serie del caso 1, eq. (2.1.29)-(2.1.30), il prodotto di infinite evoluzioni infinitesime (2.1.31), il caso 2 (2.1.32) e la serie di Dyson (2.1.33). Gli esempi sono tutti con uno spin in un campo magnetico: fisso, di intensità variabile, di direzione variabile.</p></aside>
+<p>Il compito ora è risolvere $i\,\dot U = K(t)\,U$ con $U(t_0,t_0) = \mathbb 1$. Il professore, come il Sakurai, distingue tre casi a seconda di come $K$ dipende dal tempo.</p>
+<div class="note"><p><b>Ripasso lampo: le matrici di Pauli e l'esponenziale.</b> Negli esempi di questa sezione uso la polarizzazione nella base $\{|H\rangle, |V\rangle\}$ e due matrici che a lezione non sono ancora comparse:
+$$\sigma_y = \begin{pmatrix}0 &amp; -i\\ i &amp; 0\end{pmatrix},\qquad \sigma_z = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}.$$
+Sono hermitiane e hanno quadrato uguale all'identità: $\sigma_y^2 = \sigma_z^2 = \mathbb 1$. Allora nella serie dell'esponenziale le potenze pari danno $\mathbb 1$ e quelle dispari danno $\sigma$, e le due somme sono le serie del coseno e del seno: $e^{-i\alpha\sigma} = \cos\alpha\;\mathbb 1 - i\sin\alpha\;\sigma$.</p></div>
+<h3>Caso 1: $K$ costante</h3>
+<p>Se $K(t) = K$ non dipende dal tempo, gli appunti affermano che $U(t,t_0) = \exp\big(-iK(t - t_0)\big)$ è soluzione, e lo verificano con la serie.</p>
+<ol class="steps">
+  <li>Definisco l'esponenziale con la sua serie: $U(t,t_0) \equiv \sum_{n=0}^{\infty}\frac{1}{n!}(-i)^n(t - t_0)^n K^n$.</li>
+  <li>Applico $i\frac{d}{dt}$ termine per termine. Il termine $n = 0$ è costante e sparisce; negli altri $\frac{d}{dt}(t - t_0)^n = n\,(t - t_0)^{n-1}$:
+  $$i\,\frac{d}{dt}U = \sum_{n=1}^{\infty}\frac{i}{n!}(-i)^n\,K^n\,n\,(t - t_0)^{n-1}.$$</li>
+  <li>Semplifico: $\frac{n}{n!} = \frac{1}{(n-1)!}$ e $i\,(-i)^n = i\,(-i)\,(-i)^{n-1} = (-i)^{n-1}$, perché $i\cdot(-i) = 1$. Porto fuori un fattore $K$:
+  $$i\,\frac{d}{dt}U = K\sum_{n=1}^{\infty}\frac{(-i)^{n-1}}{(n-1)!}(t - t_0)^{n-1}K^{n-1}.$$
+  Nella riga degli appunti dentro la somma va letto anche il fattore $K^{n-1}$.</li>
+  <li>Rinomino $k = n - 1$: la somma è di nuovo la serie di $U$. Quindi $i\,\dot U = K\,U$ ✓. Per $t = t_0$ resta solo il termine $n = 0$, cioè $\mathbb 1$: anche la condizione iniziale è soddisfatta.</li>
+</ol>
+<p>L'equazione è del primo ordine e lineare, quindi con la condizione iniziale la soluzione è unica (Ballentine, p. 81). Gli appunti sottolineano una conseguenza: $U(t,t_0) = U(t - t_0)$ dipende solo dalla differenza dei tempi. È la <strong>traslazione temporale</strong>: l'evoluzione dalle 9 alle 10 è la stessa che dalle 15 alle 16, cioè le leggi fisiche non dipendono da come regoliamo gli orologi. Il Weinberg rovescia il ragionamento e usa proprio questa invarianza per <em>definire</em> la hamiltoniana: $U(\tau) = \exp(-iH\tau/\hbar)$ (Weinberg, p. 105).</p>
+<p>Due modi equivalenti di scrivere la stessa $U$ sono utili nei conti.</p>
+<ul>
+  <li><strong>Con gli autovettori di $K$.</strong> Se $K|n\rangle = \omega_n|n\rangle$, allora $K^m|n\rangle = \omega_n^m|n\rangle$, e sommando la serie $U(t,t_0) = \sum_n e^{-i\omega_n(t - t_0)}\,|n\rangle\langle n|$ (Sakurai, p. 44; Shankar, p. 164). Ogni componente ruota con la sua frequenza; le fasi relative cambiano nel tempo.</li>
+  <li><strong>Come prodotto di passi piccoli.</strong> $U = \lim_{N\to\infty}\big(\mathbb 1 - iK\frac{t - t_0}{N}\big)^N$ (Sakurai, p. 44, eq. 2.1.31): l'evoluzione finita è la composizione di $N$ evoluzioni infinitesime.</li>
+</ul>
+<p><strong>Esempio con la polarizzazione (mio).</strong> Una lamina birifrangente ritarda la componente $V$ rispetto alla $H$. Con $K = \frac{\omega}{2}\sigma_z$, dove $t - t_0$ è il tempo passato dentro il cristallo:
+$U = e^{-i\frac{\omega(t-t_0)}{2}\sigma_z} = \begin{pmatrix}e^{-i\omega(t-t_0)/2} &amp; 0\\ 0 &amp; e^{i\omega(t-t_0)/2}\end{pmatrix}$. Le probabilità di $H$ e $V$ non cambiano; cresce la fase relativa $\omega(t - t_0)$, che trasforma per esempio $|D\rangle$ in $|R\rangle$ quando vale $\pi/2$ (lamina a quarto d'onda).</p>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>La serie dell'esponenziale non converge sempre. Per un operatore illimitato, come la hamiltoniana di una particella libera, la somma $\sum_n\frac{(-iH t)^n}{n!}\psi$ può non avere senso su un dato stato, e lo Shankar lo segnala (p. 164). La scrittura con gli autovettori, $\sum_n e^{-i\omega_n t}|n\rangle\langle n|$, funziona invece sempre ed è la definizione rigorosa di $e^{-iKt}$. La verifica per serie è un controllo formale, perfetto in dimensione finita.</p></aside>
+<h3>Caso 2: $K(t)$ dipende dal tempo, ma commuta con se stesso a tempi diversi</h3>
+<p>Se $[K(t'), K(t)] = 0$ per ogni $t, t'$, gli appunti danno la soluzione</p>
+$$U(t,t_0) = \exp\Big(-i\int_{t_0}^{t}dt'\,K(t')\Big).$$
+<p>La verifica non è scritta negli appunti; il Sakurai dice che si fa come nel caso 1 sostituendo $K(t - t_0)$ con $\int K$ (p. 44). Eccola, con il punto in cui serve la commutazione.</p>
+<ol class="steps">
+  <li>Chiamo $A(t) = \int_{t_0}^t dt'\,K(t')$. Allora $\dot A(t) = K(t)$ e $U = e^{-iA(t)} = \sum_n\frac{(-i)^n}{n!}A(t)^n$.</li>
+  <li>La derivata di una potenza di operatori si fa con la regola del prodotto, senza scambiare l'ordine: $\frac{d}{dt}A^2 = \dot A\,A + A\,\dot A$. In generale $\dot A$ e $A$ non commutano, e questo non è $2\dot A A$.</li>
+  <li>Qui invece commutano: $[A(t), K(t)] = \int_{t_0}^t dt'\,[K(t'), K(t)] = 0$. Allora tutti i termini di $\frac{d}{dt}A^n$ si riordinano in $n\,K(t)\,A^{n-1}$.</li>
+  <li>Il resto è il conto del caso 1 con $A$ al posto di $K(t - t_0)$: $i\,\dot U = K(t)\sum_{n\geq1}\frac{(-i)^{n-1}}{(n-1)!}A^{n-1} = K(t)\,U$ ✓, e $A(t_0) = 0$ dà $U(t_0,t_0) = \mathbb 1$.</li>
+</ol>
+<p>Esempio: una lamina la cui birefringenza cambia lungo il percorso, $K(t) = \frac{\omega(t)}{2}\sigma_z$. Matrici diagonali commutano sempre, e la fase relativa accumulata è semplicemente $\int\omega(t')\,dt'$. Il Sakurai usa uno spin in un campo magnetico di direzione fissa e intensità variabile (p. 44).</p>
+<h3>Caso 3: il caso generale e l'ordinamento temporale</h3>
+<aside class="book" data-l="sh" data-p="166"><div class="tag">Nei libri · Shankar §4.3</div><p>Lo Shankar divide $[0,t]$ in $N$ intervalli di larghezza $\Delta$ e scrive $U$ come prodotto di $N$ esponenziali con i tempi successivi a sinistra. Non si possono sommare gli esponenti, perché $e^{A}e^{B} \neq e^{A+B}$ quando $A$ e $B$ non commutano; l'esempio è $H(t) = X^2\cos^2\omega t + P^2\sin^2\omega t$. Il prodotto di unitari è unitario, quindi l'evoluzione resta una «rotazione».</p></aside>
+<p>Se $[K(t'), K(t)] \neq 0$ (negli appunti è scritto $[K'(t), K(t)]$), la soluzione è</p>
+$$U(t,t_0) = T\Big\{\exp\Big(-i\int_{t_0}^t dt'\,K(t')\Big)\Big\},$$
+<p>dove $T$ è l'<strong>ordinamento temporale</strong>: preso un prodotto di operatori a tempi diversi, $T$ li riordina in modo che i tempi decrescano da sinistra a destra,</p>
+$$T\big\{O_1(t_1)\cdots O_m(t_m)\big\} = O_{1}(t_{1})\,O_2(t_2)\cdots O_m(t_m)\quad\text{per } t_1 > t_2 > \dots > t_m,$$
+<p>e con lo stesso criterio in ogni altro ordine dei tempi. L'esempio degli appunti con due operatori:</p>
+$$T\big\{A(t)\,B(t')\big\} = \begin{cases} A(t)\,B(t') &amp; \text{se } t > t',\\ B(t')\,A(t) &amp; \text{se } t \lt t'.\end{cases}$$
+<p>La regola «il più tardi a sinistra» è la stessa della composizione: in $U(t_2,t_1)\,U(t_1,t_0)$ ciò che succede dopo sta a sinistra, perché agisce per ultimo. L'esponenziale ordinato si intende termine per termine nella serie, e dà la <strong>serie di Dyson</strong> scritta negli appunti:</p>
+$$U(t,t_0) = \sum_{m=0}^{\infty}\frac{(-i)^m}{m!}\int_{t_0}^{t}dt_1\cdots\int_{t_0}^{t}dt_m\;T\big\{K(t_1)\cdots K(t_m)\big\}.$$
+<p class="ref">A margine dell'esempio il professore annota «non nel programma»: la serie di Dyson è una discussione di approfondimento. La ricostruisco perché spiega da dove viene il $1/m!$.</p>
+<h3>Da dove viene la serie, e perché c'è il $1/m!$</h3>
+<ol class="steps">
+  <li><strong>Equazione integrale.</strong> Integro $i\,\dot U(t',t_0) = K(t')\,U(t',t_0)$ tra $t_0$ e $t$, usando $U(t_0,t_0) = \mathbb 1$:
+  $$U(t,t_0) = \mathbb 1 - i\int_{t_0}^{t}dt_1\,K(t_1)\,U(t_1,t_0).$$</li>
+  <li><strong>Iterazione.</strong> Sostituisco nell'integrando la stessa formula per $U(t_1,t_0)$, con una nuova variabile $t_2$ che va da $t_0$ a $t_1$:
+  $$U = \mathbb 1 - i\int_{t_0}^{t}dt_1\,K(t_1) + (-i)^2\int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\,K(t_1)\,K(t_2)\,U(t_2,t_0).$$
+  Ripetendo all'infinito:
+  $$U(t,t_0) = \mathbb 1 + \sum_{m=1}^{\infty}(-i)^m\int_{t_0}^{t}dt_1\int_{t_0}^{t_1}dt_2\cdots\int_{t_0}^{t_{m-1}}dt_m\;K(t_1)\,K(t_2)\cdots K(t_m).$$
+  È la forma del Sakurai, eq. (2.1.33) con $H/\hbar$ al posto di $K$ (p. 44). Gli estremi annidati impongono $t \geq t_1 \geq t_2 \geq \dots \geq t_m \geq t_0$: gli operatori sono già in ordine temporale, e la regione di integrazione è un <strong>simplesso</strong> (per $m = 2$ un triangolo, per $m = 3$ un tetraedro).</li>
+  <li><strong>Dal simplesso all'ipercubo, con $m = 2$.</strong> Il quadrato $[t_0,t]^2$ è diviso dalla diagonale in due triangoli: quello con $t_1 > t_2$ e quello con $t_2 > t_1$ (la diagonale ha area nulla). Sul primo $T\{K(t_1)K(t_2)\} = K(t_1)K(t_2)$; sul secondo $T\{K(t_1)K(t_2)\} = K(t_2)K(t_1)$, e rinominando le variabili $t_1 \leftrightarrow t_2$ diventa lo stesso integrale del primo triangolo. Quindi
+  $$\int_{t_0}^{t}\!\!dt_1\int_{t_0}^{t}\!\!dt_2\;T\{K(t_1)K(t_2)\} = 2\int_{t_0}^{t}\!\!dt_1\int_{t_0}^{t_1}\!\!dt_2\;K(t_1)K(t_2).$$</li>
+  <li><strong>Con $m$ qualsiasi.</strong> L'ipercubo $[t_0,t]^m$ si divide in $m!$ regioni, una per ogni modo di ordinare $m$ tempi. Su ciascuna, $T$ mette gli operatori in ordine decrescente, e dopo aver rinominato le variabili l'integrale è uguale a quello sul simplesso standard. Quindi l'integrale sull'ipercubo vale $m!$ volte quello sul simplesso, e il fattore $\frac{1}{m!}$ della formula degli appunti lo compensa esattamente. Le due scritture, appunti e Sakurai, sono la stessa serie.</li>
+  <li><strong>Controllo con il caso 1.</strong> Se $K$ è costante, l'integrale sul simplesso è $K^m$ per il volume del simplesso, $\frac{(t - t_0)^m}{m!}$: si ritrova la serie di $e^{-iK(t-t_0)}$. <strong>Controllo con il caso 2.</strong> Se i $K$ commutano, $T$ non cambia nulla, l'integrale sull'ipercubo è $\big(\int K\big)^m$ e si ritrova $e^{-i\int K}$.</li>
+</ol>
+<p>Il punto 4 spiega anche il simbolo: senza $T$, la serie $\sum\frac{(-i)^m}{m!}\big(\int K\big)^m$ sarebbe l'esponenziale ordinario $e^{-i\int K}$, che contiene i prodotti in tutti gli ordini. $T$ dice che, dentro ogni prodotto, si tiene solo l'ordine giusto.</p>
+<h3>Un esempio in cui l'ordine conta: rotatore e lamina</h3>
+<p>Questo esempio è mio. Un fotone polarizzato $|H\rangle$ attraversa due elementi ottici, ciascuno per un tempo $\tau$:</p>
+<ul>
+  <li>un <strong>rotatore ottico</strong> (per esempio un cristallo di quarzo tagliato lungo l'asse, o una soluzione zuccherina), che ruota la direzione di polarizzazione lineare: $K_1 = \frac{\omega}{2}\sigma_y$, quindi $e^{-iK_1\tau} = \begin{pmatrix}\cos\frac\theta2 &amp; -\sin\frac\theta2\\ \sin\frac\theta2 &amp; \cos\frac\theta2\end{pmatrix}$ con $\theta = \omega\tau$, una rotazione della polarizzazione di $\theta/2$;</li>
+  <li>una <strong>lamina birifrangente</strong>, che sfasa $V$ rispetto ad $H$: $K_2 = \frac{\omega}{2}\sigma_z$, quindi $e^{-iK_2\tau} = \mathrm{diag}\big(e^{-i\theta/2}, e^{i\theta/2}\big)$, una fase relativa $\theta$.</li>
+</ul>
+<p>Il generatore dipende dal tempo: vale $K_1$ mentre il fotone è nel primo elemento e $K_2$ mentre è nel secondo, e $[\sigma_y,\sigma_z] = 2i\sigma_x \neq 0$. Per la composizione, l'evoluzione totale è il prodotto delle due, con il secondo elemento a sinistra: $U = e^{-iK_2\tau}\,e^{-iK_1\tau}$. È esattamente l'esponenziale ordinato nel tempo, per un $K(t)$ costante a tratti. Faccio il conto con $\theta = \pi/2$.</p>
+<ol class="steps">
+  <li>Le due matrici: $U_1 = e^{-i\frac\pi4\sigma_y} = \frac{1}{\sqrt2}\begin{pmatrix}1 &amp; -1\\ 1 &amp; 1\end{pmatrix}$ e $U_2 = e^{-i\frac\pi4\sigma_z} = \begin{pmatrix}e^{-i\pi/4} &amp; 0\\ 0 &amp; e^{i\pi/4}\end{pmatrix}$.</li>
+  <li><strong>Prima il rotatore, poi la lamina:</strong> $U_1|H\rangle = \frac{1}{\sqrt2}(|H\rangle + |V\rangle) = |D\rangle$, poi $U_2|D\rangle = \frac{1}{\sqrt2}\big(e^{-i\pi/4}|H\rangle + e^{i\pi/4}|V\rangle\big) = e^{-i\pi/4}\,\frac{1}{\sqrt2}(|H\rangle + i|V\rangle) = e^{-i\pi/4}|R\rangle$. Luce circolare.</li>
+  <li><strong>Prima la lamina, poi il rotatore:</strong> $U_2|H\rangle = e^{-i\pi/4}|H\rangle$, la lamina cambia solo la fase globale; poi $U_1$ dà $e^{-i\pi/4}|D\rangle$. Luce lineare a $45°$.</li>
+  <li>I due stati finali sono fisicamente diversi: $|\langle R|D\rangle|^2 = \big|\tfrac{1 - i}{2}\big|^2 = \tfrac12$. Un polarizzatore a $45°$ lascia passare sempre il secondo e solo metà delle volte il primo.</li>
+  <li>E l'esponenziale «ingenuo» $e^{-i(K_1 + K_2)\tau}$, senza ordinamento? Dà un terzo stato ancora diverso: con un conto numerico, il suo vettore sulla sfera di Poincaré è circa $(0{,}56;\ 0{,}80;\ 0{,}20)$, con fedeltà circa $0{,}90$ con $|R\rangle$ e $0{,}78$ con $|D\rangle$. Senza $T$ si sbaglia.</li>
+</ol>
+<p>Per un angolo $\theta$ qualsiasi, usando i vettori sulla sfera di Poincaré dei due stati finali, $\vec a = (\sin\theta\cos\theta,\ \sin^2\theta,\ \cos\theta)$ e $\vec b = (\sin\theta,\ 0,\ \cos\theta)$, e la formula $|\langle\psi_a|\psi_b\rangle|^2 = \frac{1 + \vec a\cdot\vec b}{2}$, si trova $F(\theta) = \frac12\big(1 + \cos^2\theta + \sin^2\theta\cos\theta\big)$. Il minimo è $11/27 \approx 0{,}41$, per $\cos\theta = -1/3$, cioè $\theta \approx 109{,}5°$.</p>
+<figure class="lab"><div class="plate"><div data-lab="ordine" id="lab-ordine"></div></div><figcaption><b>Figura 3.2</b><i class="t">L'ordine conta.</i> La sfera di Poincaré della polarizzazione: $|H\rangle$ al polo nord, $|V\rangle$ al polo sud, $|D\rangle$ sull'asse $x$, $|R\rangle$ sull'asse $y$. Il rotatore ($K_1 \propto \sigma_y$) ruota lo stato attorno all'asse $y$, la lamina ($K_2 \propto \sigma_z$) attorno all'asse $z$, ciascuno di un angolo $\theta$ sulla sfera, che è il doppio dell'angolo di cui ruota la polarizzazione nel laboratorio. La linea piena parte da $|H\rangle$ e attraversa prima il rotatore e poi la lamina; il tratteggio fa il contrario. Prima prevedi: a $\theta = 90°$ dove finiscono i due stati, e quanto vale la fedeltà? E a $\theta = 180°$? Poi controlla. A $180°$ la fedeltà torna 1 anche se i generatori non commutano: $e^{-i\frac\pi2\sigma_z}e^{-i\frac\pi2\sigma_y} = i\sigma_x$ e l'ordine opposto dà $-i\sigma_x$, cioè lo stesso operatore a meno di una fase globale. Infine accendi «due lamine»: i generatori diventano entrambi proporzionali a $\sigma_z$, commutano, e i due ordini danno lo stesso stato; partendo da $|H\rangle$, che è autostato di $\sigma_z$, lo stato non si muove nemmeno.</figcaption></figure>
+
+<h2 id="s8" data-toc="Le simmetrie in meccanica lagrangiana"><span class="n">7</span>Le simmetrie in meccanica lagrangiana (p. 50)</h2>
+<aside class="book" data-l="sh" data-p="111"><div class="tag">Nei libri · Shankar §2.7</div><p>Lo Shankar dice esattamente la frase degli appunti: sotto un cambio di coordinate il valore numerico della lagrangiana non cambia, perché le vecchie e le nuove coordinate descrivono lo stesso stato fisico, mentre la sua forma funzionale cambia. Le equazioni di Eulero-Lagrange restano invece invarianti in forma (p. 98 e p. 110).</p></aside>
+<p>A metà di p. 50 il professore cambia argomento e scrive «Parte MOLTO importante: (parliamo di simmetrie) → teoria dei gruppi». Il titolo è «Simmetrie in meccanica lagrangiana». Può sembrare un salto all'indietro, verso la meccanica classica. Il motivo per cui arriva qui lo dico alla fine della sezione; prima vediamo che cosa c'è negli appunti.</p>
+<h3>Trasformazioni passive</h3>
+<p>Una <strong>trasformazione passiva</strong> è un cambio di coordinate: il sistema resta fermo e cambia il modo di descriverlo, come il cambio di base della Lezione 2 (la tabella attivo/passivo). Le vecchie coordinate $q_i$ si scrivono come funzioni delle nuove $Q_j$, e la trasformazione deve essere invertibile, così che si possa anche tornare indietro: $q_i(Q_j) \leftrightarrow Q_j(q_i)$. Le velocità seguono con la regola della catena: $\dot q_i = \sum_j\frac{\partial q_i}{\partial Q_j}\dot Q_j$.</p>
+<p>La lagrangiana nelle nuove coordinate si ottiene sostituendo:</p>
+$$L(q,\dot q) \;\to\; L\big(q(Q),\ \dot q(Q,\dot Q)\big) \equiv \bar L(Q,\dot Q).$$
+<p>Gli appunti commentano: la lagrangiana è <strong>invariante in valore ma non in forma</strong>. Un esempio, che non è negli appunti, rende chiara la frase. Per una particella libera nel piano, in coordinate cartesiane $L = \frac m2(\dot x^2 + \dot y^2)$. Passo alle polari, $x = r\cos\phi$, $y = r\sin\phi$: le velocità sono $\dot x = \dot r\cos\phi - r\dot\phi\sin\phi$ e $\dot y = \dot r\sin\phi + r\dot\phi\cos\phi$, e sommando i quadrati i termini misti si cancellano:</p>
+$$\bar L(r,\phi,\dot r,\dot\phi) = \frac m2\big(\dot r^2 + r^2\dot\phi^2\big).$$
+<p>Nello stesso istante e per lo stesso moto, $L$ e $\bar L$ danno lo stesso numero, l'energia cinetica. Ma come funzioni delle proprie variabili sono diverse: $\bar L$ contiene $r^2\dot\phi^2$, mentre $L$ non ha nulla di simile.</p>
+<h3>Le equazioni del moto sono invarianti in forma</h3>
+<p>Le equazioni di Eulero-Lagrange, invece, hanno la stessa forma in ogni sistema di coordinate:</p>
+$$\frac{d}{dt}\frac{\partial L}{\partial\dot q_i} = \frac{\partial L}{\partial q_i}\quad\xrightarrow{\ q(Q)\ }\quad\frac{d}{dt}\frac{\partial\bar L}{\partial\dot Q_j} = \frac{\partial\bar L}{\partial Q_j}.$$
+<p>Gli appunti dicono che questo «si dimostra dal principio di minima azione», e disegnano un fascio di cammini tra $q_1 = q(t_1)$ e $q_2 = q(t_2)$. La lezione si ferma qui; completo il ragionamento seguendo lo Shankar (p. 98).</p>
+<ol class="steps">
+  <li><strong>L'azione.</strong> A ogni cammino $q(t)$ con estremi fissati, $q(t_1) = q_1$ e $q(t_2) = q_2$, si associa il numero $S[q] = \int_{t_1}^{t_2}dt\,L(q,\dot q)$. Il principio di minima azione dice che il moto vero è il cammino che rende $S$ stazionaria.</li>
+  <li><strong>La variazione.</strong> Sposto il cammino di poco, $q \to q + \delta q$, con $\delta q(t_1) = \delta q(t_2) = 0$. Al primo ordine
+  $$\delta S = \int_{t_1}^{t_2}dt\sum_i\Big(\frac{\partial L}{\partial q_i}\,\delta q_i + \frac{\partial L}{\partial\dot q_i}\,\delta\dot q_i\Big),\qquad \delta\dot q_i = \frac{d}{dt}\delta q_i.$$</li>
+  <li><strong>Per parti.</strong> Integro per parti il secondo termine: $\int\frac{\partial L}{\partial\dot q_i}\frac{d}{dt}\delta q_i\,dt = \Big[\frac{\partial L}{\partial\dot q_i}\delta q_i\Big]_{t_1}^{t_2} - \int\frac{d}{dt}\frac{\partial L}{\partial\dot q_i}\,\delta q_i\,dt$. Il termine di bordo è nullo perché $\delta q$ si annulla agli estremi.</li>
+  <li><strong>Stazionarietà.</strong> Resta $\delta S = \int dt\sum_i\Big(\frac{\partial L}{\partial q_i} - \frac{d}{dt}\frac{\partial L}{\partial\dot q_i}\Big)\delta q_i$. Deve annullarsi per ogni $\delta q$, quindi la parentesi è nulla: sono le equazioni di Eulero-Lagrange.</li>
+  <li><strong>Perché la forma non cambia.</strong> L'azione è un numero associato a un cammino, e non dipende dalle coordinate con cui descrivo il cammino: $\bar S[Q] = \int dt\,\bar L(Q,\dot Q) = S[q(Q)]$, perché $\bar L$ e $L$ hanno lo stesso valore istante per istante. Siccome la trasformazione è invertibile e porta estremi fissati in estremi fissati, un cammino rende stazionaria $S$ se e solo se la sua descrizione nelle $Q$ rende stazionaria $\bar S$. Nei passi 1-4 non ho mai usato la forma particolare di $L$: rifacendoli con $\bar L$ e le $Q$ escono le equazioni di Eulero-Lagrange per $\bar L$.</li>
+</ol>
+<p>Controllo sull'esempio delle polari. Da $\bar L = \frac m2(\dot r^2 + r^2\dot\phi^2)$: per $r$, $\frac{\partial\bar L}{\partial\dot r} = m\dot r$ e $\frac{\partial\bar L}{\partial r} = mr\dot\phi^2$, quindi $m\ddot r = mr\dot\phi^2$, che contiene il termine centrifugo; per $\phi$, $\frac{\partial\bar L}{\partial\dot\phi} = mr^2\dot\phi$ e $\frac{\partial\bar L}{\partial\phi} = 0$, quindi $\frac{d}{dt}\big(mr^2\dot\phi\big) = 0$. Sono le equazioni giuste del moto libero in polari. La legge di Newton scritta «alla cieca» nelle nuove variabili, $m\ddot r = 0$, sarebbe sbagliata: la forma delle equazioni di Newton non è invariante, quella di Eulero-Lagrange sì (Shankar, p. 98).</p>
+<h3>Perché le simmetrie arrivano adesso</h3>
+<aside class="book" data-l="ba" data-p="80"><div class="tag">Nei libri · Ballentine §3.1-3.2</div><p>Il Ballentine fa per una famiglia qualsiasi di trasformazioni unitarie $U(s)$, con $U(0) = I$ e $U(s_1 + s_2) = U(s_1)U(s_2)$, lo stesso conto che abbiamo fatto per il tempo: l'unitarietà impone un generatore hermitiano $K$ e $U(s) = e^{iKs}$ (p. 80-81). Poi applica lo schema alle traslazioni nello spazio e nel tempo, alle rotazioni e ai cambi di sistema di riferimento (p. 81-82).</p></aside>
+<aside class="book" data-l="ba" data-p="107"><div class="tag">Nei libri · Ballentine §3.8</div><p>Simmetrie e leggi di conservazione: se $U(s) = e^{isK}$ lascia invariata la hamiltoniana, $U H U^{-1} = H$, allora $[H,K] = 0$, e il valor medio di $K$ non cambia nel tempo (p. 107-108). Il Weinberg arriva alla stessa conclusione, $[H,T] = 0$, a p. 106.</p></aside>
+<p>Questo è il collegamento con la prima metà della lezione, e lo scrivo come anticipazione di dove va il corso. Guarda che cosa abbiamo appena costruito per il tempo: una famiglia di trasformazioni $U(t,t_0)$ che si compongono, hanno l'inversa e contengono l'identità. Sono le tre richieste di p. 48, ed è la definizione di <strong>gruppo</strong>: per questo il professore scrive «teoria dei gruppi». Abbiamo poi visto che una famiglia continua di trasformazioni unitarie è determinata da un generatore hermitiano, $K$. Tutto questo non ha niente di specifico del tempo. Lo stesso schema vale per le traslazioni nello spazio, le rotazioni e i cambi di sistema di riferimento, e il Ballentine costruisce così l'intero capitolo 3, il capitolo da cui escono impulso, momento angolare ed energia come generatori. Il professore parte dalla meccanica lagrangiana perché lì l'idea di simmetria è più concreta, e il ponte verso la meccanica quantistica è questo:</p>
+<div class="tbl"><table>
+  <thead><tr><th>Concetto</th><th>Meccanica lagrangiana</th><th>Meccanica quantistica (anticipazione)</th></tr></thead>
+  <tbody>
+    <tr><td>Trasformazione</td><td>cambio di coordinate invertibile $q \to Q$</td><td>$|\psi\rangle \to U|\psi\rangle$ con $U$ unitario o antiunitario (Wigner; Ballentine, p. 79)</td></tr>
+    <tr><td>Che cosa si conserva sempre</td><td>il valore di $L$, quindi l'azione</td><td>le probabilità di transizione $|\langle\varphi|\psi\rangle|^2$</td></tr>
+    <tr><td>Quando è una simmetria</td><td>$\bar L$ ha la stessa forma di $L$</td><td>$U H U^{-1} = H$ (Ballentine, p. 107)</td></tr>
+    <tr><td>Trasformazioni continue</td><td>generate da una funzione delle coordinate e degli impulsi</td><td>$U(s) = e^{-isG}$, con $G$ hermitiano, come $K$</td></tr>
+    <tr><td>Conseguenza</td><td>una quantità conservata: nell'esempio, $\bar L$ non dipende da $\phi$ e $mr^2\dot\phi$ è costante</td><td>$[H,G] = 0$, quindi $\langle G\rangle$ costante nel tempo</td></tr>
+    <tr><td>Il tempo</td><td>la hamiltoniana genera l'evoluzione</td><td>$K = H/\hbar$ genera $U(t,t_0)$ (Weinberg, p. 105; Ballentine, p. 92)</td></tr>
+  </tbody>
+</table></div>
+<p class="ref">Una nota sulle convenzioni di segno: il Ballentine scrive $U(s) = e^{iKs}$ per una trasformazione generica, e per lo spostamento nel tempo $e^{isH}|\Psi(t)\rangle = |\Psi(t - s)\rangle$ (p. 92), che con $s = t$ dà $|\Psi(t)\rangle = e^{-itH}|\Psi(0)\rangle$, lo stesso segno degli appunti. A p. 92 il Ballentine non ha ancora introdotto $\hbar$, proprio come il professore a p. 49; la costante entra nella teoria poco dopo, a p. 96. Il segno nel generatore è una convenzione; conta solo usarla in modo coerente. Il Weinberg spiega anche perché per l'evoluzione nel tempo non si possono usare operatori antiunitari: darebbero $U^{-1}HU = -H$, cioè energie negative senza limite, a meno che la trasformazione inverta il verso del tempo (p. 106-107).</p>
+<p>Gli appunti della lezione finiscono qui, con la dimostrazione dal principio di minima azione appena accennata nel disegno. La prossima volta, presumibilmente, si passerà dalle trasformazioni passive alle simmetrie vere e proprie e al loro legame con le leggi di conservazione.</p>
+
+<h2 id="s9" data-toc="Lo schema da tenere davanti">Lo schema da tenere davanti</h2>
+<div class="tbl"><table>
+  <thead><tr><th>Che cosa</th><th>Formula</th><th>Dove</th></tr></thead>
+  <tbody>
+    <tr><td>Densità di probabilità</td><td>$\langle f(\hat x)\rangle = \int f(x)\,|\psi(x)|^2dx$</td><td>p. 47; Picasso p. 128</td></tr>
+    <tr><td>Fase locale</td><td>$\psi = e^{i\varphi(x)}|\psi|$: invisibile alla posizione, fisica per l'impulso</td><td>p. 47; Picasso p. 130</td></tr>
+    <tr><td>Proiettore sull'intervallo</td><td>$\hat E^2 = \hat E = \hat E^\dagger$, $P(x \in I) = \langle\psi|\hat E|\psi\rangle = \int_I|\psi|^2$</td><td>p. 48; Picasso p. 129</td></tr>
+    <tr><td>Posizione a righello</td><td>$\hat x_\varepsilon = \sum_m x_m\hat E_m$, $|\langle\hat x_\varepsilon\rangle - \langle\hat x\rangle| \leq \varepsilon/2$</td><td>p. 48; Picasso p. 138</td></tr>
+    <tr><td>Autovettori impropri</td><td>$|x\rangle \in \Omega^\times$, tripletta $\Omega \subset \mathcal H \subset \Omega^\times$</td><td>p. 48; Ballentine p. 43-44</td></tr>
+    <tr><td>Richieste sui raggi</td><td>identità, inversa, composizione</td><td>p. 48; Sakurai p. 42</td></tr>
+    <tr><td>Postulato 4</td><td>$|\psi(t)\rangle = U(t,t_0)|\psi(t_0)\rangle$, $U$ lineare, isometrico, invertibile</td><td>p. 49</td></tr>
+    <tr><td>Unitarietà</td><td>$U^\dagger U = \mathbb 1$ (isometria) e $U^\dagger = U^{-1}$ (invertibilità)</td><td>p. 49; Lezione 2 per lo shift</td></tr>
+    <tr><td>Generatore</td><td>$U = \mathbb 1 - i\Delta t\,K + O(\Delta t^2)$, $K = K^\dagger$</td><td>p. 49; Sakurai p. 43</td></tr>
+    <tr><td>Equazioni del moto</td><td>$i\frac{d}{dt}|\psi\rangle = K|\psi\rangle$, $\ i\dot U = KU$; più avanti $K = H/\hbar$</td><td>p. 49; Sakurai p. 43</td></tr>
+    <tr><td>Caso 1: $K$ costante</td><td>$U = e^{-iK(t-t_0)}$, traslazione temporale</td><td>p. 50; Sakurai p. 44; Weinberg p. 105</td></tr>
+    <tr><td>Caso 2: $[K(t),K(t')] = 0$</td><td>$U = e^{-i\int_{t_0}^t K}$</td><td>p. 50; Sakurai p. 44</td></tr>
+    <tr><td>Caso 3: generale</td><td>$U = T\,e^{-i\int K}$, serie di Dyson con $\frac{1}{m!}$ sull'ipercubo</td><td>p. 50; Sakurai p. 44; Shankar p. 166</td></tr>
+    <tr><td>Simmetrie lagrangiane</td><td>$\bar L(Q,\dot Q) = L(q(Q),\dot q)$: stesso valore; Eulero-Lagrange: stessa forma</td><td>p. 50; Shankar p. 98, 111</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="s10" data-toc="I tuoi dubbi negli appunti">I tuoi dubbi negli appunti</h2>
+<p>Negli appunti di queste due lezioni hai lasciato alcuni punti interrogativi. Li riprendo uno per uno, nell'ordine in cui compaiono. Dove la risposta usa argomenti non ancora fatti a lezione (l'operatore impulso, i sistemi aperti) lo dico, e lo tratto come anticipazione.</p>
+
+<h3>«$\hat x|x\rangle = x|x\rangle$ ?» (p. 47)</h3>
+<p>Il dubbio è giusto: $|x\rangle$ non è un vettore dello spazio di Hilbert. La sua norma sarebbe $\langle x|x\rangle=\delta(0)$, che è infinita, quindi non è normalizzabile. Si chiama <b>autovettore generalizzato</b> (o improprio): l'equazione $\hat x|x\rangle=x|x\rangle$ va letta dentro gli integrali, dove ha senso, e non come un'uguaglianza tra vettori di $\mathcal H$.</p>
+<aside class="book" data-l="ba" data-p="41"><div class="tag">Nei libri · Ballentine §1.4</div><p>Il Ballentine (è la «discussione sul Ballentine» di p. 48) mette gli autovettori della posizione in uno spazio più grande di $\mathcal H$, il duale $\Omega^\times$ della tripletta $\Omega\subset\mathcal H\subset\Omega^\times$ (rigged Hilbert space): lì $Q\,\psi(x)=x\,\psi(x)$ ha autovettori veri.</p></aside>
+<p>La posizione discretizzata di p. 48 mostra da dove viene $|x\rangle$ con oggetti tutti normalizzabili. La funzione $\varphi_\varepsilon(x)=\chi_{I}(x)/\sqrt\varepsilon$, con $\chi_I$ la funzione caratteristica dell'intervallo $I$ di larghezza $\varepsilon$ attorno a $x_0$, è normalizzata ed è autofunzione di $\hat x_\varepsilon$ con autovalore $x_0$. Il suo prodotto scalare con uno stato è (questo conto non è negli appunti)</p>
+$$\langle\varphi_\varepsilon|\psi\rangle=\frac{1}{\sqrt\varepsilon}\int_I\psi(x)\,dx\simeq\sqrt\varepsilon\,\psi(x_0)\qquad\Longrightarrow\qquad\psi(x_0)=\lim_{\varepsilon\to0}\frac{\langle\varphi_\varepsilon|\psi\rangle}{\sqrt\varepsilon}.$$
+<p>Quindi $|x_0\rangle$ è il limite di $\varphi_\varepsilon/\sqrt\varepsilon$: un vettore che diventa sempre più stretto e sempre più alto, con norma $1/\sqrt\varepsilon$ che diverge. I prodotti scalari con gli stati veri restano finiti, ed è tutto quello che serve per scrivere $\psi(x)=\langle x|\psi\rangle$.</p>
+
+<h3>«$\psi(x)\to e^{i\varphi(x)}|\psi(x)|$: è fisica?» (p. 47)</h3>
+<p>Sì, come annota il professore, ma bisogna distinguere due casi. Una fase <b>globale</b>, $e^{i\alpha}\psi$ con $\alpha$ costante, non è fisica: è lo stesso raggio (Lezione 1). Una fase <b>locale</b> $\varphi(x)$ che cambia da punto a punto invece lo è. Non cambia la distribuzione delle posizioni, perché $|e^{i\varphi(x)}\psi(x)|^2=|\psi(x)|^2$, ma cambia tutto quello che coinvolge le differenze di fase tra punti diversi: l'interferenza e la distribuzione dell'impulso.</p>
+<p>Un conto che lo mostra, con l'operatore impulso che a lezione arriverà più avanti ($\hat p\to-i\hbar\,\partial_x$ nella base delle posizioni). Scrivi $\psi=R\,e^{i\varphi}$ con $R\ge0$ reale:</p>
+<ol class="steps">
+<li>$\partial_x\psi=(R'+i\varphi'R)\,e^{i\varphi}$.</li>
+<li>$\langle\hat p\rangle=\int\psi^*(-i\hbar\,\partial_x\psi)\,dx=-i\hbar\int RR'\,dx+\hbar\int\varphi'R^2\,dx$.</li>
+<li>$\int RR'\,dx=\big[R^2/2\big]_{-\infty}^{+\infty}=0$, perché lo stato è normalizzabile.</li>
+<li>Resta $\langle\hat p\rangle=\hbar\int\varphi'(x)\,|\psi(x)|^2\,dx$.</li>
+</ol>
+<p>Con $\varphi=kx$ si ottiene $\langle\hat p\rangle=\hbar k$: la stessa densità $|\psi|^2$ descrive una particella ferma ($k=0$) o in moto ($k\neq0$). La fase locale contiene la velocità.</p>
+
+<h3>«se prendo il valor medio ?» e «ottengo $f(x)=x$ ?(!)», «o tendendo $\varepsilon\to0$» (p. 48)</h3>
+<p>La funzione a scalini $x_\varepsilon(x)=\sum_m x_m\chi_{I_m}(x)$ non tende a $x$ come un «fit»: ci tende in modo uniforme, cioè con un errore che ha la stessa piccolezza in ogni punto. Ogni $x$ cade in un intervallo $I_m$ di cui $x_m$ è il centro, quindi</p>
+$$|x_\varepsilon(x)-x|\le\frac{\varepsilon}{2}\quad\text{per ogni }x .$$
+<p>Da qui seguono i due fatti che servono (questi passaggi non sono negli appunti):</p>
+<ol class="steps">
+<li>Sugli stati: $\|(\hat x_\varepsilon-\hat x)\psi\|^2=\int|x_\varepsilon(x)-x|^2\,|\psi(x)|^2\,dx\le\frac{\varepsilon^2}{4}\int|\psi|^2dx=\frac{\varepsilon^2}{4}$. L'operatore discretizzato agisce come $\hat x$ a meno di $\varepsilon/2$.</li>
+<li>Sui valori medi: $|\langle\hat x_\varepsilon\rangle-\langle\hat x\rangle|=\Big|\int(x_\varepsilon-x)\,|\psi|^2dx\Big|\le\frac{\varepsilon}{2}$. Quindi sì, il valor medio di $\hat x_\varepsilon$ tende a quello di $\hat x$.</li>
+</ol>
+<p>In pratica va anche meglio di $\varepsilon/2$. Scegliendo $x_m$ al centro degli intervalli, in ciascun intervallo l'errore vale circa $-\rho'(x_m)\,\varepsilon^3/12$ (con $\rho=|\psi|^2$), e la somma su tutti gli intervalli dà circa $-\frac{\varepsilon^2}{12}\int\rho'\,dx=0$, perché $\rho$ si annulla all'infinito: l'errore di ordine $\varepsilon^2$ si cancella. Nel laboratorio della posizione discretizzata, con $\varepsilon=1$, il valor medio è già giusto alla terza cifra decimale.</p>
+
+<h3>Il «?» sotto la derivata $\frac{d}{dt}|\psi(t)\rangle$ (p. 49)</h3>
+<p>La derivata di un ket si definisce come il limite del rapporto incrementale, ma il limite va preso nella norma dello spazio di Hilbert: $\frac{d}{dt}|\psi(t)\rangle=|\phi\rangle$ significa</p>
+$$\lim_{\Delta t\to0}\Big\|\frac{|\psi(t+\Delta t)\rangle-|\psi(t)\rangle}{\Delta t}-|\phi\rangle\Big\|=0 .$$
+<p>In una base è la derivata delle componenti: $c_n(t)=\langle e_n|\psi(t)\rangle$ diventa $\dot c_n(t)$, e nella base delle posizioni $\langle x|\frac{d}{dt}\psi\rangle=\partial_t\psi(x,t)$. Così l'equazione astratta $i\frac{d}{dt}|\psi\rangle=K|\psi\rangle$ diventa, proiettata su $\langle x|$, l'equazione alle derivate parziali $i\,\partial_t\psi(x,t)=(K\psi)(x,t)$, cioè la Schrödinger che conosci quando $K=H/\hbar$. Una precisazione da tenere in tasca: in dimensione infinita, se $K$ è illimitato (come l'hamiltoniana), la derivata esiste solo per gli stati nel dominio di $K$.</p>
+
+<h3>«chiediamo […] che succede se non è invertibile» (p. 49)</h3>
+<p>Se l'evoluzione non fosse invertibile, due stati iniziali diversi potrebbero arrivare allo stesso stato finale: l'informazione su da dove si è partiti andrebbe persa. In una teoria chiusa questo contraddice la regola di composizione: se $U(t,t_0)$ ha un inverso, è $U(t_0,t)$, perché $U(t_0,t)\,U(t,t_0)=U(t_0,t_0)=\mathbb 1$; senza inverso non si potrebbe far evolvere all'indietro.</p>
+<p>Ci sono due modi in cui l'invertibilità può mancare, e li hai già visti tutti e due:</p>
+<ul>
+<li><b>Isometria non suriettiva.</b> Lo shift $V|e_n\rangle=|e_{n+1}\rangle$ conserva le probabilità ma non raggiunge $|e_1\rangle$: quello stato non avrebbe un passato. Per questo il postulato chiede isometria <i>e</i> invertibilità, cioè unitarietà (Lezione 2, l'albergo di Hilbert).</li>
+<li><b>Il collasso.</b> La misura secondo Copenhagen porta $\rho$ in $\sum_\alpha\Pi_\alpha\rho\,\Pi_\alpha$: stati puri diversi possono finire nella stessa miscela, e nessun $U$ unitario lo fa (Weinberg, pp. 110-111, nel percorso parallelo, stazione A.2).</li>
+</ul>
+<p>Evoluzioni non invertibili compaiono legittimamente quando si descrive solo una parte di un sistema più grande, per esempio un atomo che decade emettendo un fotone che non seguiamo più: l'evoluzione del sottosistema non è unitaria anche se quella del tutto lo è. È un argomento (sistemi aperti) che non è nel programma del corso.</p>
+
+<h3>«La derivata mi dice quanto veloce evolve l'evoluto?» (p. 49)</h3>
+<p>Solo in parte, e la distinzione è istruttiva. La norma della derivata è $\big\|\frac{d}{dt}\psi\big\|=\|K\psi\|=\sqrt{\langle K^2\rangle}$, ma non tutto questo moto è fisico. Si spezza $K\psi$ in una parte lungo $\psi$ e una ortogonale:</p>
+$$\frac{d}{dt}|\psi\rangle=-i\langle K\rangle\,|\psi\rangle-i\,(K-\langle K\rangle)|\psi\rangle .$$
+<p>Il primo termine fa solo ruotare la fase globale dello stato: il raggio resta lo stesso. Il moto fisico, quello nello spazio proiettivo del disegno di p. 48, è dato dalla parte ortogonale, la cui norma è l'indeterminazione:</p>
+$$\big\|(K-\langle K\rangle)\psi\big\|=\sqrt{\langle K^2\rangle-\langle K\rangle^2}=\Delta K .$$
+<p>Un autostato di $K$ ha $\Delta K=0$: la derivata non è nulla ($\psi(t)=e^{-ikt}\psi$) ma lo stato fisicamente non cambia, è stazionario. Lo si vede anche dalla probabilità di restare nello stato iniziale dopo un tempo breve $\delta t$:</p>
+<ol class="steps">
+<li>$\langle\psi|e^{-iK\delta t}|\psi\rangle=1-i\,\delta t\,\langle K\rangle-\tfrac12\delta t^2\langle K^2\rangle+O(\delta t^3)$, sviluppando l'esponenziale.</li>
+<li>Il modulo quadro: $\big(1-\tfrac12\delta t^2\langle K^2\rangle\big)^2+\delta t^2\langle K\rangle^2+O(\delta t^3)=1-\delta t^2\big(\langle K^2\rangle-\langle K\rangle^2\big)+O(\delta t^3)$.</li>
+<li>Quindi $|\langle\psi(0)|\psi(\delta t)\rangle|^2=1-(\Delta K)^2\,\delta t^2+O(\delta t^3)$: più è grande $\Delta K$, più in fretta lo stato si allontana da sé stesso.</li>
+</ol>
+<aside class="book" data-l="we" data-p="125"><div class="tag">Nei libri · Weinberg §3.7, problema 2</div><p>Lo stesso conto è un esercizio del Weinberg: con $K=H/\hbar$ la probabilità di restare nello stato dopo $\delta t$ è $1-(\Delta E\,\delta t/\hbar)^2$ al secondo ordine.</p></aside>
+<p>Con $K=H/\hbar$ la «velocità» fisica dell'evoluzione è $\Delta E/\hbar$: è l'indeterminazione dell'energia, non l'energia, a dire quanto in fretta uno stato cambia. È la radice di quella che si chiama relazione di indeterminazione tempo-energia (nella forma di Mandelstam e Tamm, che non è nei libri del corso).</p>
+
+<div class="check">
+  <h2 id="s11" data-toc="Per verificare di aver capito">Per verificare di aver capito</h2>
+  <p><strong>1.</strong> Con $K$ hermitiano e costante, verifica che $U(t,t_0) = e^{-iK(t-t_0)}$ soddisfa le tre richieste di p. 48 ed è unitario. Indica in quale passaggio usi l'hermitianità e in quale il fatto che $K$ commuta con se stesso.</p>
+  <p><strong>2.</strong> Un rotatore ottico ha $K = \frac{\omega}{2}\sigma_y$. Calcola la matrice $U(t,t_0)$, applicala a $|H\rangle$ e trova la probabilità che il fotone passi un polarizzatore orizzontale al tempo $t$. Dopo quanto tempo lo stato torna nel raggio di $|H\rangle$? E dopo quanto torna esattamente il vettore $|H\rangle$?</p>
+  <p><strong>3.</strong> Una lamina ha $K(t) = \frac{\omega(t)}{2}\sigma_z$. Mostra che due tratti consecutivi con frequenze $\omega_1$ e $\omega_2$ danno lo stesso stato in entrambi gli ordini, e che il risultato coincide con $e^{-i\int K}$. Poi spiega perché lo stesso non vale per la coppia rotatore e lamina della sezione 6.</p>
+  <p><strong>4.</strong> Perché lo shift $V|e_n\rangle = |e_{n+1}\rangle$ non può essere l'operatore di evoluzione per nessun intervallo di tempo, anche se conserva tutti i prodotti scalari?</p>
+  <p class="ref"><strong>Tracce delle soluzioni.</strong> (1) Per $t = t_0$ l'esponente è nullo e $U = \mathbb 1$. Per la composizione, $e^{-iK(t_2-t_1)}e^{-iK(t_1-t_0)} = e^{-iK(t_2-t_0)}$, perché $e^{A}e^{B} = e^{A+B}$ quando $[A,B] = 0$, e qui $A$ e $B$ sono multipli dello stesso $K$. Con $t_2 = t_0$ si ottiene l'inversa, $U^{-1}(t,t_0) = e^{iK(t-t_0)} = U(t_0,t)$. Infine $U^\dagger = e^{iK^\dagger(t-t_0)} = e^{iK(t-t_0)} = U^{-1}$: qui serve $K^\dagger = K$. (2) Con $\alpha = \omega(t-t_0)/2$ e $\sigma_y^2 = \mathbb 1$: $U = \cos\alpha\,\mathbb 1 - i\sin\alpha\,\sigma_y = \begin{pmatrix}\cos\alpha &amp; -\sin\alpha\\ \sin\alpha &amp; \cos\alpha\end{pmatrix}$, quindi $U|H\rangle = \cos\alpha|H\rangle + \sin\alpha|V\rangle$, polarizzazione lineare ruotata di $\alpha$. La probabilità di passare è $\cos^2\big(\omega(t-t_0)/2\big)$, la legge di Malus. Per $\omega(t-t_0) = 2\pi$ si ha $U|H\rangle = -|H\rangle$, già lo stesso raggio; il vettore torna identico per $\omega(t-t_0) = 4\pi$. (3) $e^{-i\omega_2\tau\sigma_z/2}e^{-i\omega_1\tau\sigma_z/2} = e^{-i(\omega_1+\omega_2)\tau\sigma_z/2}$ in entrambi gli ordini, perché le matrici diagonali commutano, e $(\omega_1 + \omega_2)\tau = \int\omega\,dt$. Per rotatore e lamina $[\sigma_y,\sigma_z] = 2i\sigma_x \neq 0$, e infatti a $\theta = 90°$ i due ordini danno $|R\rangle$ e $|D\rangle$. (4) $V$ non è invertibile: nessuno stato evolve in $|e_1\rangle$. Ma $U(t,t_0)$ deve avere l'inversa $U(t_0,t)$ per le richieste (ii) e (iv); in termini di operatori, $VV^\dagger = \mathbb 1 - |e_1\rangle\langle e_1| \neq \mathbb 1$, quindi $V$ non è unitario.</p>
+</div>
+<nav class="pager"><a href="rappresentazioni.html"><small>← Indietro</small>Lezione 2 · Rappresentazioni</a><a class="next" href="oltre-problemi.html"><small>Avanti →</small>Oltre Copenhagen · I tre problemi</a></nav></article></div></div></body></html>

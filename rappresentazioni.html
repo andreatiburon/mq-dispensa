@@ -1,0 +1,165 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Rappresentazioni · Dispensa MQ</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="style.css"><script>window.MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]]},svg:{fontCache:"global"}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script><script src="labs.js" defer></script></head><body><header class="bar"><div class="bar-in"><a class="brand" href="index.html">Meccanica <span>Quantistica</span></a><nav class="nav" aria-label="Pagine"><a href="index.html">Home</a><a href="postulati.html">Lezione 1 · Postulati</a><a href="rappresentazioni.html" aria-current="page">Lezione 2 · Rappresentazioni</a><a href="evoluzione.html">Lezione 3 · Evoluzione</a><a href="oltre-problemi.html">Oltre Copenhagen</a><a href="linea.html">Linea temporale</a></nav></div></header><div class="wrap"><div class="layout"><aside class="toc" aria-label="Indice"><h2>In questa lezione</h2><ol></ol></aside><article><details class="toc-mobile"><summary>Indice della lezione</summary><ol></ol></details><p class="kicker"><b>Lezione 2</b> · quaderno pp. 45-47</p><h1 class="ht-shadow" data-t="Rappresentazioni">Rappresentazioni</h1><p class="lead">Come si traducono stati e operatori in numeri, che cosa succede ai numeri quando cambi base, e come nasce la funzione d'onda dalla base delle posizioni.</p>
+<h2 id="s1" data-toc="Dove eravamo e dove andiamo">Dove eravamo e dove andiamo</h2>
+<p>Finora abbiamo lavorato con oggetti astratti: il ket $|\psi\rangle$, l'operatore $A$. Per fare un conto vero, però, servono numeri. Questa lezione risponde a una sola domanda: <strong>come si trasforma un oggetto astratto in numeri, e che cosa succede ai numeri se cambio il modo di trasformarlo.</strong></p>
+<div class="map" aria-label="Il filo della lezione">
+  <div class="row c1"><div class="box f"><b>Ket astratto $|\psi\rangle$</b>lo stato del fotone</div></div>
+  <div class="arrow">↓ scelgo una base</div>
+  <div class="row c2">
+    <div class="box p"><b>Colonna di numeri $c_i$</b>stato → vettore (p. 45)</div>
+    <div class="box p"><b>Matrice $A_{ij}$</b>operatore → matrice (p. 45)</div>
+  </div>
+  <div class="arrow">↓ cambio base</div>
+  <div class="row c2">
+    <div class="box r"><b>$c' = U\,c$</b>U unitaria (p. 46)</div>
+    <div class="box r"><b>$A' = U A U^\dagger$</b>stessa fisica (p. 46)</div>
+  </div>
+  <div class="arrow">↓ base continua $|x\rangle$</div>
+  <div class="row c1"><div class="box c"><b>Funzione d'onda $\psi(x) = \langle x|\psi\rangle$</b>rappresentazione di Schrödinger (p. 47)</div></div>
+</div>
+
+<h2 id="s2" data-toc="L'idea: la stessa freccia, griglie diverse"><span class="n">1</span>L'idea: la stessa freccia, griglie diverse</h2>
+<p><strong>L'analogia.</strong> Disegna una freccia su un foglio. Se metti gli assi $x,y$ in orizzontale e in verticale, la freccia ha certe coordinate, per esempio $(1, 0)$. Se ruoti gli assi di $45°$, la stessa freccia ha coordinate diverse, $(\tfrac1{\sqrt2}, -\tfrac1{\sqrt2})$. La freccia non si è mossa: è cambiato solo il modo di descriverla.</p>
+<p>In meccanica quantistica è uguale. Il ket $|\psi\rangle$ è la freccia, cioè lo stato fisico del fotone. Una <strong>base</strong> è una griglia. La <strong>rappresentazione</strong> è la lista delle coordinate dello stato in quella griglia. Gli appunti (p. 45) la chiamano isomorfismo: lo spazio di Hilbert si traduce parola per parola in</p>
+<ul>
+  <li>$\mathbb C^d$, cioè colonne di $d$ numeri complessi, se la dimensione è finita;</li>
+  <li>$\ell_2$, cioè successioni infinite con $\sum_i|c_i|^2 \lt \infty$, se la dimensione è infinita ma numerabile.</li>
+</ul>
+<p><strong>Che significato fisico ha la scelta della base?</strong> Scegliere una base vuol dire scegliere quale domanda fare al fotone. La base $\{|H\rangle, |V\rangle\}$ risponde a «orizzontale o verticale?». La base $\{|D\rangle, |\bar D\rangle\}$, con</p>
+$$|D\rangle = \tfrac{1}{\sqrt2}\big(|H\rangle + |V\rangle\big),\qquad |\bar D\rangle = \tfrac{1}{\sqrt2}\big(|H\rangle - |V\rangle\big),$$
+<p>risponde a «$+45°$ o $-45°$?». Lo stesso fotone ha coordinate diverse nelle due basi, come la stessa freccia ha coordinate diverse in due griglie.</p>
+
+<h2 id="s3" data-toc="Dallo stato ai numeri"><span class="n">2</span>Dallo stato ai numeri (p. 45)</h2>
+<p><strong>La ricetta.</strong> Il coefficiente $c_i$ è il prodotto scalare dello stato con il vettore di base: $c_i = \langle e_i|\psi\rangle$. Il motivo è il trucco dell'identità inserita:</p>
+$$|\psi\rangle = \mathbb 1\,|\psi\rangle = \Big(\sum_i |e_i\rangle\langle e_i|\Big)|\psi\rangle = \sum_i |e_i\rangle\,\underbrace{\langle e_i|\psi\rangle}_{c_i}.$$
+<p>Si legge così: la componente di $\psi$ lungo $e_i$ è «quanto $\psi$ assomiglia a $e_i$».</p>
+<p><strong>Esempio.</strong> Lo stato $|D\rangle$ nella base $\{H,V\}$ ha coefficienti $c_H = \langle H|D\rangle = \tfrac{1}{\sqrt2}$ e $c_V = \langle V|D\rangle = \tfrac{1}{\sqrt2}$, quindi la colonna $\tfrac{1}{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix}$.</p>
+<p><strong>Il prodotto scalare diventa una somma.</strong> Con $|\psi\rangle = \sum_i c_i|e_i\rangle$ e $|\chi\rangle = \sum_j d_j|e_j\rangle$, come a p. 45:</p>
+$$\langle\psi|\chi\rangle = \sum_{i,j} c_i^*\,d_j\,\underbrace{\langle e_i|e_j\rangle}_{\delta_{ij}} = \sum_i c_i^*\,d_i.$$
+<p>È la ricetta del prodotto scalare della pagina sui postulati. La condizione $\langle\psi|\psi\rangle = \sum_i|c_i|^2 \lt \infty$ dice che lo stato ha lunghezza finita: è la definizione di $\ell_2$, le successioni «a quadrato sommabile».</p>
+
+<h2 id="s4" data-toc="Dall'operatore alla matrice"><span class="n">3</span>Dall'operatore alla matrice (p. 45)</h2>
+<aside class="book" data-l="pi" data-p="110"><div class="tag">Nei libri · Picasso §6.1</div><p>Il Picasso chiama i coefficienti $c_i$ «rappresentativi» dello stato e scrive l'isomorfismo con $\ell_2$ quasi esattamente come il quaderno. Avverte anche che se la base cambia, cambia l'isomorfismo.</p></aside>
+
+<p><strong>La ricetta.</strong> Si inserisce l'identità due volte, una a sinistra e una a destra di $A$:</p>
+$$A = \mathbb 1\,A\,\mathbb 1 = \sum_{i,j}|e_i\rangle\,\underbrace{\langle e_i|A|e_j\rangle}_{A_{ij}}\,\langle e_j| = \sum_{i,j}A_{ij}\,|e_i\rangle\langle e_j|.$$
+<p>Il numero $A_{ij} = \langle e_i|A|e_j\rangle$ si legge così: applica $A$ al vettore di base $e_j$, e guarda quanto del risultato sta lungo $e_i$. La colonna $j$ della matrice è quindi «che cosa fa $A$ al vettore $e_j$», scritto nella base.</p>
+<p><strong>Il prodotto di operatori diventa prodotto di matrici.</strong> Si inserisce un'identità in mezzo:</p>
+$$\langle e_i|AB|e_j\rangle = \sum_k \langle e_i|A|e_k\rangle\langle e_k|B|e_j\rangle = \sum_k A_{ik}B_{kj}.$$
+<p>Per questo (p. 47) la commutabilità si può verificare sulle matrici: $[A,B] = 0$ se e solo se le matrici commutano.</p>
+<p><strong>Esempio.</strong> L'osservabile «$H$ o $V$», con risultati $\pm1$, nella base $\{H,V\}$ è $A = \begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}$. È diagonale perché $H$ e $V$ sono i suoi autostati: è il risultato di p. 47, dove nella base degli autovettori $A_{kj} = a_j\,\delta_{kj}$.</p>
+
+<h2 id="s5" data-toc="Il cambio di base, passo per passo"><span class="n">4</span>Il cambio di base, passo per passo (p. 46)</h2>
+<p>Questa è la parte che di solito confonde. La domanda è semplice: <strong>conosco le coordinate $c_i$ nella vecchia base $\{e_i\}$; quali sono le coordinate $c'_k$ nella nuova base $\{e'_k\}$?</strong></p>
+<ol class="steps">
+  <li>Per la ricetta del paragrafo 2, il nuovo coefficiente è un prodotto scalare con il nuovo vettore di base:
+  $$c'_k = \langle e'_k|\psi\rangle.$$</li>
+  <li>Inserisco l'identità scritta nella <em>vecchia</em> base, perché è lì che conosco lo stato:
+  $$c'_k = \langle e'_k|\Big(\sum_i|e_i\rangle\langle e_i|\Big)|\psi\rangle = \sum_i \langle e'_k|e_i\rangle\,\langle e_i|\psi\rangle.$$</li>
+  <li>Riconosco i due pezzi: $\langle e_i|\psi\rangle = c_i$ sono le vecchie coordinate, e chiamo $U_{ki} = \langle e'_k|e_i\rangle$ il resto:
+  $$\boxed{c'_k = \sum_i U_{ki}\,c_i,\qquad U_{ki} = \langle e'_k|e_i\rangle}.$$</li>
+</ol>
+<p><strong>Che cos'è $U$.</strong> È la tabella delle sovrapposizioni tra i vettori nuovi e quelli vecchi: l'elemento $U_{ki}$ dice quanto del vecchio vettore $e_i$ c'è nel nuovo vettore $e'_k$. Le nuove coordinate si ottengono moltiplicando la vecchia colonna per questa matrice: $c' = U\,c$.</p>
+<p><strong>Esempio completo: dalla base $\{H,V\}$ alla base $\{D,\bar D\}$.</strong> Gli elementi di $U$ sono i prodotti scalari:</p>
+$$U = \begin{pmatrix}\langle D|H\rangle &amp; \langle D|V\rangle\\ \langle\bar D|H\rangle &amp; \langle\bar D|V\rangle\end{pmatrix} = \frac{1}{\sqrt2}\begin{pmatrix}1 &amp; 1\\ 1 &amp; -1\end{pmatrix}.$$
+<ul>
+  <li>Il fotone $|D\rangle$ ha vecchie coordinate $\tfrac{1}{\sqrt2}(1,1)$. Le nuove sono $U c = \tfrac12\,(1+1,\ 1-1) = (1, 0)$: nella base diagonale, $|D\rangle$ è il primo vettore di base. Torna.</li>
+  <li>Il fotone $|H\rangle$ ha vecchie coordinate $(1,0)$. Le nuove sono $U c = \tfrac{1}{\sqrt2}(1, 1)$: un fotone orizzontale è metà $+45°$ e metà $-45°$. Infatti $\tfrac{1}{\sqrt2}\big(|D\rangle + |\bar D\rangle\big) = |H\rangle$.</li>
+</ul>
+
+<figure class="lab"><div class="plate"><div data-lab="base" id="lab-base"></div></div><figcaption><b>Figura 2.1</b><i class="t">Ruota la griglia.</i> Lo stato, la freccia ψ, resta fermo. Ruota la nuova base: le coordinate cambiano, la somma delle probabilità no.</figcaption></figure>
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>I libri usano convenzioni opposte. Il quaderno definisce $U_{ki} = \langle e'_k|e_i\rangle$, quindi $c' = Uc$ e $A' = UAU^\dagger$. Il Sakurai (p. 26) e il Picasso (p. 115) definiscono invece $U$ come l'operatore che porta i vettori vecchi nei nuovi, e scrivono $c' = U^\dagger c$, $X' = U^\dagger X U$. La fisica è la stessa: la $U$ del quaderno è la $U^\dagger$ dei libri. Prima di usare una formula, controlla quale $U$ è stata definita.</p></aside>
+<h2 id="s6" data-toc="Perché U è unitaria"><span class="n">5</span>Perché $U$ è unitaria (p. 46, «lo chiede all'esame»)</h2>
+<p><strong>Il motivo fisico.</strong> Cambiare base vuol dire cambiare lingua, non fisica. Le probabilità, cioè i prodotti scalari, devono restare uguali in qualsiasi lingua. Una matrice che conserva tutti i prodotti scalari si chiama unitaria: $U^\dagger U = U U^\dagger = \mathbb 1$, cioè $U^\dagger = U^{-1}$.</p>
+<p><strong>La dimostrazione degli appunti.</strong> L'inversa porta indietro dalla base nuova a quella vecchia, $(U^{-1})_{jk} = \langle e_j|e'_k\rangle$. Verifico che sia davvero l'inversa, inserendo l'identità nella base nuova:</p>
+$$\sum_k (U^{-1})_{jk}U_{ki} = \sum_k\langle e_j|e'_k\rangle\langle e'_k|e_i\rangle = \langle e_j|\Big(\sum_k|e'_k\rangle\langle e'_k|\Big)|e_i\rangle = \langle e_j|e_i\rangle = \delta_{ij}.$$
+<p>Poi confronto con l'aggiunta: $(U^\dagger)_{ij} = U_{ji}^* = \langle e'_j|e_i\rangle^* = \langle e_i|e'_j\rangle = (U^{-1})_{ij}$. Quindi $U^\dagger = U^{-1}$.</p>
+<p class="ref">Controllo sull'esempio: $U = \tfrac{1}{\sqrt2}\begin{pmatrix}1 &amp; 1\\ 1 &amp; -1\end{pmatrix}$ è reale e simmetrica, quindi $U^\dagger = U$; e $U^2 = \tfrac12\begin{pmatrix}2 &amp; 0\\ 0 &amp; 2\end{pmatrix} = \mathbb 1$. Allora $U^\dagger U = \mathbb 1$.</p>
+
+<aside class="trap"><div class="tag">Attenzione, è controintuitivo</div><p>In dimensione infinita $U^\dagger U = \mathbb 1$ non basta. Lo «shift» $V|e_n\rangle = |e_{n+1}\rangle$ manda vettori ortonormali in vettori ortonormali, ma nessuno va in $|e_1\rangle$, e $VV^\dagger \neq \mathbb 1$: è l'albergo di Hilbert. Servono entrambe le condizioni (Picasso §6.3, p. 115).</p></aside>
+<h2 id="s7" data-toc="Come cambia la matrice di un operatore"><span class="n">6</span>Come cambia la matrice di un operatore (p. 46)</h2>
+<aside class="book" data-l="pi" data-p="116"><div class="tag">Nei libri · Picasso §6.3</div><p>Le trasformazioni unitarie sono l'analogo quantistico delle trasformazioni canoniche: conservano i commutatori come quelle conservano le parentesi di Poisson. Il teorema di von Neumann dice che ogni trasformazione che conserva $[q,p] = i\hbar$ è realizzata da un operatore unitario.</p></aside>
+
+<p>Stessa strategia: la nuova matrice è $A'_{ij} = \langle e'_i|A|e'_j\rangle$, e inserisco due identità nella vecchia base, una per lato:</p>
+$$A'_{ij} = \sum_{k,m}\underbrace{\langle e'_i|e_k\rangle}_{U_{ik}}\,\underbrace{\langle e_k|A|e_m\rangle}_{A_{km}}\,\underbrace{\langle e_m|e'_j\rangle}_{(U^\dagger)_{mj}}\quad\Longrightarrow\quad \boxed{A' = U\,A\,U^\dagger}.$$
+<p><strong>Esempio, che mostra la fisica.</strong> Riscriviamo la misura «$H$ o $V$» nella base diagonale:</p>
+$$U A U^\dagger = \frac12\begin{pmatrix}1 &amp; 1\\ 1 &amp; -1\end{pmatrix}\begin{pmatrix}1 &amp; 0\\ 0 &amp; -1\end{pmatrix}\begin{pmatrix}1 &amp; 1\\ 1 &amp; -1\end{pmatrix} = \frac12\begin{pmatrix}1 &amp; -1\\ 1 &amp; 1\end{pmatrix}\begin{pmatrix}1 &amp; 1\\ 1 &amp; -1\end{pmatrix} = \begin{pmatrix}0 &amp; 1\\ 1 &amp; 0\end{pmatrix}.$$
+<p>La stessa osservabile, che era diagonale, ora ha zeri sulla diagonale. Fisicamente: un fotone diagonale, misurato con la domanda «$H$ o $V$?», non dà mai un risultato certo, e la media è zero. <strong>Una matrice è diagonale solo nella base dei suoi autovettori</strong> (p. 47). Gli autovalori invece non cambiano: anche la nuova matrice ha autovalori $\pm1$, perché i risultati possibili di una misura non dipendono dalla lingua (osservazione mia, segue da $A' = UAU^{-1}$).</p>
+
+<h2 id="s8" data-toc="Due modi di guardare la stessa operazione"><span class="n">7</span>Due modi di guardare la stessa operazione (p. 46)</h2>
+<aside class="book" data-l="sa" data-p="28"><div class="tag">Nei libri · Sakurai §1.5</div><p>Osservabili unitariamente equivalenti: $A$ e $UAU^{-1}$ hanno lo stesso spettro. Per esempio $S_x$ e $S_z$ sono collegati da una rotazione e hanno entrambi autovalori $\pm\hbar/2$.</p></aside>
+
+<p>Gli appunti definiscono anche un <em>operatore</em> $U = \sum_k |e_k\rangle\langle e'_k|$, che manda ogni vettore nuovo nel vecchio corrispondente: $U|e'_i\rangle = |e_i\rangle$. Poi calcolano</p>
+$$U|\psi\rangle = \sum_k |e_k\rangle\langle e'_k|\psi\rangle = \sum_k c'_k\,|e_k\rangle.$$
+<p>Questo è il punto che crea più confusione. Ci sono due operazioni diverse che producono gli stessi numeri:</p>
+<div class="tbl"><table>
+  <thead><tr><th>Punto di vista</th><th>Che cosa si muove</th><th>Analogia</th><th>Numeri che ottieni</th></tr></thead>
+  <tbody>
+    <tr><td>Passivo: cambio base</td><td>La griglia; lo stato resta fermo</td><td>Ruoto la cartina</td><td>Le coordinate $c'_k$ di $\psi$ nella base nuova</td></tr>
+    <tr><td>Attivo: applico $U$</td><td>Lo stato; la griglia resta ferma</td><td>Ruoto me stesso al contrario</td><td>Le coordinate $c'_k$ di $U\psi$ nella base vecchia</td></tr>
+  </tbody>
+</table></div>
+<p>I numeri sono gli stessi, ma il significato no. Nel primo caso descrivo lo stesso fotone in un'altra lingua. Nel secondo ho un fotone diverso, $U|\psi\rangle$, descritto nella lingua di prima. Quando leggi $c' = Uc$, chiediti sempre quale dei due stai facendo.</p>
+<p class="ref">La nota blu «off topic» di p. 46 dice che $U$ conserva i prodotti scalari: se $|\psi'\rangle = U|\psi\rangle$ e $|\chi'\rangle = U|\chi\rangle$, allora $\langle\chi'|\psi'\rangle = \langle\chi|\psi\rangle$. È un'isometria, ed è lo stesso motivo fisico del paragrafo 5.</p>
+
+<h2 id="s11" data-toc="Lo schema da tenere davanti">Lo schema da tenere davanti</h2>
+<aside class="book" data-l="sh" data-p="47"><div class="tag">Nei libri · Shankar §1.7, pp. 47-48</div><p>Lo Shankar chiama le due letture trasformazione attiva (si cambiano i vettori, $|V\rangle \to U|V\rangle$) e passiva (si cambiano gli operatori, $\Omega \to U^\dagger\Omega U$), e osserva che la fisica sta negli elementi di matrice: per questo le due letture sono equivalenti.</p></aside>
+<figure class="lab video"><video controls playsinline preload="metadata" src="video/cambio-base.mp4"></video><figcaption><b>Figura 2.2</b>Video realizzato con ManimGX: lo stato resta fermo mentre la base ruota; a destra le nuove coordinate $c'_1 = \langle e'_1|\psi\rangle$ e $c'_2 = \langle e'_2|\psi\rangle$. A $\theta = 60°$ lo stato coincide con il primo vettore della nuova base.</figcaption></figure>
+<h2 id="s9" data-toc="Il cambio di fase, collegato ai raggi"><span class="n">8</span>Il cambio di fase, collegato ai raggi (pp. 46-47)</h2>
+<p>Il «cambio di base utile» degli appunti moltiplica ogni vettore di base per una fase: $|e'_i\rangle = e^{i\varphi_i}|e_i\rangle$. Ricorda il primo postulato: $|e_i\rangle$ ed $e^{i\varphi_i}|e_i\rangle$ sono lo stesso raggio, quindi lo stesso stato fisico. La griglia nuova ha gli stessi assi della vecchia, solo «girati di fase».</p>
+<ul>
+  <li>La matrice è diagonale: $U_{ij} = \langle e'_i|e_j\rangle = e^{-i\varphi_i}\delta_{ij}$. Il segno meno viene dal bra: $\langle e'_i| = e^{-i\varphi_i}\langle e_i|$, perché passando da ket a bra si coniuga (la nota rossa degli appunti).</li>
+  <li>Le coordinate cambiano solo di fase: $c'_k = e^{-i\varphi_k}c_k$. Le probabilità $|c'_k|^2 = |c_k|^2$ non cambiano.</li>
+  <li>La matrice di un operatore diventa $A'_{ij} = e^{i(\varphi_j - \varphi_i)}A_{ij}$. Gli elementi diagonali ($i = j$) restano identici; quelli fuori diagonale prendono una <strong>fase relativa</strong>.</li>
+</ul>
+<div class="note"><p>È di nuovo la lezione dei postulati: le fasi relative contano, quelle globali no. Gli elementi fuori diagonale sono quelli che producono l'interferenza, e sono proprio quelli che sentono le fasi relative.</p></div>
+
+<h2 id="s10" data-toc="La base continua: nasce la funzione d'onda"><span class="n">9</span>La base continua: nasce la funzione d'onda (p. 47)</h2>
+<p><strong>L'idea.</strong> Per una particella che si muove su una retta, la domanda naturale è «dove sei?». La risposta può essere qualsiasi numero reale $x$, non solo una lista discreta. Gli stati «la particella è esattamente in $x$» si scrivono $|x\rangle$, e formano una base continua: un vettore di base per ogni punto della retta.</p>
+<p><strong>La funzione d'onda è solo una lista di coordinate.</strong> Con la stessa ricetta del paragrafo 2, la componente dello stato lungo $|x\rangle$ è</p>
+$$\psi(x) = \langle x|\psi\rangle.$$
+<p>Al posto della colonna $c_1, c_2, \dots$ c'è una funzione, perché l'indice $i$ è diventato la variabile continua $x$. La funzione d'onda che conosci dalla doppia fenditura è quindi la rappresentazione dello stato nella base delle posizioni. È la <strong>rappresentazione di Schrödinger</strong>, e $|\psi(x)|^2$ è la densità di probabilità di trovare la particella in $x$: è Born, con l'indice continuo.</p>
+<figure class="lab"><div class="plate"><div data-lab="corda" id="lab-corda"></div></div><figcaption><b>Figura 2.3</b><i class="t">La corda dello Shankar.</i> Per descrivere la forma di una corda a un amico sulla Luna, la campioni in $n$ punti: è un vettore con $n$ componenti. Aumenta $n$: la somma senza il fattore $\Delta$ esplode, quella con $\Delta$ converge all'integrale.</figcaption></figure>
+<aside class="book" data-l="sh" data-p="75"><div class="tag">Nei libri · Shankar §1.10, pp. 75-77</div><p>La corda fissata agli estremi, i vettori con $n$ componenti e il fattore $\Delta$ che trasforma la somma nel prodotto scalare integrale.</p></aside>
+<h3>Il dizionario discreto ↔ continuo</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Concetto</th><th>Base discreta $\{|e_i\rangle\}$</th><th>Base continua $\{|x\rangle\}$</th></tr></thead>
+  <tbody>
+    <tr><td>Etichetta</td><td>indice $i$</td><td>numero reale $x$</td></tr>
+    <tr><td>Coordinate dello stato</td><td>$c_i = \langle e_i|\psi\rangle$</td><td>$\psi(x) = \langle x|\psi\rangle$</td></tr>
+    <tr><td>Somma sulla base</td><td>$\sum_i$</td><td>$\int dx$</td></tr>
+    <tr><td>Ortonormalità</td><td>$\langle e_i|e_j\rangle = \delta_{ij}$</td><td>$\langle x|y\rangle = \delta(x-y)$</td></tr>
+    <tr><td>Identità</td><td>$\mathbb 1 = \sum_i|e_i\rangle\langle e_i|$</td><td>$\mathbb 1 = \int dx\,|x\rangle\langle x|$</td></tr>
+    <tr><td>Prodotto scalare</td><td>$\langle\chi|\psi\rangle = \sum_i d_i^*c_i$</td><td>$\langle\chi|\psi\rangle = \int dx\,\chi^*(x)\psi(x)$</td></tr>
+    <tr><td>Norma finita</td><td>$\sum_i|c_i|^2 \lt \infty$: spazio $\ell_2$</td><td>$\int dx\,|\psi(x)|^2 \lt \infty$: spazio $L^2$</td></tr>
+  </tbody>
+</table></div>
+<h3>Perché $\langle x|y\rangle = \delta(x - y)$</h3>
+<p>Lo ricavano gli appunti con il solito trucco. Inserisco l'identità continua nella definizione di $\psi(x)$:</p>
+$$\psi(x) = \langle x|\psi\rangle = \int dy\,\langle x|y\rangle\langle y|\psi\rangle = \int dy\,\langle x|y\rangle\,\psi(y).$$
+<p>Questa uguaglianza deve valere per ogni funzione $\psi$. L'unico «oggetto» che, integrato contro $\psi(y)$, restituisce il valore in $y = x$ è la delta di Dirac. Quindi $\langle x|y\rangle = \delta(x - y)$: è la versione continua di $\delta_{ij}$.</p>
+<aside class="book" data-l="sh" data-p="78"><div class="tag">Nei libri · Shankar §1.10, pp. 78-79</div><p>Perché $\langle x|x\rangle$ non può valere 1: l'oggetto $\langle x|x'\rangle$ è nullo per $x' \neq x$ ma il suo integrale deve fare 1. È la delta di Dirac, che si capisce come limite di gaussiane sempre più strette.</p></aside>
+<h3>Il prodotto scalare diventa un integrale</h3>
+<p>Con $|\psi\rangle = \int dy\,\psi(y)|y\rangle$ e $\langle\chi| = \int dx\,\chi^*(x)\langle x|$, come a p. 47:</p>
+$$\langle\chi|\psi\rangle = \int dx\int dy\,\chi^*(x)\,\psi(y)\,\underbrace{\langle x|y\rangle}_{\delta(x-y)} = \int dx\,\chi^*(x)\,\psi(x).$$
+<p>La delta «mangia» un integrale, esattamente come $\delta_{ij}$ mangiava una somma nel paragrafo 2.</p>
+<div class="note"><p><strong>Il punto interrogativo del professore</strong> accanto a $\hat x|x\rangle = x|x\rangle$ (p. 47) è giustificato. Gli stati $|x\rangle$ non hanno norma finita: $\langle x|x\rangle = \delta(0)$ è infinito, quindi non stanno davvero in $L^2$. Sono autostati «generalizzati», che si usano come strumenti di calcolo e non come stati fisici. Una particella reale è sempre un pacchetto $\psi(x)$ con norma finita. Questo verrà precisato più avanti.</p></div>
+
+<aside class="book" data-l="pi" data-p="119"><div class="tag">Nei libri · Picasso §6.4, pp. 118-119</div><p>La risposta al punto interrogativo del professore: $\hat q$ non ha autovettori nello spazio di Hilbert. Una traslazione unitaria manderebbe un autovettore $|x\rangle$ in uno con autovalore $x + a$ per ogni $a$ reale: un continuo di autovalori, impossibile in uno spazio separabile. I $|x\rangle$ sono autovettori impropri.</p></aside>
+<aside class="book" data-l="sa" data-p="29"><div class="tag">Nei libri · Sakurai §1.6</div><p>Il rivelatore reale: non scatta solo in un punto esatto ma in una finestra $\Delta$, e la probabilità che scatti è $|\langle x'|\alpha\rangle|^2\,dx'$. La funzione d'onda dà una densità; la probabilità richiede un intervallo.</p></aside>
+
+<div class="tbl"><table>
+  <thead><tr><th>Oggetto astratto</th><th>In una base discreta</th><th>Nella base delle posizioni</th><th>Se cambio base</th></tr></thead>
+  <tbody>
+    <tr><td>Stato $|\psi\rangle$</td><td>colonna $c_i$</td><td>funzione $\psi(x)$</td><td>$c' = U c$</td></tr>
+    <tr><td>Operatore $A$</td><td>matrice $A_{ij}$</td><td>(prossima lezione)</td><td>$A' = UAU^\dagger$</td></tr>
+    <tr><td>Prodotto scalare</td><td>$\sum_i c_i^*d_i$</td><td>$\int \chi^*\psi\,dx$</td><td>non cambia ($U$ unitaria)</td></tr>
+    <tr><td>Probabilità</td><td>$|c_i|^2$</td><td>$|\psi(x)|^2\,dx$</td><td>dipende dalla domanda, non dalla lingua</td></tr>
+  </tbody>
+</table></div>
+<p class="ref">A inizio lezione (p. 45) il professore ha accennato alla teoria dell'onda pilota di Bohm, alle variabili nascoste e alle disuguaglianze di Bell come argomenti da approfondire; qui non li tratto.</p>
+
+<div class="check">
+  <h2 id="s12" data-toc="Per verificare di aver capito">Per verificare di aver capito</h2>
+  <p>Lo stato circolare è $|R\rangle = \tfrac{1}{\sqrt2}\big(|H\rangle + i|V\rangle\big)$. Usando la matrice $U$ del paragrafo 4, trova le sue coordinate nella base $\{D, \bar D\}$. Poi controlla che le probabilità dei due risultati sommino a 1. Infine chiediti: stai usando il punto di vista attivo o quello passivo?</p>
+</div>
+<nav class="pager"><a href="postulati.html"><small>← Indietro</small>Lezione 1 · Postulati</a><a class="next" href="evoluzione.html"><small>Avanti →</small>Lezione 3 · Evoluzione</a></nav></article></div></div></body></html>
