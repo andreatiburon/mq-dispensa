@@ -95,6 +95,10 @@ strong, b { font-weight: 700; }
 .trap p { margin: 0; }
 .note { background-color: var(--paper); background-image: radial-gradient(circle, var(--dot) 1.15px, transparent 1.55px), radial-gradient(circle, var(--dot) 1.15px, transparent 1.55px); background-size: 6px 6px; background-position: 0 0, 3px 3px; padding: 14px 18px; margin: 22px 0; max-width: 66ch; }
 .note p { margin: 0; }
+/* l'idea in parole semplici, in apertura di sezione nel percorso parallelo */
+.idea { margin: 16px 0 24px; padding: 12px 18px 13px; border-left: 3px solid var(--par); background: var(--paper-2); max-width: 66ch; }
+.idea .tag { font: 600 11px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--par); margin-bottom: 4px; }
+.idea p { margin: 0; }
 
 /* tabelle */
 .tbl { overflow-x: auto; margin: 20px 0; max-width: 66ch; }
