@@ -614,7 +614,131 @@
     T.oninput = Cm.onchange = draw; draw(); ridisegna(draw); var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 150); });
   }
 
-  var LABS = { hero: hero, malus: malus, born: born, fasori: fasori, base: base, corda: corda, bohm: bohm, scatola: scatola, chsh: chsh, grw: grw, rami: rami, discreto: discreto, ordine: ordine };
+  /* =====================================================================
+     LABORATORI DELLA LEZIONE 4 (simmetrie)
+     ===================================================================== */
+
+  /* ---------- 14. Il flusso di un generatore nello spazio delle fasi ----------
+     Flussi esatti (unità con m = ω = 1): G = p → (q + α, p); G = q → (q, p − α);
+     G = H libera (H = p²/2) → (q + αp, p); G = H oscillatore (H = (q² + p²)/2) → rotazione oraria di α.
+     Al primo ordine δH = α{H, G}, con {H, p} = ∂H/∂q, {H, q} = −∂H/∂p, {H, H} = 0. */
+  function flusso(el) {
+    var u = el.id || "flu";
+    el.innerHTML = '<div class="cols"><canvas aria-label="Piano delle fasi con le orbite di H e una macchia di punti trasportata dal flusso del generatore"></canvas><div>' +
+      '<div class="ctl"><label for="' + u + 'h">Hamiltoniana</label><select id="' + u + 'h"><option value="osc">oscillatore, H = (q² + p²)/2</option><option value="lib">particella libera, H = p²/2</option></select></div>' +
+      '<div class="ctl"><label for="' + u + 'g">Generatore G</label><select id="' + u + 'g"><option value="p">G = p (traslazione)</option><option value="q">G = q (spinta all\'impulso)</option><option value="H">G = H (evoluzione nel tempo)</option></select></div>' +
+      slider(u + "a", "Parametro α", -200, 200, 80, "") + '<div class="num"></div></div></div>';
+    var cv = el.querySelector("canvas"), Hs = el.querySelector("#" + u + "h"), Gs = el.querySelector("#" + u + "g"), A = el.querySelector("#" + u + "a"), num = el.querySelector(".num");
+    var Q0 = -1.2, P0 = 0.9, RB = 0.35, XM = 3;
+    function H(q, p) { return Hs.value === "osc" ? (q * q + p * p) / 2 : p * p / 2; }
+    function mappa(q, p, a) {
+      var g = Gs.value;
+      if (g === "p") return [q + a, p];
+      if (g === "q") return [q, p - a];
+      if (Hs.value === "lib") return [q + a * p, p];
+      return [q * Math.cos(a) + p * Math.sin(a), -q * Math.sin(a) + p * Math.cos(a)];
+    }
+    function HG(q, p) { var g = Gs.value; if (g === "H") return 0; if (g === "p") return Hs.value === "osc" ? q : 0; return -p; }
+    function area(pts) { var s = 0; for (var i = 0; i < pts.length; i++) { var a = pts[i], b = pts[(i + 1) % pts.length]; s += a[0] * b[1] - b[0] * a[1]; } return Math.abs(s) / 2; }
+    function draw() {
+      var a = A.value / 100, S = fit(cv, 320), g = S.g, lato = Math.min(S.w - 20, S.h - 20), x0 = (S.w - lato) / 2, y0 = (S.h - lato) / 2;
+      var X = function (q) { return x0 + (q + XM) / (2 * XM) * lato; }, Y = function (p) { return y0 + (XM - p) / (2 * XM) * lato; };
+      g.clearRect(0, 0, S.w, S.h);
+      g.strokeStyle = alfa(C.ink, .5); g.lineWidth = 1; g.beginPath(); g.moveTo(X(-XM), Y(0)); g.lineTo(X(XM), Y(0)); g.moveTo(X(0), Y(-XM)); g.lineTo(X(0), Y(XM)); g.stroke();
+      g.fillStyle = C.muted; g.font = "12px " + MONO; g.fillText("q", X(XM) - 12, Y(0) - 6); g.fillText("p", X(0) + 6, Y(XM) + 12);
+      /* orbite: livelli di H */
+      g.strokeStyle = alfa(C.ink, .22);
+      if (Hs.value === "osc") { for (var r = 0.5; r <= 3.01; r += 0.5) { g.beginPath(); g.arc(X(0), Y(0), r / (2 * XM) * lato, 0, 6.2832); g.stroke(); } }
+      else { for (var pl = -2.5; pl <= 2.51; pl += 0.5) { g.beginPath(); g.moveTo(X(-XM), Y(pl)); g.lineTo(X(XM), Y(pl)); g.stroke(); } }
+      /* l'orbita del centro, prima (tratteggio) e dopo (rosso) */
+      var c1 = mappa(Q0, P0, a);
+      function orbita(q, p, col, dash) {
+        g.strokeStyle = col; g.lineWidth = 1.6; g.setLineDash(dash); g.beginPath();
+        if (Hs.value === "osc") g.arc(X(0), Y(0), Math.hypot(q, p) / (2 * XM) * lato, 0, 6.2832); else { g.moveTo(X(-XM), Y(p)); g.lineTo(X(XM), Y(p)); }
+        g.stroke(); g.setLineDash([]);
+      }
+      orbita(Q0, P0, alfa(C.ink, .7), [5, 4]); orbita(c1[0], c1[1], C.amber, []);
+      /* il cammino del centro sotto il flusso */
+      g.strokeStyle = C.teal; g.lineWidth = 2; g.beginPath();
+      for (var k = 0; k <= 60; k++) { var m = mappa(Q0, P0, a * k / 60); k ? g.lineTo(X(m[0]), Y(m[1])) : g.moveTo(X(m[0]), Y(m[1])); } g.stroke();
+      /* la macchia: bordo iniziale e punti trasportati */
+      var bordo0 = [], bordo1 = [];
+      for (var j = 0; j < 48; j++) { var th = j / 48 * 6.2832, q = Q0 + RB * Math.cos(th), p = P0 + RB * Math.sin(th); bordo0.push([q, p]); bordo1.push(mappa(q, p, a)); }
+      g.strokeStyle = alfa(C.ink, .6); g.lineWidth = 1; g.beginPath(); bordo0.forEach(function (b, i) { i ? g.lineTo(X(b[0]), Y(b[1])) : g.moveTo(X(b[0]), Y(b[1])); }); g.closePath(); g.stroke();
+      g.fillStyle = retino(g, C.amber, 3.2, 1.1); g.beginPath(); bordo1.forEach(function (b, i) { i ? g.lineTo(X(b[0]), Y(b[1])) : g.moveTo(X(b[0]), Y(b[1])); }); g.closePath(); g.fill();
+      g.strokeStyle = C.amber; g.lineWidth = 1.6; g.stroke();
+      g.fillStyle = C.amber; g.beginPath(); g.arc(X(c1[0]), Y(c1[1]), 3.5, 0, 6.2832); g.fill();
+      var h0 = H(Q0, P0), h1 = H(c1[0], c1[1]), lin = a * HG(Q0, P0), simm = Gs.value === "H" || (Gs.value === "p" && Hs.value === "lib");
+      el.querySelector("#" + u + "a-o").textContent = a.toFixed(2);
+      num.innerHTML = 'H prima = ' + f3(h0) + ' · H dopo = ' + f3(h1) + '<br>δH esatto = <b>' + f3(h1 - h0) + '</b> · primo ordine α{H,G} = ' + f3(lin) +
+        '<br>area della macchia: ' + f3(area(bordo0)) + ' → ' + f3(area(bordo1)) +
+        '<br>' + (simm ? '<span class="t">{G, H} = 0: è una simmetria, la macchia resta sulle sue orbite e G si conserva</span>' : '<span class="w">{G, H} ≠ 0: non è una simmetria, la macchia cambia orbita e G non si conserva</span>');
+    }
+    Hs.onchange = Gs.onchange = A.oninput = draw; draw(); ridisegna(draw); var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 150); });
+  }
+
+  /* ---------- 15. La parità si conserva: l'esercizio di p. 54 con l'oscillatore armonico ----------
+     ħ = m = ω = 1, E_n = n + 1/2, φ_n = π^(−1/4) (2^n n!)^(−1/2) H_n(x) e^(−x²/2).
+     ψ(0) = c₁ (φ₀ + φ₂)/√2 + c₂ (φ₁ + φ₃)/√2, con c₁ = √w, c₂ = √(1 − w).
+     P(Π = +1) = ∫ |(ψ(x) + ψ(−x))/2|² dx, calcolata dalla funzione d'onda a ogni istante. */
+  function parita(el) {
+    var u = el.id || "par";
+    el.innerHTML = '<canvas aria-label="Densità di probabilità di un oscillatore armonico che evolve nel tempo, con le probabilità della parità"></canvas><div class="cols" style="margin-top:10px"><div>' +
+      slider(u + "w", "Peso della parte pari |c₁|²", 0, 100, 60, "%") + slider(u + "t", "Tempo t (periodo 2π)", 0, 628, 0, "") +
+      '<div class="ctl"><button type="button" id="' + u + 'b">▶ fai scorrere il tempo</button></div></div><div class="num"></div></div>';
+    var cv = el.querySelector("canvas"), W = el.querySelector("#" + u + "w"), Tt = el.querySelector("#" + u + "t"), B = el.querySelector("#" + u + "b"), num = el.querySelector(".num");
+    var XM = 4.5, NX = 361, xs = [], phi = [[], [], [], []];
+    for (var i = 0; i < NX; i++) {
+      var x = -XM + 2 * XM * i / (NX - 1), e = Math.exp(-x * x / 2) * Math.pow(Math.PI, -0.25), Hn = [1, 2 * x, 4 * x * x - 2, 8 * x * x * x - 12 * x], nf = [1, 1, 2, 6];
+      xs.push(x); for (var n = 0; n < 4; n++) phi[n].push(e * Hn[n] / Math.sqrt(Math.pow(2, n) * nf[n]));
+    }
+    var DX = 2 * XM / (NX - 1), STORIA = 240;
+    function stato(t, w) {
+      var c = [Math.sqrt(w / 2), Math.sqrt((1 - w) / 2), Math.sqrt(w / 2), Math.sqrt((1 - w) / 2)], re = [], im = [];
+      for (var i = 0; i < NX; i++) { var r = 0, m = 0; for (var n = 0; n < 4; n++) { var f = -(n + 0.5) * t; r += c[n] * phi[n][i] * Math.cos(f); m += c[n] * phi[n][i] * Math.sin(f); } re.push(r); im.push(m); }
+      return { re: re, im: im };
+    }
+    function misure(s) {
+      var rho = [], xm = 0, pp = 0;
+      for (var i = 0; i < NX; i++) { var d = s.re[i] * s.re[i] + s.im[i] * s.im[i], j = NX - 1 - i, er = (s.re[i] + s.re[j]) / 2, ei = (s.im[i] + s.im[j]) / 2; rho.push(d); xm += xs[i] * d * DX; pp += (er * er + ei * ei) * DX; }
+      return { rho: rho, x: xm, pari: pp };
+    }
+    var raf = 0, vai = false, ult = 0, visibile = true, cache = null;
+    function draw() {
+      var w = W.value / 100, t = Tt.value / 100, S = fit(cv, 330), g = S.g, L = 34, R = S.w - 10, top = 14, base = 196, W2 = R - L;
+      var X = function (x) { return L + (x + XM) / (2 * XM) * W2; };
+      g.clearRect(0, 0, S.w, S.h);
+      var M = misure(stato(t, w)), rmax = 0.75;
+      mezzatinta(g, L, top, W2, base - top, 6, function (px, py) { var i = Math.round((px - L) / W2 * (NX - 1)); if (i < 0 || i >= NX) return 0; return py >= base - Math.min(1, M.rho[i] / rmax) * (base - top) ? 0.85 : 0; }, alfa(C.ink, .35), 2.4);
+      g.strokeStyle = C.amber; g.lineWidth = 2; g.beginPath(); M.rho.forEach(function (d, i) { var yy = base - Math.min(1, d / rmax) * (base - top); i ? g.lineTo(X(xs[i]), yy) : g.moveTo(X(xs[i]), yy); }); g.stroke();
+      g.strokeStyle = alfa(C.ink, .55); g.setLineDash([4, 4]); g.lineWidth = 1; g.beginPath(); g.moveTo(X(0), top); g.lineTo(X(0), base); g.stroke(); g.setLineDash([]);
+      g.strokeStyle = alfa(C.ink, .5); g.beginPath(); g.moveTo(L, base); g.lineTo(R, base); g.stroke();
+      g.fillStyle = C.ink; g.beginPath(); g.moveTo(X(M.x), base + 2); g.lineTo(X(M.x) - 5, base + 10); g.lineTo(X(M.x) + 5, base + 10); g.fill();
+      g.fillStyle = C.muted; g.font = "11px " + MONO; g.fillText("|ψ(x,t)|²", L + 4, top + 10); g.fillText("x = 0: specchio della parità", X(0) + 6, top + 24); g.fillText("⟨x⟩", X(M.x) + 8, base + 12);
+      /* striscia in basso: ⟨x⟩(t) e P(Π = +1)(t) su due periodi */
+      var y1 = 222, y2 = S.h - 8, mid = (y1 + y2) / 2, amp = (y2 - y1) / 2;
+      g.strokeStyle = alfa(C.ink, .25); g.strokeRect(L, y1, W2, y2 - y1);
+      if (!cache || cache.w !== w) { cache = { w: w, m: [] }; for (var kk = 0; kk <= STORIA; kk++) cache.m.push(misure(stato(4 * Math.PI * kk / STORIA, w))); }
+      var serie = function (fn, col, wd) { g.strokeStyle = col; g.lineWidth = wd; g.beginPath(); for (var k = 0; k <= STORIA; k++) { var v = fn(cache.m[k]), yy = mid - v * amp; k ? g.lineTo(L + W2 * k / STORIA, yy) : g.moveTo(L + W2 * k / STORIA, yy); } g.stroke(); };
+      serie(function (m) { return m.x / 1.6; }, C.ink, 1.4);
+      serie(function (m) { return 2 * m.pari - 1; }, C.teal, 2.4);
+      var xt = L + W2 * (t % (4 * Math.PI)) / (4 * Math.PI); g.strokeStyle = C.amber; g.lineWidth = 1.5; g.beginPath(); g.moveTo(xt, y1); g.lineTo(xt, y2); g.stroke();
+      g.fillStyle = C.muted; g.fillText("verde: P(Π = +1) · nero: ⟨x⟩ · su due periodi", L + 10, y1 + 12);
+      el.querySelector("#" + u + "w-o").textContent = W.value + "%"; el.querySelector("#" + u + "t-o").textContent = t.toFixed(2);
+      var EH = w * 1.5 + (1 - w) * 2.5;
+      num.innerHTML = 'P(Π = +1) = <b>' + f3(M.pari) + '</b> · P(Π = −1) = ' + f3(1 - M.pari) + '<br>⟨x⟩ = ' + f3(M.x) + ' · ⟨H⟩ = ' + f3(EH) + ' (costante: H commuta con H)' +
+        '<br><span class="t">' + (w > 0.995 || w < 0.005 ? 'autostato della parità: la densità si muove ma resta simmetrica, e ⟨x⟩ = 0' : 'la densità oscilla, ⟨x⟩ cambia, ma la distribuzione della parità resta |c₁|², |c₂|²') + '</span>';
+    }
+    function passo(ts) { if (!vai) return; if (ult) { var v = +Tt.value + (ts - ult) * 0.12; Tt.value = v > 628 ? v - 628 : v; } ult = ts; if (visibile) draw(); raf = requestAnimationFrame(passo); }
+    function play(on) { vai = on; ult = 0; B.textContent = on ? "❚❚ ferma il tempo" : "▶ fai scorrere il tempo"; cancelAnimationFrame(raf); if (on) raf = requestAnimationFrame(passo); }
+    B.onclick = function () { play(!vai); };
+    W.oninput = draw; Tt.oninput = function () { play(false); draw(); };
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visibile = es[0].isIntersecting; }).observe(el);
+    draw(); ridisegna(draw); var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 150); });
+    if (!RIDOTTO) play(true);
+  }
+
+  var LABS = { hero: hero, malus: malus, born: born, fasori: fasori, base: base, corda: corda, bohm: bohm, scatola: scatola, chsh: chsh, grw: grw, rami: rami, discreto: discreto, ordine: ordine, flusso: flusso, parita: parita };
   function avvia() {
     leggi(); filetti(); libri(); indice();
     if (window.matchMedia) { var mq = matchMedia("(prefers-color-scheme: dark)"); if (mq.addEventListener) mq.addEventListener("change", temaCambiato); }

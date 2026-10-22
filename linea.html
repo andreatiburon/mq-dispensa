@@ -180,7 +180,7 @@ window.MathJax = { tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]] 
    Riferimenti ai libri: { l: "sh"|"sa"|"pi"|"we", p: pagina del PDF, s: sezione, t: che cosa aggiunge }.
    Pagine del quaderno: qp = prima pagina (apre Goodnotes a quella pagina).
    ===================================================================== */
-const AGGIORNATO = "19 ottobre 2026 · quaderno fino a p. 50";
+const AGGIORNATO = "22 ottobre 2026 · quaderno fino a p. 56";
 const RADICE_LIBRI = "file:///Volumes/T7/claude/raw/libri/";
 const IN_DISPENSA = true;   /* il build della dispensa lo mette a true: i link alle pagine «Oltre Copenhagen» diventano interni */
 const DISPENSA = "index.html";
@@ -198,6 +198,7 @@ const PAGINE_WEB = {
   postulati: ["Spiegazione: postulati", "postulati.html"],
   rappr: ["Spiegazione: rappresentazioni", "rappresentazioni.html"],
   evoluzione: ["Spiegazione: evoluzione temporale", "evoluzione.html"],
+  simmetrie: ["Spiegazione: simmetrie", "simmetrie.html"],
 };
 const EPOCHE = [
   { id: 1, titolo: "Perché serve una teoria nuova" },
@@ -206,7 +207,8 @@ const EPOCHE = [
   { id: 4, titolo: "Più osservabili insieme" },
   { id: 5, titolo: "Rappresentazioni" },
   { id: 6, titolo: "Evoluzione temporale" },
-  { id: 7, titolo: "Prossime lezioni", prossime: true }
+  { id: 7, titolo: "Simmetrie" },
+  { id: 8, titolo: "Prossime lezioni", prossime: true }
 ];
 const R = String.raw;
 const NODI = [
@@ -498,7 +500,7 @@ const NODI = [
   { id: "b-fasex", tipo: "deep", da: "t21", lato: "giu", breve: "Stesso |ψ|, stato diverso", titolo: "Stesso |ψ(x)|, stato diverso",
     idea: R`<p>Le funzioni d'onda $\psi(x)$ ed $e^{i\varphi(x)}\psi(x)$, con $\varphi$ reale non costante, hanno lo stesso modulo: nessuna misura di posizione le distingue. Ma sono stati diversi, perché per esempio danno un diverso valor medio dell'impulso.</p><p>È la lezione delle fasi relative nella sua versione continua: ogni punto $x$ è un vettore di base, e una fase che cambia da punto a punto è una fase relativa tra componenti.</p>`,
     libri: [{ l: "pi", p: 130, s: "§6.6-6.7", t: "Interpretazione fisica delle rappresentazioni di Schrödinger e degli impulsi." }] },
-  /* ---------------- EPOCA 6: prossime lezioni ---------------- */
+  /* ---------------- EPOCA 6: evoluzione temporale ---------------- */
   { id: "t22", tipo: "main", ep: 5, breve: "Posizione discretizzata", titolo: "La posizione discretizzata: proiettori su intervalli", qp: 48,
     domanda: R`Come si tratta un operatore con spettro continuo usando solo strumenti discreti?`,
     filo: R`La base delle posizioni ha autovettori impropri: per dare un senso a «trovare la particella in $x$» si usano intervalli di larghezza $\varepsilon$.`,
@@ -557,12 +559,96 @@ const NODI = [
     idea: R`<p>Iterando $U(t)=\mathbb 1-i\int_{t_0}^tK(t_1)U(t_1)\,dt_1$ si ottengono integrali su tempi ordinati, $t\ge t_1\ge t_2\ge\dots\ge t_m\ge t_0$: una regione (simplesso) che è $1/m!$ del cubo $[t_0,t]^m$. Con l'ordinamento $T$ l'integrando diventa simmetrico nei tempi, e l'integrale sul cubo conta ogni ordine $m!$ volte.</p>`,
     formula: R`$$\int_{t_0}^{t}\!dt_1\int_{t_0}^{t_1}\!dt_2\cdots K(t_1)K(t_2)\cdots=\frac{1}{m!}\int_{[t_0,t]^m}\!dt_1\cdots dt_m\;T\big(K(t_1)\cdots K(t_m)\big)$$`,
     libri: [{ l: "sa", p: 44, s: "§2.1", t: "La serie di Dyson." }] },
-  { id: "t27", tipo: "main", ep: 7, futura: true, breve: "Simmetrie quantistiche", titolo: "Prossima tappa: le simmetrie in meccanica quantistica", qp: 50,
+  /* ---------------- EPOCA 7: simmetrie (quaderno pp. 50-56) ---------------- */
+  { id: "t27", tipo: "main", ep: 7, breve: "Noether", titolo: "Simmetrie della dinamica e teorema di Noether", qp: 51,
+    domanda: R`Quando una trasformazione è una simmetria, e che cosa se ne guadagna?`,
+    filo: R`Dopo le trasformazioni passive (cambi di coordinate) servono quelle attive, che spostano davvero il sistema.`,
+    idea: R`<p>Una trasformazione <b>attiva</b> sposta il punto $\{q\}$ in $\{Q\}$ nello stesso sistema di coordinate: la lagrangiana ha la stessa forma ma in generale un valore diverso. Ha senso solo per trasformazioni «regolari», che conservano l'intervallo delle coordinate (traslazioni e rotazioni sì, passaggio alle polari no). È una <b>simmetria</b> se lascia invarianti le equazioni del moto: $L(Q,\dot Q)=L(q,\dot q)+\frac{d}{dt}K$, perché una derivata totale cambia l'azione di una costante.</p><p><b>Noether:</b> ogni simmetria continua dà una quantità conservata. Traslazioni → impulso totale; rotazioni → momento angolare; traslazioni temporali → energia.</p>`,
+    formula: R`$$q_i\to q_i+\varepsilon\,\eta_i(q),\quad \delta L=0\ \Longrightarrow\ \frac{d}{dt}\Big(\sum_i p_i\,\eta_i\Big)=0$$`,
+    passi: R`<ol><li>$0=\delta L=\varepsilon\sum_i\big(\frac{\partial L}{\partial q_i}\eta_i+\frac{\partial L}{\partial\dot q_i}\dot\eta_i\big)$.</li><li>Eulero-Lagrange: $\frac{\partial L}{\partial q_i}=\dot p_i$, quindi $0=\varepsilon\sum_i(\dot p_i\eta_i+p_i\dot\eta_i)=\varepsilon\frac{d}{dt}\sum_i p_i\eta_i$.</li></ol>`,
+    esempio: R`<p>Rotazione attorno a $z$: $\delta x=-\varepsilon y$, $\delta y=\varepsilon x$. La quantità conservata è $p_x(-y)+p_y x=L_z$.</p>`,
+    verifica: R`Perché aggiungere a $L$ una derivata totale $\frac{dK}{dt}$ non cambia le equazioni del moto?`,
+    risposta: R`L'azione cambia di $K(q_2,t_2)-K(q_1,t_1)$, che dipende solo dagli estremi, fissati nel principio di minima azione: è la stessa costante per tutti i cammini, quindi il cammino stazionario non cambia.`,
+    libri: [{ l: "sh", p: 115, s: "§2.7", t: "Trasformazioni passive, attive e regolari." }, { l: "sh", p: 116, s: "§2.8", t: "Simmetrie discrete e continue e loro conseguenze." }], web: ["simmetrie"] },
+  { id: "t28", tipo: "main", ep: 7, breve: "Canoniche e generatori", titolo: "Trasformazioni canoniche: il generatore G e H che genera il tempo", qp: 51,
+    domanda: R`Qual è la versione hamiltoniana di Noether?`,
+    filo: R`Le equazioni di Hamilton non sono invarianti in forma per ogni cambio di variabili: servono le trasformazioni canoniche.`,
+    idea: R`<p>Una trasformazione è <b>canonica</b> se conserva le parentesi di Poisson fondamentali, $\{Q_i,P_j\}=\delta_{ij}$. Una canonica infinitesima è generata da una funzione $G(q,p)$: $\delta f=\alpha\{f,G\}$. Se $H$ è invariante, $\delta H=\alpha\{H,G\}=0$, e siccome $\dot G=\{G,H\}$, $G$ si conserva. Il flusso di $G$ obbedisce alle equazioni di Hamilton con $G$ al posto di $H$: <b>$H$ è il generatore dell'evoluzione temporale</b>, vista come una trasformazione canonica attiva.</p>`,
+    formula: R`$$\delta q_i=\alpha\frac{\partial G}{\partial p_i},\quad \delta p_i=-\alpha\frac{\partial G}{\partial q_i},\qquad \delta H=\alpha\{H,G\},\qquad \frac{dG}{dt}=\{G,H\}$$`,
+    esempio: R`<p>$G=p$ genera le traslazioni ($\delta q=\alpha$); $G=L_z$ le rotazioni; $G=H$ il moto stesso. Per l'oscillatore $\{p,H\}=-m\omega^2q\ne0$: la traslazione non è una simmetria, perché la molla ha un centro.</p>`,
+    trappola: R`<p>Negli appunti (p. 52) mancano due segni meno: $\frac{dP_i}{d\alpha}=-\frac{\partial G}{\partial Q_i}$ e $\dot P_i=-\frac{\partial H}{\partial Q_i}$.</p>`,
+    verifica: R`Verifica che $Q=q$, $P=2p$ non è canonica.`,
+    risposta: R`$\{Q,P\}=\{q,2p\}=2\ne1$. Infatti $\bar H(Q,P)=H(Q,P/2)$ e $\dot Q=\partial H/\partial p=2\,\partial\bar H/\partial P$: compare un fattore 2 che nelle equazioni di Hamilton non c'è.`,
+    libri: [{ l: "sh", p: 110, s: "§2.7", t: "Parentesi di Poisson e trasformazioni canoniche." }, { l: "sh", p: 117, s: "§2.8", t: "Il generatore conservato; l'evoluzione come trasformazione canonica attiva (p. 119)." }], web: ["simmetrie"] },
+  { id: "t29", tipo: "main", ep: 7, breve: "Teorema di Wigner", titolo: "Le simmetrie quantistiche: il teorema di Wigner", qp: 53,
     domanda: R`Come diventa una simmetria quando gli stati sono raggi?`,
-    filo: R`La lezione si ferma sulle simmetrie lagrangiane; il passo successivo, nel Ballentine, è il teorema di Wigner.`,
-    idea: R`<p>Questa tappa si riempirà con le prossime lezioni. Nei libri: una simmetria conserva le probabilità $|\langle\phi|\psi\rangle|^2$; per il teorema di Wigner è rappresentata da un operatore unitario o antiunitario; i generatori delle traslazioni spaziali e temporali sono impulso ed energia.</p>`,
-    libri: [{ l: "ba", p: 78, s: "§3.1", t: "Teorema di Wigner." }, { l: "ba", p: 83, s: "§3.3", t: "I generatori del gruppo di Galileo." }, { l: "sa", p: 29, s: "§1.6", t: "Le traslazioni." }], web: [] },
-  { id: "b-trasl", tipo: "book", da: "t27", lato: "su", futura: true, breve: "L'impulso genera le traslazioni", titolo: "L'impulso genera le traslazioni",
+    filo: R`Le operazioni di laboratorio (ruotare, traslare) devono lasciare invariate le probabilità.`,
+    idea: R`<p>Trasformando insieme sistema ($|\psi'\rangle=U|\psi\rangle$) e apparato ($|a'\rangle=U|a\rangle$) le probabilità non cambiano: $|(\chi,\psi)|=|(U\chi,U\psi)|$ per ogni coppia. <b>Wigner:</b> una trasformazione così è realizzata da un $U$ unitario e lineare oppure antiunitario e antilineare. Le trasformazioni continue sono unitarie; l'esempio antiunitario è l'inversione temporale.</p><p>Una famiglia continua ha un generatore hermitiano: $U(\alpha)=\mathbb 1-i\alpha T+O(\alpha^2)$, $U(\alpha)=e^{-i\alpha T}$.</p>`,
+    formula: R`$$|(U\chi,U\psi)|=|(\chi,\psi)|\ \Rightarrow\ U\ \text{unitario o antiunitario};\qquad U(\alpha)=\lim_{N\to\infty}\Big(\mathbb 1-i\frac{\alpha}{N}T\Big)^N=e^{-i\alpha T}$$`,
+    esempio: R`<p>Ruotare la polarizzazione di $\varphi$ è $e^{-i\varphi\sigma_y}$: il generatore è $\sigma_y$, i cui autostati sono le polarizzazioni circolari (elicità $\pm1$).</p>`,
+    trappola: R`<p>Negli appunti il limite è scritto $e^{i\alpha T}$: con il meno dentro la parentesi è $e^{-i\alpha T}$.</p>`,
+    verifica: R`Perché una trasformazione continua non può essere antiunitaria?`,
+    risposta: R`Perché $U(\alpha)=U(\alpha/2)\,U(\alpha/2)$ e il prodotto di due operatori antilineari è lineare.`,
+    libri: [{ l: "we", p: 99, s: "§3.4", t: "Il teorema di Wigner; la dimostrazione è nel Weinberg di QFT, vol. 1, pp. 91-96." }, { l: "ba", p: 78, s: "§3.1", t: "Trasformazioni di stati e osservabili." }], web: ["simmetrie"] },
+  { id: "t30", tipo: "main", ep: 7, breve: "[T, K] = 0", titolo: "Simmetrie della dinamica: il generatore commuta con H", qp: 53,
+    domanda: R`Quando una trasformazione unitaria rispetta l'evoluzione nel tempo?`,
+    filo: R`Come in meccanica classica: le soluzioni dell'equazione del moto devono andare in soluzioni.`,
+    idea: R`<p>Se $|\psi(t)\rangle$ risolve $i\frac{d}{dt}|\psi\rangle=K|\psi\rangle$, anche $U|\psi(t)\rangle$ la risolve se e solo se $U^\dagger KU=K$, cioè $[U,K]=0$. Per una famiglia continua equivale a $[T,K]=0$. Detto in altro modo: trasformare e poi evolvere è come evolvere e poi trasformare, $U^\dagger U(t,t_0)U=U(t,t_0)$: le leggi sono le stesse nel laboratorio trasformato.</p><p>Attivo e passivo: trasformare lo stato con $U$ equivale a trasformare le osservabili con $A\to U^\dagger AU$, cioè l'apparato con l'inverso.</p>`,
+    formula: R`$$U^\dagger KU=K\iff[U,K]=0\iff[T,K]=0\iff[U,U(t,t_0)]=0$$`,
+    passi: R`<ol><li>$i\frac{d}{dt}(U|\psi\rangle)=U\,i\frac{d}{dt}|\psi\rangle=UK|\psi\rangle$.</li><li>Perché sia $KU|\psi\rangle$ per ogni $|\psi\rangle$ serve $UK=KU$.</li><li>Con $U=\mathbb 1-i\alpha T$: $[U,K]=-i\alpha[T,K]+O(\alpha^2)$.</li></ol>`,
+    esempio: R`<p>Una lamina birifrangente ha $K\propto\sigma_z$. Gli sfasamenti $e^{-i\alpha\sigma_z}$ sono simmetrie; le rotazioni $e^{-i\varphi\sigma_y}$ no, perché $[\sigma_y,\sigma_z]\neq0$.</p>`,
+    trappola: R`<p>Nella riga rossa di p. 53 i fattori sono nei posti sbagliati: si moltiplica a sinistra per $U^\dagger$ e si ottiene $i\frac{d}{dt}|\psi\rangle=U^\dagger KU|\psi\rangle$.</p>`,
+    verifica: R`Con $|a'\rangle=U^\dagger|a\rangle$, mostra che $\langle a'|\psi\rangle=\langle a|U|\psi\rangle$.`,
+    risposta: R`Il bra di $U^\dagger|a\rangle$ è $\langle a|U$, perché l'aggiunto di $U^\dagger$ è $U$. Quindi $\langle a'|\psi\rangle=\langle a|U|\psi\rangle$: stessa ampiezza, non solo stesso modulo.`,
+    libri: [{ l: "ba", p: 107, s: "§3.8", t: "$UHU^{-1}=H$ per ogni $s$ equivale a $[H,K]=0$." }, { l: "sh", p: 47, s: "§1.7", t: "Trasformazioni attive e passive." }], web: ["simmetrie"] },
+  { id: "t31", tipo: "main", ep: 7, breve: "Costanti del moto", titolo: "Il generatore è una costante del moto; il Postulato 5", qp: 54,
+    domanda: R`Che cosa si conserva quando c'è una simmetria?`,
+    filo: R`È il Noether quantistico: il generatore della simmetria è la grandezza conservata.`,
+    idea: R`<p>Se $[T,K]=0$, allora $\frac{d}{dt}\langle T\rangle=i\langle[K,T]\rangle=0$ per ogni stato; un autostato di $T$ resta autostato con lo stesso autovalore, e tutta la distribuzione di $T$ è costante. <b>Postulato 5:</b> i generatori delle simmetrie sono proporzionali alle osservabili conservate, con costante $\hbar$. Per il tempo: $K=H/\hbar$, $U(t,t_0)=e^{-iH(t-t_0)/\hbar}$; le traslazioni temporali commutano tra loro.</p>`,
+    formula: R`$$\frac{d}{dt}\langle T\rangle=\frac{i}{\hbar}\langle[H,T]\rangle,\qquad T|\lambda(t)\rangle=\lambda|\lambda(t)\rangle,\qquad K=\frac{H}{\hbar}$$`,
+    esempio: R`<p>Esercizio di p. 54: con $|\psi\rangle=c_1|\lambda_1\rangle+c_2|\lambda_2\rangle$ l'evoluto è $c_1|\lambda_1(t)\rangle+c_2|\lambda_2(t)\rangle$ e $P(\lambda_i)=|c_i|^2$ resta costante.</p>`,
+    trappola: R`<p>Costante del moto e stato stazionario sono cose diverse: la prima è un operatore che commuta con $H$, il secondo uno stato autostato di $H$, in cui sono costanti i valori medi di tutto.</p>`,
+    verifica: R`Analisi dimensionale: perché la costante tra $K$ e $H$ è un'azione?`,
+    risposta: R`$K(t-t_0)$ è adimensionale, quindi $[K]=1/\text{tempo}$; $[H]=$ energia; la costante ha dimensioni $1/(\text{energia}\cdot\text{tempo})$, cioè $1/\text{azione}$: $K=H/\hbar$.`,
+    libri: [{ l: "ba", p: 108, s: "§3.8", t: "Costante del moto: media e distribuzione indipendenti dal tempo per ogni stato." }, { l: "ba", p: 109, s: "§3.8", t: "Costante del moto contro stato stazionario." }], web: ["simmetrie"] },
+  { id: "t32", tipo: "main", ep: 7, breve: "Stati stazionari", titolo: "Risolvere Schrödinger nella base dell'hamiltoniana", qp: 54,
+    domanda: R`Come si applica davvero $e^{-iHt/\hbar}$ a un ket?`,
+    filo: R`L'operatore di evoluzione è una funzione di $H$: si calcola nella base degli autoket dell'energia.`,
+    idea: R`<p>Un autoket dell'energia cambia solo di fase: $e^{-iH(t-t_0)/\hbar}|E\rangle=e^{-iE(t-t_0)/\hbar}|E\rangle$, uno <b>stato stazionario</b>. Per uno stato qualsiasi: sviluppo sugli autoket, moltiplico ogni coefficiente per la sua fase, risommo. Gli autoket devono formare una base, altrimenti una misura d'energia potrebbe non dare nessun risultato. Con spettro discreto e continuo insieme (atomo di idrogeno) lo sviluppo ha una somma e un integrale.</p>`,
+    formula: R`$$|\psi(t)\rangle=\sum_k c_k\,e^{-iE_k(t-t_0)/\hbar}|E_k\rangle,\qquad c_k=\langle E_k|\psi(t_0)\rangle$$`,
+    esempio: R`<p>Idrogeno: $(|1s\rangle+|2p_z\rangle)/\sqrt2$ oscilla su e giù con periodo $h/(E_2-E_1)\approx0{,}41$ fs. Nella pagina della lezione c'è il video.</p>`,
+    verifica: R`Perché le probabilità dell'energia non cambiano nel tempo, mentre quelle della posizione sì?`,
+    risposta: R`$|c_k e^{-iE_kt/\hbar}|^2=|c_k|^2$; le altre probabilità dipendono dalle fasi relative $e^{-i(E_k-E_j)t/\hbar}$, che ruotano.`,
+    libri: [{ l: "sa", p: 44, s: "§2.1", t: "Energia degli autoket e stati stazionari." }, { l: "we", p: 44, s: "§1.4", t: "Pauli risolve l'idrogeno con la meccanica delle matrici." }], web: ["simmetrie"] },
+  { id: "t33", tipo: "main", ep: 7, breve: "Schema di Heisenberg", titolo: "Lo schema di Heisenberg e la regola di Dirac", qp: 55,
+    domanda: R`E se invece dello stato facessi evolvere gli operatori?`,
+    filo: R`È la lettura passiva dell'evoluzione temporale: stati fermi, osservabili che si muovono.`,
+    idea: R`<p>$\langle A\rangle_t=\langle\psi(t_0)|U^\dagger AU|\psi(t_0)\rangle$: definisco $A(t)=U^\dagger AU$. Derivando, con $i\hbar\dot U=HU$, si ottiene $i\hbar\,\dot A(t)=[A(t),H(t)]$, con $H(t)=U^\dagger HU$ ($=H$ se $H$ non dipende dal tempo). È l'equazione classica $\dot f=\{f,H\}$ con la sostituzione di Dirac $\{\,,\}\to\frac{1}{i\hbar}[\,,]$: la $i$ rende hermitiano il commutatore, la $\hbar$ pareggia le dimensioni.</p>`,
+    formula: R`$$i\hbar\,\frac{d}{dt}A(t)=[A(t),H],\qquad \{\,\cdot\,,\cdot\,\}\ \longrightarrow\ \frac{1}{i\hbar}[\,\cdot\,,\cdot\,]$$`,
+    esempio: R`<p>Con $H=\frac{p^2}{2m}+V(x)$: $\dot x=p/m$ e $\dot p=-V'(x)$, le equazioni di Hamilton per operatori; in media il teorema di Ehrenfest.</p>`,
+    trappola: R`<p>La regola di Dirac «vale ma non sempre» (p. 56): lo spin non ha analogo classico, l'ordine dei fattori è ambiguo, e per il teorema di Groenewold-van Hove non può valere per tutti i polinomi in $q$ e $p$.</p>`,
+    verifica: R`Per la particella libera calcola $x_H(t)$ e $[x_H(t),x_H(t_0)]$.`,
+    risposta: R`$\dot p_H=0$ e $\dot x_H=p/m$, quindi $x_H(t)=x+p(t-t_0)/m$ e $[x_H(t),x]=-i\hbar(t-t_0)/m$: posizioni a tempi diversi non sono compatibili.`,
+    libri: [{ l: "sa", p: 47, s: "§2.2", t: "Rappresentazioni di Schrödinger e di Heisenberg; equazione (2.2.19) e confronto con Poisson (p. 49)." }, { l: "sa", p: 32, s: "§1.6", t: "La regola di quantizzazione di Dirac (1.6.47)." }, { l: "ba", p: 107, s: "§3.7", t: "Le due rappresentazioni sono equivalenti." }], web: ["simmetrie"] },
+  { id: "b-equiv", tipo: "deep", da: "t31", lato: "su", breve: "I modi di dire equivalenti", titolo: "Tutti i modi di dire che T genera una simmetria",
+    idea: R`<p>La richiesta a margine di p. 54. Con $K=H/\hbar$ costante e $U(\alpha)=e^{-i\alpha T}$ sono equivalenti: (A) $U$ manda soluzioni in soluzioni; (B) $U^\dagger KU=K$; (C) $[U,K]=0$; (D) $[T,K]=0$; (E) $[U,U(t,t_0)]=0$, stesse leggi nel laboratorio trasformato; (F) $T_H(t)=T$; (G) $\langle T\rangle$ costante per ogni stato; (H) autostati di $T$ restano autostati, distribuzione di $T$ costante. In più (I): $T$ e $H$ hanno una base comune. Classicamente: $\delta H=0\iff\{G,H\}=0\iff\dot G=0$.</p>`,
+    formula: R`$$U^\dagger HU=H\iff[T,H]=0\iff\frac{d}{dt}\langle T\rangle_\psi=0\ \ \forall\psi\iff T_H(t)=T$$`,
+    nota: R`Lo schema completo, con le frecce dimostrate, è nella sezione 8 della Lezione 4.`,
+    libri: [{ l: "ba", p: 107, s: "§3.8", t: "Simmetrie e leggi di conservazione." }] },
+  { id: "b-attpass", tipo: "deep", da: "t29", lato: "su", breve: "Ruoto il fotone o il polarizzatore?", titolo: "Attivo e passivo: U sul sistema, U† sull'apparato",
+    idea: R`<p>Ruotare il fotone di $+30°$ davanti a un polarizzatore fermo dà le stesse probabilità che ruotare il polarizzatore di $-30°$: la legge di Malus dipende solo dall'angolo relativo. Per questo nel punto di vista passivo compare $|a'\rangle=U^\dagger|a\rangle$, non $U|a\rangle$. Il $|a'\rangle=U|a\rangle$ di inizio p. 53 è un'altra cosa: lì si ruotano <em>insieme</em> sistema e laboratorio.</p>`,
+    formula: R`$$|\langle a|U|\psi\rangle|^2=|\langle a'|\psi\rangle|^2,\qquad |a'\rangle=U^\dagger|a\rangle,\qquad A'=U^\dagger AU$$`,
+    libri: [{ l: "sh", p: 47, s: "§1.7", t: "Le due letture danno gli stessi elementi di matrice." }] },
+  { id: "b-storia", tipo: "book", da: "t33", lato: "su", breve: "Matrici contro onde", titolo: "Due matematiche, una teoria: matrici (1925) e onde (1926)",
+    idea: R`<p>La domanda in blu di p. 55. Heisenberg (1925) scrisse le grandezze come tabelle $[x]_{nm}$ che oscillano come $e^{-i(E_m-E_n)t/\hbar}$: niente funzione d'onda, si muovono le osservabili. Born riconobbe il prodotto di matrici, Dirac ricavò $qp-pq=i\hbar$ dalle parentesi di Poisson. Schrödinger (1926) scrisse un'equazione per un'onda $\psi$ che evolve, e nello stesso anno dimostrò che le due teorie coincidono: $[A]_{nm}=\int\psi_n^*A\psi_m$. Con Dirac, Jordan e von Neumann diventano due rappresentazioni dello stesso spazio di Hilbert ($\ell^2$ e $L^2$).</p>`,
+    formula: R`$$[A]_{nm}=\int\psi_n^*\,A\,\psi_m\ \propto\ e^{-i(E_m-E_n)t/\hbar}$$`,
+    libri: [{ l: "we", p: 39, s: "§1.4", t: "La meccanica delle matrici di Heisenberg, Born e Dirac." }, { l: "we", p: 44, s: "§1.4", t: "Pauli e l'idrogeno; l'equivalenza dimostrata da Schrödinger." }] },
+  { id: "t34", tipo: "main", ep: 8, futura: true, breve: "Traslazioni e rotazioni", titolo: "Prossima tappa: impulso e momento angolare come generatori", qp: 56,
+    domanda: R`Quali sono gli altri due esempi del Postulato 5?`,
+    filo: R`Gli appunti annunciano «tre esempi» e scrivono solo il tempo: mancano traslazioni spaziali e rotazioni.`,
+    idea: R`<p>Questa tappa si riempirà con le prossime lezioni. Nei libri: le traslazioni sono generate dall'impulso, $e^{-ipa/\hbar}$, e da qui escono $[x,p]=i\hbar$ e l'impulso come derivata; le rotazioni dal momento angolare, $e^{-iJ_z\varphi/\hbar}$. Il Ballentine ricava tutti i generatori dal gruppo di Galileo.</p>`,
+    libri: [{ l: "ba", p: 83, s: "§3.3", t: "I generatori del gruppo di Galileo." }, { l: "sa", p: 29, s: "§1.6", t: "Le traslazioni." }], web: [] },
+  { id: "b-trasl", tipo: "book", da: "t34", lato: "su", futura: true, breve: "L'impulso genera le traslazioni", titolo: "L'impulso genera le traslazioni",
     idea: R`<p>Anticipazione dal Sakurai. Una traslazione infinitesima sposta $|x'\rangle$ in $|x' + dx'\rangle$; deve essere unitaria, componibile e tendere all'identità. Queste richieste fissano la forma $T(dx') = 1 - iK\,dx'$ con $K$ hermitiano, e implicano $[x, K] = i$. Identificando $K = p/\hbar$ esce la regola di commutazione canonica e, nella base delle posizioni, l'impulso diventa una derivata.</p>`,
     formula: R`$$T(dx') = 1 - \frac{i\,p\,dx'}{\hbar},\qquad [x, p] = i\hbar,\qquad \langle x'|p|\alpha\rangle = -i\hbar\,\frac{\partial}{\partial x'}\langle x'|\alpha\rangle$$`,
     nota: R`Non ancora svolto a lezione.`,
@@ -965,8 +1051,8 @@ let stato = {};
 try { stato = JSON.parse(localStorage.getItem("mqlinea-stato") || "{}") || {}; } catch (e) { stato = {}; }
 const salva = () => { try { localStorage.setItem("mqlinea-stato", JSON.stringify(stato)); } catch (e) {} };
 let cur = (location.hash || "").replace("#", "");
-if (!BY[cur]) { try { cur = localStorage.getItem("mqlinea-cur") || "t26"; } catch (e) { cur = "t26"; } }
-if (!BY[cur]) cur = "t26";
+if (!BY[cur]) { try { cur = localStorage.getItem("mqlinea-cur") || "t33"; } catch (e) { cur = "t33"; } }
+if (!BY[cur]) cur = "t33";
 let filtro = "";
 
 const COL = { main: "var(--main)", book: "var(--book)", deep: "var(--deep)", par: "var(--par)" };

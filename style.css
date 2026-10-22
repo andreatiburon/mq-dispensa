@@ -152,6 +152,7 @@ article .lab { margin-right: -300px; }
 .lab .btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .lab button { border: 1px solid var(--ink); background: var(--paper); color: var(--ink); padding: 5px 11px; cursor: pointer; font: 500 13px var(--f-ui); transition: background .15s, color .15s; }
 .lab button:hover { background: var(--ink); color: var(--paper); }
+.lab select { margin-top: 4px; border: 1px solid var(--ink-2); background: var(--paper); color: var(--ink); padding: 5px 8px; font: 500 13px var(--f-ui); max-width: 100%; }
 .lab .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
 .lab .num { font: 13px/1.75 var(--f-mono); font-variant-numeric: tabular-nums; color: var(--ink-2); background: var(--paper); padding: 6px 0; }
 .lab .num b { color: var(--laser); font-weight: 500; }
